@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 $LOAD_PATH << 'lib'
 require_relative 'lib/bootstrap'
-task = ENV['task']
+task = ARGV.first
 config = {
   'TOP_LVL_DIR' => ENV['TOP_LVL_DIR'],
   'ORG_NAME' => ENV['ORG_NAME'],
@@ -9,7 +9,7 @@ config = {
   'BLISS_HOST' => ENV['BLISS_HOST']
 }
 
-@top_level_dir = config["TOP_LVL_DIR"]
+@top_level_dir = config['TOP_LVL_DIR']
 @org_name = config['ORG_NAME']
 @api_key = config['API_KEY']
 @bliss_host = config['BLISS_HOST']
