@@ -51,7 +51,7 @@ class LinterTask
             puts "\tUploading lint results to AWS...".blue
             key = "#{organization}_#{name}_#{commit}_#{quality_tool}.#{ext}"
             upload_to_aws('bliss-collector-files', key, scrubber.scrub(lint_output))
-            lint_payload = { commit: commit, repo_key: repo_key, linter_id: linter['id'], lint_file_location: key, git_dir: git_dir }
+            lint_payload = { commit: commit, repo_key: repo_key, linter_id: linter['id'], lint_file_location: key, git_dir: git_dir, bucket: 'bliss-collector-files' }
 
             lint_response = http_post(agent, "#{host}/api/commit/lint", lint_payload, auth_headers)
           rescue Aws::S3::Errors::InvalidAccessKeyId
