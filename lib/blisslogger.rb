@@ -38,7 +38,7 @@ class BlissLogger
   def save_log
     unless @aws_log.empty?
       object_params = {
-        bucket: 'bliss-collector-logs',
+        bucket: 'bliss-collector-logs-docker',
         key: "#{@log_name}-#{Time.now.strftime('%d-%m-%y-T%H-%M')}",
         body: @aws_log,
         requester_pays: true,
