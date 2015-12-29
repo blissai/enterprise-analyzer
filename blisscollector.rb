@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 $LOAD_PATH << 'lib'
 require_relative 'lib/bootstrap'
+include Common
 task = ARGV.first
 config = {
   'TOP_LVL_DIR' => ENV['TOP_LVL_DIR'],
