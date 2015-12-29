@@ -144,7 +144,7 @@ DEPENDENCIES
   cached_web
   colorize (~> 0.7.7)
   equivalent-xml
-  io-console
+  io-console (~> 0.4.2)
   mechanize
   nokogiri
   pry
