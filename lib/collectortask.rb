@@ -59,10 +59,7 @@ class CollectorTask
         languages: project_types
       }
       checkout_commit(dir_name, 'master')
-      # cmd = get_cmd("cd #{dir_name};git pull")
-      cmd = "cd #{dir_name} && git pull"
-      puts "\tPulling repository at #{git_base}...".blue
-      `#{cmd}`
+
       puts "\tGetting list of commits for project #{name}...".blue
       @logger.info("Getting gitlog for #{name}")
       # lines = git_log(dir_name, get_since_param(name))
