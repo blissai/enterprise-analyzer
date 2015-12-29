@@ -2,7 +2,7 @@ class BlissLogger
   def initialize(log_name)
     logger_path = File.expand_path("~/collector/logs/#{log_name}.txt")
     @logger = Logger.new(logger_path, 'daily')
-    @aws_log = ""
+    @aws_log = ''
     @log_name = log_name
   end
 
