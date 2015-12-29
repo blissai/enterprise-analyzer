@@ -16,10 +16,6 @@ config = {
 @bliss_host = config['BLISS_HOST']
 @dirs_list = get_directory_list(@top_level_dir)
 
-puts 'Configuring AWS...'.blue
-$aws_client = Aws::S3::Client.new(region: 'us-east-1')
-puts 'AWS configured.'.green
-
 if task == 'collector'
   CollectorTask.new(config['TOP_LVL_DIR'], config['ORG_NAME'],
                     config['API_KEY'], config['BLISS_HOST']).execute

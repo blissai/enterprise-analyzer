@@ -40,6 +40,8 @@ GEM
     equivalent-xml (0.6.0)
       nokogiri (>= 1.4.3)
     erubis (2.7.0)
+    faraday (0.9.2)
+      multipart-post (>= 1.2, < 3)
     fastercsv (1.5.5)
     haml (4.0.7)
       tilt
@@ -63,6 +65,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
+    multipart-post (2.0.0)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
     nokogiri (1.6.7.1)
@@ -143,6 +146,7 @@ DEPENDENCIES
   cached_web
   colorize (~> 0.7.7)
   equivalent-xml
+  faraday
   mechanize
   nokogiri
   pry

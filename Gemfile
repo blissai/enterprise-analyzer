@@ -9,6 +9,7 @@ gem 'rubocop'
 gem 'rubocop-rspec'
 gem 'brakeman'
 gem 'simplecov'
+gem 'faraday'
 
 group :test do
   gem 'rspec'

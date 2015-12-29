@@ -1,4 +1,6 @@
 class BlissLogger
+  include AwsUploader
+
   def initialize(log_name)
     FileUtils.mkdir_p('/root/collector/logs')
     logger_path = File.expand_path("/root/collector/logs/#{log_name}.txt")
@@ -38,14 +40,8 @@ class BlissLogger
 
   def save_log
     unless @aws_log.empty?
-      object_params = {
-        bucket: 'bliss-collector-logs-docker',
-        key: "#{@log_name}-#{Time.now.strftime('%d-%m-%y-T%H-%M')}",
-        body: @aws_log,
-        requester_pays: true,
-        acl: 'bucket-owner-read'
-      }
-      $aws_client.put_object(object_params)
+      key = "#{@log_name}-#{Time.now.strftime('%d-%m-%y-T%H-%M')}"
+      upload_to_aws('bliss-collector-logs-docker', key, @aws_log)
     end
   end
 end

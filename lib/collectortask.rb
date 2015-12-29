@@ -2,6 +2,7 @@
 class CollectorTask
   include Common
   include Gitbase
+  include AwsUploader
 
   def initialize(top_dir_name, organization, api_key, host)
     @logger = BlissLogger.new("Collector-#{Time.now.strftime("%d-%m-%y-T%H-%M")}-#{organization}")
@@ -30,18 +31,7 @@ class CollectorTask
   def prepare_log(organization, name, lines)
     puts "\tSaving repo data to AWS Bucket...".blue
     key = "#{organization}_#{name}_git.log"
-    object_params = {
-      bucket: 'bliss-collector-files',
-      key: key,
-      body: lines,
-      acl: 'bucket-owner-read'
-    }
-    begin
-      $aws_client.put_object(object_params)
-    rescue Aws::S3::Errors::InvalidAccessKeyId
-      puts "Your AWS Access Key is invalid...".red
-      @logger.error("Your AWS Access Key is invalid...")
-    end
+    upload_to_aws('bliss-collector-files', key, lines)
     key
   end
 
@@ -93,7 +83,7 @@ class CollectorTask
         s3_object_key = prepare_log(@organization, name, lines)
         agent.post(
         "#{@host}/api/gitlog",
-        { repo_key: repo_key, object_key: s3_object_key },
+        { repo_key: repo_key, object_key: s3_object_key, bucket: 'bliss-collector-files' },
         auth_headers)
       else
         puts "\tNo new commits to process for repo #{name}...".green
