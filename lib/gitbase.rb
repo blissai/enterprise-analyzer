@@ -38,31 +38,23 @@ module Gitbase
     if Gem.win_platform?
       egrep_cmd = 'C:/Program Files (x86)/GnuWin32/bin/egrep.exe'
       if File.exist?(egrep_cmd)
-        open_source_lines = `"#{egrep_cmd}" -i "free software|Hamano|jQuery|BSD|GPL|GNU|MIT|Apache" #{git_dir}/* -R`.split("\n").keep_if do |line|
-          begin
-            line.encode('UTF-8', invalid: :replace) =~ /License|Copyright/i
-          rescue Encoding::UndefinedConversionError => e
-            false
-          end
+        open_source_lines = `"#{egrep_cmd}" -i "free software|Hamano|jQuery|BSD|GPL|GNU|MIT|Apache" #{git_dir}/* -R`
+        open_source_lines = open_source_lines.encode('UTF-8', invalid: :replace, undef: :replace, replace: '').split("\n")
+        open_source_lines.keep_if do |line|
+          line =~ /License|Copyright/i
         end
       else
-        open_source_lines = `findstr /R /S "Hamano jQuery BSD GPL GNU MIT Apache" #{git_dir}/*`.split("\n").keep_if do |line|
-          begin
-            line.encode('UTF-8', invalid: :replace) =~ /License|Copyright/i
-          rescue Encoding::UndefinedConversionError => e
-            false
-          end
+        open_source_lines = `findstr /R /S "Hamano jQuery BSD GPL GNU MIT Apache" #{git_dir}/*`
+        open_source_lines = open_source_lines.encode('UTF-8', invalid: :replace, undef: :replace, replace: '').split("\n")
+        open_source_lines.keep_if do |line|
+          line =~ /License|Copyright/i
         end
       end
     else
       open_source_lines = `egrep -i "free software|Hamano|jQuery|BSD|GPL|GNU|MIT|Apache" #{git_dir}/* -R`
-      open_source_lines = open_source_lines.split("\n")
+      open_source_lines = open_source_lines.encode('UTF-8', invalid: :replace, undef: :replace, replace: '').split("\n")
       open_source_lines.keep_if do |line|
-        begin
-          line.encode('UTF-8', invalid: :replace) =~ /License|Copyright/i
-        rescue Encoding::UndefinedConversionError => e
-          false
-        end
+        line =~ /License|Copyright/i
       end
     end
     todo = []
@@ -102,7 +94,8 @@ module Gitbase
     owners = []
     egrep_cmd = Gem.win_platform? ? "\"C:/Program Files (x86)/GnuWin32/bin/egrep.exe\"" : 'egrep'
     copyright_lines = `#{egrep_cmd} -i "copyright|\(c\)|\&copy\;" #{git_dir}/* -R`
-    copyright_lines.encode('UTF-8', invalid: :replace).split("\n").each do |line|
+    copyright_lines = copyright_line.encode('UTF-8', invalid: :replace, undef: :replace, replace: '').split("\n")
+    copyright_lines.each do |line|
       owner, file = Copyright.find_owner(line)
       next if is_demo && (file =~ /fixture/)
       owners << owner
