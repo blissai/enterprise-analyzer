@@ -56,11 +56,7 @@ module Gitbase
       end
     else
       open_source_lines = `egrep -i "free software|Hamano|jQuery|BSD|GPL|GNU|MIT|Apache" #{git_dir}/* -R`
-      begin
-        open_source_lines = open_source_lines.split("\n")
-      rescue
-        puts open_source_lines
-      end
+      open_source_lines = open_source_lines.split("\n")
       open_source_lines.keep_if do |line|
         begin
           line.encode('UTF-8', invalid: :replace) =~ /License|Copyright/i
