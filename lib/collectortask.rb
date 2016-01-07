@@ -88,8 +88,7 @@ class CollectorTask
       end
     end
     save_bliss_file(@top_dir_name, repos)
-    puts "Collector finished.".green
-    @logger.info("Collector finished...")
+    @logger.success("Collector finished...")
     @logger.save_log
   end
 

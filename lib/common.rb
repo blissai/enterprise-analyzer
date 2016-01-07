@@ -34,7 +34,7 @@ module Common
       json_return = JSON.parse(response.body)
     rescue Mechanize::UnauthorizedError => ue
       puts "Error: Your API key is not valid.".red
-      $logger.error("Invalid API Key.")
+      @logger.error("Invalid API Key.")
     rescue Mechanize::ResponseCodeError => re
       if tried < 3
         puts "Warning: Server in maintenance mode, waiting for 20 seconds and trying again".yellow
@@ -42,7 +42,7 @@ module Common
         http_get(agent, url, auth, tried + 1)
       else
         puts "Warning: Can't connect to Bliss server... Tried max times.".yellow
-        $logger.error("Warning: Can't connect to Bliss server... Tried max times.")
+        @logger.error("Warning: Can't connect to Bliss server... Tried max times.")
       end
     end
     json_return
@@ -57,7 +57,7 @@ module Common
       json_return = JSON.parse(response.body)
     rescue Mechanize::UnauthorizedError => ue
       puts "Error: Your API key is not valid.".red
-      $logger.error("Invalid API Key.")
+      @logger.error("Invalid API Key.")
     rescue Mechanize::ResponseCodeError => re
       if tried < 3
         puts "Warning: Server in maintenance mode, waiting for 20 seconds and trying again".yellow
@@ -65,7 +65,7 @@ module Common
         http_post(agent, url, params, auth, tried + 1)
       else
         puts "Warning: Can't connect to Bliss server... Tried max times.".yellow
-        $logger.error("Warning: Can't connect to Bliss server... Tried max times.")
+        @logger.error("Warning: Can't connect to Bliss server... Tried max times.")
       end
     end
     json_return

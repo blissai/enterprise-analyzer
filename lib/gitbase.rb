@@ -79,8 +79,6 @@ module Gitbase
         file_name = "#{temp_start}#{match[1]}"
         todo << ["rm #{file_name}", file_name] if match[1]
       end
-      if true
-      end
     end
     if File.exist?(File.join(git_dir, 'NuGet.config')) && Dir.exist?(File.join(git_dir, 'packages'))
       file_name = File.join(git_dir, 'packages')
@@ -117,7 +115,7 @@ module Gitbase
   end
 
   def cloc_command
-    'bin/cloc'
+    '/root/collector/bin/cloc'
   end
 
   def remove_command
