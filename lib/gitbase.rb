@@ -171,7 +171,7 @@ module Gitbase
     end
     if languages.empty?
       cloc_lang = sense_project_type_cloc(git_dir)
-      languages.push(cloc_lang) unless cloc_lang.nil
+      languages.push(cloc_lang) unless cloc_lang.nil?
     end
     languages
   end
@@ -184,7 +184,7 @@ module Gitbase
     language = nil
     if cloc_hash
       cloc_hash.each_pair do |lang, values|
-        if max < values['code'].to_i
+        if (max < values['code'].to_i) && (lang != 'SUM')
           language = lang
           max = values['code'].to_i
         end
