@@ -182,7 +182,7 @@ module Gitbase
     cloc_hash = YAML.load(cloc)
     max = 0
     language = nil
-    if cloc_hash.present?
+    if cloc_hash
       cloc_hash.each_pair do |lang, values|
         if max < values['code'].to_i
           language = lang
