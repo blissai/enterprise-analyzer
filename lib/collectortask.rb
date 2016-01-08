@@ -93,7 +93,11 @@ class CollectorTask
   end
 
   def needs_running? top_dir_name, repo_name, commit_count
-    (new_repo? repo_name) || (@saved_repos[repo_name]["commit_count"] < commit_count)
+    begin
+      return (new_repo? repo_name) || (@saved_repos[repo_name]["commit_count"] < commit_count)
+    rescue
+      return true
+    end
   end
 
   def new_repo? repo_name
