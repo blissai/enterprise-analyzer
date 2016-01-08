@@ -56,7 +56,7 @@ class CollectorTask
         name: name,
         full_name: "#{@organization}/#{name}",
         git_url: git_base,
-        languages: project_types
+        languages: project_types.to_json
       }
       checkout_commit(dir_name, 'master')
 
