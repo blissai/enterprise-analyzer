@@ -22,7 +22,8 @@ class StatsTask
     json_return = []
     loop do
       json_return = http_get(agent, "#{host}/api/gitlog/stats_todo?repo_key=#{repo_key}", auth_headers)
-      break if json_return.nil? || json_return.empty?
+      all_commits_processed = total_commits_done >= total_commits_count
+      break if json_return.nil? || json_return.empty? || all_commits_processed
       @logger.info("Running Stats on #{name}...")
       json_return.each do |metric|
         commit = metric['commit']

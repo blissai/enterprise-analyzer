@@ -25,7 +25,8 @@ class LinterTask
     loop do
       json_return = http_get(agent, "#{host}/api/gitlog/linters_todo?repo_key=#{repo_key}", auth_headers)
       metrics = json_return['metrics']
-      break if metrics.empty?
+      all_lints_finished = total_lints_done >= total_lints_count
+      break if metrics.empty? || all_lints_finished
       linters = json_return['linters']
       metrics.each do |metric|
         commit = metric['commit']
