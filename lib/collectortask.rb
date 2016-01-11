@@ -43,7 +43,10 @@ class CollectorTask
 
     dir_list = get_directory_list(@top_dir_name)
     puts "Found #{dir_list.count} repositories...".green
-    puts 'No repositories found. Please check your top level directory configuration is correct.'.red
+    if dir_list.empty?
+      puts 'Please check your top level directory configuration is correct.'.red
+      puts 'You can find this configuration in $HOME/.bliss/config.yml'.red
+    end
     dir_list.each do |dir_name|
       name = dir_name.split('/').last
       puts "Working on: #{name}...".blue
