@@ -43,6 +43,7 @@ class CollectorTask
 
     dir_list = get_directory_list(@top_dir_name)
     puts "Found #{dir_list.count} repositories...".green
+    puts 'No repositories found. Please check your top level directory configuration is correct.'.red
     dir_list.each do |dir_name|
       name = dir_name.split('/').last
       puts "Working on: #{name}...".blue
