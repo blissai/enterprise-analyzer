@@ -7,7 +7,7 @@ class LinterTask
   def execute(git_dir, api_key, host, repo)
     name = git_dir.split('/').last
     @logger = BlissLogger.new("Linter-#{Time.now.strftime("%d-%m-%y-T%H-%M")}-#{name}")
-    @logger.info("Starting Linter.")
+    @logger.info("Starting Linter on #{name}...")
     agent = Mechanize.new
     agent.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     auth_headers = { 'X-User-Token' => api_key }

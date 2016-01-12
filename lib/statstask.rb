@@ -6,7 +6,7 @@ class StatsTask
   def execute(git_dir, api_key, host, repo)
     name = git_dir.split('/').last
     @logger = BlissLogger.new("Stats-#{Time.now.strftime("%d-%m-%y-T%H-%M")}-#{name}")
-    @logger.info("Starting Stats.")
+    @logger.info("Starting Stats on #{name}...")
     agent = Mechanize.new
     agent.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     auth_headers = { 'X-User-Token' => api_key }
