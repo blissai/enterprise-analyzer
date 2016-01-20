@@ -67,7 +67,7 @@ class LinterTask
           end
         end
         # Go back to master at the end
-        checkout_commit(git_dir, 'master')
+        checkout_commit(git_dir, repo['branch'])
       end
     end
     @logger.success("Linter finished for #{name}...")

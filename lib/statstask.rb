@@ -87,7 +87,7 @@ class StatsTask
       end
     end
     # Go back to master at the end
-    checkout_commit(git_dir, 'master')
+    checkout_commit(git_dir, repo['branch'])
     @logger.success("Stats finished for #{name}")
     @logger.save_log
   end

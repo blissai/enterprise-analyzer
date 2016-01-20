@@ -35,6 +35,21 @@ class CollectorTask
     key
   end
 
+  def configure_branch(repo_dir)
+    branches = `cd #{repo_dir} && git branch`.gsub(/^\* /, '').split("\n").map(&:strip)
+    puts 'Please type the name of the branch to track. Possible options are:'.green
+    branches.each do |branch|
+      puts branch.green
+    end
+    branch = gets.chomp.strip
+    if branches.include? branch
+      return branch
+    else
+      puts 'This is not a valid branch.'.red
+      configure_branch(repo_dir)
+    end
+  end
+
   def execute
     agent = Mechanize.new
     agent.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -54,15 +69,27 @@ class CollectorTask
       git_base_cmd = "cd #{dir_name} && git config --get remote.origin.url"
       git_base = `#{git_base_cmd}`.gsub(/\n/, '')
       project_types = sense_project_type(dir_name)
+
       # Let this happen on the api for now
       # from_date = DateTime.parse(Time.new.to_s) - 6.months
+
+      puts "\tSaving repository details to database...".blue
       params = {
         name: name,
         full_name: "#{@organization}/#{name}",
         git_url: git_base,
         languages: project_types.to_json
       }
-      checkout_commit(dir_name, 'master')
+
+      params[:branch] = configure_branch(repo_dir) if new_repo? name
+
+      repo_return = agent.post("#{@host}/api/repo.json", params, auth_headers)
+      repo_details = JSON.parse(repo_return.body)
+      puts "\tCreated repo ##{repo_details['id']} - #{repo_details['full_name']}".green
+      json_return = JSON.parse(repo_return.body)
+      repos[name] = json_return
+
+      checkout_commit(dir_name, repos[name]['branch'])
 
       puts "\tGetting list of commits for project #{name}...".blue
       @logger.info("Getting gitlog for #{name}")
@@ -71,13 +98,8 @@ class CollectorTask
       commit_count = lines.split("\n").count
       puts "\tFound #{commit_count} commits in total.".green
       @logger.info("#{commit_count} commits found...")
-      puts "\tSaving repository details to database...".blue
-      repo_return = agent.post("#{@host}/api/repo.json", params, auth_headers)
-      repo_details = JSON.parse(repo_return.body)
-      puts "\tCreated repo ##{repo_details['id']} - #{repo_details['full_name']}".green
-      json_return = JSON.parse(repo_return.body)
-      repos[name] = json_return
-      repos[name]["commit_count"] = commit_count
+
+      repos[name]['commit_count'] = commit_count
       repo_key = json_return['repo_key']
       if needs_running? @top_dir_name, name, commit_count
         puts "\tSaving Gitlog to AWS...".blue
