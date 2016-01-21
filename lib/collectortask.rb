@@ -46,7 +46,8 @@ class CollectorTask
     branches.each do |branch|
       puts branch.green
     end
-    branch = gets.chomp.strip
+    branch = gets.chomp
+    branch = branch.strip
     if branches.include? branch
       return branch
     else
