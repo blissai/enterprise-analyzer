@@ -81,7 +81,7 @@ class CollectorTask
         languages: project_types.to_json
       }
 
-      params[:branch] = configure_branch(repo_dir) if new_repo? name
+      params[:branch] = configure_branch(dir_name) if new_repo? name
 
       repo_return = agent.post("#{@host}/api/repo.json", params, auth_headers)
       repo_details = JSON.parse(repo_return.body)
