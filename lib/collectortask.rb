@@ -37,6 +37,11 @@ class CollectorTask
 
   def configure_branch(repo_dir)
     branches = `cd #{repo_dir} && git branch`.gsub(/^\* /, '').split("\n").map(&:strip)
+    if branches.count == 1
+      branch = branches.first
+      puts "Tracking only available branch: #{branch}"
+      return branch
+    end
     puts 'Please type the name of the branch to track. Possible options are:'.green
     branches.each do |branch|
       puts branch.green
