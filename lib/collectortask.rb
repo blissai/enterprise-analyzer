@@ -36,24 +36,9 @@ class CollectorTask
   end
 
   def configure_branch(repo_dir)
-    branches = `cd #{repo_dir} && git branch`.gsub(/^\* /, '').split("\n").map(&:strip)
-    if branches.count == 1
-      branch = branches.first
-      puts "Tracking only available branch: #{branch}"
-      return branch
-    end
-    puts 'Please type the name of the branch to track. Possible options are:'.green
-    branches.each do |branch|
-      puts branch.green
-    end
-    branch = gets.chomp
-    branch = branch.strip
-    if branches.include? branch
-      return branch
-    else
-      puts 'This is not a valid branch.'.red
-      configure_branch(repo_dir)
-    end
+    branches = `cd #{repo_dir} && git branch`.split("\n").map(&:strip)
+    branch = branches.find { |b| b.start_with? '* ' }
+    branch.sub(/\* /, '')
   end
 
   def execute
