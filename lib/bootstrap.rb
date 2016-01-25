@@ -1,4 +1,4 @@
-# General purpose loader for require_relatived libraries
+# Bootstrap required libraries
 require 'open3'
 require 'yaml'
 require 'colorize'
@@ -13,8 +13,6 @@ require_relative 'aws_uploader'
 require_relative 'collectortask'
 require_relative 'statstask'
 require_relative 'lintertask'
-require_relative 'lintinstaller'
-require_relative 'dependencyinstaller'
 require_relative 'blisslogger'
 require_relative 'concurrenttasks'
 require_relative 'sourcescrubber'

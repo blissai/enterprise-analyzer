@@ -3,10 +3,10 @@ module Gitbase
   def checkout_commit(git_dir, commit)
     throw 'Git directory not found' unless File.exist?(git_dir)
     # cmd = get_cmd("cd #{git_dir};git reset --hard HEAD")
-    cmd = "cd #{git_dir} && git reset --hard HEAD"
+    cmd = "cd #{git_dir} && git reset --hard HEAD > /dev/null 2>&1"
     `#{cmd}`
     # cmd = get_cmd("cd #{git_dir};git clean -f -d")
-    cmd = "cd #{git_dir} && git clean -f -d"
+    cmd = "cd #{git_dir} && git clean -f -d > /dev/null 2>&1"
     `#{cmd}`
     # co_cmd = get_cmd("cd #{git_dir};git checkout #{commit}")
     co_cmd = "cd #{git_dir} && git checkout #{commit}"

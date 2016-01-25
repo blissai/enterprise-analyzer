@@ -2,8 +2,8 @@ class BlissLogger
   include AwsUploader
 
   def initialize(log_name)
-    FileUtils.mkdir_p('/root/collector/logs')
-    logger_path = File.expand_path("/root/collector/logs/#{log_name}.txt")
+    FileUtils.mkdir_p(File.expand_path('~/collector/logs'))
+    logger_path = File.expand_path("~/collector/logs/#{log_name}.txt")
     @logger = Logger.new(logger_path, 'daily')
     @aws_log = ''
     @log_name = log_name

@@ -4,73 +4,79 @@ class LinterTask
   include Gitbase
   include AwsUploader
 
-  def execute(git_dir, api_key, host, repo)
-    name = git_dir.split('/').last
-    @logger = BlissLogger.new("Linter-#{Time.now.strftime("%d-%m-%y-T%H-%M")}-#{name}")
-    @logger.info("Starting Linter on #{name}...")
-    agent = Mechanize.new
-    agent.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    auth_headers = { 'X-User-Token' => api_key }
+  def initialize(git_dir, api_key, host, repo, quick = false)
+    init_configuration(git_dir, api_key, host, repo, quick)
+    configure_http
+    @logger = BlissLogger.new("Linter-#{Time.now.strftime('%d-%m-%y-T%H-%M')}-#{@name}")
+    @scrubber = SourceScrubber.new
+  end
 
-    # Count number of lints to process in total
-    total_lints_count = 0
-    repo_key = repo['repo_key']
-    count_json = http_get(agent, "#{host}/api/gitlog/linters_todo_count?repo_key=#{repo_key}", auth_headers)
-    count = count_json["linters_todo"].to_i
-    total_lints_count += count
-    total_lints_done = 0
-    @logger.info("Running Linter on #{name}...")
-    organization = repo['full_name'].split('/').first
-    repo_key = repo['repo_key']
-    loop do
-      json_return = http_get(agent, "#{host}/api/gitlog/linters_todo?repo_key=#{repo_key}", auth_headers)
-      metrics = json_return['metrics']
-      all_lints_finished = total_lints_done >= total_lints_count
-      break if metrics.empty? || all_lints_finished
-      linters = json_return['linters']
-      metrics.each do |metric|
-        commit = metric['commit']
-        checkout_commit(git_dir, commit)
-        remove_open_source_files(git_dir)
-        Dir.mktmpdir do |dir_name|
-          linters.each do |linter|
-            ext = linter['output_format']
-            cd_first = linter['cd_first']
-            quality_tool = linter['quality_tool']
-            quality_command = linter['quality_command']
+  def execute
+    @logger.info("Running Linter on #{@name}...")
+    metrics = next_batch
+    metrics.each do |metric|
+      commit = metric['commit']
+      process_commit(commit)
+    end
+    # Go back to main branch
+    checkout_commit(@git_dir, @repo['branch'])
+    @logger.success("Linter finished for #{@name}...")
+    @logger.save_log
+  end
 
-            proj_filename = nil
-
-            file_name = File.join(dir_name, "#{quality_tool}.#{ext}")
-            cmd = quality_command.gsub('git_dir', git_dir).gsub('file_name', file_name).gsub('proj_filename', proj_filename.to_s).gsub(/~\/phpcs\/scripts\/phpcs/, "#{File.expand_path("~/phpcs/scripts/phpcs")}")
-            # cmd = get_cmd("cd #{git_dir};#{cmd}") if cd_first
-            cmd = "cd #{git_dir} && #{cmd}" if cd_first
-            puts "\tRunning linter: #{quality_tool}... This may take a while... (#{total_lints_done + 1} / #{total_lints_count})".blue
-            @logger.info("Running #{quality_tool} on #{commit}...")
-            begin
-              `#{cmd}`
-              lint_output = File.open(file_name, 'r').read
-              scrubber = SourceScrubber.new
-              puts "\tUploading lint results to AWS...".blue
-              key = "#{organization}_#{name}_#{commit}_#{quality_tool}.#{ext}"
-              upload_to_aws('bliss-collector-files', key, scrubber.scrub(lint_output))
-              lint_payload = { commit: commit, repo_key: repo_key, linter_id: linter['id'], lint_file_location: key, git_dir: git_dir, bucket: 'bliss-collector-files' }
-
-              lint_response = http_post(agent, "#{host}/api/commit/lint", lint_payload, auth_headers)
-            rescue Errno::ENOENT
-              puts "#{quality_tool} is not installed. Please refer to the docs at https://github.com/founderbliss/collector to ensure all dependencies are installed.".red
-              @logger.info("Dependency Error: #{quality_tool} not installed...")
-            end
-            total_lints_done += 1
-            percent_done = ((total_lints_done.to_f / total_lints_count.to_f) * 100).round(2) rescue 100
-            puts "\n\n Finished #{total_lints_done} of #{total_lints_count} lint tasks (#{percent_done}%) for #{name.upcase} \n\n".green
-          end
-        end
-        # Go back to master at the end
-        checkout_commit(git_dir, repo['branch'])
+  def process_commit(commit)
+    checkout_commit(@git_dir, commit)
+    remove_open_source_files(@git_dir)
+    Dir.mktmpdir do |tmp_dir|
+      @linters.each do |linter|
+        output_file = File.join(tmp_dir, "#{quality_tool}.#{linter['output_format']}")
+        lint_commit(commit, linter, output_file)
       end
     end
-    @logger.success("Linter finished for #{name}...")
-    @logger.save_log
+  end
+
+  def lint_commit(commit, linter, output_file)
+    quality_tool = linter['quality_tool']
+    ext = linter['output_format']
+    cmd = lint_command(linter, output_file)
+    cmd = "cd #{@git_dir} && #{cmd}" if linter['cd_first']
+    begin
+      key = "#{organization}_#{name}_#{commit}_#{quality_tool}.#{ext}"
+      @logger.info("Running #{quality_tool} on #{commit}... This may take a while...")
+      lint_output = execute_linter_cmd(cmd, output_file)
+      post_lintfile(key, commit, lint_output, linter['id'])
+    rescue Errno::ENOENT
+      @logger.info("Dependency Error: #{quality_tool} not installed...")
+    end
+  end
+
+  def lint_command(linter, output_file)
+    linter['quality_command'].gsub('git_dir', @git_dir)
+      .gsub('file_name', output_file)
+      .gsub('proj_filename', '')
+  end
+
+  def execute_linter_cmd(cmd, file_name)
+    `#{cmd}`
+    File.open(file_name, 'r').read
+  end
+
+  private
+
+  def next_batch
+    url = "#{@host}/api/gitlog/linters_todo?repo_key=#{@repo_key}"
+    url = "#{url}&batch=2" if @quick
+    json_return = http_get(url)
+    @linters = json_return['linters']
+    json_return['metrics']
+  end
+
+  # Post lintfile to AWS and notify Bliss
+  def post_lintfile(key, commit, output, linter_id)
+    puts "\tUploading lint results to AWS...".blue
+    upload_to_aws('bliss-collector-files', key, @scrubber.scrub(output))
+    lint_payload = { commit: commit, repo_key: @repo_key, linter_id: linter_id,
+                     lint_file_location: key, git_dir: @git_dir, bucket: 'bliss-collector-files' }
+    http_post("#{@host}/api/commit/lint", lint_payload)
   end
 end

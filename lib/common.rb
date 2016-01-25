@@ -1,5 +1,22 @@
 # Set of common functions used by all commands
 module Common
+  def configure_http
+    @agent = Mechanize.new
+    @agent.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    @auth_headers = { 'X-User-Token' => @api_key }
+  end
+
+  def init_configuration(git_dir, api_key, host, repo, quick = false)
+    @git_dir = git_dir
+    @name = @git_dir.split('/').last
+    @organization = repo['full_name'].split('/').first
+    @api_key = api_key
+    @host = host
+    @repo = repo
+    @repo_key = @repo['repo_key']
+    @quick = quick
+  end
+
   def get_cmd(cmd)
     if Gem.win_platform?
       @tmpbatchfile = Tempfile.new(['batch', '.ps1'])
@@ -27,10 +44,10 @@ module Common
   end
 
   # Recursive function to retry http GET requests
-  def http_get(agent, url, auth, tried = 0)
+  def http_get(url, tried = 0)
     json_return = nil
     begin
-      response = agent.get(url, auth)
+      response = @agent.get(url, @auth_headers)
       json_return = JSON.parse(response.body)
     rescue Mechanize::UnauthorizedError => ue
       puts "Error: Your API key is not valid.".red
@@ -39,7 +56,7 @@ module Common
       if tried < 3
         puts "Warning: Server in maintenance mode, waiting for 20 seconds and trying again".yellow
         sleep(20)
-        http_get(agent, url, auth, tried + 1)
+        http_get(url, tried + 1)
       else
         puts "Warning: Can't connect to Bliss server... Tried max times.".yellow
         @logger.error("Warning: Can't connect to Bliss server... Tried max times.")
@@ -50,10 +67,10 @@ module Common
 
 
   # Recursive function to retry http POST requests
-  def http_post(agent, url, params, auth, tried = 0)
+  def http_post(url, params, tried = 0)
     json_return = nil
     begin
-      response = agent.post(url, params, auth)
+      response = @agent.post(url, params, @auth_headers)
       json_return = JSON.parse(response.body)
     rescue Mechanize::UnauthorizedError => ue
       puts "Error: Your API key is not valid.".red
@@ -62,12 +79,22 @@ module Common
       if tried < 3
         puts "Warning: Server in maintenance mode, waiting for 20 seconds and trying again".yellow
         sleep(20)
-        http_post(agent, url, params, auth, tried + 1)
+        http_post(url, params, tried + 1)
       else
         puts "Warning: Can't connect to Bliss server... Tried max times.".yellow
         @logger.error("Warning: Can't connect to Bliss server... Tried max times.")
       end
     end
     json_return
+  end
+
+  def stats_todo_count
+    count_json = http_get("#{@host}/api/gitlog/stats_todo_count?repo_key=#{@repo_key}")
+    count_json["stats_todo"].to_i
+  end
+
+  def linters_todo_count
+    count_json = http_get("#{@host}/api/gitlog/linters_todo_count?repo_key=#{@repo_key}")
+    count_json["linters_todo"].to_i
   end
 end
