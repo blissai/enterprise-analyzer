@@ -1,4 +1,4 @@
-# Stats class for collecting git LOC and other stats
+# Collector class for collecting git LOC and other stats
 class CollectorTask
   include Common
   include Gitbase
@@ -82,14 +82,13 @@ class CollectorTask
     params = { name: name, full_name: "#{@org_name}/#{name}",
                git_url: git_base, languages: sense_project_type(dir_name).to_json }
     params[:branch] = configure_branch(dir_name) if new_repo? name
-    repo_return = http_post("#{@host}/api/commit/stats", params)
-    repo = JSON.parse(repo_return.body) rescue nil
-    if repo.nil?
+    repo_return = http_post("#{@host}/api/repo.json", params)
+    if repo_return.nil?
       @logger.error('Could not connect to Bliss. Please contact us at hello@bliss.ai for support.')
       exit
     end
     @new_repos = new_repo?(name) unless @new_repos
-    repo
+    repo_return
   end
 
   def save_git_log(name, lines, repo_key)
