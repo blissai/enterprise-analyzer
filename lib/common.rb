@@ -71,6 +71,7 @@ module Common
     json_return = nil
     begin
       response = @agent.post(url, params, @auth_headers)
+      binding.pry
       json_return = JSON.parse(response.body)
     rescue Mechanize::UnauthorizedError => ue
       puts "Error: Your API key is not valid.".red
