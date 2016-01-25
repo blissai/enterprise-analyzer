@@ -66,7 +66,7 @@ class CollectorTask
     @logger.info("Getting gitlog for #{name}")
     lines = git_log(dir_name)
     @repos[name]['commit_count'] = lines.split("\n").count
-    @logger.info("#{commit_count} commits found...")
+    @logger.info("#{@repos[name]['commit_count']} commits found...")
     repo_key = json_return['repo_key']
     if needs_running? name, @repos[name]['commit_count']
       save_git_log(name, lines, repo_key)
