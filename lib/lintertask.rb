@@ -43,7 +43,7 @@ class LinterTask
     cmd = lint_command(linter, output_file)
     cmd = "cd #{@git_dir} && #{cmd}" if linter['cd_first']
     begin
-      key = "#{organization}_#{name}_#{commit}_#{quality_tool}.#{ext}"
+      key = "#{@organization}_#{@name}_#{commit}_#{quality_tool}.#{ext}"
       @logger.info("Running #{quality_tool} on #{commit}... This may take a while...")
       lint_output = execute_linter_cmd(cmd, output_file)
       post_lintfile(key, commit, lint_output, linter['id'])
