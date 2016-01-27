@@ -32,7 +32,7 @@ class StatsTask
   end
 
   def process_commit(commit)
-    stats = git_stats
+    stats = git_stats(commit)
     checkout_commit(@git_dir, commit)
     all_stats = {
       repo_key: @repo_key, commit: commit,
