@@ -16,7 +16,7 @@ class StatsTask
     metrics = next_batch
     metrics.each do |metric|
       commit = metric['commit']
-      process_metric(commit)
+      process_commit(commit)
     end
     # Go back to master at the end
     checkout_commit(@git_dir, @repo['branch'])
