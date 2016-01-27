@@ -28,7 +28,7 @@ class StatsTask
     url = "#{@host}/api/gitlog/stats_todo?repo_key=#{@repo_key}"
     url = "#{url}&batch=2" if @quick
     json_return = http_get(url)
-    json_return['metrics']
+    json_return
   end
 
   def process_commit(commit)
