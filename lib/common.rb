@@ -93,7 +93,7 @@ module Common
     count_json["stats_todo"].to_i
   end
 
-  def linters_todo_count(repo_keys)
+  def linters_todo_count(repo_key)
     count_json = http_get("#{@host}/api/gitlog/linters_todo_count?repo_key=#{repo_key}")
     count_json["linters_todo"].to_i
   end
