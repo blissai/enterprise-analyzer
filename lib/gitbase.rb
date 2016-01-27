@@ -13,7 +13,7 @@ module Gitbase
     stdin, stdout, stderr = Open3.popen3(co_cmd)
     @ref = nil
     while (err = stderr.gets)
-      puts err unless err.include? "Already on 'master'"
+      # puts err unless err.include? "Already on 'master'"
       @ref = err
       next unless err =~ /Your local changes to the following files would be overwritten by checkout/
       `#{remove_command} #{git_dir}/*`
