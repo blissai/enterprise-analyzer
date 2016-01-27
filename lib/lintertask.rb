@@ -31,7 +31,7 @@ class LinterTask
     remove_open_source_files(@git_dir)
     Dir.mktmpdir do |tmp_dir|
       @linters.each do |linter|
-        output_file = File.join(tmp_dir, "#{quality_tool}.#{linter['output_format']}")
+        output_file = File.join(tmp_dir, "#{linter['quality_tool']}.#{linter['output_format']}")
         lint_commit(commit, linter, output_file)
       end
     end
