@@ -88,13 +88,13 @@ module Common
     json_return
   end
 
-  def stats_todo_count
-    count_json = http_get("#{@host}/api/gitlog/stats_todo_count?repo_key=#{@repo_key}")
+  def stats_todo_count(repo_key)
+    count_json = http_get("#{@host}/api/gitlog/stats_todo_count?repo_key=#{repo_key}")
     count_json["stats_todo"].to_i
   end
 
-  def linters_todo_count
-    count_json = http_get("#{@host}/api/gitlog/linters_todo_count?repo_key=#{@repo_key}")
+  def linters_todo_count(repo_keys)
+    count_json = http_get("#{@host}/api/gitlog/linters_todo_count?repo_key=#{repo_key}")
     count_json["linters_todo"].to_i
   end
 end

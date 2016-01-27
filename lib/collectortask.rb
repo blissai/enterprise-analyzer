@@ -18,6 +18,8 @@ class CollectorTask
                    end
     configure_http
     @new_repos = false
+    @stats_todo = 0
+    @linters_todo = 0
   end
 
   def git_log(dir_name)
@@ -53,7 +55,7 @@ class CollectorTask
     save_bliss_file(@top_lvl_dir, @repos)
     @logger.success('Collector finished...')
     @logger.save_log
-    @new_repos
+    { 'new_repos' => @new_repos, 'stats_todo' => @stats_todo, 'linters_todo' => @linters_todo }
   end
 
   def process_repo(dir_name)
@@ -73,6 +75,9 @@ class CollectorTask
     else
       @logger.info('No new commits...')
     end
+    puts 'Checking server for outstanding stats/lint tasks...'.blue
+    @stats_todo += stats_todo_count(@repos[name]['repo_key'])
+    @linters_todo += linters_todo_count(@repos[name]['repo_key'])
   end
 
   def save_repository_to_bliss(dir_name, name)

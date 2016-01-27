@@ -13,21 +13,27 @@ config = {
 @top_level_dir = config['TOP_LVL_DIR']
 @org_name = config['ORG_NAME']
 @api_key = config['API_KEY']
-@bliss_host = config['BLISS_HOST']
+@host = config['BLISS_HOST']
 @dirs_list = get_directory_list(@top_level_dir)
 configure_http
 loop do
-  new_repos = CollectorTask.new(config).execute
+  collector_result = CollectorTask.new(config).execute
+  new_repos = collector_result['new_repos']
 
   ctasks = ConcurrentTasks.new(config, new_repos)
-  puts 'Waiting 60 seconds before running Stats task...'.green
-  sleep(60)
 
-  continue_stats = stats_todo_count > 0
-  ctasks.stats if continue_stats
-  puts 'Waiting 60 seconds before running Linter task...'.green
-  sleep(60)
-  continue_linters = linters_todo_count > 0
-  ctasks.linter if continue_linters
+  continue_stats = collector_result['stats_todo'] > 0
+  if continue_stats
+    puts 'Waiting 60 seconds before running Stats task...'.green
+    sleep(60)
+    ctasks.stats
+  end
+
+  continue_linters = collector_result['linters_todo'] > 0
+  if continue_linters
+    puts 'Waiting 60 seconds before running Linter task...'.green
+    sleep(60)
+    ctasks.linter
+  end
   break unless continue_stats || continue_linters
 end

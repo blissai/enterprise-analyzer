@@ -9,6 +9,8 @@ class LinterTask
     configure_http
     @logger = BlissLogger.new("Linter-#{Time.now.strftime('%d-%m-%y-T%H-%M')}-#{@name}")
     @scrubber = SourceScrubber.new
+    @from_date = nil
+    @to_date = nil
   end
 
   def execute
