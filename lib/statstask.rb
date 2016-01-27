@@ -86,7 +86,7 @@ class StatsTask
     @logger.info("Getting stats for #{commit}...")
     added_lines = 0
     deleted_lines = 0
-    git_numstat.each do |stt|
+    git_numstat(commit).each do |stt|
       match = stt.match(/(\d+)\t(\d+)/)
       next unless match
       added_lines += match[1].to_i
