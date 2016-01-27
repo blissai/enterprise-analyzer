@@ -81,8 +81,8 @@ class CollectorTask
   end
 
   def save_repository_to_bliss(dir_name, name)
-    git_base_cmd = "cd #{dir_name} && git config --get remote.origin.url"
-    git_base = `#{git_base_cmd}`.gsub(/\n/, '')
+    git_base = git_url(dir_name)
+    git_base = "#{@org_name}/#{name}" if git_base.empty?
     @logger.info('Saving repository details to database...')
     params = { name: name, full_name: "#{@org_name}/#{name}",
                git_url: git_base, languages: sense_project_type(dir_name).to_json }
@@ -94,6 +94,16 @@ class CollectorTask
     end
     @new_repos = new_repo?(name) unless @new_repos
     repo_return
+  end
+
+  def git_url(dir_name)
+    git_base_cmd = "cd #{dir_name} && git config --get remote.origin.url"
+    url = `#{git_base_cmd}`.gsub(/\n/, '')
+    if url.empty?
+      svn_base_cmd = "cd #{dir_name} && git svn info | grep URL | cut -f2- -d' '"
+      url = `#{svn_base_cmd}`
+    end
+    url
   end
 
   def save_git_log(name, lines, repo_key)
