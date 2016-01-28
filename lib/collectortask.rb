@@ -98,12 +98,12 @@ class CollectorTask
 
   def git_url(dir_name)
     git_base_cmd = "cd #{dir_name} && git config --get remote.origin.url"
-    url = `#{git_base_cmd}`.gsub(/\n/, '')
+    url = `#{git_base_cmd}`
     if url.empty?
       svn_base_cmd = "cd #{dir_name} && git svn info | grep URL | cut -f2- -d' '"
       url = `#{svn_base_cmd}`
     end
-    url
+    url.chomp
   end
 
   def save_git_log(name, lines, repo_key)
