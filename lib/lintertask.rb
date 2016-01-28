@@ -17,7 +17,7 @@ class LinterTask
   def execute
     @logger.info("Running Linter on #{@name}...")
     metrics = next_batch
-    @logger.info("Processing Linters between #{metrics.last.commited_at} and #{metrics.first.commited_at}") unless metrics.empty?
+    @logger.info("Processing Linters between #{metrics.last['commited_at']} and #{metrics.first['commited_at']}") unless metrics.empty?
     metrics.each do |metric|
       commit = metric['commit']
       process_commit(commit)
