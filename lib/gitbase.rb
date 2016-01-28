@@ -209,9 +209,9 @@ module Gitbase
   end
 
   def remove_excluded_directories(excluded_dirs, git_dir)
-    excluded_directories.each do |excluded_directory|
-      next if excluded_directory =~ /\.\./
-      `#{remove_command} #{@git_dir}/#{excluded_directory}`
+    excluded_dirs.each do |dir|
+      next if dir =~ /\.\./
+      `#{remove_command} #{git_dir}/#{dir}`
     end
   end
 end
