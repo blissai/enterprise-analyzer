@@ -15,7 +15,7 @@ class StatsTask
   def execute
     @logger.info("Running Stats on #{@name}...")
     metrics = next_batch
-    @logger.info("Processing Stats between #{metrics.last.commited_at} and #{metrics.first.commited_at}") unless metrics.empty?
+    @logger.info("Processing Stats between #{metrics.last['commited_at']} and #{metrics.first['commited_at']}") unless metrics.empty?
     metrics.each do |metric|
       commit = metric['commit']
       process_commit(commit)
