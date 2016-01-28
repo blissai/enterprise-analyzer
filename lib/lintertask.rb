@@ -11,6 +11,7 @@ class LinterTask
     @scrubber = SourceScrubber.new
     @from_date = nil
     @to_date = nil
+    @excluded_dirs = @repo['excluded_directories'] || []
   end
 
   def execute
@@ -30,6 +31,7 @@ class LinterTask
   def process_commit(commit)
     checkout_commit(@git_dir, commit)
     remove_open_source_files(@git_dir)
+    remove_excluded_directories(@excluded_dirs, @git_dir)
     Dir.mktmpdir do |tmp_dir|
       @linters.each do |linter|
         output_file = File.join(tmp_dir, "#{linter['quality_tool']}.#{linter['output_format']}")

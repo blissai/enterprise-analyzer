@@ -9,6 +9,7 @@ class StatsTask
     @logger = BlissLogger.new("Stats-#{Time.now.strftime("%d-%m-%y-T%H-%M")}-#{@name}")
     @repo_test_files = @repo['test_files_match'] || %w(test spec)
     @repo_test_dirs = @repo['test_dirs_match'] || %w(test)
+    @excluded_dirs = @repo['excluded_directories'] || []
   end
 
   def execute
@@ -57,6 +58,7 @@ class StatsTask
 
   def cloc_original
     remove_open_source_files(@git_dir)
+    remove_excluded_directories(@excluded_dirs, @git_dir)
     @logger.info("\tCounting original lines of code. This may take a while...")
     `#{cloc_cmd}`
   end

@@ -165,6 +165,7 @@ module Gitbase
       languages.push('nodejs')
     elsif !Dir.glob(File.join(git_dir, '**/*.java')).empty? || File.exist?(File.join(git_dir, 'build.gradle'))
       # language = 'Java'
+      languages.push('android') if File.exist?(File.join(git_dir, 'AndroidManifest.xml'))
       languages.push('Java')
     elsif !Dir.glob(File.join(git_dir, '**/*.pm')).empty? || !Dir.glob(File.join(git_dir, '**/*.pl')).empty?
       languages.push('Perl')
@@ -205,5 +206,12 @@ module Gitbase
     regex_files = test_files_match * '|'
     regex_dirs = test_dirs_match * '|'
     "#{git_dir} --match-f='#{regex_files}' --match-d='#{regex_dirs}'"
+  end
+
+  def remove_excluded_directories(excluded_dirs, git_dir)
+    excluded_directories.each do |excluded_directory|
+      next if excluded_directory =~ /\.\./
+      `#{remove_command} #{@git_dir}/#{excluded_directory}`
+    end
   end
 end
