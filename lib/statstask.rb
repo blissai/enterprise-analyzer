@@ -15,7 +15,12 @@ class StatsTask
   def execute
     @logger.info("Running Stats on #{@name}...")
     metrics = next_batch
-    @logger.info("Processing Stats between #{metrics.last['commited_at']} and #{metrics.first['commited_at']}") unless metrics.empty?
+    unless metrics.empty?
+      starttime = DateTime.parse(metrics.last['commited_at'])
+      endtime = DateTime.parse(metrics.first['commited_at'])
+      dates = "#{starttime.strftime('%d-%m-%Y')} and #{endtime.strftime('%d-%m-%Y')}"
+      @logger.success("Processing Linters between #{dates}")
+    end
     metrics.each do |metric|
       commit = metric['commit']
       process_commit(commit)

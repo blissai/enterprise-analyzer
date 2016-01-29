@@ -209,6 +209,7 @@ module Gitbase
   end
 
   def remove_excluded_directories(excluded_dirs, git_dir)
+    puts "\tRemoving libraries and frameworks...".blue
     excluded_dirs.each do |dir|
       next if dir =~ /\.\./
       `#{remove_command} #{git_dir}/#{dir}`

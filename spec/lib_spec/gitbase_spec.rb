@@ -1,6 +1,5 @@
 require_relative '../spec_helper.rb'
 RSpec.describe Gitbase do
-
   before(:all) do
     @testdir = "#{Dir.pwd}/spec/fixtures/projs"
     @jsdir = "#{@testdir}/js"
@@ -8,6 +7,12 @@ RSpec.describe Gitbase do
     @javadir = "#{@testdir}/java"
     @rubydir = "#{@testdir}/ruby"
     @phpdir = "#{@testdir}/php"
+    @iosdir = "#{@testdir}/ios"
+
+    FileUtils.mkdir_p("#{@iosdir}/Pods")
+    FileUtils.mkdir_p("#{@iosdir}/Frameworks")
+    File.open("#{@iosdir}/Pods/test.txt", 'w+') { |file| file.write('A pod.') }
+    File.open("#{@iosdir}/Frameworks/test.txt", 'w+') { |file| file.write('A framework.') }
   end
 
   let(:including_class) { Class.new { include Gitbase } }
@@ -36,6 +41,18 @@ RSpec.describe Gitbase do
     it 'determines the language of a php project' do
       langs = including_class.new.sense_project_type(@phpdir)
       expect(langs).to include('php')
+    end
+
+    it 'determines the language of a ios project' do
+      langs = including_class.new.sense_project_type(@iosdir)
+      expect(langs).to include('Objective-C')
+      expect(langs).to include('ios')
+    end
+
+    it 'removes Pods and Frameworks from iOS projects' do
+      including_class.new.remove_excluded_directories(%w(Pods Frameworks), @iosdir)
+      expect(File.directory?("#{@iosdir}/Pods")).to be false
+      expect(File.directory?("#{@iosdir}/Frameworks")).to be false
     end
   end
 end
