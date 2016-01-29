@@ -1,7 +1,7 @@
 require_relative '../spec_helper.rb'
 RSpec.describe CollectorTask do
   before(:all) do
-    @dir = "#{Dir.pwd}/spec/fixtures/testdir"
+    @dir = "#{Dir.pwd}/spec/fixtures/projs"
     @config = {
       'TOP_LVL_DIR' => @dir,
       'ORG_NAME' => 'TESTORG',
@@ -29,7 +29,7 @@ RSpec.describe CollectorTask do
     end
 
     it 'has some repos' do
-      expect(@c.instance_variable_get('@saved_repos').count).to eq(3)
+      expect(@c.instance_variable_get('@saved_repos').count).to eq(7)
     end
   end
 
@@ -39,15 +39,15 @@ RSpec.describe CollectorTask do
     end
 
     it 'identifies an old repo' do
-      expect(@c.new_repo?('bliss-test-repo')).to eq(false)
+      expect(@c.new_repo?('ruby')).to eq(false)
     end
 
     it 'identifies a repo that has new commits' do
-      expect(@c.needs_running?('bliss-test-repo', 3)).to eq(true)
+      expect(@c.needs_running?('ruby', 3)).to eq(true)
     end
 
     it 'identifies a repo that doesn\'t have new commits' do
-      expect(@c.needs_running?('bliss-test-repo', 1)).to eq(false)
+      expect(@c.needs_running?('ruby', 1)).to eq(false)
     end
   end
 end

@@ -1,10 +1,7 @@
 require_relative '../spec_helper.rb'
 RSpec.describe ConcurrentTasks do
   before(:all) do
-    @dir = "#{Dir.pwd}/spec/fixtures/testdir"
-    %w(dirone dirtwo dirthree).each do |d|
-      FileUtils.mkdir_p("#{File.join(@dir, d)}")
-    end
+    @dir = "#{Dir.pwd}/spec/fixtures/projs"
     @config = {
       'TOP_LVL_DIR' => @dir,
       'ORG_NAME' => 'TESTORG',
@@ -12,12 +9,6 @@ RSpec.describe ConcurrentTasks do
       'BLISS_HOST' => 'https://app.founderbliss.com'
     }
     @c = ConcurrentTasks.new(@config)
-  end
-
-  after(:all) do
-    %w(dirone dirtwo dirthree).each do |d|
-      FileUtils.rmdir(File.join(@dir, d))
-    end
   end
 
   context 'given a configuration' do
@@ -38,7 +29,7 @@ RSpec.describe ConcurrentTasks do
     end
 
     it 'has some repos' do
-      expect(@c.instance_variable_get('@dirs_list').count).to eq(3)
+      expect(@c.instance_variable_get('@dirs_list').count).to eq(6)
     end
   end
 end

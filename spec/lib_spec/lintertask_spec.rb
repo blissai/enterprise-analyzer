@@ -3,10 +3,10 @@ RSpec.describe LinterTask do
   before(:all) do
     FileUtils.mkdir_p('vendor')
     `git clone https://github.com/sindresorhus/jshint-json.git vendor/jshint-json`
-    @dir = "#{Dir.pwd}/spec/fixtures/testdir/bliss-test-repo"
+    @dir = "#{Dir.pwd}/spec/fixtures/projs/jqcarousel"
     `git clone https://github.com/mikesive/carouselJq.git #{@dir}`
-    @repos = JSON.parse(File.read("#{Dir.pwd}/spec/fixtures/testdir/.bliss.json"))
-    @c = LinterTask.new(@dir, 'TESTAPIKEY', 'https://app.founderbliss.com', @repos['bliss-test-repo'])
+    @repos = JSON.parse(File.read("#{Dir.pwd}/spec/fixtures/projs/.bliss.json"))
+    @c = LinterTask.new(@dir, 'TESTAPIKEY', 'https://app.founderbliss.com', @repos['jqcarousel'])
 
     @linter = {
       'quality_command' => 'jshint --reporter vendor/jshint-json/json.js git_dir > file_name'
