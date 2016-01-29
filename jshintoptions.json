@@ -1,0 +1,6 @@
+{
+  "maxerr": 10000,
+  "maxcomplexity": 7,
+  "maxdepth": 4,
+  "maxparams": 5
+}
