@@ -1,21 +1,9 @@
 require_relative '../spec_helper.rb'
 RSpec.describe StatsTask do
-  class StatsTaskLocal < StatsTask
-    # don't include spec as git dir is in this spec
-    def set_test_dirs
-      @repo_test_files = %w(test)
-      @repo_test_dirs = %w(test)
-    end
-
-    # run cloc from local not docker bin path
-    def cloc_command
-      'bin/cloc'
-    end
-  end
   before(:all) do
     @dir = "#{Dir.pwd}/spec/fixtures/projs/ruby"
     @repos = JSON.parse(File.read("#{Dir.pwd}/spec/fixtures/projs/.bliss.json"))
-    @c = StatsTaskLocal.new(@dir, 'TESTAPIKEY', 'https://app.founderbliss.com', @repos['ruby'])
+    @c = StatsTaskMock.new(@dir, 'TESTAPIKEY', 'https://app.founderbliss.com', @repos['ruby'])
   end
 
   context 'given a configuration' do
@@ -44,6 +32,15 @@ RSpec.describe StatsTask do
       cloc_tests = @c.cloc_tests
       cloc_hash = YAML.load(cloc_tests)
       expect(cloc_hash['Ruby']['nFiles'].to_i).to eq(1)
+    end
+
+    it 'processes a commit, and returns a hash of cloc values' do
+      result = @c.process_commit('test')
+      expect(result[:added_lines]).to eq(4)
+      expect(result[:deleted_lines]).to eq(3)
+      expect(result[:total_cloc]).to include('nFiles')
+      expect(result[:cloc]).to include('nFiles')
+      expect(result[:cloc_tests]).to include('nFiles')
     end
   end
 end
