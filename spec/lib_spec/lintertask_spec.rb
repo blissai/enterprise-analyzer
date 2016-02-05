@@ -49,8 +49,8 @@ RSpec.describe LinterTask do
     it 'should run the linter' do
       file_name = "#{@dir}/testfile.json"
       cmd = "jshint --reporter vendor/jshint-json/json.js #{@dir} > #{file_name}"
-      result = @c.execute_linter_cmd(cmd, file_name)
-      expect(result).to_not eq('')
+      result = JSON.parse(@c.execute_linter_cmd(cmd, file_name))
+      expect(result['result']).to_not eq(nil)
     end
   end
 

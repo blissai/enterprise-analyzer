@@ -55,10 +55,10 @@ class LinterTask
       @logger.info("Running #{quality_tool} on #{commit}... This may take a while...")
       lint_output = execute_linter_cmd(cmd, output_file)
       post_lintfile(key, commit, lint_output, linter['id'])
-    rescue Errno::ENOENT
-      @logger.info("Dependency Error: #{quality_tool} not installed or not configured correctly...")
     rescue LinterError => e
       @logger.error(e.message)
+    rescue Errno::ENOENT
+      @logger.info("Dependency Error: #{quality_tool} not installed or not configured correctly...")
     end
   end
 
@@ -76,9 +76,10 @@ class LinterTask
     end
     if thread_status.exitstatus == 1
       @logger.error('Linting task failed!')
-      raise LinterError, result
+      fail LinterError, result
+    else
+      File.open(file_name, 'r').read
     end
-    File.open(file_name, 'r').read
   end
 
   private
