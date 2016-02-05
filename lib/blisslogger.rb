@@ -14,8 +14,8 @@ class BlissLogger
     @aws_log += log_line + "\n"
   end
 
-  def error(line)
-    print "#{line}\n".red
+  def error(line, print_err = true)
+    print "#{line}\n".red if print_err
     @logger.error(line)
     log_to_aws("Error: #{line}")
   end

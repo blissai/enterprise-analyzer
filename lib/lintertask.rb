@@ -35,7 +35,7 @@ class LinterTask
 
   def process_commit(commit)
     checkout_commit(@git_dir, commit)
-    remove_open_source_files(@git_dir)
+    remove_open_source_files(@git_dir) unless @repo['detect_open_source'] == false
     remove_excluded_directories(@excluded_dirs, @git_dir)
     Dir.mktmpdir do |tmp_dir|
       @linters.each do |linter|
@@ -56,7 +56,9 @@ class LinterTask
       lint_output = execute_linter_cmd(cmd, output_file)
       post_lintfile(key, commit, lint_output, linter['id'])
     rescue Errno::ENOENT
-      @logger.info("Dependency Error: #{quality_tool} not installed...")
+      @logger.info("Dependency Error: #{quality_tool} not installed or not configured correctly...")
+    rescue LinterError => e
+      @logger.error(e.message)
     end
   end
 
@@ -67,7 +69,15 @@ class LinterTask
   end
 
   def execute_linter_cmd(cmd, file_name)
-    `#{cmd}`
+    result = ''
+    thread_status = Open3.popen2e("#{cmd}") do |_stdin, stdout_err, wait_thr|
+      result += stdout_err.read
+      wait_thr.value
+    end
+    if thread_status.exitstatus == 1
+      @logger.error('Linting task failed!')
+      raise LinterError, result
+    end
     File.open(file_name, 'r').read
   end
 

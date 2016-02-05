@@ -62,7 +62,7 @@ class StatsTask
   end
 
   def cloc_original
-    remove_open_source_files(@git_dir)
+    remove_open_source_files(@git_dir) unless @repo['detect_open_source'] == false
     remove_excluded_directories(@excluded_dirs, @git_dir)
     @logger.info("\tCounting original lines of code. This may take a while...")
     `#{cloc_cmd}`
