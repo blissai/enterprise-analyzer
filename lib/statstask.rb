@@ -19,7 +19,7 @@ class StatsTask
       starttime = DateTime.parse(metrics.last['commited_at'])
       endtime = DateTime.parse(metrics.first['commited_at'])
       dates = "#{starttime.strftime('%d-%m-%Y')} and #{endtime.strftime('%d-%m-%Y')}"
-      @logger.success("Processing Linters between #{dates}")
+      @logger.success("Processing Stats between #{dates}")
     end
     metrics.each do |metric|
       commit = metric['commit']
