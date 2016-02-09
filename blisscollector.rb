@@ -23,13 +23,10 @@ loop do
   ctasks = ConcurrentTasks.new(config, new_repos)
 
   continue_stats = collector_result['stats_todo'] > 0
-  if continue_stats
-    ctasks.stats
-  end
+  ctasks.stats if continue_stats
 
   continue_linters = collector_result['linters_todo'] > 0
-  if continue_linters
-    ctasks.linter
-  end
+  ctasks.linter if continue_linters
+
   break unless continue_stats || continue_linters
 end
