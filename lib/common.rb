@@ -118,8 +118,10 @@ module Common
     chars = %w[| / - \\]
     delay = 1.0/fps
     (seconds * fps).round.times do |i|
-      print "No jobs found... Trying again in #{i/fps} seconds #{chars[i % chars.length]}\r"
+      seconds_left = seconds - (i/fps)
+      print "No jobs found... Trying again in #{seconds_left} seconds #{chars[i % chars.length]}\r"
       sleep delay
     end
+    print "\n"
   end
 end
