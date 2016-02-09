@@ -25,6 +25,7 @@ class LinterTask
     end
     metrics.each do |metric|
       commit = metric['commit']
+      @logger.success("Running linters over #{commit}")
       process_commit(commit)
     end
     # Go back to main branch
@@ -43,6 +44,7 @@ class LinterTask
         lint_commit(commit, linter, output_file)
       end
     end
+    @logger.success("\tFinished linting for commit #{commit}")
   end
 
   def lint_commit(commit, linter, output_file)
@@ -52,7 +54,7 @@ class LinterTask
     cmd = "cd #{@git_dir} && #{cmd}" if linter['cd_first']
     begin
       key = "#{@organization}_#{@name}_#{commit}_#{quality_tool}.#{ext}"
-      @logger.info("Running #{quality_tool} on #{commit}... This may take a while...")
+      @logger.info("\tRunning #{quality_tool} on #{commit}... This may take a while...")
       lint_output = execute_linter_cmd(cmd, output_file)
       post_lintfile(key, commit, lint_output, linter['id'])
     rescue LinterError => e
