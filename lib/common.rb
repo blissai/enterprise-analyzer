@@ -108,7 +108,7 @@ module Common
       return count
     elsif tried < 7
       sleep(2**tried)
-      return stats_todo_count(repo_key, tried + 1)
+      return linters_todo_count(repo_key, tried + 1)
     else
       return 0
     end
