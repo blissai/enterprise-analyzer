@@ -37,6 +37,8 @@ GEM
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     fastercsv (1.5.5)
+    figaro (1.1.1)
+      thor (~> 0.14)
     haml (4.0.7)
       tilt
     highline (1.7.8)
@@ -125,6 +127,7 @@ GEM
     slop (3.6.0)
     temple (0.7.6)
     terminal-table (1.5.2)
+    thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.2)
     tins (1.6.0)
@@ -143,6 +146,7 @@ DEPENDENCIES
   colorize (~> 0.7.7)
   equivalent-xml
   faraday
+  figaro
   mechanize
   nokogiri
   pry

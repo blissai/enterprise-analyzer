@@ -8,7 +8,7 @@ gem 'rubocop-rspec'
 gem 'brakeman'
 gem 'simplecov'
 gem 'faraday'
-
+gem 'figaro'
 group :test do
   gem 'nokogiri'
   gem 'equivalent-xml'

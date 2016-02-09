@@ -7,6 +7,8 @@ require 'fileutils'
 require 'mechanize'
 require 'date'
 require 'faraday'
+require 'figaro'
+Figaro::Application.new(path: 'application.yml').load
 require_relative 'common'
 require_relative 'gitbase'
 require_relative 'aws_uploader'
