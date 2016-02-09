@@ -49,5 +49,10 @@ RSpec.describe CollectorTask do
     it 'identifies a repo that doesn\'t have new commits' do
       expect(@c.needs_running?('ruby', 1)).to eq(false)
     end
+
+    it 'identfies the directories' do
+      list = @c.get_directory_list(@dir)
+      expect(list.size).to eq(6)
+    end
   end
 end
