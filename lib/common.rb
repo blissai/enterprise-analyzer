@@ -78,7 +78,7 @@ module Common
     rescue Mechanize::ResponseCodeError => re
       if tried < 3
         puts "Warning: Server in maintenance mode, waiting for 20 seconds and trying again".yellow
-        sleep(20)
+        sleep(2**tried)
         http_post(url, params, tried + 1)
       else
         puts "Warning: Can't connect to Bliss server... Tried max times.".yellow
@@ -88,13 +88,29 @@ module Common
     json_return
   end
 
-  def stats_todo_count(repo_key)
+  def stats_todo_count(repo_key, tried = 0)
     count_json = http_get("#{@host}/api/gitlog/stats_todo_count?repo_key=#{repo_key}")
-    count_json["stats_todo"].to_i
+    count = count_json["stats_todo"].to_i
+    if count > 0
+      return count
+    elsif tried < 7
+      sleep(2**tried)
+      return stats_todo_count(repo_key, tried + 1)
+    else
+      return 0
+    end
   end
 
-  def linters_todo_count(repo_key)
+  def linters_todo_count(repo_key, tried = 0)
     count_json = http_get("#{@host}/api/gitlog/linters_todo_count?repo_key=#{repo_key}")
-    count_json["linters_todo"].to_i
+    count = count_json["linters_todo"].to_i
+    if count > 0
+      return count
+    elsif tried < 7
+      sleep(2**tried)
+      return stats_todo_count(repo_key, tried + 1)
+    else
+      return 0
+    end
   end
 end
