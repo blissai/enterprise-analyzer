@@ -65,7 +65,6 @@ module Common
     json_return
   end
 
-
   # Recursive function to retry http POST requests
   def http_post(url, params, tried = 0)
     json_return = nil
@@ -90,7 +89,7 @@ module Common
 
   def stats_todo_count(repo_key, tried = 0)
     count_json = http_get("#{@host}/api/gitlog/stats_todo_count?repo_key=#{repo_key}")
-    count = count_json["stats_todo"].to_i
+    count = count_json['stats_todo'].to_i
     if count > 0
       return count
     elsif tried < 7
@@ -103,7 +102,7 @@ module Common
 
   def linters_todo_count(repo_key, tried = 0)
     count_json = http_get("#{@host}/api/gitlog/linters_todo_count?repo_key=#{repo_key}")
-    count = count_json["linters_todo"].to_i
+    count = count_json['linters_todo'].to_i
     if count > 0
       return count
     elsif tried < 7
@@ -115,8 +114,8 @@ module Common
   end
 
   def show_wait_cursor(seconds, fps = 10)
-    chars = %w[| / - \\]
-    delay = 1.0/fps
+    chars = %w(| / - \\)
+    delay = 1.0 / fps
     (seconds * fps).round.times do |i|
       seconds_left = seconds - (i/fps)
       print "No jobs found... Trying again in #{seconds_left} seconds #{chars[i % chars.length]}\r"
