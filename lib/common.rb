@@ -94,7 +94,7 @@ module Common
     if count > 0
       return count
     elsif tried < 7
-      sleep(2**tried)
+      show_wait_cursor(2**tried)
       return stats_todo_count(repo_key, tried + 1)
     else
       return 0
@@ -107,10 +107,19 @@ module Common
     if count > 0
       return count
     elsif tried < 7
-      sleep(2**tried)
+      show_wait_cursor(2**tried)
       return linters_todo_count(repo_key, tried + 1)
     else
       return 0
+    end
+  end
+
+  def show_wait_cursor(seconds, fps = 10)
+    chars = %w[| / - \\]
+    delay = 1.0/fps
+    (seconds * fps).round.times do |i|
+      print "No jobs found... Trying again in #{i/fps} seconds #{chars[i % chars.length]}\r"
+      sleep delay
     end
   end
 end
