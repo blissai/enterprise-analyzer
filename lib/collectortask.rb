@@ -67,16 +67,16 @@ class CollectorTask
     @logger.info("\tGetting gitlog for #{name}")
     lines = git_log(dir_name)
     @repos[name]['commit_count'] = lines.split("\n").count
-    @logger.info("#{@repos[name]['commit_count']} commits found...")
+    @logger.info("\t#{@repos[name]['commit_count']} commits found...")
     repo_key = @repos[name]['repo_key']
     if needs_running? name, @repos[name]['commit_count']
       save_git_log(name, lines, repo_key)
     else
-      @logger.info('No new commits...')
+      @logger.info("\tNo new commits...")
     end
-    puts 'Checking server for outstanding stats tasks...'.blue
+    puts "\tChecking server for outstanding stats tasks...".blue
     @stats_todo += todo_count(@repos[name]['repo_key'], 'stats')
-    puts 'Checking server for outstanding linting tasks...'.blue
+    puts "\tChecking server for outstanding linting tasks...".blue
     @linters_todo += todo_count(@repos[name]['repo_key'], 'linters')
   end
 

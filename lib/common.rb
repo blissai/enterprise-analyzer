@@ -107,7 +107,7 @@ module Common
     delay = 1.0 / fps
     (seconds * fps).round.times do |i|
       seconds_left = seconds - (i/fps)
-      print "(#{tried}/#{max}) No jobs found... Trying again in #{seconds_left} seconds #{chars[i % chars.length]}     \r".yellow
+      print "\t(#{tried}/#{max}) No jobs found... Trying again in #{seconds_left} seconds #{chars[i % chars.length]}     \r".yellow
       sleep delay
     end
   end
