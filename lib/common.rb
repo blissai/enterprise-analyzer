@@ -87,28 +87,16 @@ module Common
     json_return
   end
 
-  def stats_todo_count(repo_key, tried = 0)
-    count_json = http_get("#{@host}/api/gitlog/stats_todo_count?repo_key=#{repo_key}")
+  def todo_count(repo_key, type, tried = 0)
+    count_json = http_get("#{@host}/api/gitlog/#{type}_todo_count?repo_key=#{repo_key}")
     count = count_json['stats_todo'].to_i
     if count > 0
       return count
-    elsif tried < 7
+    elsif tried < 4
       show_wait_cursor(2**tried)
-      return stats_todo_count(repo_key, tried + 1)
+      return todo_count(repo_key, type, tried + 1)
     else
-      return 0
-    end
-  end
-
-  def linters_todo_count(repo_key, tried = 0)
-    count_json = http_get("#{@host}/api/gitlog/linters_todo_count?repo_key=#{repo_key}")
-    count = count_json['linters_todo'].to_i
-    if count > 0
-      return count
-    elsif tried < 7
-      show_wait_cursor(2**tried)
-      return linters_todo_count(repo_key, tried + 1)
-    else
+      print "\n"
       return 0
     end
   end
@@ -118,9 +106,8 @@ module Common
     delay = 1.0 / fps
     (seconds * fps).round.times do |i|
       seconds_left = seconds - (i/fps)
-      print "No jobs found... Trying again in #{seconds_left} seconds #{chars[i % chars.length]}\r"
+      print "No jobs found... Trying again in #{seconds_left} seconds #{chars[i % chars.length]}     \r".blue
       sleep delay
     end
-    print "\n"
   end
 end

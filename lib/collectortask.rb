@@ -74,9 +74,10 @@ class CollectorTask
     else
       @logger.info('No new commits...')
     end
-    puts 'Checking server for outstanding stats/lint tasks...'.blue
-    @stats_todo += stats_todo_count(@repos[name]['repo_key'])
-    @linters_todo += linters_todo_count(@repos[name]['repo_key'])
+    puts 'Checking server for outstanding stats tasks...'.green
+    @stats_todo += todo_count(@repos[name]['repo_key'], 'stats')
+    puts 'Checking server for outstanding linting tasks...'.green
+    @linters_todo += todo_count(@repos[name]['repo_key'], 'linters')
   end
 
   def save_repository_to_bliss(dir_name, name)
