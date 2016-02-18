@@ -37,6 +37,6 @@ class BlissLogger
 
   def log_to_papertrail(line)
     http_post('https://app.founderbliss.com/api/gitlog/enterprise_log',
-              api_key: @api_key, repo_key: @repo_key, message: line.strip)
+              api_key: @api_key, repo_key: @repo_key, message: line.gsub!(/\t/, ''))
   end
 end
