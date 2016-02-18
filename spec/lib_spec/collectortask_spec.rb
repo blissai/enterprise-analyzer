@@ -50,7 +50,7 @@ RSpec.describe CollectorTask do
       expect(@c.needs_running?('ruby', 1)).to eq(false)
     end
 
-    it 'identfies the directories' do
+    it 'identifies the directories' do
       list = @c.get_directory_list(@dir)
       expect(list.size).to eq(6)
     end

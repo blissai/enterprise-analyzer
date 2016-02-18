@@ -9,7 +9,7 @@ class CollectorTask
     @org_name = config['ORG_NAME']
     @api_key = config['API_KEY']
     @host = config['BLISS_HOST']
-    @logger = BlissLogger.new("Collector-#{Time.now.strftime('%d-%m-%y-T%H-%M')}-#{@org_name}")
+    @logger = BlissLogger.new(@api_key)
     @logger.info('Starting Collector...')
     @saved_repos = begin
                      read_bliss_file(@top_lvl_dir)
@@ -29,7 +29,7 @@ class CollectorTask
   end
 
   def prepare_log(name, lines)
-    puts "\tSaving repo data to AWS Bucket...".blue
+    @logger.info("\tSaving repo data to AWS Bucket...")
     key = "#{@org_name}_#{name}_git.log"
     upload_to_aws('bliss-collector-files', key, lines)
     key
@@ -54,7 +54,6 @@ class CollectorTask
     end
     save_bliss_file(@top_lvl_dir, @repos)
     @logger.success('Collector finished...')
-    @logger.save_log
     { 'new_repos' => @new_repos, 'stats_todo' => @stats_todo, 'linters_todo' => @linters_todo }
   end
 

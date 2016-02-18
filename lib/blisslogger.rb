@@ -1,47 +1,42 @@
 class BlissLogger
-  include AwsUploader
-
-  def initialize(log_name)
-    FileUtils.mkdir_p(File.expand_path('~/collector/logs'))
-    logger_path = File.expand_path("~/collector/logs/#{log_name}.txt")
-    @logger = Logger.new(logger_path, 'daily')
-    @aws_log = ''
-    @log_name = log_name
+  include Common
+  def initialize(api_key = nil, repo_key = nil)
+    @api_key = api_key
+    configure_http
+    @auth_headers = {}
+    repo_key(repo_key)
   end
 
-  def log_to_aws(line)
-    log_line = "#{Time.now.strftime('%d-%m-%y-T%H-%M')} - #{line}"
-    @aws_log += log_line + "\n"
+  def repo_key(repo_key = nil)
+    if repo_key
+      @repo_key = repo_key
+    else
+      @repo_key
+    end
   end
 
-  def error(line, print_err = true)
-    print "#{line}\n".red if print_err
-    @logger.error(line)
-    log_to_aws("Error: #{line}")
+  def error(line)
+    print "#{line}\n".red
+    log_to_papertrail("Error: #{line}")
   end
 
   def info(line)
     print "#{line}\n".blue
-    @logger.info(line)
-    log_to_aws("Info: #{line}")
+    log_to_papertrail("Info: #{line}")
   end
 
   def warn(line)
     print "#{line}\n".yellow
-    @logger.warn(line)
-    log_to_aws("Warn: #{line}")
+    log_to_papertrail("Warn: #{line}")
   end
 
   def success(line)
     print "#{line}\n".green
-    @logger.warn(line)
-    log_to_aws("Success: #{line}")
+    log_to_papertrail("Success: #{line}")
   end
 
-  def save_log
-    unless @aws_log.empty?
-      key = "#{@log_name}-#{Time.now.strftime('%d-%m-%y-T%H-%M')}"
-      upload_to_aws('bliss-collector-logs-docker', key, @aws_log)
-    end
+  def log_to_papertrail(line)
+    http_post('https://app.founderbliss.com/api/gitlog/enterprise_log',
+              api_key: @api_key, repo_key: @repo_key, message: line)
   end
 end

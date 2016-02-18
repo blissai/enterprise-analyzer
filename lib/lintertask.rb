@@ -7,7 +7,7 @@ class LinterTask
   def initialize(git_dir, api_key, host, repo, quick = false)
     init_configuration(git_dir, api_key, host, repo, quick)
     configure_http
-    @logger = BlissLogger.new("Linter-#{Time.now.strftime('%d-%m-%y-T%H-%M')}-#{@name}")
+    @logger = BlissLogger.new(api_key, @repo_key)
     @scrubber = SourceScrubber.new
     @from_date = nil
     @to_date = nil
@@ -31,7 +31,6 @@ class LinterTask
     # Go back to main branch
     checkout_commit(@git_dir, @repo['branch'])
     @logger.success("Linter finished for #{@name}...")
-    @logger.save_log
   end
 
   def process_commit(commit)

@@ -6,7 +6,7 @@ class StatsTask
   def initialize(git_dir, api_key, host, repo, quick = false)
     init_configuration(git_dir, api_key, host, repo, quick)
     configure_http
-    @logger = BlissLogger.new("Stats-#{Time.now.strftime("%d-%m-%y-T%H-%M")}-#{@name}")
+    @logger = BlissLogger.new(api_key, @repo_key)
     @repo_test_files = @repo['test_files_match'] || %w(test spec)
     @repo_test_dirs = @repo['test_dirs_match'] || %w(test)
     @excluded_dirs = @repo['excluded_directories'] || []
@@ -28,7 +28,6 @@ class StatsTask
     # Go back to master at the end
     checkout_commit(@git_dir, @repo['branch'])
     @logger.success("Stats finished for #{@name}")
-    @logger.save_log
   end
 
   def next_batch

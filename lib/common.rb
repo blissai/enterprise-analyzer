@@ -76,7 +76,7 @@ module Common
       @logger.error("Invalid API Key.")
     rescue Mechanize::ResponseCodeError => re
       if tried < 5
-        puts "Warning: Server in maintenance mode, waiting for 20 seconds and trying again".yellow
+        puts "Warning: Server in maintenance mode, waiting for #{2**tried} seconds and trying again".yellow
         sleep(2**tried)
         http_post(url, params, tried + 1)
       else
