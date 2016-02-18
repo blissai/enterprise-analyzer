@@ -90,10 +90,11 @@ module Common
   def todo_count(repo_key, type, tried = 0)
     count_json = http_get("#{@host}/api/gitlog/#{type}_todo_count?repo_key=#{repo_key}")
     count = count_json['stats_todo'].to_i
+    max = 5
     if count > 0
       return count
-    elsif tried < 4
-      show_wait_cursor(2**tried)
+    elsif tried < 5
+      show_wait_cursor(2**tried, tried + 1, max)
       return todo_count(repo_key, type, tried + 1)
     else
       print "\n"
@@ -101,12 +102,12 @@ module Common
     end
   end
 
-  def show_wait_cursor(seconds, fps = 10)
+  def show_wait_cursor(seconds, tried, max, fps = 10)
     chars = %w(| / - \\)
     delay = 1.0 / fps
     (seconds * fps).round.times do |i|
       seconds_left = seconds - (i/fps)
-      print "No jobs found... Trying again in #{seconds_left} seconds #{chars[i % chars.length]}     \r".blue
+      print "(#{tried}/#{max}) No jobs found... Trying again in #{seconds_left} seconds #{chars[i % chars.length]}     \r".yellow
       sleep delay
     end
   end

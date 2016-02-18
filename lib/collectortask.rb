@@ -64,7 +64,7 @@ class CollectorTask
     puts "\tCreated repo ##{repo_details['id']} - #{repo_details['full_name']}".green
     @repos[name] = repo_details
     checkout_commit(dir_name, @repos[name]['branch'])
-    @logger.info("Getting gitlog for #{name}")
+    @logger.info("\tGetting gitlog for #{name}")
     lines = git_log(dir_name)
     @repos[name]['commit_count'] = lines.split("\n").count
     @logger.info("#{@repos[name]['commit_count']} commits found...")
@@ -74,16 +74,16 @@ class CollectorTask
     else
       @logger.info('No new commits...')
     end
-    puts 'Checking server for outstanding stats tasks...'.green
+    puts 'Checking server for outstanding stats tasks...'.blue
     @stats_todo += todo_count(@repos[name]['repo_key'], 'stats')
-    puts 'Checking server for outstanding linting tasks...'.green
+    puts 'Checking server for outstanding linting tasks...'.blue
     @linters_todo += todo_count(@repos[name]['repo_key'], 'linters')
   end
 
   def save_repository_to_bliss(dir_name, name)
     git_base = git_url(dir_name)
     git_base = "#{@org_name}/#{name}" if git_base.empty?
-    @logger.info('Saving repository details to database...')
+    @logger.info("\tSaving repository details to database...")
     params = { name: name, full_name: "#{@org_name}/#{name}",
                git_url: git_base, languages: sense_project_type(dir_name).to_json }
     params[:branch] = configure_branch(dir_name) if new_repo? name
