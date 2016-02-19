@@ -89,7 +89,7 @@ module Common
 
   def todo_count(repo_key, type, tried = 0)
     count_json = http_get("#{@host}/api/gitlog/#{type}_todo_count?repo_key=#{repo_key}")
-    count = count_json['stats_todo'].to_i
+    count = count_json["#{type}_todo"].to_i
     max = 5
     if count > 0
       return count
