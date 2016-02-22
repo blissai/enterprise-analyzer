@@ -32,7 +32,7 @@ class LocalStats
     if !File.exist? @git_dir
       puts 'Directory does not exist.'
       valid = false
-    elsif !File.exist? @output_file
+    elsif @output_file.nil? || !File.exist?(@output_file)
       puts 'Please specify a writable file to output to.'
       valid = false
     elsif @commit.nil? || @commit.empty?
