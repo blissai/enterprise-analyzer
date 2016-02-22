@@ -7,6 +7,7 @@ class LocalStats
     @logger = BlissLogger.new
     @commit = commit
     @git_dir = git_dir.nil? ? '/repository' : File.expand_path(git_dir)
+    @output_file = '/result.txt'
     puts @git_dir
     unless File.exist? @git_dir
       puts 'Directory does not exist.'
@@ -22,6 +23,6 @@ class LocalStats
   end
 
   def execute
-    execute_stats_cmd(@commit, false).to_json
+    File.write(@output_file, execute_stats_cmd(@commit, false).to_json)
   end
 end

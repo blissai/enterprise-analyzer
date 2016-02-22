@@ -3,7 +3,7 @@ class LocalLinter
   include Gitbase
   include Linter
 
-  def initialize(git_dir, commit, log_prefix, linter_config_path, output_file)
+  def initialize(git_dir, commit, log_prefix, linter_config_path)
     @logger = BlissLogger.new
     @git_dir = git_dir.nil? ? '/repository' : File.expand_path(git_dir)
     unless File.exist? @git_dir
@@ -19,7 +19,7 @@ class LocalLinter
     @commit = commit
     @name = log_prefix
     @linter = YAML::load_file(@linter_config_path)
-    @output_file = output_file
+    @output_file = '/result.txt'
     @api_key = nil
     @repo_key = nil
   end
