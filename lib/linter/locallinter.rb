@@ -25,6 +25,9 @@ class LocalLinter
     if !File.exist? @git_dir
       puts 'Directory does not exist.'
       valid = false
+    elsif !File.exist? @output_file
+      puts 'Please specify a writable file to output to.'
+      valid = false
     elsif !File.exist? @linter_config_path
       puts 'Linter config file does not exist.'
       valid = false
