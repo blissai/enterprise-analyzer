@@ -1,0 +1,22 @@
+---
+id: 19
+name: rubocop
+quality_command: rubocop -c .rubocop.yml --format json --out file_name git_dir 2>&1
+quality_tool: rubocop
+output_format: json
+languages:
+- rails
+- ruby
+created_at: '2015-11-12T02:40:46.873Z'
+updated_at: '2016-02-21T21:51:25.147Z'
+cd_first:
+install_command: gem install rubocop rubocop-rspec
+quality_tool_version: 1
+operating_system: linux
+git_dir_regex: "^\\/"
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Complexity
+- Style
+error_code: 2

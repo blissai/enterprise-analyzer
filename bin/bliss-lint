@@ -3,5 +3,5 @@ $LOAD_PATH << '../lib'
 require_relative '../lib/bootstrap'
 include Cmd
 @args = ARGV
-linter = LocalLinter.new(arg('dir'), arg('commit'), arg('log'), arg('linter_file'), arg('output'))
+linter = LocalLinter.new(arg('dir'), arg('commit'), arg('log'), arg('linter_file'))
 linter.execute

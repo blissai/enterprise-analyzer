@@ -33,7 +33,7 @@ module Gitbase
 
   def remove_open_source_files(git_dir)
     # Remove open source files
-    puts "\tRemoving open source files...".blue
+    puts "\t#{@name} - Removing open source files...".blue
     open_source_lines = nil
     if Gem.win_platform?
       egrep_cmd = 'C:/Program Files (x86)/GnuWin32/bin/egrep.exe'
@@ -210,7 +210,7 @@ module Gitbase
   end
 
   def remove_excluded_directories(excluded_dirs, git_dir)
-    puts "\tRemoving libraries and frameworks...".blue
+    puts "\t#{@name} - Removing libraries and frameworks...".blue
     excluded_dirs.each do |dir|
       next if dir =~ /\.\./
       `#{remove_command} #{git_dir}/#{dir}`
