@@ -4,6 +4,9 @@ class LocalStats
 
   def initialize(git_dir, commit, log_prefix,
                  excluded_dirs, repo_test_files, repo_test_dirs, remove_open_source)
+    puts git_dir
+    puts commit
+    puts log_prefix
     @logger = BlissLogger.new
     @commit = commit
     @git_dir = git_dir.nil? ? '/repository' : File.expand_path(git_dir)
@@ -21,6 +24,6 @@ class LocalStats
   end
 
   def execute
-    execute_stats_cmd(@commit, false)
+    execute_stats_cmd(@commit, false).to_yaml
   end
 end

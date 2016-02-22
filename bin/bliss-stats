@@ -3,8 +3,6 @@ $LOAD_PATH << '../lib'
 require_relative '../lib/bootstrap'
 include Cmd
 @args = ARGV
-puts arg('log')
-puts arg('commit')
 stats = LocalStats.new(arg('dir'), arg('commit'), arg('log'), arg('excluded_dirs'),
                        arg('repo_test_files'), arg('repo_test_dirs'),
                        arg('remove_open_source') == 'true')
