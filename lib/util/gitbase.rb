@@ -110,7 +110,8 @@ module Gitbase
   end
 
   def cloc_command
-    '/root/collector/bin/cloc'
+    pwd = `git rev-parse --show-toplevel`.strip
+    "#{pwd}/bin/cloc"
   end
 
   def remove_command

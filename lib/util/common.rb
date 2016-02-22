@@ -6,7 +6,7 @@ module Common
     @auth_headers = { 'X-User-Token' => @api_key }
   end
 
-  def init_configuration(git_dir, api_key, host, repo, quick = false)
+  def init_configuration(git_dir, api_key, host, repo)
     @git_dir = git_dir
     @name = @git_dir.split('/').last
     @organization = repo['full_name'].split('/').first
@@ -14,7 +14,6 @@ module Common
     @host = host
     @repo = repo
     @repo_key = @repo['repo_key']
-    @quick = quick
   end
 
   def get_cmd(cmd)

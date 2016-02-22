@@ -49,7 +49,7 @@ RSpec.describe LinterTask do
     it 'should run the linter' do
       file_name = "#{@dir}/testfile.json"
       cmd = "jshint --reporter vendor/jshint-json/json.js #{@dir} > #{file_name}"
-      result = JSON.parse(@c.execute_linter_cmd(cmd, file_name))
+      result = JSON.parse(@c.execute_linter_cmd(cmd, file_name, 'jshint', 1))
       expect(result['result']).to_not eq(nil)
     end
   end
@@ -58,12 +58,12 @@ RSpec.describe LinterTask do
     it 'should throw a Errno::ENOENT exception when the linter doesn\'t exist' do
       cmd = 'not a valid command'
       file_name = "#{@dir}/testfile.json"
-      expect { @c.execute_linter_cmd(cmd, file_name) }.to raise_error(Errno::ENOENT)
+      expect { @c.execute_linter_cmd(cmd, file_name, 'test-linter', 1) }.to raise_error(Errno::ENOENT)
     end
 
     it 'should throw a LinterError when the linter exits with a bad status' do
       cmd = "echo 'test exit message' 1>&2 && exit 1"
-      expect { @c.execute_linter_cmd(cmd, 'file') }.to raise_error(LinterError, /test exit message/)
+      expect { @c.execute_linter_cmd(cmd, 'file', 'test-linter', 1) }.to raise_error(LinterError, /test exit message/)
     end
   end
 end
