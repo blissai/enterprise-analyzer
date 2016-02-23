@@ -3,13 +3,14 @@ class LocalLinter
   include Gitbase
   include Linter
 
-  def initialize(git_dir, commit, log_prefix, linter_config_path)
+  def initialize(git_dir, commit, log_prefix, linter_config_path, excluded_dirs)
     @logger = BlissLogger.new
     @git_dir = git_dir.nil? ? '/repository' : File.expand_path(git_dir)
     @linter_config_path = linter_config_path.nil? ? '/linter.yml' : File.expand_path(linter_config_path)
     @commit = commit
     @name = log_prefix
     @linter = YAML::load_file(@linter_config_path)
+    @excluded_dirs = excluded_dirs.split(',') rescue []
     @output_file = '/result.txt'
     @api_key = nil
     @repo_key = nil
@@ -17,6 +18,7 @@ class LocalLinter
   end
 
   def execute
+    remove_excluded_directories(@excluded_dirs, @git_dir)
     lint_commit(@commit, @linter, @output_file, false)
   end
 
