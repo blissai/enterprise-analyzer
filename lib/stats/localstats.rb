@@ -35,6 +35,9 @@ class LocalStats
     elsif @output_file.nil? || !File.exist?(@output_file)
       puts 'Please specify a writable file to output to.'
       valid = false
+    elsif File.directory?(@output_file)
+      puts 'Output file is a directory. Should be a file.'
+      valid = false
     elsif @commit.nil? || @commit.empty?
       puts 'Please specify a commit.'
       valid = false

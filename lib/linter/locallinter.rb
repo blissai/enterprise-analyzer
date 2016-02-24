@@ -30,8 +30,14 @@ class LocalLinter
     elsif @output_file.nil? || !File.exist?(@output_file)
       puts 'Please specify a writable file to output to.'
       valid = false
-    elsif !File.exist? @linter_config_path
+    elsif File.directory?(@output_file)
+      puts 'Output file is a directory. Should be a file.'
+      valid = false
+    elsif @linter_config_path.nil? || !File.exist?(@linter_config_path)
       puts 'Linter config file does not exist.'
+      valid = false
+    elsif File.directory?(@linter_config_path)
+      puts 'Linter config path is a directory. Should be a file.'
       valid = false
     elsif @commit.nil? || @commit.empty?
       puts 'Please specify a commit.'
