@@ -25,12 +25,12 @@ module Linter
 
   def execute_linter_cmd(cmd, file_name, linter_name, error_code)
     result = ''
-    error_code = '' if error_code.nil?
+    error_code = -1 if error_code.nil? || error_code.to_s.empty?
     thread_status = Open3.popen2e("#{cmd}") do |_stdin, stdout_err, wait_thr|
       result += stdout_err.read
       wait_thr.value
     end
-    if !error_code.empty? && thread_status.exitstatus == error_code.to_i
+    if thread_status.exitstatus == error_code
       @logger.error("#{linter_name} - linter failed.")
       fail LinterError, result
     else
