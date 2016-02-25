@@ -29,7 +29,7 @@ module Linter
       result += stdout_err.read
       wait_thr.value
     end
-    if thread_status.exitstatus == error_code.to_i
+    if !error_code.empty? && thread_status.exitstatus == error_code.to_i
       @logger.error("#{linter_name} - linter failed.")
       fail LinterError, result
     else

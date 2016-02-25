@@ -1,0 +1,20 @@
+---
+id: 15
+name: brakeman
+quality_command: mkdir app;brakeman -o file_name -f json -q git_dir
+quality_tool: brakeman
+output_format: json
+languages:
+- rails
+created_at: 2015-10-30 23:41:00.061696000 Z
+updated_at: 2016-02-22 04:08:51.550893000 Z
+cd_first:
+install_command: gem install brakeman
+quality_tool_version: 3
+operating_system: linux
+git_dir_regex: no match needed
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Security
+error_code: 1
