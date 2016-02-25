@@ -25,6 +25,7 @@ module Linter
 
   def execute_linter_cmd(cmd, file_name, linter_name, error_code)
     result = ''
+    error_code = '' if error_code.nil?
     thread_status = Open3.popen2e("#{cmd}") do |_stdin, stdout_err, wait_thr|
       result += stdout_err.read
       wait_thr.value
