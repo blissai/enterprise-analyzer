@@ -1,6 +1,8 @@
 machine:
   ruby:
     version: 2.2.3
+  node:
+    version: 0.10.22
   services:
     - docker
   environment:
@@ -8,8 +10,13 @@ machine:
     LANG: en_US.UTF-8
     LANGUAGE: en_US.UTF-8
 dependencies:
+  cache_directories:
+    - ~/nvm
+    - "node_modules"
   pre:
     - sudo locale-gen en_US.UTF-8
+    - npm install jshint
+    - npm install jshint-json
 deployment:
   hub:
     branch: master
