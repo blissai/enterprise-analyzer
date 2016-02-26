@@ -1,4 +1,6 @@
 machine:
+  ruby:
+    version: 2.2.3
   services:
     - docker
   environment:
@@ -7,7 +9,7 @@ machine:
     LANGUAGE: en_US.UTF-8
 dependencies:
   pre:
-    - sudo locale-gen en_US.UTF-8 
+    - sudo locale-gen en_US.UTF-8
 deployment:
   hub:
     branch: master
