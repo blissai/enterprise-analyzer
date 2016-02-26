@@ -3,7 +3,7 @@
 #
 
 # Pull base image.
-FROM centos:latest
+FROM centos:centos6
 
 # Install dependencies
 RUN yum install -y git bzip2 which wget gcc-c++ make perl php java-1.8.0-openjdk java-1.8.0-openjdk-devel git-svn unzip epel-release python-devel readline-devel openssl-devel automake libtool bison && \
