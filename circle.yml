@@ -5,7 +5,9 @@ machine:
     LC_ALL: en_US.UTF-8
     LANG: en_US.UTF-8
     LANGUAGE: en_US.UTF-8
-
+dependencies:
+  pre:
+    - sudo locale-gen en_US.UTF-8 
 deployment:
   hub:
     branch: master
