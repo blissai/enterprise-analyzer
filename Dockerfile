@@ -6,8 +6,9 @@
 FROM centos:centos6
 
 # Install dependencies
-RUN yum install -y git bzip2 which wget gcc-c++ make perl php java-1.8.0-openjdk java-1.8.0-openjdk-devel git-svn unzip epel-release python-devel readline-devel openssl-devel automake libtool bison && \
-    yum clean all
+RUN yum install -y git bzip2 which wget gcc-c++ make git-svn unzip epel-release readline-devel openssl-devel automake libtool bison \
+    && yum install -y perl php java-1.8.0-openjdk java-1.8.0-openjdk-devel python-devel centos-release-SCL python27 \
+    && yum clean all
 
 # Install pip
 RUN curl https://bootstrap.pypa.io/get-pip.py | python
