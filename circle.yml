@@ -1,0 +1,11 @@
+machine:
+  services:
+    - docker
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker build -t blissai/collector .
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push blissai/collector
