@@ -5,7 +5,7 @@
 # Pull base image.
 FROM blissai/base
 
-# Install Node.js, CSSlint, ESlint, nsp
+# Install CSSlint, ESlint, nsp
 RUN npm install -g jshint csslint eslint nsp coffeelint stylint
 
 # Clone phpcs & wpcs & pmd & ocstyle

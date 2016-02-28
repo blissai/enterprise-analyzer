@@ -44,7 +44,7 @@ RUN cd /tmp && \
 ENV GOPATH /root/go
 ENV PATH $PATH:/usr/local/go/bin:$GOPATH/bin
 
-# Install Node.js, CSSlint, ESlint, nsp
+# Install Node.js
 RUN curl --silent --location https://rpm.nodesource.com/setup | bash - \
     && yum install -y nodejs --enablerepo=epel
 
