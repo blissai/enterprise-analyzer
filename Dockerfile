@@ -3,7 +3,7 @@
 #
 
 # Pull base image.
-FROM centos:centos6
+FROM centos:latest
 
 # Install dependencies
 RUN yum install -y git bzip2 which wget gcc-c++ make git-svn unzip epel-release readline-devel openssl-devel automake libtool bison \
