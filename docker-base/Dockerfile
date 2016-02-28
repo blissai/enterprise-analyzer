@@ -48,7 +48,6 @@ ENV PATH $PATH:/usr/local/go/bin:$GOPATH/bin
 RUN curl --silent --location https://rpm.nodesource.com/setup | bash - \
     && yum install -y nodejs npm
 
-
 WORKDIR /root
 
 # Define default command.
