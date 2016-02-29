@@ -14,6 +14,7 @@ dependencies:
   cache_directories:
     - ~/nvm
     - "node_modules"
+    - "~/docker"
   pre:
     - sudo locale-gen en_US.UTF-8
     - npm install -g jshint
@@ -23,6 +24,8 @@ deployment:
     branch: master
     commands:
       - sudo service docker restart
+      - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
       - docker build -t blissai/collector .
+      - mkdir -p ~/docker; docker save blissai/collector > ~/docker/image.tar
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push blissai/collector

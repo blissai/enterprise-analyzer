@@ -3,7 +3,7 @@
 #
 
 # Pull base image.
-FROM blissai/base
+FROM blissai/base:latest
 
 # Install CSSlint, ESlint, nsp
 RUN npm install -g jshint csslint eslint nsp coffeelint stylint sass-lint
