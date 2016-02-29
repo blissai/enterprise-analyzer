@@ -28,6 +28,6 @@ deployment:
   hub:
     branch: master
     commands:
-      - sudo service docker restart
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push blissai/collector
+      # - sudo service docker restart
+      # - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      # - docker push blissai/collector
