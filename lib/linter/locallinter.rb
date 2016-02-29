@@ -9,12 +9,12 @@ class LocalLinter
     @linter_config_path = linter_config_path.nil? ? '/linter.yml' : File.expand_path(linter_config_path)
     @commit = commit
     @name = log_prefix
-    @linter = YAML::load_file(@linter_config_path)
     @excluded_dirs = excluded_dirs.split(',') rescue []
     @output_file = '/result.txt'
     @api_key = nil
     @repo_key = nil
     check_args
+    @linter = YAML::load_file(@linter_config_path)
   end
 
   def execute
