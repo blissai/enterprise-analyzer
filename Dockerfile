@@ -5,9 +5,6 @@
 # Pull base image.
 FROM blissai/base:latest
 
-# Install CSSlint, ESlint, nsp
-RUN npm install -g jshint csslint eslint nsp coffeelint stylint
-
 # Clone phpcs & wpcs & pmd & ocstyle
 RUN cd /root \
     && git clone https://github.com/founderbliss/ocstyle.git /root/ocstyle \
@@ -28,6 +25,9 @@ RUN curl -fsSL https://s3.amazonaws.com/bliss-cli-dependencies/tailor-install.sh
 # Install gometalinter
 RUN go get github.com/alecthomas/gometalinter
 RUN gometalinter --install --update
+
+# Install CSSlint, ESlint, nsp
+RUN npm install -g jshint csslint eslint nsp coffeelint stylint sass-lint
 
 ENV BLISS_CLI_VERSION 72
 
