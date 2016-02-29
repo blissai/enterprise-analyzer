@@ -9,6 +9,8 @@ gem 'brakeman'
 gem 'simplecov'
 gem 'faraday'
 gem 'figaro'
+gem 'sass-lint'
+gem 'scss_lint'
 group :test do
   gem 'nokogiri'
   gem 'equivalent-xml'

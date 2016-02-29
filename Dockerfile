@@ -6,7 +6,7 @@
 FROM blissai/base:latest
 
 # Install CSSlint, ESlint, nsp
-RUN npm install -g jshint csslint eslint nsp coffeelint stylint sass-lint
+RUN npm install -g jshint csslint eslint nsp coffeelint stylint
 
 # Clone phpcs & wpcs & pmd & ocstyle
 RUN cd /root \
