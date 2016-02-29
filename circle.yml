@@ -21,9 +21,9 @@ dependencies:
     - npm install -g jshint-json
   override:
     - bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
-    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
-    - docker build -t blissai/collector .
-    - mkdir -p ~/docker; docker save blissai/collector > ~/docker/image.tar
+    # - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
+    # - docker build -t blissai/collector .
+    # - mkdir -p ~/docker; docker save blissai/collector > ~/docker/image.tar
 deployment:
   hub:
     branch: master
