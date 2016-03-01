@@ -25,22 +25,22 @@ class LocalLinter
   def check_args
     valid = true
     if !File.exist? @git_dir
-      puts 'Directory does not exist.'
+      @logger.error("#{@name} - Directory does not exist.")
       valid = false
     elsif @output_file.nil? || !File.exist?(@output_file)
-      puts 'Please specify a writable file to output to.'
+      @logger.error("#{@name} - Please specify a writable file to output to.")
       valid = false
     elsif File.directory?(@output_file)
-      puts 'Output file is a directory. Should be a file.'
+      @logger.error("#{@name} - Output file is a directory. Should be a file.")
       valid = false
     elsif @linter_config_path.nil? || !File.exist?(@linter_config_path)
-      puts 'Linter config file does not exist.'
+      @logger.error("#{@name} - Linter config file does not exist.")
       valid = false
     elsif File.directory?(@linter_config_path)
-      puts 'Linter config path is a directory. Should be a file.'
+      @logger.error("#{@name} - 'Linter config path is a directory. Should be a file.")
       valid = false
     elsif @commit.nil? || @commit.empty?
-      puts 'Please specify a commit.'
+      @logger.error("#{@name} - Please specify a commit.")
       valid = false
     end
     exit 1 unless valid

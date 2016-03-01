@@ -8,12 +8,11 @@ class LocalStats
     @commit = commit
     @git_dir = git_dir.nil? ? '/repository' : File.expand_path(git_dir)
     @output_file = '/result.txt'
-    puts @git_dir
+    @name = log_prefix
     unless File.exist? @git_dir
-      puts 'Directory does not exist.'
+      @logger.error("#{@name} - Directory does not exist.")
       exit 1
     end
-    @name = log_prefix
     @excluded_dirs = excluded_dirs.split(',') rescue []
     @repo_test_files = repo_test_files.split(',') rescue %w(test)
     @repo_test_dirs = repo_test_dirs.split(',') rescue %w(test spec)
@@ -30,16 +29,16 @@ class LocalStats
   def check_args
     valid = true
     if !File.exist? @git_dir
-      puts 'Directory does not exist.'
+      @logger.error("#{@name} - Directory does not exist.")
       valid = false
     elsif @output_file.nil? || !File.exist?(@output_file)
-      puts 'Please specify a writable file to output to.'
+      @logger.error("#{@name} - Please specify a writable file to output to.")
       valid = false
     elsif File.directory?(@output_file)
-      puts 'Output file is a directory. Should be a file.'
+      @logger.error("#{@name} - Output file is a directory. Should be a file.")
       valid = false
     elsif @commit.nil? || @commit.empty?
-      puts 'Please specify a commit.'
+      @logger.error("#{@name} - Please specify a commit.")
       valid = false
     end
     exit 1 unless valid
