@@ -13,6 +13,11 @@ RSpec.describe Gitbase do
     FileUtils.mkdir_p("#{@iosdir}/Frameworks")
     File.open("#{@iosdir}/Pods/test.txt", 'w+') { |file| file.write('A pod.') }
     File.open("#{@iosdir}/Frameworks/test.txt", 'w+') { |file| file.write('A framework.') }
+
+    FileUtils.mkdir_p("#{@iosdir}/Nested/Pods")
+    FileUtils.mkdir_p("#{@iosdir}/Nested/Frameworks")
+    File.open("#{@iosdir}/Nested/Pods/test.txt", 'w+') { |file| file.write('A pod.') }
+    File.open("#{@iosdir}/Nested/Frameworks/test.txt", 'w+') { |file| file.write('A framework.') }
   end
 
   let(:including_class) { Class.new { include Gitbase } }
@@ -53,6 +58,8 @@ RSpec.describe Gitbase do
       including_class.new.remove_excluded_directories(%w(Pods Frameworks), @iosdir)
       expect(File.directory?("#{@iosdir}/Pods")).to be false
       expect(File.directory?("#{@iosdir}/Frameworks")).to be false
+      expect(File.directory?("#{@iosdir}/Nested/Frameworks")).to be false
+      expect(File.directory?("#{@iosdir}/Nested/Frameworks")).to be false
     end
   end
 end
