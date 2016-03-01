@@ -32,6 +32,7 @@ module Linter
     end
     if thread_status.exitstatus == error_code
       @logger.error("#{linter_name} - linter failed.")
+      File.write(file_name, result)
       fail LinterError, result
     else
       File.open(file_name, 'r').read
