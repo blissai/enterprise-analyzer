@@ -213,7 +213,10 @@ module Gitbase
     puts "\t#{@name} - Removing libraries and frameworks...".blue
     excluded_dirs.each do |dir|
       next if dir =~ /\.\./
-      `#{remove_command} #{git_dir}/#{dir}`
+      nested_dirs = Dir.glob(File.join(git_dir, '**', dir))
+      nested_dirs.each do |nd|
+        `#{remove_command} #{nd}`
+      end
     end
   end
 end
