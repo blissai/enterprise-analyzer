@@ -35,33 +35,16 @@ module Gitbase
     # Remove open source files
     puts "\t#{@name} - Removing open source files...".blue
     open_source_lines = nil
-    if Gem.win_platform?
-      egrep_cmd = 'C:/Program Files (x86)/GnuWin32/bin/egrep.exe'
-      if File.exist?(egrep_cmd)
-        open_source_lines = `"#{egrep_cmd}" -i "free software|Hamano|jQuery|BSD|GPL|GNU|MIT|Apache" #{git_dir}/* -R`
-        open_source_lines = open_source_lines.encode('UTF-8', invalid: :replace, undef: :replace, replace: '').split("\n")
-        open_source_lines.keep_if do |line|
-          line =~ /License|Copyright/i
-        end
-      else
-        open_source_lines = `findstr /R /S "Hamano jQuery BSD GPL GNU MIT Apache" #{git_dir}/*`
-        open_source_lines = open_source_lines.encode('UTF-8', invalid: :replace, undef: :replace, replace: '').split("\n")
-        open_source_lines.keep_if do |line|
-          line =~ /License|Copyright/i
-        end
-      end
-    else
-      open_source_lines = `egrep -i "free software|Hamano|jQuery|BSD|GPL|GNU|MIT|Apache" #{git_dir}/* -R`
-      open_source_lines = open_source_lines.encode('UTF-8', invalid: :replace, undef: :replace, replace: '').split("\n")
-      open_source_lines.keep_if do |line|
-        line =~ /License|Copyright/i
-      end
+    open_source_lines = `egrep -i "free software|Hamano|jQuery|BSD|GPL|GNU|MIT|Apache" #{git_dir}/* -R`
+    open_source_lines = open_source_lines.encode('UTF-8', invalid: :replace, undef: :replace, replace: '').split("\n")
+    open_source_lines.keep_if do |line|
+      line =~ /License|Copyright/i
     end
     todo = []
-    temp_start = Gem.win_platform? ? 'c:/temp/codecop' : '/tmp/codecop'
+    temp_start = git_dir
     open_source_lines.each do |line|
       line = line.tr('\\', '/')
-      if match = /^#{temp_start}([^:]+?)\/[^\/:\s]*license|licence|readme|(.txt|.md):/i.match(line)
+      if match = /^#{git_dir}([^:]+?)\/[^\/:\s]*license|licence|readme|(.txt|.md):/i.match(line)
         # puts "license file found: #{line}"
         file_name = "#{temp_start}#{match[1]}"
         todo << ["#{remove_command} #{file_name}/*", file_name] if match[1]
@@ -79,13 +62,8 @@ module Gitbase
       todo << ["#{remove_command} #{file_name}", file_name]
     end
     todo.uniq!
-    todo.each do |cmd, file_name|
-      # puts cmd
-      puts "Removing #{file_name}"
-      if File.exist?(file_name)
-        # `#{get_cmd(cmd)}`
-        `#{cmd}`
-      end
+    todo.each do |cmd, fn|
+      `#{cmd}` if File.exist?(fn)
     end
   end
 
@@ -115,11 +93,7 @@ module Gitbase
   end
 
   def remove_command
-    if Gem.win_platform?
-      'rm -r -Force'
-    else
-      'rm -rf'
-    end
+    'rm -rf'
   end
 
   def sense_project_type(git_dir)
