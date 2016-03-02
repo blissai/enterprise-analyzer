@@ -4,5 +4,5 @@ require_relative '../lib/bootstrap'
 include Cmd
 @args = ARGV
 linter = LocalLinter.new(arg('dir'), arg('commit'), arg('log'),
-                         arg('linter_file'), arg('excluded_dirs'), arg('remove_open_source'))
+                         arg('linter_file'), arg('excluded_dirs'), arg('remove_open_source') == 'true')
 linter.execute
