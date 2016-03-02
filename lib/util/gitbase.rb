@@ -47,19 +47,19 @@ module Gitbase
       if match = /^#{git_dir}([^:]+?)\/[^\/:\s]*license|licence|readme|(.txt|.md):/i.match(line)
         # puts "license file found: #{line}"
         file_name = "#{temp_start}#{match[1]}"
-        todo << ["#{remove_command} #{file_name}/*", file_name] if match[1]
+        todo << ["#{remove_command} '#{file_name}/*'", file_name] if match[1]
       elsif match = /^#{temp_start}([^:]+?)\/[^\/]*manifest.xml:/i.match(line)
         # puts "manifest file found: #{line}"
         file_name = "#{temp_start}#{match[1]}"
-        todo << ["#{remove_command} #{file_name}/*", file_name] if match[1]
+        todo << ["#{remove_command} '#{file_name}/*'", file_name] if match[1]
       elsif match = /^#{temp_start}([^:]+?):/i.match(line)
         file_name = "#{temp_start}#{match[1]}"
-        todo << ["rm #{file_name}", file_name] if match[1]
+        todo << ["rm '#{file_name}'", file_name] if match[1]
       end
     end
     if File.exist?(File.join(git_dir, 'NuGet.config')) && Dir.exist?(File.join(git_dir, 'packages'))
       file_name = File.join(git_dir, 'packages')
-      todo << ["#{remove_command} #{file_name}", file_name]
+      todo << ["#{remove_command} '#{file_name}'", file_name]
     end
     todo.uniq!
     todo.each do |cmd, fn|
