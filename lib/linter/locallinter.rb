@@ -3,7 +3,7 @@ class LocalLinter
   include Gitbase
   include Linter
 
-  def initialize(git_dir, commit, log_prefix, linter_config_path, excluded_dirs)
+  def initialize(git_dir, commit, log_prefix, linter_config_path, excluded_dirs, remove_open_source = true)
     @logger = BlissLogger.new
     @git_dir = git_dir.nil? ? '/repository' : File.expand_path(git_dir)
     @linter_config_path = linter_config_path.nil? ? '/linter.yml' : File.expand_path(linter_config_path)
@@ -13,6 +13,8 @@ class LocalLinter
     @output_file = '/result.txt'
     @api_key = nil
     @repo_key = nil
+    @remove_open_source = true
+    @remove_open_source = remove_open_source unless remove_open_source.nil?
     check_args
     @linter = YAML::load_file(@linter_config_path)
   end
