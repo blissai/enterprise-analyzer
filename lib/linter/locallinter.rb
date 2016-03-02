@@ -10,17 +10,17 @@ class LocalLinter
     @commit = commit
     @name = log_prefix
     @excluded_dirs = excluded_dirs.split(',') rescue []
+    @remove_open_source = remove_open_source
     @output_file = '/result.txt'
     @api_key = nil
     @repo_key = nil
-    @remove_open_source = true
-    @remove_open_source = remove_open_source unless remove_open_source.nil?
     check_args
     @linter = YAML::load_file(@linter_config_path)
   end
 
   def execute
     remove_excluded_directories(@excluded_dirs, @git_dir)
+    remove_open_source_files(@git_dir) if @remove_open_source == true || @remove_open_source.nil?
     remove_symlinks(@git_dir)
     lint_commit(@commit, @linter, @output_file, false)
   end
