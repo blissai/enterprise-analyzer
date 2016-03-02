@@ -19,6 +19,7 @@ class LocalLinter
 
   def execute
     remove_excluded_directories(@excluded_dirs, @git_dir)
+    remove_symlinks(@git_dir)
     lint_commit(@commit, @linter, @output_file, false)
   end
 

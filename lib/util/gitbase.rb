@@ -219,4 +219,9 @@ module Gitbase
       end
     end
   end
+
+  def remove_symlinks(git_dir)
+    puts "\t#{@name} - Removing symlinks"
+    `find -f #{git_dir} -type l -delete`
+  end
 end

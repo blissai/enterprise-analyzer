@@ -38,6 +38,7 @@ class LinterTask
     checkout_commit(@git_dir, commit)
     remove_open_source_files(@git_dir) unless @repo['detect_open_source'] == false
     remove_excluded_directories(@excluded_dirs, @git_dir)
+    remove_symlinks(@git_dir)
     Dir.mktmpdir do |tmp_dir|
       @linters.each do |linter|
         output_file = File.join(tmp_dir, "#{linter['quality_tool']}.#{linter['output_format']}")
