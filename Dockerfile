@@ -16,6 +16,9 @@ RUN cd /root \
 # Install Perl Critic
 RUN yum install -y 'perl(Perl::Critic)'
 
+# Install PHPMD
+RUN mkdir ~/phpmd && wget -O ~/phpmd/phpmd.phar -c http://static.phpmd.org/php/latest/phpmd.phar
+
 # Install pip modules
 RUN pip install importlib argparse lizard django prospector parcon ocstyle
 
