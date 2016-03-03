@@ -20,8 +20,7 @@ RUN yum install -y 'perl(Perl::Critic)'
 RUN pip install importlib argparse lizard django prospector parcon ocstyle
 
 # Install Tailor
-# RUN curl -fsSL https://s3.amazonaws.com/bliss-cli-dependencies/tailor-install.sh | sh
-RUN curl -fsSL https://tailor.sh/install.sh | sh
+RUN curl -fsSL https://s3.amazonaws.com/bliss-cli-dependencies/tailor-install.sh | sh
 
 # Install gometalinter
 RUN go get github.com/alecthomas/gometalinter
