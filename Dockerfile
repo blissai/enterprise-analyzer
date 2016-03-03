@@ -32,7 +32,7 @@ RUN gometalinter --install --update
 # Install CSSlint, ESlint, nsp
 RUN npm install -g jshint csslint eslint nsp coffeelint stylint sass-lint
 
-ENV BLISS_CLI_VERSION 85
+ENV BLISS_CLI_VERSION 86
 
 # Get collector tasks and gems
 # RUN git clone -b cloud https://github.com/founderbliss/enterprise-analyzer.git /root/collector \
