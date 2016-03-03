@@ -19,6 +19,7 @@ class LocalLinter
   end
 
   def execute
+    checkout_commit(@git_dir, @commit)
     remove_excluded_directories(@excluded_dirs, @git_dir)
     remove_open_source_files(@git_dir) if @remove_open_source == true || @remove_open_source.nil?
     remove_symlinks(@git_dir)
