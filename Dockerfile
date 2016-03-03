@@ -20,7 +20,8 @@ RUN yum install -y 'perl(Perl::Critic)'
 RUN pip install importlib argparse lizard django prospector parcon ocstyle
 
 # Install Tailor
-RUN curl -fsSL https://s3.amazonaws.com/bliss-cli-dependencies/tailor-install.sh | sh
+# RUN curl -fsSL https://s3.amazonaws.com/bliss-cli-dependencies/tailor-install.sh | sh
+RUN curl -fsSL https://tailor.sh/install.sh | sh
 
 # Install gometalinter
 RUN go get github.com/alecthomas/gometalinter
@@ -29,7 +30,7 @@ RUN gometalinter --install --update
 # Install CSSlint, ESlint, nsp
 RUN npm install -g jshint csslint eslint nsp coffeelint stylint sass-lint
 
-ENV BLISS_CLI_VERSION 84
+ENV BLISS_CLI_VERSION 85
 
 # Get collector tasks and gems
 # RUN git clone -b cloud https://github.com/founderbliss/enterprise-analyzer.git /root/collector \
