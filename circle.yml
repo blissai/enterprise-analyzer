@@ -4,17 +4,17 @@ machine:
   node:
     version: 0.10.22
   services:
-    - docker
+    # - docker
   environment:
     LC_ALL: en_US.UTF-8
     LANG: en_US.UTF-8
     LANGUAGE: en_US.UTF-8
-    DOCKER_OPTS: "-s devicemapper"
+    # DOCKER_OPTS: "-s devicemapper"
 dependencies:
   cache_directories:
     - ~/nvm
     - "node_modules"
-    - "~/docker"
+    # - "~/docker"
   pre:
     - sudo locale-gen en_US.UTF-8
     - npm install -g jshint
