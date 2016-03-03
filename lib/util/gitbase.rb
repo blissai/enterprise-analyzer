@@ -47,10 +47,12 @@ module Gitbase
       if match = /^#{git_dir}([^:]+?)\/[^\/:\s]*license|licence|readme|(.txt|.md):/i.match(line)
         # puts "license file found: #{line}"
         file_name = "#{temp_start}#{match[1]}"
+        next if file_name == git_dir
         todo << ["#{remove_command} '#{file_name}/*'", file_name] if match[1]
       elsif match = /^#{temp_start}([^:]+?)\/[^\/]*manifest.xml:/i.match(line)
         # puts "manifest file found: #{line}"
         file_name = "#{temp_start}#{match[1]}"
+        next if file_name == git_dir
         todo << ["#{remove_command} '#{file_name}/*'", file_name] if match[1]
       elsif match = /^#{temp_start}([^:]+?):/i.match(line)
         file_name = "#{temp_start}#{match[1]}"
@@ -189,7 +191,7 @@ module Gitbase
       next if dir =~ /\.\./
       nested_dirs = Dir.glob(File.join(git_dir, '**', dir))
       nested_dirs.each do |nd|
-        `#{remove_command} #{nd}`
+        `#{remove_command} #{nd}` if File.exist? nd
       end
     end
   end
