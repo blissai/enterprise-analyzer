@@ -49,7 +49,7 @@ ENV PATH $PATH:/usr/local/go/bin:$GOPATH/bin
 
 # Install Node.js
 RUN curl --silent --location https://rpm.nodesource.com/setup | bash - \
-    && yum install -y nodejs npm
+    && yum install -y nodejs
 
 WORKDIR /root
 
