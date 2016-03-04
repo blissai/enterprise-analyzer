@@ -11,7 +11,7 @@ RUN yum install -y git bzip2 which wget gcc-c++ make git-svn unzip epel-release 
     && yum clean all
 
 # Increase PHP Memory Limit
-RUN sed -i 's/memory_limit = .*/memory_limit = -1/' /etc/php.ini
+RUN sed -i 's/memory_limit = .*/memory_limit = 2048m/' /etc/php.ini
 
 # Set JAVA_HOME max heap space for java
 ENV JAVA_OPTS '-Xms512m -Xmx3072m'
