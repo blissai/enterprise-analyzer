@@ -20,8 +20,8 @@ class Partitioner
       partition_dest = "/tmp/parts/#{SecureRandom.hex(3)}"
       files = File.read(pf).split("\n")
       files.each do |f|
-        file_dest = File.join(partition_dest, f).sub(@src_dir, '')
-        `mkdir -p #{File.dirname(file_dest)}`
+        file_dest = File.dirname(File.join(partition_dest, f).sub(@src_dir, ''))
+        `mkdir -p #{file_dest}`
         `cp #{f} #{file_dest}`
       end
     end
