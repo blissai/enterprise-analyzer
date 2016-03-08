@@ -2,6 +2,7 @@ require_relative '../spec_helper.rb'
 RSpec.describe CollectorTask do
   before(:all) do
     @dir = "#{Dir.pwd}/spec/fixtures/projs"
+    `git clone https://github.com/founderbliss/homebrew-bliss-cli.git #{Dir.pwd}/spec/fixtures/projs/repoone`
     @config = {
       'TOP_LVL_DIR' => @dir,
       'ORG_NAME' => 'TESTORG',
@@ -9,6 +10,10 @@ RSpec.describe CollectorTask do
       'BLISS_HOST' => 'https://app.founderbliss.com'
     }
     @c = CollectorTask.new(@config)
+  end
+
+  after(:all) do
+    FileUtils.rm_rf("#{Dir.pwd}/spec/fixtures/projs/repoone")
   end
 
   context 'given a configuration' do
@@ -52,7 +57,7 @@ RSpec.describe CollectorTask do
 
     it 'identifies the directories' do
       list = @c.get_directory_list(@dir)
-      expect(list.size).to eq(6)
+      expect(list.size).to eq(1)
     end
   end
 end

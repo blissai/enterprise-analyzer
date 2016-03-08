@@ -207,6 +207,7 @@ module Gitbase
   end
 
   def git_dir?(dir)
+    return false unless File.directory?("#{dir}/.git")
     cmd = "cd #{dir} && git rev-parse"
     cmd = "#{cmd} > /dev/null 2>&1"
     system(cmd)

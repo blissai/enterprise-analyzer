@@ -2,6 +2,8 @@ require_relative '../spec_helper.rb'
 RSpec.describe ConcurrentTasks do
   before(:all) do
     @dir = "#{Dir.pwd}/spec/fixtures/projs"
+    `git clone https://github.com/founderbliss/homebrew-bliss-cli.git #{Dir.pwd}/spec/fixtures/projs/repoone`
+    `git clone https://github.com/mikesive/sshlack.git #{Dir.pwd}/spec/fixtures/projs/repotwo`
     @config = {
       'TOP_LVL_DIR' => @dir,
       'ORG_NAME' => 'TESTORG',
@@ -9,6 +11,11 @@ RSpec.describe ConcurrentTasks do
       'BLISS_HOST' => 'https://app.founderbliss.com'
     }
     @c = ConcurrentTasks.new(@config)
+  end
+
+  after(:all) do
+    FileUtils.rm_rf("#{Dir.pwd}/spec/fixtures/projs/repoone")
+    FileUtils.rm_rf("#{Dir.pwd}/spec/fixtures/projs/repotwo")
   end
 
   context 'given a configuration' do
@@ -29,7 +36,7 @@ RSpec.describe ConcurrentTasks do
     end
 
     it 'has some repos' do
-      expect(@c.instance_variable_get('@dirs_list').count).to eq(6)
+      expect(@c.instance_variable_get('@dirs_list').count).to eq(2)
     end
   end
 end
