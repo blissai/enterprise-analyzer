@@ -21,8 +21,8 @@ class Partitioner
       files = File.read(pf).split("\n")
       files.each do |f|
         file_dest = File.join(partition_dest, f).sub(@src_dir, '')
-        FileUtils.mkdir_p(File.dirname(file_dest))
-        FileUtils.copy(f, file_dest)
+        `mkdir -p #{File.dirname(file_dest)}`
+        `cp #{f} #{file_dest}`
       end
     end
     Dir.glob('/tmp/parts/*')
