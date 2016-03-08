@@ -38,7 +38,7 @@ class LocalLinter
       parts = Partitioner.new(@git_dir, @logger).create_partitions
       @logger.info("\tRunning #{@linter['quality_tool']} on #{@commit}... This may take a while...")
       Parallel.each_with_index(parts, in_processes: parts.size) do |part, index|
-        lint_commit(@linter, "/result#{index}.txt", false, part)
+        lint_commit(@linter, "/resultpart#{index}.txt", false, part)
       end
       consolidate_output
     else
@@ -49,7 +49,7 @@ class LocalLinter
 
   def consolidate_output
     File.truncate(@output_file, 0)
-    Dir.glob('/result*.txt').each do |r|
+    Dir.glob('/resultpart*.txt').each do |r|
       File.open(@output_file, 'a') do |f|
         f.write("<--LintFilePartition-->\n#{File.read(r)}")
       end
