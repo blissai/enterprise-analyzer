@@ -33,7 +33,7 @@ module Gitbase
 
   def remove_open_source_files(git_dir)
     # Remove open source files
-    @logger.info("\tRemoving open source files...")
+    @logger.info("\tRemoving open source files...") if @logger
     open_source_lines = nil
     open_source_lines = `egrep -i "free software|Hamano|jQuery|BSD|GPL|GNU|MIT|Apache" #{git_dir}/* -R`
     open_source_lines = open_source_lines.encode('UTF-8', invalid: :replace, undef: :replace, replace: '').split("\n")
@@ -186,7 +186,7 @@ module Gitbase
   end
 
   def remove_excluded_directories(excluded_dirs, git_dir)
-    @logger.info("\tRemoving libraries and frameworks...")
+    @logger.info("\tRemoving libraries and frameworks...") if @logger
     excluded_dirs.each do |dir|
       next if dir =~ /\.\./
       nested_dirs = Dir.glob(File.join(git_dir, '**', dir))
@@ -197,12 +197,12 @@ module Gitbase
   end
 
   def remove_symlinks(git_dir)
-    @logger.info("\tRemoving symlinks...")
+    @logger.info("\tRemoving symlinks...") if @logger
     `find #{git_dir} -type l -delete`
   end
 
   def create_working_copy(initial_dir, destination_dir)
-    @logger.info("\tCreating working copy...")
+    @logger.info("\tCreating working copy...") if @logger
     `cp -r #{initial_dir} #{destination_dir}`
   end
 

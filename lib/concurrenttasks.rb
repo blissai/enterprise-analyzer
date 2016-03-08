@@ -1,5 +1,6 @@
 class ConcurrentTasks
   include Common
+  include Gitbase
   def initialize(config)
     @top_level_dir = config['TOP_LVL_DIR']
     @org_name = config['ORG_NAME']
