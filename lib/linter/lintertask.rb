@@ -8,7 +8,7 @@ class LinterTask
   def initialize(git_dir, api_key, host, repo)
     init_configuration(git_dir, api_key, host, repo)
     configure_http
-    @logger = BlissLogger.new(api_key, @repo_key)
+    @logger = BlissLogger.new(api_key, @repo_key, @name)
     @scrubber = SourceScrubber.new
     @from_date = nil
     @to_date = nil
@@ -16,22 +16,22 @@ class LinterTask
   end
 
   def execute
-    @logger.info("Running Linter on #{@name}...")
+    @logger.info('Running Linter...')
     metrics = next_batch
     unless metrics.empty?
       starttime = DateTime.parse(metrics.last['commited_at'])
       endtime = DateTime.parse(metrics.first['commited_at'])
       dates = "#{starttime.strftime('%d-%m-%Y')} and #{endtime.strftime('%d-%m-%Y')}"
-      @logger.success("#{@name} - Processing Linters between #{dates}")
+      @logger.success("Processing Linters between #{dates}")
     end
     metrics.each do |metric|
       commit = metric['commit']
-      @logger.success("#{@name} - Running linters over #{commit}")
+      @logger.success("Running linters over #{commit}")
       process_commit(commit)
     end
     # Go back to main branch
     checkout_commit(@git_dir, @repo['branch'])
-    @logger.success("Linter finished for #{@name}...")
+    @logger.success('Linter finished...')
   end
 
   def process_commit(commit)
@@ -42,10 +42,12 @@ class LinterTask
     Dir.mktmpdir do |tmp_dir|
       @linters.each do |linter|
         output_file = File.join(tmp_dir, "#{linter['quality_tool']}.#{linter['output_format']}")
-        lint_commit(commit, linter, output_file, true)
+        @commit = commit
+        @logger.info("\tRunning #{linter['quality_tool']} on #{@commit}... This may take a while...")
+        lint_commit(linter, output_file, true)
       end
     end
-    @logger.success("\t#{@name} - Finished linting for commit #{commit}")
+    @logger.success("\tFinished linting for commit #{commit}")
   end
 
   private

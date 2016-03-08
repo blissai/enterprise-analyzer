@@ -10,6 +10,7 @@ gem 'simplecov'
 gem 'faraday'
 gem 'figaro'
 gem 'scss_lint'
+gem 'parallel'
 group :test do
   gem 'nokogiri'
   gem 'equivalent-xml'

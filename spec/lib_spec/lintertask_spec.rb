@@ -16,6 +16,7 @@ RSpec.describe LinterTask do
   after(:all) do
     FileUtils.rm_rf(@dir)
     FileUtils.rm_rf('vendor')
+    FileUtils.rm_rf('file')
   end
 
   context 'given a configuration' do

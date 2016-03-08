@@ -32,14 +32,22 @@ RUN gometalinter --install --update
 # Install CSSlint, ESlint, nsp
 RUN npm install -g jshint csslint eslint nsp coffeelint stylint sass-lint
 
-ENV BLISS_CLI_VERSION 86
+# Install fpart
+RUN git clone https://github.com/martymac/fpart.git /tmp/fpart \
+    && cd /tmp/fpart \
+    && autoreconf -i \
+    && ./configure \
+    && make \
+    && make install
+
+ENV BLISS_CLI_VERSION 87
 
 # Get collector tasks and gems
-# RUN git clone -b cloud https://github.com/founderbliss/enterprise-analyzer.git /root/collector \
-RUN git clone https://github.com/founderbliss/enterprise-analyzer.git /root/collector \
-    && cd /root/collector \
+ADD . /root/collector
+RUN cd /root/collector \
     && bundle install --without test \
-    && mkdir /root/bliss && mv /root/collector/.prospector.yml /root/bliss/.prospector.yml
+    && mkdir /root/bliss && mv /root/collector/.prospector.yml /root/bliss/.prospector.yml \
+    && mv /root/collector/phpmd-ruleset.xml /root/phpmd/phpmd-ruleset.xml
 
 WORKDIR /root/collector
 

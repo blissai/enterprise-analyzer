@@ -6,13 +6,11 @@ class LocalStats
                  excluded_dirs, repo_test_files, repo_test_dirs, remove_open_source = true)
     @logger = BlissLogger.new
     @commit = commit
-    @git_dir = git_dir.nil? ? '/repository' : File.expand_path(git_dir)
+    @repository_dir = git_dir.nil? ? '/repository' : File.expand_path(git_dir)
+    create_working_copy(@repository_dir, '/tmp/code')
+    @git_dir = '/tmp/code'
     @output_file = '/result.txt'
     @name = log_prefix
-    unless File.exist? @git_dir
-      @logger.error("#{@name} - Directory does not exist.")
-      exit 1
-    end
     @excluded_dirs = excluded_dirs.split(',') rescue []
     @repo_test_files = repo_test_files.split(',') rescue %w(test)
     @repo_test_dirs = repo_test_dirs.split(',') rescue %w(test spec)

@@ -1,0 +1,27 @@
+---
+id: 36
+name: phpmd
+quality_command: php ~/phpmd/phpmd.phar git_dir xml ~/phpmd/phpmd-ruleset.xml --reportfile file_name
+quality_tool: phpmd
+output_format: xml
+languages:
+- PHP
+- Laravel
+- php
+- elgg
+created_at: 2016-03-03 22:27:34.962976000 Z
+updated_at: 2016-03-03 22:27:34.962976000 Z
+cd_first:
+install_command: wget -c http://static.phpmd.org/php/latest/phpmd.phar
+quality_tool_version: 1
+operating_system: linux
+git_dir_regex:
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Style
+- Complexity
+error_code: 255
+success_match:
+default: true
+partionable: true
