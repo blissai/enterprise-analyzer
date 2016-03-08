@@ -34,7 +34,7 @@ class LocalLinter
   end
 
   def partition_and_lint
-    if @linter['partionable']
+    if @linter['partitionable']
       parts = Partitioner.new(@git_dir, @logger).create_partitions
       @logger.info("\tRunning #{@linter['quality_tool']} on #{@commit}... This may take a while...")
       Parallel.each_with_index(parts, in_processes: parts.size) do |part, index|
