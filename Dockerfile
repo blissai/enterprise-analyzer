@@ -40,7 +40,7 @@ RUN git clone https://github.com/martymac/fpart.git /tmp/fpart \
     && make \
     && make install
 
-ENV BLISS_CLI_VERSION 87
+ENV BLISS_CLI_VERSION 88
 
 # Get collector tasks and gems
 ADD . /root/collector
