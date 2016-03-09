@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+<duplication lines="27" tokens="73">
+<file line="140" path="/tmp/codecop/founderbliss/bliss/bliss/app/workers/metric_worker.rb"/>
+<file line="212" path="/tmp/codecop/founderbliss/bliss/bliss/app/workers/metric_worker.rb"/>
+<codefragment>
+<![CDATA[
+      p.complexity_debt = parent_jshint["result"].size*5
+      p.redundancy_debt = 0
+      p.test_debt = p.missing_test_coverage(p)
+      p.code_debt = p.complexity_debt + p.redundancy_debt + p.test_debt
+
+      m.parent_complexity_debt = p.complexity_debt
+      m.parent_redundancy_debt = p.redundancy_debt
+      m.parent_test_debt = p.test_debt
+      m.diff_complexity_debt = m.complexity_debt - m.parent_complexity_debt
+      m.diff_redundancy_debt = m.redundancy_debt - m.parent_redundancy_debt
+      m.diff_test_debt = m.test_debt - m.parent_test_debt
+
+      m.diff_code_debt= m.code_debt - p.code_debt
+    else
+      puts "No errors or warnings found to calculate"
+      return false
+    end
+    cost_config.handle_code_dumps(m, repo)
+
+    m.cumulative_value = repo.metrics.where("commited_at < ?", m.commited_at).sum(:diff_code_value).to_i + m.diff_code_value.to_i
+    m.cumulative_code_debt = repo.metrics.where("commited_at < ?", m.commited_at).sum(:diff_code_debt).to_i + m.diff_code_debt.to_i
+
+    m.save
+
+  end
+
+]]>
+</codefragment>
+</duplication>
+<duplication lines="27" tokens="73">
+<file line="284" path="/tmp/codecop/founderbliss/bliss/bliss/app/workers/metric_worker.rb"/>
+<file line="356" path="/tmp/codecop/founderbliss/bliss/bliss/app/workers/metric_worker.rb"/>
+<codefragment>
+<![CDATA[
+      p.complexity_debt = parent_inspectcode.search('Issue').count.size*5
+      p.redundancy_debt = 0
+      p.test_debt = p.missing_test_coverage(p)
+      p.code_debt = p.complexity_debt + p.redundancy_debt + p.test_debt
+
+      m.parent_complexity_debt = p.complexity_debt
+      m.parent_redundancy_debt = p.redundancy_debt
+      m.parent_test_debt = p.test_debt
+      m.diff_complexity_debt = m.complexity_debt - m.parent_complexity_debt
+      m.diff_redundancy_debt = m.redundancy_debt - m.parent_redundancy_debt
+      m.diff_test_debt = m.test_debt - m.parent_test_debt
+
+      m.diff_code_debt= m.code_debt - p.code_debt
+    else
+      puts "No errors or warnings found to calculate"
+      return false
+    end
+    cost_config.handle_code_dumps(m, repo)
+
+    m.cumulative_value = repo.metrics.where("commited_at < ?", m.commited_at).sum(:diff_code_value).to_i + m.diff_code_value.to_i
+    m.cumulative_code_debt = repo.metrics.where("commited_at < ?", m.commited_at).sum(:diff_code_debt).to_i + m.diff_code_debt.to_i
+
+    m.save
+
+  end
+
+]]>
+</codefragment>
+</duplication>
+</pmd-cpd>
+<--LintFilePartition-->
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+<duplication lines="26" tokens="72">
+<file line="141" path="/tmp/codecop/founderbliss/bliss/bliss/app/workers/metric_worker.rb"/>
+<file line="213" path="/tmp/codecop/founderbliss/bliss/bliss/app/workers/metric_worker.rb"/>
+<file line="285" path="/tmp/codecop/founderbliss/bliss/bliss/app/workers/metric_worker.rb"/>
+<file line="357" path="/tmp/codecop/founderbliss/bliss/bliss/app/workers/metric_worker.rb"/>
+<codefragment>
+<![CDATA[
+      p.complexity_debt = parent_jshint["result"].size*5
+      p.redundancy_debt = 0
+      p.test_debt = p.missing_test_coverage(p)
+      p.code_debt = p.complexity_debt + p.redundancy_debt + p.test_debt
+
+      m.parent_complexity_debt = p.complexity_debt
+      m.parent_redundancy_debt = p.redundancy_debt
+      m.parent_test_debt = p.test_debt
+      m.diff_complexity_debt = m.complexity_debt - m.parent_complexity_debt
+      m.diff_redundancy_debt = m.redundancy_debt - m.parent_redundancy_debt
+      m.diff_test_debt = m.test_debt - m.parent_test_debt
+
+      m.diff_code_debt= m.code_debt - p.code_debt
+    else
+      puts "No errors or warnings found to calculate"
+      return false
+    end
+    cost_config.handle_code_dumps(m, repo)
+
+    m.cumulative_value = repo.metrics.where("commited_at < ?", m.commited_at).sum(:diff_code_value).to_i + m.diff_code_value.to_i
+    m.cumulative_code_debt = repo.metrics.where("commited_at < ?", m.commited_at).sum(:diff_code_debt).to_i + m.diff_code_debt.to_i
+
+    m.save
+
+  end
+
+]]>
+</codefragment>
+</duplication>
+</pmd-cpd>

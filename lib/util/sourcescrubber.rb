@@ -1,14 +1,16 @@
 require 'nokogiri'
 class SourceScrubber
   def scrub(report)
-    text = report
+    partitions = report.split("<--LintFilePartition-->\n").select { |lfs| !lfs.empty? }
     # CPD
-    if report.include? "<?xml"
-      text = Nokogiri::XML(report)
+    result = ''
+    partitions.each do |part|
+      next unless part.include? '<?xml'
+      text = Nokogiri::XML(part)
       codefrags = text.search('codefragment')
       codefrags.remove
+      result += "<--LintFilePartition-->\n#{text}"
     end
-    text.to_s
-    # report.gsub(/<codefragment>.*<\/codefragment>/, "")
+    result
   end
 end

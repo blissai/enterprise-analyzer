@@ -1,0 +1,22 @@
+<--LintFilePartition-->
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+<duplication lines="27" tokens="73">
+<file line="140" path="/tmp/codecop/founderbliss/bliss/bliss/app/workers/metric_worker.rb"/>
+<file line="212" path="/tmp/codecop/founderbliss/bliss/bliss/app/workers/metric_worker.rb"/>
+</duplication>
+<duplication lines="27" tokens="73">
+<file line="284" path="/tmp/codecop/founderbliss/bliss/bliss/app/workers/metric_worker.rb"/>
+<file line="356" path="/tmp/codecop/founderbliss/bliss/bliss/app/workers/metric_worker.rb"/>
+</duplication>
+</pmd-cpd>
+<--LintFilePartition-->
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+<duplication lines="26" tokens="72">
+<file line="141" path="/tmp/codecop/founderbliss/bliss/bliss/app/workers/metric_worker.rb"/>
+<file line="213" path="/tmp/codecop/founderbliss/bliss/bliss/app/workers/metric_worker.rb"/>
+<file line="285" path="/tmp/codecop/founderbliss/bliss/bliss/app/workers/metric_worker.rb"/>
+<file line="357" path="/tmp/codecop/founderbliss/bliss/bliss/app/workers/metric_worker.rb"/>
+</duplication>
+</pmd-cpd>

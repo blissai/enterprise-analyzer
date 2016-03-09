@@ -34,17 +34,14 @@ class LocalLinter
   end
 
   def partition_and_lint
-    if @linter['partitionable']
-      parts = Partitioner.new(@git_dir, @logger).create_partitions
-      @logger.info("\tRunning #{@linter['quality_tool']} on #{@commit}... This may take a while...")
-      Parallel.each_with_index(parts, in_processes: parts.size) do |part, index|
-        lint_commit(@linter, "/resultpart#{index}.txt", false, part)
-      end
-      consolidate_output
-    else
-      @logger.info("\tRunning #{@linter['quality_tool']} on #{@commit}... This may take a while...")
-      lint_commit(@linter, @output_file, false, @git_dir)
+    parts = Partitioner.new(@git_dir, @logger, @linter['partitionable']).create_partitions
+    multipart = parts.size > 1
+    @logger.info("\tRunning #{@linter['quality_tool']} on #{@commit}... This may take a while...")
+    Parallel.each_with_index(parts, in_processes: parts.size) do |part, index|
+      result_path = multipart ? "/resultpart#{index}.txt" : @output_file
+      lint_commit(@linter, result_path, false, part)
     end
+    consolidate_output if multipart
   end
 
   def consolidate_output

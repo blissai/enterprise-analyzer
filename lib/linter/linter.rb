@@ -43,7 +43,8 @@ module Linter
   # Post lintfile to AWS and notify Bliss
   def post_lintfile(key, commit, output, linter_id)
     @logger.info("\tUploading lint results to AWS...")
-    upload_to_aws('bliss-collector-files', key, @scrubber.scrub(output))
+    output = @scrubber.scrub(output) if @scrubber
+    upload_to_aws('bliss-collector-files', key, output)
     lint_payload = { commit: commit, repo_key: @repo_key, linter_id: linter_id,
                      lint_file_location: key, git_dir: @git_dir, bucket: 'bliss-collector-files' }
     http_post("#{@host}/api/commit/lint", lint_payload)
