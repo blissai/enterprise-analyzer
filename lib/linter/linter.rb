@@ -49,4 +49,24 @@ module Linter
                      lint_file_location: key, git_dir: @git_dir, bucket: 'bliss-collector-files' }
     http_post("#{@host}/api/commit/lint", lint_payload)
   end
+
+  def partition_and_lint(linter)
+    parts = Partitioner.new(@git_dir, @logger, linter['partitionable']).create_partitions
+    multipart = parts.size > 1
+    @logger.info("\tRunning #{linter['quality_tool']} on #{@commit}... This may take a while...")
+    Parallel.each_with_index(parts, in_processes: parts.size) do |part, index|
+      result_path = multipart ? "/resultpart#{index}.txt" : @output_file
+      lint_commit(linter, result_path, false, part)
+    end
+    consolidate_output if multipart
+  end
+
+  def consolidate_output
+    File.truncate(@output_file, 0)
+    Dir.glob('/resultpart*.txt').each do |r|
+      File.open(@output_file, 'a') do |f|
+        f.write("<--LintFilePartition-->\n#{File.read(r)}")
+      end
+    end
+  end
 end

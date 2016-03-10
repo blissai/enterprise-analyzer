@@ -41,10 +41,10 @@ class LinterTask
     remove_symlinks(@git_dir)
     Dir.mktmpdir do |tmp_dir|
       @linters.each do |linter|
-        output_file = File.join(tmp_dir, "#{linter['quality_tool']}.#{linter['output_format']}")
+        @output_file = File.join(tmp_dir, "#{linter['quality_tool']}.#{linter['output_format']}")
         @commit = commit
-        @logger.info("\tRunning #{linter['quality_tool']} on #{@commit}... This may take a while...")
-        lint_commit(linter, output_file, true)
+        partition_and_lint(linter)
+        # lint_commit(linter, output_file, true)
       end
     end
     @logger.success("\tFinished linting for commit #{commit}")
