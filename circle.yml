@@ -27,7 +27,7 @@ dependencies:
     - npm install -g jshint
     - npm install -g jshint-json
     - mkdir -p ~/repos
-    - if [[ ! -d ~/repos/enterprise_test ]]; then git clone https://mikesive@bitbucket.org/mikesive/bliss-php-test.git ~/repos/bliss-php-test; fi
+    - if [[ ! -d ~/repos/bliss-php-test ]]; then git clone https://mikesive@bitbucket.org/mikesive/bliss-php-test.git ~/repos/bliss-php-test; fi
     - if [[ ! -d ~/pmd ]]; then git clone https://github.com/iconnor/pmd.git ~/pmd; fi
     - if [[ ! -d ~/phpcs ]]; then git clone https://github.com/squizlabs/PHP_CodeSniffer.git ~/phpcs; fi
     - if [[ ! -d ~/wpcs ]]; then git clone https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git wpcs; fi;
