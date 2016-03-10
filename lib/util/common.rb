@@ -39,18 +39,18 @@ module Common
   def http_get(url, tried = 0)
     json_return = nil
     begin
-      response = @agent.get(url, @auth_headers)
-      json_return = JSON.parse(response.body)
+      $HTTP_MUTEX.synchronize do
+        response = @agent.get(url, @auth_headers)
+        json_return = JSON.parse(response.body)
+      end
     rescue Mechanize::UnauthorizedError => ue
-      puts "Error: Your API key is not valid.".red
-      @logger.error("Invalid API Key.")
+      @logger.error('Your API key is not valid.')
     rescue Mechanize::ResponseCodeError => re
       if tried < 3
         puts "Warning: Server in maintenance mode, waiting for 20 seconds and trying again".yellow
         sleep(20)
         http_get(url, tried + 1)
       else
-        puts "Warning: Can't connect to Bliss server... Tried max times.".yellow
         @logger.error("Warning: Can't connect to Bliss server... Tried max times.")
       end
     end
@@ -61,18 +61,18 @@ module Common
   def http_post(url, params, tried = 0)
     json_return = nil
     begin
-      response = @agent.post(url, params, @auth_headers)
-      json_return = JSON.parse(response.body)
+      $HTTP_MUTEX.synchronize do
+        response = @agent.post(url, params, @auth_headers)
+        json_return = JSON.parse(response.body)
+      end
     rescue Mechanize::UnauthorizedError => ue
-      puts "Error: Your API key is not valid.".red
-      @logger.error("Invalid API Key.")
+      @logger.error('Your API key is not valid.')
     rescue Mechanize::ResponseCodeError => re
       if tried < 5
         puts "Warning: Server in maintenance mode, waiting for #{2**tried} seconds and trying again".yellow
         sleep(2**tried)
         http_post(url, params, tried + 1)
       else
-        puts "Warning: Can't connect to Bliss server... Tried max times.".yellow
         @logger.error("Warning: Can't connect to Bliss server... Tried max times.")
       end
     end

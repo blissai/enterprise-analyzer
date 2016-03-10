@@ -11,6 +11,7 @@ require 'figaro'
 require 'securerandom'
 require 'parallel'
 require 'thread'
+$HTTP_MUTEX = Mutex.new
 Figaro::Application.new(path: 'application.yml').load
 require_relative 'util/common'
 require_relative 'util/cmd'

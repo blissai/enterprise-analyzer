@@ -14,6 +14,7 @@ dependencies:
   cache_directories:
     - ~/nvm
     - "node_modules"
+    - ~/bliss
     # - "~/docker"
   pre:
     - sudo locale-gen en_US.UTF-8

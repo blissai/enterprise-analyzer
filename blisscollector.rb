@@ -14,13 +14,12 @@ config = {
 @org_name = config['ORG_NAME']
 @api_key = config['API_KEY']
 @host = config['BLISS_HOST']
-@dirs_list = get_directory_list(@top_level_dir)
 configure_http
 loop do
   collector_result = CollectorTask.new(config).execute
   new_repos = collector_result['new_repos']
 
-  ctasks = ConcurrentTasks.new(config, new_repos)
+  ctasks = ConcurrentTasks.new(config)
 
   continue_stats = collector_result['stats_todo'] > 0
   ctasks.stats if continue_stats

@@ -24,7 +24,7 @@ class CollectorTask
 
   def git_log(dir_name)
     log_fmt = '"%H|%P|%ai|%aN|%aE|%s"'
-    cmd = "cd #{dir_name} && git log --all --pretty=format:#{log_fmt}"
+    cmd = "cd #{dir_name} && git log --shortstat --all --pretty=format:#{log_fmt}"
     `#{cmd}`
   end
 

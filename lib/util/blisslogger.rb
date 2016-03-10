@@ -5,7 +5,6 @@ class BlissLogger
     configure_http
     @auth_headers = {}
     repo_key(repo_key)
-    @mutex = Mutex.new
     @log_prefix = log_prefix.empty? ? '' : "#{log_prefix} - "
   end
 
@@ -18,31 +17,23 @@ class BlissLogger
   end
 
   def error(line)
-    @mutex.synchronize do
-      print "#{@log_prefix}#{line}\n".red
-      log_to_papertrail("Error: #{line}")
-    end
+    print "#{@log_prefix}#{line}\n".red
+    log_to_papertrail("Error: #{line}")
   end
 
   def info(line)
-    @mutex.synchronize do
-      print "#{@log_prefix}#{line}\n".blue
-      log_to_papertrail("Info: #{line}")
-    end
+    print "#{@log_prefix}#{line}\n".blue
+    log_to_papertrail("Info: #{line}")
   end
 
   def warn(line)
-    @mutex.synchronize do
-      print "#{@log_prefix}#{line}\n".yellow
-      log_to_papertrail("Warn: #{line}")
-    end
+    print "#{@log_prefix}#{line}\n".yellow
+    log_to_papertrail("Warn: #{line}")
   end
 
   def success(line)
-    @mutex.synchronize do
-      print "#{@log_prefix}#{line}\n".green
-      log_to_papertrail("Success: #{line}")
-    end
+    print "#{@log_prefix}#{line}\n".green
+    log_to_papertrail("Success: #{line}")
   end
 
   def log_to_papertrail(line)

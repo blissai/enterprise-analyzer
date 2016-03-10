@@ -9,7 +9,7 @@ module Linter
     begin
       key = "#{@organization}_#{@name}_#{@commit}_#{quality_tool}.#{ext}"
       lint_output = execute_linter_cmd(cmd, output_file, linter['name'], linter['error_code'])
-      post_lintfile(key, commit, lint_output, linter['id']) if remote
+      post_lintfile(key, @commit, lint_output, linter['id']) if remote
     rescue LinterError => e
       @logger.error(e.message)
     rescue Errno::ENOENT
