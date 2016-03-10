@@ -1,3 +1,4 @@
+require 'pry'
 RSpec.describe 'blisscollector.rb' do
   before(:all) do
     bliss_home = File.expand_path('~/bliss')
