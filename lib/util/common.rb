@@ -66,14 +66,14 @@ module Common
         json_return = JSON.parse(response.body)
       end
     rescue Mechanize::UnauthorizedError => ue
-      @logger.error('Your API key is not valid.')
+      @logger.error('Your API key is not valid.') if @logger
     rescue Mechanize::ResponseCodeError => re
       if tried < 5
         puts "Warning: Server in maintenance mode, waiting for #{2**tried} seconds and trying again".yellow
         sleep(2**tried)
         http_post(url, params, tried + 1)
       else
-        @logger.error("Warning: Can't connect to Bliss server... Tried max times.")
+        puts "Warning: Can't connect to Bliss server... Tried max times.".red
       end
     end
     json_return
