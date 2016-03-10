@@ -1,15 +1,15 @@
 class Partitioner
   attr_accessor :partition_dirs
-  BYTE_LIMIT = 26214400
-  def initialize(src_dir, logger, linter_override = false)
+  def initialize(src_dir, logger, linter_override = false, byte_limit = 26214400)
     @src_dir = src_dir
     @dir_analyzer = DirectoryAnalyzer.new(@src_dir)
     @logger = logger
     @linter_override = linter_override
+    @byte_limit = byte_limit
   end
 
   def build_partition_lists
-    exit_status = Open3.popen3("fpart -s #{BYTE_LIMIT} -x '.git' -o /tmp/partition #{@src_dir}") do |i, o, e, t|
+    exit_status = Open3.popen3("fpart -s #{@byte_limit} -x '.git' -o /tmp/partition #{@src_dir}") do |i, o, e, t|
       t.value
     end
     @partition_files = Dir.glob('/tmp/partition*')
