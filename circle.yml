@@ -9,17 +9,24 @@ machine:
     LC_ALL: en_US.UTF-8
     LANG: en_US.UTF-8
     LANGUAGE: en_US.UTF-8
+    TOP_LVL_DIR: ~/repos
+    ORG_NAME: mikesive
+    API_KEY: $BLISS_API_KEY
+    BLISS_HOST: $BLISS_HOST
     # DOCKER_OPTS: "-s devicemapper"
 dependencies:
   cache_directories:
     - ~/nvm
     - "node_modules"
     - ~/bliss
+    - ~/repos
     # - "~/docker"
   pre:
     - sudo locale-gen en_US.UTF-8
     - npm install -g jshint
     - npm install -g jshint-json
+    - mkdir_p ~/repos
+    - if [[ -e ~/bliss-php-test ]]; then git clone https://mikesive@bitbucket.org/mikesive/bliss-php-test.git ~/repos/bliss-php-test; fi
   override:
     - bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
     # - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
