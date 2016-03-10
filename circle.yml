@@ -11,7 +11,7 @@ machine:
     LC_ALL: en_US.UTF-8
     LANG: en_US.UTF-8
     LANGUAGE: en_US.UTF-8
-    TOP_LVL_DIR: ~/repos
+    TOP_LVL_DIR: $HOME/repos
     ORG_NAME: mikesive
     API_KEY: $BLISS_API_KEY
     BLISS_HOST: $BLISS_HOST
