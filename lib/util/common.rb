@@ -73,7 +73,7 @@ module Common
         sleep(2**tried)
         http_post(url, params, tried + 1)
       else
-        puts "Warning: Can't connect to Bliss server... Tried max times.".red
+        puts "Error: Can't connect to Bliss server... Tried max times.".red
       end
     end
     json_return

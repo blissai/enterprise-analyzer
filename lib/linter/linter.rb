@@ -31,7 +31,6 @@ module Linter
       result += stdout_err.read
       wait_thr.value
     end
-    @logger.info("#{linter_name} stdout_err: #{result}") unless result.empty?
     if thread_status.exitstatus == error_code
       @logger.error("#{linter_name} - linter failed.")
       File.write(file_name, "#{result} - failtorundocker")
