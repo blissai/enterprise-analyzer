@@ -36,6 +36,8 @@ module Linter
       File.write(file_name, "#{result} - failtorundocker")
       fail LinterError, result
     else
+      unscrubbed = File.read(file_name)
+      File.write(file_name, @scrubber.scrub(unscrubbed)) if @scrubber
       File.open(file_name, 'r').read
     end
   end
@@ -43,7 +45,6 @@ module Linter
   # Post lintfile to AWS and notify Bliss
   def post_lintfile(key, commit, output, linter_id)
     @logger.info("\tUploading lint results to AWS...")
-    output = @scrubber.scrub(output) if @scrubber
     upload_to_aws('bliss-collector-files', key, output)
     lint_payload = { commit: commit, repo_key: @repo_key, linter_id: linter_id,
                      lint_file_location: key, git_dir: @git_dir, bucket: 'bliss-collector-files' }

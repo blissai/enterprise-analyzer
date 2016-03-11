@@ -50,7 +50,10 @@ RSpec.describe LinterTask do
     it 'should run the linter' do
       file_name = "#{@dir}/testfile.json"
       cmd = "jshint --reporter vendor/jshint-json/json.js #{@dir} > #{file_name}"
-      result = JSON.parse(@c.execute_linter_cmd(cmd, file_name, 'jshint', 1))
+      partition = @c.execute_linter_cmd(cmd, file_name, 'jshint', 1)
+                  .split("<--LintFilePartition-->\n")
+                  .find { |lfs| !lfs.empty? }
+      result = JSON.parse(partition)
       expect(result['result']).to_not eq(nil)
     end
   end

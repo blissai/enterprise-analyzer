@@ -1,5 +1,5 @@
 module Stats
-  def execute_stats_cmd(commit, remote = false)
+  def execute_stats_cmd(commit, remote = false, directory = nil)
     stats = git_stats(commit)
     checkout_commit(@git_dir, commit)
     all_stats = {

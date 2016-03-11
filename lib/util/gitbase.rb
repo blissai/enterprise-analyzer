@@ -212,4 +212,10 @@ module Gitbase
     cmd = "#{cmd} > /dev/null 2>&1"
     system(cmd)
   end
+
+  def configure_branch(repo_dir)
+    branches = `cd #{repo_dir} && git branch`.split("\n").map(&:strip)
+    branch = branches.find { |b| b.start_with? '* ' }
+    branch.sub(/\* /, '')
+  end
 end

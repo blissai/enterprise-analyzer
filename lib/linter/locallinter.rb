@@ -20,6 +20,7 @@ class LocalLinter
     @repo_key = nil
     check_args
     @linter = YAML.load_file(@linter_config_path)
+    @scrubber = SourceScrubber.new
   end
 
   def execute
@@ -29,29 +30,10 @@ class LocalLinter
     remove_symlinks(@git_dir)
     start = Time.now
     partition_and_lint(@linter)
+    scrubber = SourceScrubber.new
     time = Time.now - start
     @logger.info("\tTook #{time} seconds to run #{@linter['quality_tool']}...")
   end
-
-  # def partition_and_lint
-  #   parts = Partitioner.new(@git_dir, @logger, @linter['partitionable']).create_partitions
-  #   multipart = parts.size > 1
-  #   @logger.info("\tRunning #{@linter['quality_tool']} on #{@commit}... This may take a while...")
-  #   Parallel.each_with_index(parts, in_processes: parts.size) do |part, index|
-  #     result_path = multipart ? "/resultpart#{index}.txt" : @output_file
-  #     lint_commit(@linter, result_path, false, part)
-  #   end
-  #   consolidate_output if multipart
-  # end
-  #
-  # def consolidate_output
-  #   File.truncate(@output_file, 0)
-  #   Dir.glob('/resultpart*.txt').each do |r|
-  #     File.open(@output_file, 'a') do |f|
-  #       f.write("<--LintFilePartition-->\n#{File.read(r)}")
-  #     end
-  #   end
-  # end
 
   def check_args
     valid = true

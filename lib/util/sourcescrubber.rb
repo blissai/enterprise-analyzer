@@ -5,10 +5,13 @@ class SourceScrubber
     # CPD
     result = ''
     partitions.each do |part|
-      next unless part.include? '<?xml'
-      text = Nokogiri::XML(part)
-      codefrags = text.search('codefragment')
-      codefrags.remove
+      if part.include? '<?xml'
+        text = Nokogiri::XML(part)
+        codefrags = text.search('codefragment')
+        codefrags.remove
+      else
+        text = part
+      end
       result += "<--LintFilePartition-->\n#{text}"
     end
     result
