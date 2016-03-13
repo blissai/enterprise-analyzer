@@ -3,4 +3,5 @@ $LOAD_PATH << '../lib'
 require_relative '../lib/bootstrap'
 include Cmd
 @args = ARGV
-firstpass = FirstPass.new(arg('subdir')).execute
+firstpass = FirstPass.new(arg('subdir'))
+firstpass.execute
