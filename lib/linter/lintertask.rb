@@ -47,7 +47,7 @@ class LinterTask
         ext = linter['output_format']
         key = "#{@organization}_#{@name}_#{@commit}_#{linter['quality_tool']}.#{ext}"
         post_lintfile_to_aws(key, File.read(@output_file))
-        post_lintfile_to_bliss(key, @commit, @output_file, linter['id'])
+        post_lintfile_to_bliss(key, @commit, linter['id'])
       end
     end
     @logger.success("\tFinished linting for commit #{commit}")
