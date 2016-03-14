@@ -33,8 +33,10 @@ module Linter
       File.write(file_name, "#{result} - failtorundocker")
       fail LinterError, result
     else
-      unscrubbed = File.read(file_name)
-      File.write(file_name, @scrubber.scrub(unscrubbed)) if @scrubber
+      if @scrubber
+        unscrubbed = File.read(file_name)
+        File.write(file_name, @scrubber.scrub(unscrubbed))
+      end
     end
   end
 
