@@ -11,7 +11,7 @@ class FirstPass
     @subdir = subdir
     @directory_to_analyze = @subdir.nil? ? @git_dir : File.join(@git_dir, @subdir)
     @api_key = ENV['API_KEY']
-    @bliss_host = ENV['BLISS_HOST']
+    @host = ENV['BLISS_HOST']
     @org_name = ENV['ORG_NAME']
     configure_http
     @logger = BlissLogger.new(@api_key)
@@ -39,7 +39,7 @@ class FirstPass
       repo_key: @repository['repo_key'],
       init_data: @commits
     }
-    json_return = http_post('/repo/initialize', data)
+    json_return = http_post("#{@host}/repo/initialize", data)
     if json_return['error']
       @logger.error(json_return['error'])
     elsif json_return['success']
