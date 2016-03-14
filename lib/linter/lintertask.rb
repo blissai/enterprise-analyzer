@@ -44,7 +44,6 @@ class LinterTask
         @output_file = File.join(tmp_dir, "#{linter['quality_tool']}.#{linter['output_format']}")
         @commit = commit
         partition_and_lint(linter, true)
-        # lint_commit(linter, output_file, true)
       end
     end
     @logger.success("\tFinished linting for commit #{commit}")

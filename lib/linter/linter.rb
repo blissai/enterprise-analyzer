@@ -1,15 +1,13 @@
 module Linter
   include Gitbase
-  def lint_commit(linter, output_file, remote = false, directory = nil)
+  def lint_commit(linter, output_file, directory = nil)
     directory = @git_dir if directory.nil?
     quality_tool = linter['quality_tool']
     ext = linter['output_format']
     cmd = lint_command(linter, output_file, directory)
     cmd = "cd #{directory} && #{cmd}" if linter['cd_first']
     begin
-      key = "#{@organization}_#{@name}_#{@commit}_#{quality_tool}.#{ext}"
-      lint_output = execute_linter_cmd(cmd, output_file, linter['name'], linter['error_code'])
-      post_lintfile(key, @commit, lint_output, linter['id']) if remote
+      execute_linter_cmd(cmd, output_file, linter['name'], linter['error_code'])
     rescue LinterError => e
       @logger.error(e.message)
     rescue Errno::ENOENT
@@ -38,7 +36,6 @@ module Linter
     else
       unscrubbed = File.read(file_name)
       File.write(file_name, @scrubber.scrub(unscrubbed)) if @scrubber
-      File.open(file_name, 'r').read
     end
   end
 
@@ -51,15 +48,19 @@ module Linter
     http_post("#{@host}/api/commit/lint", lint_payload)
   end
 
-  def partition_and_lint(linter, remote = false)
-    parts = Partitioner.new(@git_dir, @logger, linter['partitionable']).create_partitions
+  def partition_and_lint(linter, remote = false, directory = nil)
+    directory_to_analyze = directory.nil? ? @git_dir : directory
+    parts = Partitioner.new(directory_to_analyze, @logger, linter['partitionable']).create_partitions
     multipart = parts.size > 1
     @logger.info("\tRunning #{linter['quality_tool']} on #{@commit}... This may take a while...")
     Parallel.each_with_index(parts, in_processes: parts.size) do |part, index|
       result_path = multipart ? "/resultpart#{index}.txt" : @output_file
-      lint_commit(linter, result_path, remote, part)
+      lint_commit(linter, result_path, part)
     end
     consolidate_output if multipart
+    return if remote
+    key = "#{@organization}_#{@name}_#{@commit}_#{linter['quality_tool']}.#{ext}"
+    post_lintfile(key, @commit, File.read(@output_file), linter['id'])
   end
 
   def consolidate_output

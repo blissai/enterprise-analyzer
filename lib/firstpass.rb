@@ -66,7 +66,8 @@ class FirstPass
       @linters.each do |linter|
         tmpfile_path = File.expand_path("~/bliss/#{@repository['name']}-#{commit_hash}-#{linter['name']}.#{linter['output_format']}")
         File.write(tmpfile_path, 'failtorundocker')
-        lint_commit(linter, tmpfile_path, false, @directory_to_analyze)
+        @output_file = tmpfile_path
+        partition_and_lint(linter, true, @directory_to_analyze)
         key = "#{@repository['name']}-#{commit_hash}-#{linter['name']}"
         upload_to_aws('bliss-collector-files', key, File.read(tmpfile_path))
         @commits[log]['lint_files'].push(
