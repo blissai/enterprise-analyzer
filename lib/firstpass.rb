@@ -15,6 +15,7 @@ class FirstPass
     @org_name = ENV['ORG_NAME']
     configure_http
     @logger = BlissLogger.new(@api_key)
+    @scrubber = SourceScrubber.new
   end
 
   def execute
