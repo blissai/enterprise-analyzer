@@ -1,5 +1,5 @@
 module Stats
-  def execute_stats_cmd(commit, remote = false, directory = nil)
+  def execute_stats_cmd(commit, directory = nil)
     stats = git_stats(commit)
     checkout_commit(@git_dir, commit)
     all_stats = {
@@ -7,7 +7,6 @@ module Stats
       added_lines: stats[:added_lines], deleted_lines: stats[:deleted_lines],
       total_cloc: cloc_total, cloc: cloc_original, cloc_tests: cloc_tests
     }
-    post_stats(all_stats) if remote
     all_stats
   end
 

@@ -29,7 +29,7 @@ class LocalLinter
     remove_open_source_files(@git_dir) if @remove_open_source == true || @remove_open_source.nil?
     remove_symlinks(@git_dir)
     start = Time.now
-    partition_and_lint(@linter, false)
+    partition_and_lint(@linter)
     time = Time.now - start
     @logger.info("\tTook #{time} seconds to run #{@linter['quality_tool']}...")
   end

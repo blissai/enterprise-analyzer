@@ -3,7 +3,6 @@ module Linter
   def lint_commit(linter, output_file, directory = nil)
     directory = @git_dir if directory.nil?
     quality_tool = linter['quality_tool']
-    ext = linter['output_format']
     cmd = lint_command(linter, output_file, directory)
     cmd = "cd #{directory} && #{cmd}" if linter['cd_first']
     begin
@@ -40,15 +39,18 @@ module Linter
   end
 
   # Post lintfile to AWS and notify Bliss
-  def post_lintfile(key, commit, output, linter_id)
-    @logger.info("\tUploading lint results to AWS...")
-    upload_to_aws('bliss-collector-files', key, output)
+  def post_lintfile_to_bliss(key, commit, output, linter_id)
     lint_payload = { commit: commit, repo_key: @repo_key, linter_id: linter_id,
                      lint_file_location: key, git_dir: @git_dir, bucket: 'bliss-collector-files' }
     http_post("#{@host}/api/commit/lint", lint_payload)
   end
 
-  def partition_and_lint(linter, remote = false, directory = nil)
+  def post_lintfile_to_aws(key, content)
+    @logger.info("\tUploading lint results to AWS...")
+    upload_to_aws('bliss-collector-files', key, output)
+  end
+
+  def partition_and_lint(linter, directory = nil)
     directory_to_analyze = directory.nil? ? @git_dir : directory
     parts = Partitioner.new(directory_to_analyze, @logger, linter['partitionable']).create_partitions
     multipart = parts.size > 1
@@ -58,9 +60,6 @@ module Linter
       lint_commit(linter, result_path, part)
     end
     consolidate_output if multipart
-    return if remote
-    key = "#{@organization}_#{@name}_#{@commit}_#{linter['quality_tool']}.#{ext}"
-    post_lintfile(key, @commit, File.read(@output_file), linter['id'])
   end
 
   def consolidate_output

@@ -43,7 +43,11 @@ class LinterTask
       @linters.each do |linter|
         @output_file = File.join(tmp_dir, "#{linter['quality_tool']}.#{linter['output_format']}")
         @commit = commit
-        partition_and_lint(linter, true)
+        partition_and_lint(linter)
+        ext = linter['output_format']
+        key = "#{@organization}_#{@name}_#{@commit}_#{linter['quality_tool']}.#{ext}"
+        post_lintfile_to_aws(key, File.read(@output_file))
+        post_lintfile_to_bliss(key, @commit, @output_file, linter['id'])
       end
     end
     @logger.success("\tFinished linting for commit #{commit}")

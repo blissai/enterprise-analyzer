@@ -38,6 +38,7 @@ class StatsTask
   end
 
   def process_commit(commit)
-    execute_stats_cmd(commit, true)
+    all_stats = execute_stats_cmd(commit)
+    post_stats(all_stats)
   end
 end

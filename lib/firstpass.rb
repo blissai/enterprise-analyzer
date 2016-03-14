@@ -27,6 +27,7 @@ class FirstPass
   def bliss_initialize
     @logger.info('Initialization Bliss Project...')
     @repository = initialize_bliss_repository(@git_dir, @org_name, @subdir)
+    @repo_key = @repository['repo_key']
     remove_open_source_files(@git_dir)
     remove_excluded_directories(@repository['excluded_directories'])
     remove_symlinks(@git_dir)
@@ -67,9 +68,10 @@ class FirstPass
         tmpfile_path = File.expand_path("~/bliss/#{@repository['name']}-#{commit_hash}-#{linter['name']}.#{linter['output_format']}")
         File.write(tmpfile_path, 'failtorundocker')
         @output_file = tmpfile_path
-        partition_and_lint(linter, true, @directory_to_analyze)
-        key = "#{@repository['name']}-#{commit_hash}-#{linter['name']}"
-        upload_to_aws('bliss-collector-files', key, File.read(tmpfile_path))
+        partition_and_lint(linter, @directory_to_analyze)
+        ext = linter['output_format']
+        key = "#{@org_name}_#{@repository['name']}_#{commit_hash}_#{linter['quality_tool']}.#{ext}"
+        post_lintfile_to_aws(key, File.read(@output_file))
         @commits[log]['lint_files'].push(
           linter_id:  linter['id'],
           lint_file_location: key,

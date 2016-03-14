@@ -21,7 +21,7 @@ class LocalStats
   end
 
   def execute
-    File.write(@output_file, execute_stats_cmd(@commit, false).to_json)
+    File.write(@output_file, execute_stats_cmd(@commit).to_json)
   end
 
   def check_args
