@@ -22,7 +22,6 @@ class FirstPass
     gitlogger
     stats
     linting
-    @logger.success('Finished! We will send you an email once we have analyzed your data.')
   end
 
   def bliss_initialize
@@ -31,6 +30,19 @@ class FirstPass
     remove_open_source_files(@git_dir)
     remove_excluded_directories(@repository['excluded_directories'])
     remove_symlinks(@git_dir)
+  end
+
+  def post_to_bliss
+    data = {
+      repo_key: @repository['repo_key'],
+      init_data: @commits
+    }
+    json_return = http_post('/repo/initialize', data)
+    if json_return['error']
+      @logger.error(json_return['error'])
+    elsif json_return['success']
+      @logger.success('Finished! We will send you an email once we have analyzed your data.')
+    end
   end
 
   def gitlogger

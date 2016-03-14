@@ -51,13 +51,13 @@ module Linter
     http_post("#{@host}/api/commit/lint", lint_payload)
   end
 
-  def partition_and_lint(linter)
+  def partition_and_lint(linter, remote = false)
     parts = Partitioner.new(@git_dir, @logger, linter['partitionable']).create_partitions
     multipart = parts.size > 1
     @logger.info("\tRunning #{linter['quality_tool']} on #{@commit}... This may take a while...")
     Parallel.each_with_index(parts, in_processes: parts.size) do |part, index|
       result_path = multipart ? "/resultpart#{index}.txt" : @output_file
-      lint_commit(linter, result_path, false, part)
+      lint_commit(linter, result_path, remote, part)
     end
     consolidate_output if multipart
   end

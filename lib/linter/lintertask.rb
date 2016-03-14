@@ -43,7 +43,7 @@ class LinterTask
       @linters.each do |linter|
         @output_file = File.join(tmp_dir, "#{linter['quality_tool']}.#{linter['output_format']}")
         @commit = commit
-        partition_and_lint(linter)
+        partition_and_lint(linter, true)
         # lint_commit(linter, output_file, true)
       end
     end
