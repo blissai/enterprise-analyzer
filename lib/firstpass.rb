@@ -6,10 +6,10 @@ class FirstPass
   include Common
   include AwsUploader
 
-  def initialize(subdir)
+  def initialize(subdir = nil)
     @git_dir = '/repository'
     @subdir = subdir
-    @directory_to_analyze = File.join(@git_dir, @subdir)
+    @directory_to_analyze = @subdir.nil? ? @git_dir : File.join(@git_dir, @subdir)
     @api_key = ENV['API_KEY']
     @bliss_host = ENV['BLISS_HOST']
     @org_name = ENV['ORG_NAME']
