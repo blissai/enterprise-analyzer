@@ -61,7 +61,7 @@ class FirstPass
   end
 
   def linting
-    @linters = http_get("#{@host}/api/repo/linters", repo_key: repository['repo_key'])
+    @linters = http_get("#{@host}/api/repo/linters", repo_key: @repo['repo_key'])
     @logs.each do |log|
       commit_hash = log.split('|').first
       checkout_commit(@git_dir, commit_hash)
