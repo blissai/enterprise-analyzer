@@ -26,17 +26,14 @@ class FirstPass
   end
 
   def bliss_initialize
-    @logger.info('Initialization Bliss Project...')
-    @repository = initialize_bliss_repository(@git_dir, @org_name, @subdir)
-    @repo_key = @repository['repo_key']
-    remove_open_source_files(@git_dir)
-    remove_excluded_directories(@repository['excluded_directories'], @git_dir)
-    remove_symlinks(@git_dir)
+    @logger.info('Initializating Bliss Project...')
+    @repo = initialize_bliss_repository(@git_dir, @org_name, @subdir)
+    @repo_key = @repo['repo_key']
   end
 
   def post_to_bliss
     data = {
-      repo_key: @repository['repo_key'],
+      repo_key: @repo['repo_key'],
       init_data: @commits
     }
     json_return = http_post("#{@host}/repo/initialize", data)
@@ -64,14 +61,17 @@ class FirstPass
     @logs.each do |log|
       commit_hash = log.split('|').first
       checkout_commit(@git_dir, commit_hash)
+      remove_open_source_files(@git_dir) unless @repo['detect_open_source'] == false
+      remove_excluded_directories(@repo['excluded_dirs'], @git_dir)
+      remove_symlinks(@git_dir)
       @commits[log]['lint_files'] = []
       @linters.each do |linter|
-        tmpfile_path = File.expand_path("~/bliss/#{@repository['name']}-#{commit_hash}-#{linter['name']}.#{linter['output_format']}")
+        tmpfile_path = File.expand_path("~/bliss/#{@repo['name']}-#{commit_hash}-#{linter['name']}.#{linter['output_format']}")
         File.write(tmpfile_path, 'failtorundocker')
         @output_file = tmpfile_path
         partition_and_lint(linter, @directory_to_analyze)
         ext = linter['output_format']
-        key = "#{@org_name}_#{@repository['name']}_#{commit_hash}_#{linter['quality_tool']}.#{ext}"
+        key = "#{@org_name}_#{@repo['name']}_#{commit_hash}_#{linter['quality_tool']}.#{ext}"
         post_lintfile_to_aws(key, File.read(@output_file))
         @commits[log]['lint_files'].push(
           linter_id:  linter['id'],
@@ -86,8 +86,8 @@ class FirstPass
   private
 
   def first_commits(limit = 2)
-    logs = collect_logs(@git_dir, @repository['name'],
-                        @repository['branch'], limit)
+    logs = collect_logs(@git_dir, @repo['name'],
+                        @repo['branch'], limit)
     logs.split("\n").select do |l|
       !l.start_with?(' ') && !l.empty?
     end.reverse
