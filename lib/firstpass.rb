@@ -62,7 +62,7 @@ class FirstPass
       commit_hash = log.split('|').first
       checkout_commit(@git_dir, commit_hash)
       remove_open_source_files(@git_dir) unless @repo['detect_open_source'] == false
-      remove_excluded_directories(@repo['excluded_dirs'], @git_dir)
+      remove_excluded_directories(@repo['excluded_directories'], @git_dir)
       remove_symlinks(@git_dir)
       @commits[log]['lint_files'] = []
       @linters.each do |linter|
