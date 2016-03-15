@@ -41,7 +41,7 @@ class FirstPass
       repo_key: @repo['repo_key'],
       init_data: @commits
     }
-    json_return = http_post("#{@host}/api/repo/initialize", data)
+    json_return = http_post("#{@host}/api/repo/initialize", data, true)
     if json_return['error']
       @logger.error(json_return['error'])
     elsif json_return['success']

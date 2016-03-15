@@ -58,9 +58,13 @@ module Common
   end
 
   # Recursive function to retry http POST requests
-  def http_post(url, params, tried = 0)
+  def http_post(url, params, json = false, tried = 0)
     json_return = nil
     begin
+      if json
+        params = params.to_json
+        @auth_headers['Content-Type'] = 'application/json'
+      end
       $HTTP_MUTEX.synchronize do
         response = @agent.post(url, params, @auth_headers)
         json_return = JSON.parse(response.body)
@@ -71,7 +75,7 @@ module Common
       if tried < 5
         puts "Warning: Server in maintenance mode, waiting for #{2**tried} seconds and trying again".yellow
         sleep(2**tried)
-        http_post(url, params, tried + 1)
+        http_post(url, params, json, tried + 1)
       else
         puts "Error: Can't connect to Bliss server... Tried max times.".red
       end
