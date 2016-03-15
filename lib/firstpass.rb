@@ -66,6 +66,7 @@ class FirstPass
     @linters = http_get("#{@host}/api/repo/linters?repo_key=#{@repo_key}")
     @logs.each do |log|
       @commit = log.split('|').first
+      @logger.info("#{@name} - Running Linters on #{@commit}...")
       checkout_commit(@git_dir, @commit)
       remove_open_source_files(@git_dir) unless @repo['detect_open_source'] == false
       remove_excluded_directories(@excluded_dirs, @git_dir)
