@@ -23,6 +23,7 @@ class FirstPass
     gitlogger
     stats
     linting
+    post_to_bliss
   end
 
   def bliss_initialize
