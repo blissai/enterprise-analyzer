@@ -48,7 +48,7 @@ class FirstPass
   end
 
   def gitlogger
-    @log = first_commits
+    @logs = first_commits
   end
 
   def stats
