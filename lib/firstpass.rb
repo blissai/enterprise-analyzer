@@ -30,7 +30,7 @@ class FirstPass
     @repository = initialize_bliss_repository(@git_dir, @org_name, @subdir)
     @repo_key = @repository['repo_key']
     remove_open_source_files(@git_dir)
-    remove_excluded_directories(@repository['excluded_directories'])
+    remove_excluded_directories(@repository['excluded_directories'], @git_dir)
     remove_symlinks(@git_dir)
   end
 
