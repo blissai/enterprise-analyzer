@@ -3,7 +3,7 @@ module Initializer
   include Gitbase
 
   def initialize_bliss_repository(dir_name, org_name, subdirectory = nil)
-    name = dir_name.split('/').last
+    name = extract_name_from_git_url(dir_name)
     puts "Working on: #{name}...".blue
     repo_details = save_repository_to_bliss(dir_name, org_name, name, subdirectory)
     puts "\tCreated repo ##{repo_details['id']} - #{repo_details['full_name']}".green

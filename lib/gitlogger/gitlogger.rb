@@ -17,16 +17,6 @@ module Gitlogger
     key
   end
 
-  def git_url(dir_name)
-    git_base_cmd = "cd #{dir_name} && git config --get remote.origin.url"
-    url = `#{git_base_cmd}`
-    if url.empty?
-      svn_base_cmd = "cd #{dir_name} && git svn info | grep URL | cut -f2- -d' '"
-      url = `#{svn_base_cmd}`
-    end
-    url.chomp
-  end
-
   def collect_logs(dir_name, name, branch, limit = nil)
     checkout_commit(dir_name, branch)
     @logger.info("\tGetting gitlog for #{name}")

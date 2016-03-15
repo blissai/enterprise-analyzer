@@ -218,4 +218,22 @@ module Gitbase
     branch = branches.find { |b| b.start_with? '* ' }
     branch.sub(/\* /, '')
   end
+
+  def git_url(dir_name)
+    git_base_cmd = "cd #{dir_name} && git config --get remote.origin.url"
+    url = `#{git_base_cmd}`
+    if url.empty?
+      svn_base_cmd = "cd #{dir_name} && git svn info | grep URL | cut -f2- -d' '"
+      url = `#{svn_base_cmd}`
+    end
+    url.chomp
+  end
+
+  def extract_name_from_git_url(git_dir)
+    begin
+      return git_url(git_dir).split('/').last.gsub('.git', '')
+    rescue
+      return git_dir.split('/').last
+    end
+  end
 end

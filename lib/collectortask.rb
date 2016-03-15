@@ -58,7 +58,7 @@ class CollectorTask
   end
 
   def process_repo(dir_name)
-    name = dir_name.split('/').last
+    name = extract_name_from_git_url(dir_name)
     puts "Working on: #{name}...".blue
     repo_details = save_repository_to_bliss(dir_name, name)
     puts "\tCreated repo ##{repo_details['id']} - #{repo_details['full_name']}".green
@@ -94,16 +94,6 @@ class CollectorTask
     end
     @new_repos = new_repo?(name) unless @new_repos
     repo_return
-  end
-
-  def git_url(dir_name)
-    git_base_cmd = "cd #{dir_name} && git config --get remote.origin.url"
-    url = `#{git_base_cmd}`
-    if url.empty?
-      svn_base_cmd = "cd #{dir_name} && git svn info | grep URL | cut -f2- -d' '"
-      url = `#{svn_base_cmd}`
-    end
-    url.chomp
   end
 
   def save_git_log(name, lines, repo_key)

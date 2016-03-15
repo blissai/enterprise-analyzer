@@ -8,7 +8,7 @@ module Common
 
   def init_configuration(git_dir, api_key, host, repo)
     @git_dir = git_dir
-    @name = @git_dir.split('/').last
+    @name = repo['full_name'].split('/').last
     @organization = repo['full_name'].split('/').first
     @api_key = api_key
     @host = host
