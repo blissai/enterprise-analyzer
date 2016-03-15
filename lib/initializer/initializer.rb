@@ -13,9 +13,10 @@ module Initializer
   def save_repository_to_bliss(dir_name, org_name, name, subdirectory)
     git_base = git_url(dir_name)
     git_base = "#{org_name}/#{name}" if git_base.empty?
+    dir_to_sense = subdirectory.nil? ? dir_name : File.join(dir_name, subdirectory)
     @logger.info("\tSaving repository details to database...")
     params = { name: name, full_name: "#{org_name}/#{name}",
-               git_url: git_base, languages: sense_project_type(dir_name).to_json }
+               git_url: git_base, languages: sense_project_type(dir_to_sense).to_json }
     params[:branch] = configure_branch(dir_name)
     params[:subdirectory] = subdirectory if subdirectory
     repo_return = http_post("#{@host}/api/repo.json", params)
