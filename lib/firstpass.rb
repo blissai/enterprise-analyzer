@@ -29,6 +29,8 @@ class FirstPass
     @logger.info('Initializating Bliss Project...')
     @repo = initialize_bliss_repository(@git_dir, @org_name, @subdir)
     @repo_key = @repo['repo_key']
+    @excluded_dirs = @repo['excluded_directories']
+    @name = @repo['name']
   end
 
   def post_to_bliss
@@ -62,7 +64,7 @@ class FirstPass
       commit_hash = log.split('|').first
       checkout_commit(@git_dir, commit_hash)
       remove_open_source_files(@git_dir) unless @repo['detect_open_source'] == false
-      remove_excluded_directories(@repo['excluded_directories'], @git_dir)
+      remove_excluded_directories(@excluded_dirs, @git_dir)
       remove_symlinks(@git_dir)
       @commits[log]['lint_files'] = []
       @linters.each do |linter|
