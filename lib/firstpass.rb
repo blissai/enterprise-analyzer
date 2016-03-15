@@ -62,6 +62,7 @@ class FirstPass
   end
 
   def linting
+    @logger.info("#{@name} - Running Linters...")
     @linters = http_get("#{@host}/api/repo/linters?repo_key=#{@repo_key}")
     @logs.each do |log|
       @commit = log.split('|').first

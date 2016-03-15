@@ -47,7 +47,7 @@ module Common
       @logger.error('Your API key is not valid.')
     rescue Mechanize::ResponseCodeError => re
       if tried < 3
-        puts "Warning: Server in maintenance mode, waiting for 20 seconds and trying again".yellow
+        puts 'Warning: Server in maintenance mode, waiting for 20 seconds and trying again'.yellow
         sleep(20)
         http_get(url, tried + 1)
       else
@@ -102,7 +102,7 @@ module Common
     chars = %w(| / - \\)
     delay = 1.0 / fps
     (seconds * fps).round.times do |i|
-      seconds_left = seconds - (i/fps)
+      seconds_left = seconds - (i / fps)
       print "\t(#{tried}/#{max}) No jobs found... Trying again in #{seconds_left} seconds #{chars[i % chars.length]}     \r".yellow
       sleep delay
     end
