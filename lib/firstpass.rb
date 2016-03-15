@@ -29,8 +29,10 @@ class FirstPass
     @logger.info('Initializating Bliss Project...')
     @repo = initialize_bliss_repository(@git_dir, @org_name, @subdir)
     @repo_key = @repo['repo_key']
-    @excluded_dirs = @repo['excluded_directories']
     @name = @repo['name']
+    @repo_test_files = @repo['test_files_match'] || %w(test spec)
+    @repo_test_dirs = @repo['test_dirs_match'] || %w(test)
+    @excluded_dirs = @repo['excluded_directories'] || []
   end
 
   def post_to_bliss
