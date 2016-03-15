@@ -7,6 +7,7 @@ module Initializer
     puts "Working on: #{name}...".blue
     repo_details = save_repository_to_bliss(dir_name, org_name, name, subdirectory)
     puts "\tCreated repo ##{repo_details['id']} - #{repo_details['full_name']}".green
+    repo_details
   end
 
   def save_repository_to_bliss(dir_name, org_name, name, subdirectory)
