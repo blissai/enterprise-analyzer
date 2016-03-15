@@ -63,19 +63,19 @@ class FirstPass
   def linting
     @linters = http_get("#{@host}/api/repo/linters?repo_key=#{@repo_key}")
     @logs.each do |log|
-      commit_hash = log.split('|').first
-      checkout_commit(@git_dir, commit_hash)
+      @commit = log.split('|').first
+      checkout_commit(@git_dir, @commit)
       remove_open_source_files(@git_dir) unless @repo['detect_open_source'] == false
       remove_excluded_directories(@excluded_dirs, @git_dir)
       remove_symlinks(@git_dir)
       @commits[log]['lint_files'] = []
       @linters.each do |linter|
-        tmpfile_path = File.expand_path("~/bliss/#{@repo['name']}-#{commit_hash}-#{linter['name']}.#{linter['output_format']}")
+        tmpfile_path = File.expand_path("~/bliss/#{@repo['name']}-#{@commit}-#{linter['name']}.#{linter['output_format']}")
         File.write(tmpfile_path, 'failtorundocker')
         @output_file = tmpfile_path
         partition_and_lint(linter, @directory_to_analyze)
         ext = linter['output_format']
-        key = "#{@org_name}_#{@repo['name']}_#{commit_hash}_#{linter['quality_tool']}.#{ext}"
+        key = "#{@org_name}_#{@repo['name']}_#{@commit}_#{linter['quality_tool']}.#{ext}"
         post_lintfile_to_aws(key, File.read(@output_file))
         @commits[log]['lint_files'].push(
           linter_id:  linter['id'],
