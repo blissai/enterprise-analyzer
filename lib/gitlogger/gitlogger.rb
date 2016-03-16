@@ -4,12 +4,11 @@ module Gitlogger
   include AwsUploader
 
   def git_log(dir_name, limit = nil)
-    start = Time.now
+    @logger.info("#{@name} - Collecting gitlog...")
     log_fmt = '"%H|%P|%ai|%aN|%aE|%s"'
     cmd = "cd #{dir_name} && git log --shortstat --all --pretty=format:#{log_fmt}"
     cmd += " --max-count=#{limit}" if limit
     logs = `#{cmd}`
-    puts "Gitlog took #{Time.now - start} seconds..."
     logs
   end
 
@@ -21,7 +20,9 @@ module Gitlogger
   end
 
   def collect_logs(dir_name, name, branch, limit = nil)
+    start = Time.now
     checkout_commit(dir_name, branch)
+    puts "Checkout took #{Time.now - start} seconds..."
     @logger.info("\tGetting gitlog for #{name}")
     git_log(dir_name, limit)
   end
