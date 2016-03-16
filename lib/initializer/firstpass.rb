@@ -19,21 +19,12 @@ class FirstPass
   end
 
   def execute
-    start = Time.now
     bliss_initialize
-    puts "Took #{Time.now - start} seconds..."
-    start = Time.now
     gitlogger
-    puts "Took #{Time.now - start} seconds..."
-    start = Time.now
     stats
-    puts "Took #{Time.now - start} seconds..."
-    start = Time.now
     linting
-    puts "Took #{Time.now - start} seconds..."
-    start = Time.now
     post_to_bliss
-    puts "Took #{Time.now - start} seconds..."
+    checkout_commit(@git_dir, @repo['branch'])
   end
 
   def bliss_initialize

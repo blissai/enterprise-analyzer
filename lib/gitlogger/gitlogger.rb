@@ -4,10 +4,12 @@ module Gitlogger
   include AwsUploader
 
   def git_log(dir_name, limit = nil)
+    start = Time.now
     log_fmt = '"%H|%P|%ai|%aN|%aE|%s"'
     cmd = "cd #{dir_name} && git log --shortstat --all --pretty=format:#{log_fmt}"
     cmd += " --max-count=#{limit}" if limit
     `#{cmd}`
+    puts "Gitlog took #{Time.now - start} seconds..."
   end
 
   def prepare_log(name, lines)
