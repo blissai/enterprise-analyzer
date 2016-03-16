@@ -103,7 +103,7 @@ class FirstPass
 
   private
 
-  def first_commits(limit = 2)
+  def first_commits(limit = 1)
     logs = collect_logs(@git_dir, @repo['name'],
                         @repo['branch'], limit)
     logs.split("\n").select do |l|
