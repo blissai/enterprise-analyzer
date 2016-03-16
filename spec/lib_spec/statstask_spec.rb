@@ -29,7 +29,7 @@ RSpec.describe StatsTask do
 
     it 'calculates stats on the correct test directories' do
       @c.set_test_dirs
-      cloc_tests = @c.cloc_tests
+      cloc_tests = @c.cloc_tests(@dir)
       cloc_hash = YAML.load(cloc_tests)
       expect(cloc_hash['Ruby']['nFiles'].to_i).to eq(1)
     end
