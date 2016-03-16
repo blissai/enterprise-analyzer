@@ -57,7 +57,7 @@ class FirstPass
     @commits = {}
     @logs.each do |log|
       commit_hash = log.split('|').first
-      @commits[log] = { stats: execute_stats_cmd(commit_hash) }
+      @commits[log] = { stats: execute_stats_cmd(commit_hash, @directory_to_analyze) }
     end
   end
 
@@ -68,9 +68,9 @@ class FirstPass
       @commit = log.split('|').first
       @logger.info("#{@name} - Running Linters on #{@commit}...")
       checkout_commit(@git_dir, @commit)
-      remove_open_source_files(@git_dir) unless @repo['detect_open_source'] == false
-      remove_excluded_directories(@excluded_dirs, @git_dir)
-      remove_symlinks(@git_dir)
+      remove_open_source_files(@directory_to_analyze) unless @repo['detect_open_source'] == false
+      remove_excluded_directories(@excluded_dirs, @directory_to_analyze)
+      remove_symlinks(@directory_to_analyze)
       @commits[log]['lint_files'] = []
       @linters.each do |linter|
         tmpfile_path = File.expand_path("~/bliss/#{@repo['name']}-#{@commit}-#{linter['name']}.#{linter['output_format']}")
