@@ -29,7 +29,7 @@ module Stats
     remove_open_source_files(directory) unless @repo['detect_open_source'] == false
     remove_excluded_directories(@excluded_dirs, directory)
     @logger.info("\t#{@name} - Counting original lines of code. This may take a while...")
-    `#{cloc_cmd}`
+    `#{cloc_cmd(directory)}`
   end
 
   def cloc_cmd(directory)
