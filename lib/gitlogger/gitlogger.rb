@@ -8,8 +8,9 @@ module Gitlogger
     log_fmt = '"%H|%P|%ai|%aN|%aE|%s"'
     cmd = "cd #{dir_name} && git log --shortstat --all --pretty=format:#{log_fmt}"
     cmd += " --max-count=#{limit}" if limit
-    `#{cmd}`
+    logs = `#{cmd}`
     puts "Gitlog took #{Time.now - start} seconds..."
+    logs
   end
 
   def prepare_log(name, lines)
