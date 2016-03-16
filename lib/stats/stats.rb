@@ -2,10 +2,12 @@ module Stats
   def execute_stats_cmd(commit, directory = nil)
     stats = git_stats(commit)
     checkout_commit(@git_dir, commit)
+    directory = @git_dir if directory.nil?
     all_stats = {
       commit: commit,
       added_lines: stats[:added_lines], deleted_lines: stats[:deleted_lines],
-      total_cloc: cloc_total, cloc: cloc_original, cloc_tests: cloc_tests
+      total_cloc: cloc_total(directory), cloc: cloc_original(directory),
+      cloc_tests: cloc_tests(directory)
     }
     all_stats
   end
@@ -18,25 +20,25 @@ module Stats
     @logger.success("\t#{@name} - Successfully saved stats for commit #{stats[:commit]}.")
   end
 
-  def cloc_total
+  def cloc_total(directory)
     @logger.info("\t#{@name} - Counting total lines of code. This may take a while...")
-    `#{cloc_cmd}`
+    `#{cloc_cmd(directory)}`
   end
 
-  def cloc_original
-    remove_open_source_files(@git_dir) unless @repo['detect_open_source'] == false
-    remove_excluded_directories(@excluded_dirs, @git_dir)
+  def cloc_original(directory)
+    remove_open_source_files(directory) unless @repo['detect_open_source'] == false
+    remove_excluded_directories(@excluded_dirs, directory)
     @logger.info("\t#{@name} - Counting original lines of code. This may take a while...")
     `#{cloc_cmd}`
   end
 
-  def cloc_cmd
-    "perl #{cloc_command} #{@git_dir} #{cloc_options}"
+  def cloc_cmd(directory)
+    "perl #{cloc_command} #{directory} #{cloc_options}"
   end
 
-  def cloc_tests
+  def cloc_tests(directory)
     @logger.info("\t#{@name} - Counting lines of test code. This may take a while...")
-    test_dirs = get_test_dirs(@git_dir, @repo_test_files, @repo_test_dirs)
+    test_dirs = get_test_dirs(directory, @repo_test_files, @repo_test_dirs)
     if !test_dirs.empty?
       cmd = "perl #{cloc_command} #{test_dirs} #{cloc_options}"
       cloc_tests = `#{cmd}`
