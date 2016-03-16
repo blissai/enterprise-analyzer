@@ -50,6 +50,7 @@ class FirstPass
   end
 
   def gitlogger
+    @logger.info("#{@name} - Collecting gitlog...")
     @logs = first_commits
   end
 
