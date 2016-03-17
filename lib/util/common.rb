@@ -1,8 +1,7 @@
 # Set of common functions used by all commands
 module Common
   def configure_http
-    @agent = Mechanize.new
-    @agent.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    @agent = Mechanize.new { |m| m.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE }
     @auth_headers = { 'X-User-Token' => @api_key }
   end
 
