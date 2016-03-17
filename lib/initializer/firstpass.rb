@@ -23,8 +23,13 @@ class FirstPass
     gitlogger
     stats
     linting
-    post_to_bliss
+    result = post_to_bliss
     checkout_commit(@git_dir, @repo['branch'])
+    if result[:error]
+      @logger.error(result[:error])
+    elsif result[:success]
+      @logger.success('Finished! We will send you an email once we have analyzed your data.')
+    end
   end
 
   def bliss_initialize
@@ -44,9 +49,9 @@ class FirstPass
     }
     json_return = http_post("#{@host}/api/repo/initialize", data, true)
     if json_return['error']
-      @logger.error(json_return['error'])
+      return { error: json_return['error'] }
     elsif json_return['success']
-      @logger.success('Finished! We will send you an email once we have analyzed your data.')
+      return { success: json_return['success'] }
     end
   end
 

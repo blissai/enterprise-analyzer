@@ -20,6 +20,7 @@ module Gitlogger
   end
 
   def collect_logs(dir_name, name, branch, limit = nil)
+    @logger.info("\tChecking out #{branch} branch...")
     checkout_commit(dir_name, branch)
     @logger.info("\tGetting gitlog for #{name}")
     git_log(dir_name, limit)
