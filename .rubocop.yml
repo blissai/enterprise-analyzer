@@ -13,6 +13,7 @@ Lint/Debugger:
   Severity: error
 AllCops:
   Exclude:
+    - 'db/**'
     - 'db/**/*'
     - 'config/**/*'
     - 'vendor/**/*'
