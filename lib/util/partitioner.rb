@@ -1,10 +1,10 @@
 class Partitioner
   attr_accessor :partition_dirs
-  def initialize(src_dir, logger, linter_override = false, byte_limit = 26214400)
+  def initialize(src_dir, logger, linter_partitionable = false, byte_limit = 26214400)
     @src_dir = src_dir
     @dir_analyzer = DirectoryAnalyzer.new(@src_dir)
     @logger = logger
-    @linter_override = linter_override
+    @linter_partitionable = linter_partitionable
     @byte_limit = byte_limit
   end
 
@@ -22,15 +22,15 @@ class Partitioner
       files = File.read(pf).split("\n")
       files.each do |f|
         file_dest = File.dirname(File.join(partition_dest, f).sub(@src_dir, ''))
-        `mkdir -p "#{file_dest}"`
-        `cp "#{f}" "#{file_dest}"`
+        FileUtils.mkdir_p(file_dest)
+        FileUtils.cp(f, file_dest)
       end
     end
     Dir.glob('/tmp/parts/*')
   end
 
   def create_partitions
-    if @dir_analyzer.too_big? && @linter_override
+    if @dir_analyzer.too_big? && @linter_partitionable
       @logger.info("\tRepository is too large. Creating partitions...")
       build_partition_lists
       @partition_dirs = partition_files
