@@ -53,9 +53,13 @@ module Common
         @logger.error("Warning: Can't connect to Bliss server... Tried max times.")
       end
     rescue Net::HTTP::Persistent::Error
-      @agent.shutdown
-      configure_http
-      http_get(url, tried + 1)
+      if tried < 5
+        @agent.shutdown
+        configure_http
+        http_get(url, tried + 1)
+      else
+        puts 'Net::ReadTimeout error occurred. Tried too many times'.red
+      end
     end
     json_return
   end
@@ -83,9 +87,13 @@ module Common
         puts "Error: Can't connect to Bliss server... Tried max times.".red
       end
     rescue Net::HTTP::Persistent::Error
-      @agent.shutdown
-      configure_http
-      http_post(url, params, json, tried + 1)
+      if tried < 5
+        @agent.shutdown
+        configure_http
+        http_post(url, params, json, tried + 1)
+      else
+        puts 'Net::ReadTimeout error occurred. Tried too many times'.red
+      end
     end
     json_return
   end
