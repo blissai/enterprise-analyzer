@@ -43,6 +43,7 @@ class FirstPass
   end
 
   def post_to_bliss
+    @logger.info("\tUploading repository data to Bliss...")
     data = {
       repo_key: @repo['repo_key'],
       init_data: @commits
