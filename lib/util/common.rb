@@ -5,6 +5,13 @@ module Common
     @auth_headers = { 'X-User-Token' => @api_key }
   end
 
+  def reset_http_agent
+    $HTTP_MUTEX.synchronize do
+      @agent.shutdown
+      configure_http
+    end
+  end
+
   def init_configuration(git_dir, api_key, host, repo)
     @git_dir = git_dir
     @name = repo['full_name'].split('/').last
@@ -42,9 +49,9 @@ module Common
         response = @agent.get(url, @auth_headers)
         json_return = JSON.parse(response.body)
       end
-    rescue Mechanize::UnauthorizedError => ue
+    rescue Mechanize::UnauthorizedError
       @logger.error('Your API key is not valid.') if @logger
-    rescue Mechanize::ResponseCodeError => re
+    rescue Mechanize::ResponseCodeError
       if tried < 5
         puts 'Warning: Server in maintenance mode, waiting for 20 seconds and trying again'.yellow
         sleep(20)
@@ -54,8 +61,7 @@ module Common
       end
     rescue Net::HTTP::Persistent::Error
       if tried < 5
-        @agent.shutdown
-        configure_http
+        reset_http_agent
         http_get(url, tried + 1)
       else
         @logger.error('Net::ReadTimeout error occurred. Tried too many times') if @logger
@@ -76,9 +82,9 @@ module Common
         response = @agent.post(url, params, @auth_headers)
         json_return = JSON.parse(response.body)
       end
-    rescue Mechanize::UnauthorizedError => ue
+    rescue Mechanize::UnauthorizedError
       @logger.error('Your API key is not valid.') if @logger
-    rescue Mechanize::ResponseCodeError => re
+    rescue Mechanize::ResponseCodeError
       if tried < 5
         puts "Warning: Server in maintenance mode, waiting for #{2**tried} seconds and trying again".yellow
         sleep(2**tried)
@@ -88,8 +94,7 @@ module Common
       end
     rescue Net::HTTP::Persistent::Error
       if tried < 5
-        @agent.shutdown
-        configure_http
+        reset_http_agent
         http_post(url, params, json, tried + 1)
       else
         @logger.error('Net::ReadTimeout error occurred. Tried too many times') if @logger
