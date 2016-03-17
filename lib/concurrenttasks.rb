@@ -13,7 +13,7 @@ class ConcurrentTasks
   def stats
     threads = []
     @dirs_list.each do |git_dir|
-      name = git_dir.split('/').last
+      name = extract_name_from_git_url(git_dir)
       threads << Thread.new(git_dir, @api_key, @bliss_host, @repos[name]) do |dir, key, host, repo|
         StatsTask.new(dir, key, host, repo).execute
       end
@@ -25,7 +25,7 @@ class ConcurrentTasks
   def linter
     threads = []
     @dirs_list.each do |git_dir|
-      name = git_dir.split('/').last
+      name = extract_name_from_git_url(git_dir)
       threads << Thread.new(git_dir, @api_key, @bliss_host, @repos[name]) do |dir, key, host, repo|
         LinterTask.new(dir, key, host, repo).execute
       end
