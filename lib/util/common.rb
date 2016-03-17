@@ -45,7 +45,7 @@ module Common
     rescue Mechanize::UnauthorizedError => ue
       @logger.error('Your API key is not valid.')
     rescue Mechanize::ResponseCodeError => re
-      if tried < 3
+      if tried < 5
         puts 'Warning: Server in maintenance mode, waiting for 20 seconds and trying again'.yellow
         sleep(20)
         http_get(url, tried + 1)
@@ -55,7 +55,7 @@ module Common
     rescue Net::HTTP::Persistent::Error
       @agent.shutdown
       configure_http
-      http_get(url, tried)
+      http_get(url, tried + 1)
     end
     json_return
   end
@@ -85,7 +85,7 @@ module Common
     rescue Net::HTTP::Persistent::Error
       @agent.shutdown
       configure_http
-      http_post(url, params, json, tried)
+      http_post(url, params, json, tried + 1)
     end
     json_return
   end
