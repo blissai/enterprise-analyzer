@@ -43,14 +43,14 @@ module Common
         json_return = JSON.parse(response.body)
       end
     rescue Mechanize::UnauthorizedError => ue
-      @logger.error('Your API key is not valid.')
+      @logger.error('Your API key is not valid.') if @logger
     rescue Mechanize::ResponseCodeError => re
       if tried < 5
         puts 'Warning: Server in maintenance mode, waiting for 20 seconds and trying again'.yellow
         sleep(20)
         http_get(url, tried + 1)
       else
-        @logger.error("Warning: Can't connect to Bliss server... Tried max times.")
+        @logger.error("Warning: Can't connect to Bliss server... Tried max times.") if @logger
       end
     rescue Net::HTTP::Persistent::Error
       if tried < 5
@@ -58,7 +58,7 @@ module Common
         configure_http
         http_get(url, tried + 1)
       else
-        puts 'Net::ReadTimeout error occurred. Tried too many times'.red
+        @logger.error('Net::ReadTimeout error occurred. Tried too many times') if @logger
       end
     end
     json_return
@@ -84,7 +84,7 @@ module Common
         sleep(2**tried)
         http_post(url, params, json, tried + 1)
       else
-        puts "Error: Can't connect to Bliss server... Tried max times.".red
+        @logger.error("Warning: Can't connect to Bliss server... Tried max times.") if @logger
       end
     rescue Net::HTTP::Persistent::Error
       if tried < 5
@@ -92,7 +92,7 @@ module Common
         configure_http
         http_post(url, params, json, tried + 1)
       else
-        puts 'Net::ReadTimeout error occurred. Tried too many times'.red
+        @logger.error('Net::ReadTimeout error occurred. Tried too many times') if @logger
       end
     end
     json_return
