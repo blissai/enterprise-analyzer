@@ -7,20 +7,20 @@ class StatsTask
   def initialize(git_dir, api_key, host, repo)
     init_configuration(git_dir, api_key, host, repo)
     configure_http
-    @logger = BlissLogger.new(api_key, @repo_key)
+    @logger = BlissLogger.new(api_key, @repo_key, @name)
     @repo_test_files = @repo['test_files_match'] || %w(test spec)
     @repo_test_dirs = @repo['test_dirs_match'] || %w(test)
     @excluded_dirs = @repo['excluded_directories'] || []
   end
 
   def execute
-    @logger.info("Running Stats on #{@name}...")
+    @logger.info("Running Stats...")
     metrics = next_batch
     unless metrics.empty?
       starttime = DateTime.parse(metrics.last['commited_at'])
       endtime = DateTime.parse(metrics.first['commited_at'])
       dates = "#{starttime.strftime('%d-%m-%Y')} and #{endtime.strftime('%d-%m-%Y')}"
-      @logger.success("#{@name} - Processing Stats between #{dates}")
+      @logger.success("Processing Stats between #{dates}")
     end
     metrics.each do |metric|
       commit = metric['commit']
@@ -28,7 +28,7 @@ class StatsTask
     end
     # Go back to master at the end
     checkout_commit(@git_dir, @repo['branch'])
-    @logger.success("Stats finished for #{@name}")
+    @logger.success('Stats finished.')
   end
 
   def next_batch

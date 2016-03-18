@@ -13,22 +13,22 @@ module Stats
   end
 
   def post_stats(stats)
-    @logger.info("\t#{@name} - Posting commit stats to Bliss...")
+    @logger.info("\tPosting commit stats to Bliss...")
     stats[:repo_key] = @repo_key
     stats_response = http_post("#{@host}/api/commit/stats", stats)
     return if stats_response.nil?
-    @logger.success("\t#{@name} - Successfully saved stats for commit #{stats[:commit]}.")
+    @logger.success("\tSuccessfully saved stats for commit #{stats[:commit]}.")
   end
 
   def cloc_total(directory)
-    @logger.info("\t#{@name} - Counting total lines of code. This may take a while...")
+    @logger.info("\tCounting total lines of code. This may take a while...")
     `#{cloc_cmd(directory)}`
   end
 
   def cloc_original(directory)
     remove_open_source_files(directory) unless @repo['detect_open_source'] == false
     remove_excluded_directories(@excluded_dirs, directory)
-    @logger.info("\t#{@name} - Counting original lines of code. This may take a while...")
+    @logger.info("\tCounting original lines of code. This may take a while...")
     `#{cloc_cmd(directory)}`
   end
 
@@ -43,7 +43,7 @@ module Stats
       cmd = "perl #{cloc_command} #{test_dirs} #{cloc_options}"
       cloc_tests = `#{cmd}`
     else
-      @logger.warn("\t#{@name} - No known test pattern for cloc to run - skipped")
+      @logger.warn("\tNo known test pattern for cloc to run - skipped")
       cloc_tests = nil
     end
     cloc_tests
@@ -55,7 +55,7 @@ module Stats
   end
 
   def git_stats(commit)
-    @logger.info("#{@name} - Getting stats for #{commit}...")
+    @logger.info("\tGetting stats for #{commit}...")
     added_lines = 0
     deleted_lines = 0
     git_numstat(commit).each do |stt|
