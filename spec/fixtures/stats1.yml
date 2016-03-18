@@ -1,0 +1,25 @@
+---
+# http://cloc.sourceforge.net
+header :
+  cloc_url           : http://cloc.sourceforge.net
+  cloc_version       : 1.64
+  elapsed_seconds    : 2
+  n_files            : 150
+  n_lines            : 219315
+  files_per_second   : 75
+  lines_per_second   : 109657.5
+Ruby:
+  nFiles: 10
+  blank: 15
+  comment: 20
+  code: 5
+HTML:
+  nFiles: 15
+  blank: 20
+  comment: 10
+  code: 5
+SUM:
+  blank: 35
+  comment: 30
+  code: 10
+  nFiles: 25
