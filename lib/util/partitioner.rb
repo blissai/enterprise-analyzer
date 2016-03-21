@@ -26,7 +26,7 @@ class Partitioner
           FileUtils.mkdir_p(file_dest)
           FileUtils.cp(f, file_dest)
         rescue
-          @logger.yellow("Could not copy. Skipping #{f}...")
+          @logger.warn("Could not copy. Skipping #{f}...")
         end
       end
     end
