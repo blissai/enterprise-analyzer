@@ -34,7 +34,7 @@ module Stats
     original_clocs = sm.merge_files
     sm.update_clocs(test_clocs)
     test_clocs = sm.merge_files
-    { total_cloc: total_clocs, cloc: original_clocs, test_clocs: test_clocs }
+    { total_cloc: total_clocs, cloc: original_clocs, cloc_tests: test_clocs }
   end
 
   def post_stats(stats)
