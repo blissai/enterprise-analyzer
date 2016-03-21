@@ -6,7 +6,8 @@ class StatsMerger
   def update_clocs(clocs)
     @clocs = []
     clocs.each do |cloc|
-      @clocs.push(YAML.load(cloc))
+      cloc_hash = YAML.load(cloc)
+      @clocs.push(cloc_hash) unless !cloc_hash
     end
   end
 
