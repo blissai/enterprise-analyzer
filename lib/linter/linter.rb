@@ -65,6 +65,7 @@ module Linter
   end
 
   def consolidate_output
+    FileUtils.touch(@output_file)
     File.truncate(@output_file, 0)
     Dir.glob('/resultpart*.txt').each do |r|
       File.open(@output_file, 'a') do |f|

@@ -3,13 +3,13 @@ RSpec.describe StatsMerger do
   before(:all) do
     @file_paths = []
     4.times do |i|
-      @file_paths.push("spec/fixtures/stats#{i+1}.yml")
+      @file_paths.push(File.read("spec/fixtures/stats#{i + 1}.yml"))
     end
     @keys = %w(Ruby HTML Javascript SUM MADEUP)
   end
 
   it 'sums up the languages correctly' do
-    sm = StatsMerger.new(@file_paths)
+    sm = StatsMerger.new.update_clocs(@file_paths)
     merged = sm.merge_files
     @keys.each do |k|
       expect(merged.key? k).to eq(true)

@@ -1,16 +1,20 @@
 class StatsMerger
-  def initialize(stats_files)
-    @stats_files = []
-    stats_files.each do |path|
-      @stats_files.push(YAML.load_file(path))
+  def initialize(clocs)
+    update_clocs(clocs)
+  end
+
+  def update_clocs(clocs)
+    @clocs = []
+    clocs.each do |cloc|
+      @clocs.push(YAML.load(cloc))
     end
   end
 
   def merge_files
     @all_keys = all_keys
     setup_base
-    @stats_files.each do |sf|
-      sf.each do |k, v|
+    @clocs.each do |cloc|
+      cloc.each do |k, v|
         next if k == 'header'
         merge_language_counts(k, v)
       end
@@ -41,8 +45,8 @@ class StatsMerger
 
   def all_keys
     keys = []
-    @stats_files.each do |sf|
-      sf.keys.each do |k|
+    @clocs.each do |cloc|
+      cloc.keys.each do |k|
         keys.push(k) unless keys.include?(k)
       end
     end

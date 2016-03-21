@@ -6,10 +6,35 @@ module Stats
     all_stats = {
       commit: commit,
       added_lines: stats[:added_lines], deleted_lines: stats[:deleted_lines],
-      total_cloc: cloc_total(directory), cloc: cloc_original(directory),
-      cloc_tests: cloc_tests(directory)
     }
-    all_stats
+    all_stats.merge(partition_and_stats(directory))
+  end
+
+  def partition_and_stats(directory = nil)
+    directory_to_analyze = directory.nil? ? @git_dir : directory
+    parts = Partitioner.new(directory_to_analyze, @logger, true).create_partitions
+    @logger.info("\tRunning Stats on #{@commit}... This may take a while...")
+    clocs = Parallel.map(parts, in_processes: parts.size) do |part|
+      {
+        total_cloc: cloc_total(part),
+        cloc: cloc_original(part),
+        cloc_tests: cloc_tests(part)
+      }
+    end
+    consolidate_clocs(clocs)
+  end
+
+  def consolidate_clocs(clocs)
+    total_clocs = clocs.map { |c| c[:total_cloc] }
+    original_clocs = clocs.map { |c| c[:cloc] }
+    test_clocs = clocs.map { |c| c[:cloc_tests] }
+    sm = StatsMerger.new(total_clocs)
+    total_clocs = sm.merge_files
+    sm.update_clocs(original_clocs)
+    original_clocs = sm.merge_files
+    sm.update_clocs(test_clocs)
+    test_clocs = sm.merge_files
+    { total_cloc: total_clocs, cloc: original_clocs, test_clocs: test_clocs }
   end
 
   def post_stats(stats)
