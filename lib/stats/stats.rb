@@ -51,7 +51,7 @@ module Stats
   end
 
   def cloc_original(directory)
-    remove_open_source_files(directory) if @repo['detect_open_source'] == true
+    remove_open_source_files(directory) unless @repo['detect_open_source'] == false
     remove_excluded_directories(@excluded_dirs, directory)
     @logger.info("\tCounting original lines of code. This may take a while...")
     `#{cloc_cmd(directory)}`
