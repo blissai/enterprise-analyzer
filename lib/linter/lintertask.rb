@@ -36,6 +36,7 @@ class LinterTask
 
   def process_commit(commit)
     checkout_commit(@git_dir, commit)
+    @logger.info('Removing open source and excluded files...')
     remove_open_source_files(@git_dir) unless @repo['detect_open_source'] == false
     remove_excluded_directories(@excluded_dirs, @git_dir)
     remove_symlinks(@git_dir)
