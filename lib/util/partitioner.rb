@@ -21,9 +21,13 @@ class Partitioner
       partition_dest = "/tmp/parts/#{SecureRandom.hex(3)}"
       files = File.read(pf).split("\n")
       files.each do |f|
-        file_dest = File.dirname(File.join(partition_dest, f).sub(@src_dir, ''))
-        FileUtils.mkdir_p(file_dest)
-        FileUtils.cp(f, file_dest)
+        begin
+          file_dest = File.dirname(File.join(partition_dest, f).sub(@src_dir, ''))
+          FileUtils.mkdir_p(file_dest)
+          FileUtils.cp(f, file_dest)
+        rescue
+          @logger.yellow("Could not copy. Skipping #{f}...")
+        end
       end
     end
     Dir.glob('/tmp/parts/*')
