@@ -5,7 +5,7 @@ module Stats
     directory = @git_dir if directory.nil?
     all_stats = {
       commit: commit,
-      added_lines: stats[:added_lines], deleted_lines: stats[:deleted_lines],
+      added_lines: stats[:added_lines], deleted_lines: stats[:deleted_lines]
     }
     all_stats.merge(partition_and_stats(directory))
   end
