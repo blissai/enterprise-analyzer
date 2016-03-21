@@ -6,9 +6,7 @@ class LocalStats
                  excluded_dirs, repo_test_files, repo_test_dirs, remove_open_source = true)
     @logger = BlissLogger.new
     @commit = commit
-    @repository_dir = git_dir.nil? ? '/repository' : File.expand_path(git_dir)
-    create_working_copy(@repository_dir, '/tmp/code')
-    @git_dir = '/tmp/code'
+    @git_dir = git_dir.nil? ? '/repository' : File.expand_path(git_dir)
     @output_file = '/result.txt'
     @name = log_prefix
     @excluded_dirs = excluded_dirs.split(',') rescue []
