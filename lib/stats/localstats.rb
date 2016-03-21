@@ -14,7 +14,7 @@ class LocalStats
     @repo_test_dirs = repo_test_dirs.split(',') rescue %w(test spec)
     @api_key = nil
     @repo_key = nil
-    @repo = { 'remove_open_source' => remove_open_source }
+    @repo = { 'detect_open_source' => remove_open_source }
     check_args
   end
 
