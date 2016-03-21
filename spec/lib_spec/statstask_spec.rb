@@ -38,9 +38,9 @@ RSpec.describe StatsTask do
       result = @c.process_commit('test')
       expect(result[:added_lines]).to eq(4)
       expect(result[:deleted_lines]).to eq(3)
-      expect(result[:total_cloc]).to include('nFiles')
-      expect(result[:cloc]).to include('nFiles')
-      expect(result[:cloc_tests]).to include('nFiles')
+      expect(result[:total_cloc]["Ruby"]).to include('nFiles')
+      expect(result[:cloc]["Ruby"]).to include('nFiles')
+      expect(result[:cloc_tests]["Ruby"]).to include('nFiles')
     end
   end
 end

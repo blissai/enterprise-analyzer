@@ -9,7 +9,7 @@ RSpec.describe StatsMerger do
   end
 
   it 'sums up the languages correctly' do
-    sm = StatsMerger.new.update_clocs(@file_paths)
+    sm = StatsMerger.new(@file_paths)
     merged = sm.merge_files
     @keys.each do |k|
       expect(merged.key? k).to eq(true)
