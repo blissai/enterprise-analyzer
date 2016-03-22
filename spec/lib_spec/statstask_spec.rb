@@ -41,9 +41,9 @@ RSpec.describe StatsTask do
       total_cloc = YAML.load(result[:total_cloc])
       cloc = YAML.load(result[:cloc])
       cloc_tests = YAML.load(result[:cloc_tests])
-      expect(total_cloc["Ruby"]).to include('nFiles')
-      expect(cloc["Ruby"]).to include('nFiles')
-      expect(cloc_tests["Ruby"]).to include('nFiles')
+      expect(total_cloc['Ruby']).to include('nFiles')
+      expect(cloc['Ruby']).to include('nFiles')
+      expect(cloc_tests['Ruby']).to include('nFiles')
     end
   end
 end
