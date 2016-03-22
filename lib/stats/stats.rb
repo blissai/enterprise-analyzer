@@ -14,6 +14,7 @@ module Stats
     directory_to_analyze = directory.nil? ? @git_dir : directory
     parts = Partitioner.new(directory_to_analyze, @logger, true).create_partitions
     @logger.info("\tRunning Stats on #{@commit}... This may take a while...")
+    @logger.info("\tCounting total, original and test lines of code...")
     clocs = Parallel.map(parts, in_processes: parts.size) do |part|
       {
         total_cloc: cloc_total(part),
@@ -46,14 +47,12 @@ module Stats
   end
 
   def cloc_total(directory)
-    @logger.info("\t#{@name} - Counting total lines of code. This may take a while...")
     `#{cloc_cmd(directory)}`
   end
 
   def cloc_original(directory)
     remove_open_source_files(directory) unless @repo['detect_open_source'] == false
     remove_excluded_directories(@excluded_dirs, directory)
-    @logger.info("\t#{@name} - Counting original lines of code. This may take a while...")
     `#{cloc_cmd(directory)}`
   end
 
@@ -62,7 +61,6 @@ module Stats
   end
 
   def cloc_tests(directory)
-    @logger.info("\t#{@name} - Counting lines of test code. This may take a while...")
     test_dirs = get_test_dirs(directory, @repo_test_files, @repo_test_dirs)
     if !test_dirs.empty?
       cmd = "perl #{cloc_command} #{test_dirs} #{cloc_options}"
