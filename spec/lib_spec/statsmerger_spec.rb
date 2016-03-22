@@ -2,7 +2,7 @@ require_relative '../spec_helper.rb'
 RSpec.describe StatsMerger do
   before(:all) do
     @file_paths = []
-    4.times do |i|
+    5.times do |i|
       @file_paths.push(File.read("spec/fixtures/stats#{i + 1}.yml"))
     end
     @keys = %w(Ruby HTML Javascript SUM MADEUP)
