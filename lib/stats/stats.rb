@@ -29,11 +29,11 @@ module Stats
     original_clocs = clocs.map { |c| c[:cloc] }
     test_clocs = clocs.map { |c| c[:cloc_tests] }
     sm = StatsMerger.new(total_clocs)
-    total_clocs = sm.merge_files
+    total_clocs = sm.merge_files.to_yaml
     sm.update_clocs(original_clocs)
-    original_clocs = sm.merge_files
+    original_clocs = sm.merge_files.to_yaml
     sm.update_clocs(test_clocs)
-    test_clocs = sm.merge_files
+    test_clocs = sm.merge_files.to_yaml
     { total_cloc: total_clocs, cloc: original_clocs, cloc_tests: test_clocs }
   end
 
