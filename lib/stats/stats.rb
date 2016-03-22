@@ -12,10 +12,12 @@ module Stats
 
   def partition_and_stats(directory = nil)
     directory_to_analyze = directory.nil? ? @git_dir : directory
-    parts = Partitioner.new(directory_to_analyze, @logger, true).create_partitions
+    parts = Partitioner.new(directory_to_analyze, @logger, true, 104_857_600).create_partitions
     @logger.info("\tRunning Stats on #{@commit}... This may take a while...")
     @logger.info("\tCounting total, original and test lines of code...")
-    clocs = Parallel.map(parts, in_processes: parts.size) do |part|
+    num_proc = parts.size
+    num_proc = 4 if num_proc > 4
+    clocs = Parallel.map(parts, in_processes: num_proc) do |part|
       {
         total_cloc: cloc_total(part),
         cloc: cloc_original(part),

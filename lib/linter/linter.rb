@@ -56,8 +56,10 @@ module Linter
     directory_to_analyze = directory.nil? ? @git_dir : directory
     parts = Partitioner.new(directory_to_analyze, @logger, linter['partitionable']).create_partitions
     multipart = parts.size > 1
+    num_proc = parts.size
+    num_proc = 8 if num_proc > 8
     @logger.info("\tRunning #{linter['quality_tool']} on #{@commit}... This may take a while...")
-    Parallel.each_with_index(parts, in_processes: parts.size) do |part, index|
+    Parallel.each_with_index(parts, in_processes: num_proc) do |part, index|
       result_path = multipart ? "/resultpart#{index}.txt" : @output_file
       lint_commit(linter, result_path, part)
     end
