@@ -30,7 +30,7 @@ RUN go get github.com/alecthomas/gometalinter
 RUN gometalinter --install --update
 
 # Install CSSlint, ESlint, nsp
-RUN npm install -g jshint csslint eslint nsp coffeelint stylint sass-lint jscpd
+RUN npm install -g jshint csslint eslint nsp coffeelint stylint sass-lint jscpd eslint-plugin-react eslint-config-airbnb eslint-config-hapi
 
 # Install fpart
 RUN git clone https://github.com/martymac/fpart.git /tmp/fpart \
