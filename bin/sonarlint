@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+exit 'Requires 2 args of path to be analyzed and output file.' unless ARGV.size == 2
+path_to_analyze = ARGV[0]
+output_file = ARGV[0]
+exit 'Not a directory.' unless File.directory? path_to_analyze
+exit 'Output file does not exist.' unless File.exist? output_file
+sonarlint_conf = File.read('SonarLint.xml')
+files_to_analyze = Dir.glob("#{path_to_analyze}/*/**/*.cs").split("\n").map do |file_path|
+  "<File>#{file_path}</File>\n"
+end
+sonarlint_conf = sonarlint_conf.gsub('<----FilesToLint---->', files_to_analyze.join)
+new_config_path = File.expand_path('~/SonarLint.xml')
+File.write(new_config_path, sonarlint_conf)
+cmd = "mono /root/sonaranalyzer-csharp-mono/bin/SonarLint.Runner.exe #{new_config_path} #{output_file} cs"
+`#{cmd}`

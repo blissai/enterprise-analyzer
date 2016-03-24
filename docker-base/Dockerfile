@@ -51,6 +51,21 @@ ENV PATH $PATH:/usr/local/go/bin:$GOPATH/bin
 RUN curl --silent --location https://rpm.nodesource.com/setup | bash - \
     && yum install -y nodejs
 
+# Install Mono
+RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
+RUN yum-config-manager --add-repo http://download.mono-project.com/repo/centos/
+RUN yum install -y mono-complete
+
+# Install NAnt
+RUN cd /tmp && \
+    mkdir /tmp/nant && \
+    wget http://nant.sourceforge.net/nightly/latest/nant-src.tar.gz && \
+    tar -xvf /tmp/nant-src.tar.gz -C /tmp/nant --strip-components 1 && \
+    sed -i 's/MCS=gmcs/MCS=mcs/' /tmp/nant/Makefile && \
+    cd /tmp/nant && \
+    make && \
+    make install
+
 WORKDIR /root
 
 # Define default command.

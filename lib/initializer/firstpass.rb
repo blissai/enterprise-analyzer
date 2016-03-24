@@ -64,6 +64,7 @@ class FirstPass
     @commits = {}
     @logs.each do |log|
       commit_hash = log.split('|').first
+      @commit = commit_hash
       @commits[log] = { stats: execute_stats_cmd(commit_hash, @directory_to_analyze) }
     end
   end
