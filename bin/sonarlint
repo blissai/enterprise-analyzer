@@ -14,3 +14,5 @@ new_config_path = File.expand_path('~/SonarLint.xml')
 File.write(new_config_path, sonarlint_conf)
 cmd = "mono #{sonarlint_path}/SonarLint.Runner.exe #{new_config_path} #{output_file} cs"
 `#{cmd}`
+filtered_output = File.read(output_file).gsub(/<Metrics>[\s\S]*?<\/Metrics>/, '')
+File.write(output_file, filtered_output)
