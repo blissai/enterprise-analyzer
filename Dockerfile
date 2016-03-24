@@ -32,6 +32,13 @@ RUN gometalinter --install --update
 # Install CSSlint, ESlint, nsp
 RUN npm install -g jshint csslint eslint nsp coffeelint stylint sass-lint jscpd eslint-plugin-react eslint-config-airbnb eslint-config-hapi
 
+# Install SonarLint for .NET
+RUN git clone --recursive https://github.com/neris/sonaranalyzer-csharp-mono.git ~/sonarlint
+RUN cd ~/sonarlint && \
+    nant && \
+    cd ~/sonarlint/bin && \
+    mono SonarLint.DocGenerator.exe
+
 # Install fpart
 RUN git clone https://github.com/martymac/fpart.git /tmp/fpart \
     && cd /tmp/fpart \
