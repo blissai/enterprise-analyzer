@@ -64,7 +64,8 @@ RUN cd /tmp && \
     sed -i 's/MCS=gmcs/MCS=mcs/' /tmp/nant/Makefile && \
     cd /tmp/nant && \
     make && \
-    make install
+    make install && \
+    ln -s /usr/bin/mono /usr/local/bin/mono
 
 WORKDIR /root
 
