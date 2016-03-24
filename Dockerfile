@@ -38,7 +38,7 @@ RUN gometalinter --install --update
 RUN npm install -g jshint csslint eslint nsp coffeelint stylint sass-lint jscpd eslint-plugin-react eslint-config-airbnb eslint-config-hapi
 
 # Install SonarLint for .NET
-RUN git clone --recursive https://github.com/neris/sonaranalyzer-csharp-mono.git ~/sonarlint
+RUN git clone --recursive https://github.com/mikesive/sonaranalyzer-csharp-mono.git ~/sonarlint
 RUN cd ~/sonarlint && \
     nant && \
     cd ~/sonarlint/bin && \
