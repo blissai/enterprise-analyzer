@@ -54,7 +54,7 @@ RUN curl --silent --location https://rpm.nodesource.com/setup | bash - \
 # Install Mono
 RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
 RUN yum-config-manager --add-repo http://download.mono-project.com/repo/centos/
-RUN yum install -y mono-complete
+RUN yum install -y mono-complete nuget
 
 # Install NAnt
 RUN cd /tmp && \
