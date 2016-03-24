@@ -20,7 +20,12 @@ RUN yum install -y 'perl(Perl::Critic)'
 RUN mkdir ~/phpmd && wget -O ~/phpmd/phpmd.phar -c http://static.phpmd.org/php/latest/phpmd.phar
 
 # Install pip modules
-RUN pip install importlib argparse lizard django prospector parcon ocstyle
+RUN pip install importlib argparse django prospector parcon ocstyle
+
+# Install lizard
+RUN git clone https://github.com/terryyin/lizard.git ~/lizard && \
+    cd ~/lizard && \
+    python setup.py install
 
 # Install Tailor
 RUN curl -fsSL https://s3.amazonaws.com/bliss-cli-dependencies/tailor-install.sh | sh
