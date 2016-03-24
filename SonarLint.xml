@@ -688,9 +688,6 @@
     </Rule>
   </Rules>
   <Files>
-    <File>simple_dotnet/HelloWorldMvc/Global.asax.cs</File>
-    <File>simple_dotnet/HelloWorldMvc/App_Start/RouteConfig.cs</File>
-    <File>simple_dotnet/HelloWorldMvc/Controllers/HomeController.cs</File>
-    <File>simple_dotnet/HelloWorldMvc/Properties/AssemblyInfo.cs</File>
+    <----FilesToLint---->
   </Files>
 </AnalysisInput>
