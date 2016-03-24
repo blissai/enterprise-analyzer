@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+require 'nokogiri'
 exit 'Requires 2 args of path to be analyzed and output file.' unless ARGV.size == 2
 path_to_analyze = File.expand_path(ARGV[0])
 output_file = File.expand_path(ARGV[1])
@@ -14,5 +15,11 @@ new_config_path = File.expand_path('~/SonarLint.xml')
 File.write(new_config_path, sonarlint_conf)
 cmd = "mono #{sonarlint_path}/SonarLint.Runner.exe #{new_config_path} #{output_file} cs"
 `#{cmd}`
-filtered_output = File.read(output_file).gsub(/<Metrics>[\s\S]*?<\/Metrics>/, '')
-File.write(output_file, filtered_output)
+# Remove unecessary content
+filtered_output = Nokogiri::XML(File.read(output_file))
+filtered_output.search('//Metrics').each(&:remove)
+filtered_output.search('//File').each do |f|
+  issues = f.children.find { |c| c.name == 'Issues' }
+  f.remove if issues.inner_text.empty?
+end
+File.write(output_file, filtered_output.to_s)
