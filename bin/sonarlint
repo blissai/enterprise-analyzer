@@ -22,4 +22,4 @@ filtered_output.search('//File').each do |f|
   issues = f.children.find { |c| c.name == 'Issues' }
   f.remove if issues.inner_text.empty?
 end
-File.write(output_file, filtered_output.to_s)
+File.write(output_file, filtered_output.to_xml)
