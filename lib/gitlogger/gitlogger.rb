@@ -6,7 +6,7 @@ module Gitlogger
   def git_log(dir_name, limit = nil)
     @logger.info("#{@name} - Collecting gitlog...")
     log_fmt = '"%H|%P|%ai|%aN|%aE|%s"'
-    cmd = "cd #{dir_name} && git log --shortstat --all --pretty=format:#{log_fmt}"
+    cmd = "cd #{dir_name} && git log --numstat --shortstat --all --pretty=format:#{log_fmt}"
     cmd += " --max-count=#{limit}" if limit
     logs = `#{cmd}`
     logs
