@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 require 'nokogiri'
 require 'securerandom'
+require 'fileutils'
 abort 'Requires 2 args of path to be analyzed and output file.' unless ARGV.size == 2
 path_to_analyze = File.expand_path(ARGV[0])
 output_file = File.expand_path(ARGV[1])
@@ -12,7 +13,8 @@ files_to_analyze = Dir.glob("#{path_to_analyze}/*/**/*.cs").map do |file_path|
   "<File>#{file_path}</File>\n"
 end
 sonarlint_conf = sonarlint_conf.gsub('<----FilesToLint---->', files_to_analyze.join)
-new_config_path = File.expand_path("~/SonarLint#{SecureRandom.hex 5}.xml")
+new_config_path = File.expand_path("~/#{SecureRandom.hex 5}/SonarLint.xml")
+FileUtils.mkdir_p(File.dirname(new_config_path))
 File.write(new_config_path, sonarlint_conf)
 cmd = "mono #{sonarlint_path}/SonarLint.Runner.exe #{new_config_path} #{output_file} cs"
 `#{cmd}`
