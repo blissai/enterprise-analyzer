@@ -27,7 +27,7 @@ module Gitbase
                         .encode('UTF-8', invalid: :replace, undef: :replace, replace: '')
                         .split("\n")
     open_source_lines.keep_if do |line|
-      line =~ /License|Copyright|CdnPath|OVERWRITTEN/i
+      line =~ /License|Copyright|CdnPath|OVERWRITTEN WHEN REGENERATING|NEVER EDIT THIS FILE/i
     end
     open_source_lines
   end
