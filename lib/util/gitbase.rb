@@ -1,44 +1,46 @@
 require_relative 'copyright'
+require_relative 'opensourcematches'
 module Gitbase
   def checkout_commit(git_dir, commit)
     throw 'Git directory not found' unless File.exist?(git_dir)
-    # cmd = get_cmd("cd #{git_dir};git reset --hard HEAD")
-    cmd = "cd #{git_dir} && git reset --hard HEAD > /dev/null 2>&1"
-    `#{cmd}`
-    # cmd = get_cmd("cd #{git_dir};git clean -f -d")
-    cmd = "cd #{git_dir} && git clean -f -d > /dev/null 2>&1"
-    `#{cmd}`
-    # co_cmd = get_cmd("cd #{git_dir};git checkout #{commit}")
+    ["cd #{git_dir} && git reset --hard HEAD > /dev/null 2>&1",
+     "cd #{git_dir} && git clean -f -d > /dev/null 2>&1"].each do |cmd|
+      `#{cmd}`
+    end
     co_cmd = "cd #{git_dir} && git checkout #{commit}"
-    stdin, stdout, stderr = Open3.popen3(co_cmd)
+    _stdin, _stdout, stderr = Open3.popen3(co_cmd)
     @ref = nil
     while (err = stderr.gets)
       # puts err unless err.include? "Already on 'master'"
       @ref = err
       next unless err =~ /Your local changes to the following files would be overwritten by checkout/
-      `#{remove_command} #{git_dir}/*`
-      # cmd = get_cmd("cd #{git_dir};git checkout #{co_cmd}")
-      cmd = "cd #{git_dir} && git checkout #{commit}"
-      `#{cmd}`
-      # cmd = get_cmd("cd #{git_dir};git reset --hard HEAD")
-      cmd = "cd #{git_dir} && git reset --hard HEAD"
-      `#{cmd}`
-      # cmd = get_cmd("cd #{git_dir};git clean -fdx")
-      cmd = "cd #{git_dir} && git clean -fdx"
-      `#{cmd}`
+      ["#{remove_command} #{git_dir}/*",
+       "cd #{git_dir} && git checkout #{commit}",
+       "cd #{git_dir} && git reset --hard HEAD",
+       "cd #{git_dir} && git clean -fdx"].each do |cmd|
+         `#{cmd}`
+       end
       @ref = `#{co_cmd}`
       break
     end
   end
 
-  def remove_open_source_files(git_dir)
-    # Remove open source files
-    open_source_lines = nil
-    open_source_lines = `egrep -i "free software|Hamano|jQuery|BSD|GPL|GNU|MIT|Apache" #{git_dir}/* -R`
-    open_source_lines = open_source_lines.encode('UTF-8', invalid: :replace, undef: :replace, replace: '').split("\n")
+  def os_lines(git_dir)
+    patterns = OpenSourceMatches.os_patterns.join('|')
+    open_source_lines = `egrep -i "#{patterns}" #{git_dir}/* -R`
+    open_source_lines = open_source_lines
+                        .encode('UTF-8', invalid: :replace, undef: :replace, replace: '')
+                        .split("\n")
     open_source_lines.keep_if do |line|
-      line =~ /License|Copyright/i
+      line =~ /License|Copyright|CdnPath|OVERWRITTEN/i
     end
+  end
+
+  def remove_open_source_files(git_dir)
+    # Remove minified js files and .NET packages
+    remove_common_os_files(git_dir)
+    # Remove open source files
+    open_source_lines = os_lines(git_dir)
     todo = []
     temp_start = git_dir
     open_source_lines.each do |line|
@@ -58,13 +60,21 @@ module Gitbase
         todo << ["rm '#{file_name}'", file_name] if match[1]
       end
     end
-    if File.exist?(File.join(git_dir, 'NuGet.config')) && Dir.exist?(File.join(git_dir, 'packages'))
-      file_name = File.join(git_dir, 'packages')
-      todo << ["#{remove_command} '#{file_name}'", file_name]
-    end
     todo.uniq!
     todo.each do |cmd, fn|
       `#{cmd}` if File.exist?(fn)
+    end
+  end
+
+  def remove_common_os_files(git_dir)
+    if File.exist?(File.join(git_dir, 'NuGet.config')) && Dir.exist?(File.join(git_dir, 'packages'))
+      file = File.join(git_dir, 'packages')
+      FileUtils.rm_rf(file)
+    end
+    [File.join(git_dir, '**/*.min.js')].each do |ptn|
+      Dir.glob(ptn).each do |file|
+        FileUtils.rm_rf(file)
+      end
     end
   end
 
