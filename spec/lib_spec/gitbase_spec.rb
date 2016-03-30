@@ -8,6 +8,8 @@ RSpec.describe Gitbase do
     @rubydir = "#{@testdir}/ruby"
     @phpdir = "#{@testdir}/php"
     @iosdir = "#{@testdir}/ios"
+    @osdir = "#{Dir.pwd}/spec/fixtures/projs/osproj"
+    `git clone https://github.com/OwlCarousel2/OwlCarousel2.git #{@osdir}`
 
     FileUtils.mkdir_p("#{@iosdir}/Pods")
     FileUtils.mkdir_p("#{@iosdir}/Frameworks")
@@ -18,6 +20,10 @@ RSpec.describe Gitbase do
     FileUtils.mkdir_p("#{@iosdir}/Nested/Frameworks")
     File.open("#{@iosdir}/Nested/Pods/test.txt", 'w+') { |file| file.write('A pod.') }
     File.open("#{@iosdir}/Nested/Frameworks/test.txt", 'w+') { |file| file.write('A framework.') }
+  end
+
+  after(:all) do
+    FileUtils.rm_rf(@osdir)
   end
 
   let(:including_class) { Class.new { include Gitbase } }
@@ -60,6 +66,12 @@ RSpec.describe Gitbase do
       expect(File.directory?("#{@iosdir}/Frameworks")).to be false
       expect(File.directory?("#{@iosdir}/Nested/Frameworks")).to be false
       expect(File.directory?("#{@iosdir}/Nested/Frameworks")).to be false
+    end
+
+    it 'Removes open source files from a project' do
+      expect {
+        including_class.new.remove_open_source_files(@osdir)
+      }.to change { Dir.glob("#{@osdir}/src/js/*.js").size }.from(11).to(0)
     end
   end
 end
