@@ -14,7 +14,7 @@ module Gitbase
       # puts err unless err.include? "Already on 'master'"
       @ref = err
       next unless err =~ /Your local changes to the following files would be overwritten by checkout/
-      ["#{remove_command} #{git_dir}/*",
+      ["rm -rf #{git_dir}/*",
        "cd #{git_dir} && git checkout #{commit}",
        "cd #{git_dir} && git reset --hard HEAD",
        "cd #{git_dir} && git clean -fdx"].each do |cmd|
@@ -49,12 +49,12 @@ module Gitbase
         # puts "license file found: #{line}"
         file_name = "#{temp_start}#{match[1]}"
         next if file_name == git_dir
-        todo << ["#{remove_command} '#{file_name}/*'", file_name] if match[1]
+        todo << ["rm -rf '#{file_name}/*'", file_name] if match[1]
       elsif match = /^#{temp_start}([^:]+?)\/[^\/]*manifest.xml:/i.match(line)
         # puts "manifest file found: #{line}"
         file_name = "#{temp_start}#{match[1]}"
         next if file_name == git_dir
-        todo << ["#{remove_command} '#{file_name}/*'", file_name] if match[1]
+        todo << ["rm -rf '#{file_name}/*'", file_name] if match[1]
       elsif match = /^#{temp_start}([^:]+?):/i.match(line)
         file_name = "#{temp_start}#{match[1]}"
         todo << ["rm '#{file_name}'", file_name] if match[1]
@@ -101,10 +101,6 @@ module Gitbase
   def cloc_command
     pwd = `git rev-parse --show-toplevel`.strip
     "#{pwd}/bin/cloc"
-  end
-
-  def remove_command
-    'rm -rf'
   end
 
   def sense_project_type(git_dir)
@@ -199,7 +195,7 @@ module Gitbase
       next if dir =~ /\.\./
       nested_dirs = Dir.glob(File.join(git_dir, '**', dir))
       nested_dirs.each do |nd|
-        `#{remove_command} #{nd}` if File.exist? nd
+        `rm -rf #{nd}` if File.exist? nd
       end
     end
   end
