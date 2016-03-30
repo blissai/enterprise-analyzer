@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+$LOAD_PATH << '../lib'
+require_relative '../lib/bootstrap'
+include Cmd
+@args = ARGV
+gitlog = LocalGitlogger.new(arg('dir'), arg('log'))
+gitlog.execute

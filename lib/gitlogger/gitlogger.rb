@@ -19,9 +19,9 @@ module Gitlogger
     key
   end
 
-  def collect_logs(dir_name, name, branch, limit = nil)
+  def collect_logs(dir_name, name, branch = nil, limit = nil)
     @logger.info("\tChecking out #{branch} branch...")
-    checkout_commit(dir_name, branch)
+    checkout_commit(dir_name, branch) if branch
     @logger.info("\tGetting gitlog for #{name}")
     git_log(dir_name, limit)
   end
