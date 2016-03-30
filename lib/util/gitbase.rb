@@ -1,6 +1,6 @@
-require_relative 'copyright'
-require_relative 'opensourcematches'
 module Gitbase
+  include Copyright
+  include OpenSourceMatches
   def checkout_commit(git_dir, commit)
     throw 'Git directory not found' unless File.exist?(git_dir)
     ["cd #{git_dir} && git reset --hard HEAD > /dev/null 2>&1",
@@ -26,7 +26,7 @@ module Gitbase
   end
 
   def os_lines(git_dir)
-    patterns = OpenSourceMatches.os_patterns.join('|')
+    patterns = os_patterns.join('|')
     open_source_lines = `egrep -i "#{patterns}" #{git_dir}/* -R`
     open_source_lines = open_source_lines
                         .encode('UTF-8', invalid: :replace, undef: :replace, replace: '')
