@@ -1,9 +1,8 @@
 module Gitbase
   def checkout_commit(git_dir, commit)
     throw 'Git directory not found' unless File.exist?(git_dir)
-    ["cd #{git_dir} && git reset --hard HEAD > /dev/null 2>&1",
-     "cd #{git_dir} && git clean -f -d > /dev/null 2>&1"].each do |cmd|
-      `#{cmd}`
+    ['git reset --hard HEAD > /dev/null 2>&1', 'git clean -f -d > /dev/null 2>&1'].each do |cmd|
+      `cd #{git_dir} && #{cmd}`
     end
     co_cmd = "cd #{git_dir} && git checkout #{commit}"
     _stdin, _stdout, stderr = Open3.popen3(co_cmd)
@@ -12,12 +11,10 @@ module Gitbase
       # puts err unless err.include? "Already on 'master'"
       @ref = err
       next unless err =~ /Your local changes to the following files would be overwritten by checkout/
-      ["rm -rf #{git_dir}/*",
-       "cd #{git_dir} && git checkout #{commit}",
-       "cd #{git_dir} && git reset --hard HEAD",
-       "cd #{git_dir} && git clean -fdx"].each do |cmd|
-         `#{cmd}`
-       end
+      `rm -rf #{git_dir}/*`
+      ["git checkout #{commit}", 'git reset --hard HEAD', 'git clean -fdx'].each do |cmd|
+        `cd #{git_dir} && #{cmd}`
+      end
       @ref = `#{co_cmd}`
       break
     end
@@ -32,6 +29,7 @@ module Gitbase
     open_source_lines.keep_if do |line|
       line =~ /License|Copyright|CdnPath|OVERWRITTEN/i
     end
+    open_source_lines
   end
 
   def remove_open_source_files(git_dir)
