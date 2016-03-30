@@ -1,6 +1,4 @@
 module Gitbase
-  include Copyright
-  include OpenSourceMatches
   def checkout_commit(git_dir, commit)
     throw 'Git directory not found' unless File.exist?(git_dir)
     ["cd #{git_dir} && git reset --hard HEAD > /dev/null 2>&1",
@@ -238,5 +236,21 @@ module Gitbase
     rescue
       return git_dir.split('/').last
     end
+  end
+
+  def os_patterns
+    [
+      'free software',
+      'Hamano',
+      'jQuery',
+      'BSD',
+      'GPL',
+      'GNU',
+      'MIT',
+      'Apache',
+      'aspnetcdn',
+      'OVERWRITTEN WHEN REGENERATING',
+      'NEVER EDIT THIS FILE'
+    ]
   end
 end
