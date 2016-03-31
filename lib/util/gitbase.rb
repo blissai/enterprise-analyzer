@@ -46,7 +46,7 @@ module Gitbase
     todo.uniq!
     todo.each do |cmd, fn|
       begin
-        `#{cmd}`
+        `#{cmd} 2>&1`
       rescue
       end
     end
