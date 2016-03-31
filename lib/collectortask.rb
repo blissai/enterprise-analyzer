@@ -64,12 +64,12 @@ class CollectorTask
     puts "\tCreated repo ##{repo_details['id']} - #{repo_details['full_name']}".green
     @repos[name] = repo_details
     checkout_commit(dir_name, @repos[name]['branch'])
-    @logger.info("\tGetting gitlog for #{name}")
+    @logger.info("\tGetting history for #{name}")
     lines = git_log(dir_name)
-    @repos[name]['commit_count'] = lines.split("\n").count
+    @repos[name]['gitlog_checksum'] = Digest::MD5.hexdigest(lines)
     @logger.info("\t#{@repos[name]['commit_count']} commits found...")
     repo_key = @repos[name]['repo_key']
-    if needs_running? name, @repos[name]['commit_count']
+    if needs_running? name, @repos[name]['gitlog_checksum']
       save_git_log(name, lines, repo_key)
     else
       @logger.info("\tNo new commits...")
@@ -97,15 +97,14 @@ class CollectorTask
   end
 
   def save_git_log(name, lines, repo_key)
-    @logger.info("\tSaving Gitlog to AWS...")
     s3_object_key = prepare_log(name, lines)
     http_post("#{@host}/api/gitlog",   repo_key: repo_key,
                                        object_key: s3_object_key,
                                        bucket: 'bliss-collector-files')
   end
 
-  def needs_running?(repo_name, commit_count)
-    return (new_repo? repo_name) || (@saved_repos[repo_name]['commit_count'] < commit_count)
+  def needs_running?(repo_name, gitlog_checksum)
+    return (new_repo? repo_name) || (@saved_repos[repo_name]['gitlog_checksum'] != gitlog_checksum)
   rescue
     return true
   end

@@ -38,28 +38,33 @@ module Gitbase
     # Remove open source files
     open_source_lines = os_lines(git_dir)
     todo = []
-    temp_start = git_dir
     open_source_lines.each do |line|
       line = line.tr('\\', '/')
-      if match = /^#{git_dir}([^:]+?)\/[^\/:\s]*license|licence|readme|(.txt|.md):/i.match(line)
-        # puts "license file found: #{line}"
-        file_name = "#{temp_start}#{match[1]}"
-        next if file_name == git_dir
-        todo << ["rm -rf '#{file_name}/*'", file_name] if match[1]
-      elsif match = /^#{temp_start}([^:]+?)\/[^\/]*manifest.xml:/i.match(line)
-        # puts "manifest file found: #{line}"
-        file_name = "#{temp_start}#{match[1]}"
-        next if file_name == git_dir
-        todo << ["rm -rf '#{file_name}/*'", file_name] if match[1]
-      elsif match = /^#{temp_start}([^:]+?):/i.match(line)
-        file_name = "#{temp_start}#{match[1]}"
-        todo << ["rm '#{file_name}'", file_name] if match[1]
-      end
+      rm_cmd = rm_if_license(git_dir, line)
+      todo << rm_cmd unless rm_cmd.nil?
     end
     todo.uniq!
     todo.each do |cmd, fn|
       `#{cmd}` if File.exist?(fn)
     end
+  end
+
+  def rm_if_license(git_dir, line)
+    if match = /^#{git_dir}([^:]+?)\/[^\/:\s]*license|licence|readme|(.txt|.md):/i.match(line)
+      # puts "license file found: #{line}"
+      file_name = "#{git_dir}#{match[1]}"
+      return nil if file_name == git_dir
+      return ["rm -rf '#{file_name}/*'", file_name] if match[1]
+    elsif match = /^#{git_dir}([^:]+?)\/[^\/]*manifest.xml:/i.match(line)
+      # puts "manifest file found: #{line}"
+      file_name = "#{git_dir}#{match[1]}"
+      return nil if file_name == git_dir
+      return ["rm -rf '#{file_name}/*'", file_name] if match[1]
+    elsif match = /^#{git_dir}([^:]+?):/i.match(line)
+      file_name = "#{git_dir}#{match[1]}"
+      return ["rm '#{file_name}'", file_name] if match[1]
+    end
+    nil
   end
 
   def remove_common_os_files(git_dir)
