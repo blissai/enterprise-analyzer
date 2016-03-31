@@ -3,6 +3,7 @@ class CollectorTask
   include Common
   include Gitbase
   include AwsUploader
+  include Gitlogger
 
   def initialize(config)
     @top_lvl_dir = config['TOP_LVL_DIR']
@@ -20,18 +21,6 @@ class CollectorTask
     @new_repos = false
     @stats_todo = 0
     @linters_todo = 0
-  end
-
-  def git_log(dir_name)
-    log_fmt = '"%H|%P|%ai|%aN|%aE|%s"'
-    cmd = "cd #{dir_name} && git log --numstat --shortstat --all --pretty=format:#{log_fmt}"
-    `#{cmd}`
-  end
-
-  def prepare_log(name, lines)
-    key = "#{@org_name}_#{name}_git.log"
-    upload_to_aws('bliss-collector-files', key, lines)
-    key
   end
 
   def configure_branch(repo_dir)
@@ -91,13 +80,6 @@ class CollectorTask
     end
     @new_repos = new_repo?(name) unless @new_repos
     repo_return
-  end
-
-  def save_git_log(name, lines, repo_key)
-    s3_object_key = prepare_log(name, lines)
-    http_post("#{@host}/api/gitlog",   repo_key: repo_key,
-                                       object_key: s3_object_key,
-                                       bucket: 'bliss-collector-files')
   end
 
   def needs_running?(repo_name, gitlog_checksum)

@@ -12,7 +12,6 @@ module Gitlogger
   end
 
   def prepare_log(name, lines)
-    @logger.info("\tSaving repo data to AWS Bucket...")
     key = "#{@org_name}_#{name}_git.log"
     upload_to_aws('bliss-collector-files', key, lines)
     key
@@ -21,5 +20,12 @@ module Gitlogger
   def collect_logs(dir_name, branch = nil, limit = nil)
     checkout_commit(dir_name, branch) if branch
     git_log(dir_name, limit)
+  end
+
+  def save_git_log(name, lines, repo_key)
+    s3_object_key = prepare_log(name, lines)
+    http_post("#{@host}/api/gitlog",   repo_key: repo_key,
+                                       object_key: s3_object_key,
+                                       bucket: 'bliss-collector-files')
   end
 end
