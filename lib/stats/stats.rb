@@ -58,11 +58,11 @@ module Stats
     `#{cloc_cmd(directory)}`
   end
 
-  def cloc_cmd(directory, exts)
+  def cloc_cmd(directory)
     "perl #{cloc_command} #{directory} #{cloc_options(@repo_excluded_exts)}"
   end
 
-  def cloc_tests(directory, exts)
+  def cloc_tests(directory)
     test_dirs = get_test_dirs(directory, @repo_test_files, @repo_test_dirs)
     if !test_dirs.empty?
       cmd = "perl #{cloc_command} #{test_dirs} #{cloc_options(@repo_excluded_exts)}"
