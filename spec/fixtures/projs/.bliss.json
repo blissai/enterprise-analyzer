@@ -9,6 +9,7 @@
       "branch":"master",
       "repo_key":"d6bff0c5-5bf1-4927-aeb1-e3c48e84bf5f",
       "start_from":"2015-07-07T02:06:13.514Z",
+      "gitlog_checksum":"hereisadigest",
       "test_files_match":[
          "test"
       ],

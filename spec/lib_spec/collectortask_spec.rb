@@ -52,9 +52,7 @@ RSpec.describe CollectorTask do
     end
 
     it 'identifies a repo that doesn\'t have new commits' do
-      dir = "#{Dir.pwd}/spec/fixtures/projs/repoone"
-      gitlog = `cd #{dir} && git log --numstat --shortstat --all --pretty=format:"%H|%P|%ai|%aN|%aE|%s"`
-      expect(@c.needs_running?('ruby', Digest::MD5.hexdigest(gitlog))).to eq(false)
+      expect(@c.needs_running?('ruby', 'hereisadigest')).to eq(false)
     end
 
     it 'identifies the directories' do
