@@ -29,7 +29,6 @@ class CollectorTask
   end
 
   def prepare_log(name, lines)
-    @logger.info("\tSaving repo data to AWS Bucket...")
     key = "#{@org_name}_#{name}_git.log"
     upload_to_aws('bliss-collector-files', key, lines)
     key
@@ -64,10 +63,9 @@ class CollectorTask
     puts "\tCreated repo ##{repo_details['id']} - #{repo_details['full_name']}".green
     @repos[name] = repo_details
     checkout_commit(dir_name, @repos[name]['branch'])
-    @logger.info("\tGetting history for #{name}")
+    @logger.info("\tGetting history for #{name}...")
     lines = git_log(dir_name)
     @repos[name]['gitlog_checksum'] = Digest::MD5.hexdigest(lines)
-    @logger.info("\t#{@repos[name]['commit_count']} commits found...")
     repo_key = @repos[name]['repo_key']
     if needs_running? name, @repos[name]['gitlog_checksum']
       save_git_log(name, lines, repo_key)
