@@ -58,14 +58,14 @@ module Stats
     `#{cloc_cmd(directory)}`
   end
 
-  def cloc_cmd(directory)
-    "perl #{cloc_command} #{directory} #{cloc_options}"
+  def cloc_cmd(directory, exts)
+    "perl #{cloc_command} #{directory} #{cloc_options(@repo_excluded_exts)}"
   end
 
-  def cloc_tests(directory)
+  def cloc_tests(directory, exts)
     test_dirs = get_test_dirs(directory, @repo_test_files, @repo_test_dirs)
     if !test_dirs.empty?
-      cmd = "perl #{cloc_command} #{test_dirs} #{cloc_options}"
+      cmd = "perl #{cloc_command} #{test_dirs} #{cloc_options(@repo_excluded_exts)}"
       cloc_tests = `#{cmd}`
     else
       @logger.warn("\tNo known test pattern for cloc to run - skipped")

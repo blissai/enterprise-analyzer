@@ -11,6 +11,7 @@ class StatsTask
     @repo_test_files = @repo['test_files_match'] || %w(test spec)
     @repo_test_dirs = @repo['test_dirs_match'] || %w(test)
     @excluded_dirs = @repo['excluded_directories'] || []
+    @repo_excluded_exts = @repo['excluded_exts'] || []
   end
 
   def execute

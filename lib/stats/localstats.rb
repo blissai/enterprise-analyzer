@@ -3,7 +3,8 @@ class LocalStats
   include Stats
 
   def initialize(git_dir, commit, log_prefix,
-                 excluded_dirs, repo_test_files, repo_test_dirs, remove_open_source = true)
+                 excluded_dirs, repo_test_files, repo_test_dirs, repo_excluded_exts,
+                 remove_open_source = true)
     @logger = BlissLogger.new
     @commit = commit
     @git_dir = git_dir.nil? ? '/repository' : File.expand_path(git_dir)
@@ -12,9 +13,11 @@ class LocalStats
     @excluded_dirs = excluded_dirs.split(',') rescue []
     @repo_test_files = repo_test_files.split(',') rescue %w(test)
     @repo_test_dirs = repo_test_dirs.split(',') rescue %w(test spec)
+    @repo_excluded_exts = repo_excluded_exts.split(',') rescue []
     @api_key = nil
     @repo_key = nil
     @repo = { 'detect_open_source' => remove_open_source }
+
     check_args
   end
 

@@ -78,8 +78,11 @@ module Gitbase
     end
   end
 
-  def cloc_options
-    '--yaml --quiet --skip-uniqueness --progress-rate 0'
+  def cloc_options(exts)
+    options = ''
+    options += "--exclude-ext=#{exts.join(',')} " if exts.size > 0
+    options += '--yaml --quiet --skip-uniqueness --progress-rate 0'
+    options
   end
 
   def cloc_command
