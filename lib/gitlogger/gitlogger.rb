@@ -22,11 +22,4 @@ module Gitlogger
     checkout_commit(dir_name, branch) if branch
     git_log(dir_name, limit)
   end
-
-  def fetch_fork(git_url)
-    temp_branch = "fork#{SecureRandom.hex 5}"
-    `cd #{@git_dir} && git checkout -b #{temp_branch}`
-    `cd #{@git_dir} && git pull #{git_url} #{temp_branch}`
-    @branch = temp_branch
-  end
 end
