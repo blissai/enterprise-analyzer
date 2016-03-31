@@ -25,7 +25,8 @@ class StatsTask
     end
     metrics.each do |metric|
       commit = metric['commit']
-      process_commit(commit)
+      result = process_commit(commit)
+      @logger.success("\tFinished stats for commit #{commit}.") unless result.nil?
     end
     # Go back to master at the end
     checkout_commit(@git_dir, @repo['branch'])
@@ -40,7 +41,6 @@ class StatsTask
 
   def process_commit(commit)
     all_stats = execute_stats_cmd(commit)
-    result = post_stats(all_stats)
-    @logger.success("\tFinished stats for commit #{commit}.") unless result.nil?
+    post_stats(all_stats)
   end
 end
