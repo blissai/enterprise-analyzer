@@ -45,7 +45,10 @@ module Gitbase
     end
     todo.uniq!
     todo.each do |cmd, fn|
-      `#{cmd}` if File.exist?(fn)
+      begin
+        `#{cmd}`
+      rescue
+      end
     end
   end
 
