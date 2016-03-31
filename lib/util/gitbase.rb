@@ -64,30 +64,13 @@ module Gitbase
 
   def remove_common_os_files(git_dir)
     if File.exist?(File.join(git_dir, 'NuGet.config')) && Dir.exist?(File.join(git_dir, 'packages'))
-      file = File.join(git_dir, 'packages')
-      FileUtils.rm_rf(file)
+      FileUtils.rm_rf(File.join(git_dir, 'packages'))
     end
     [File.join(git_dir, '**/*.min.js')].each do |ptn|
-      Dir.glob(ptn).each do |file|
-        FileUtils.rm_rf(file)
+      Dir.glob(ptn).each do |file_match|
+        FileUtils.rm_rf(file_match)
       end
     end
-  end
-
-  def find_copyright(git_dir, is_demo = false)
-    puts "Finding copyrights: #{git_dir}".blue
-    owners = []
-    egrep_cmd = Gem.win_platform? ? "\"C:/Program Files (x86)/GnuWin32/bin/egrep.exe\"" : 'egrep'
-    copyright_lines = `#{egrep_cmd} -i "copyright|\(c\)|\&copy\;" #{git_dir}/* -R`
-    copyright_lines = copyright_line.encode('UTF-8', invalid: :replace, undef: :replace, replace: '').split("\n")
-    copyright_lines.each do |line|
-      owner, file = Copyright.find_owner(line)
-      next if is_demo && (file =~ /fixture/)
-      owners << owner
-    end
-    owners = owners.compact.uniq
-    puts "Found #{owners.count} owners under: #{git_dir}".green
-    owners
   end
 
   def cloc_options
