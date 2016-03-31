@@ -41,11 +41,8 @@ module Stats
   end
 
   def post_stats(stats)
-    @logger.info("\tPosting commit stats to Bliss...")
     stats[:repo_key] = @repo_key
-    stats_response = http_post("#{@host}/api/commit/stats", stats)
-    return if stats_response.nil?
-    @logger.success("\tSuccessfully saved stats for commit #{stats[:commit]}.")
+    http_post("#{@host}/api/commit/stats", stats)
   end
 
   def cloc_total(directory)
@@ -68,7 +65,6 @@ module Stats
       cmd = "perl #{cloc_command} #{test_dirs} #{cloc_options(@repo_excluded_exts)}"
       cloc_tests = `#{cmd}`
     else
-      @logger.warn("\tNo known test pattern for cloc to run - skipped")
       cloc_tests = nil
     end
     cloc_tests
@@ -80,7 +76,6 @@ module Stats
   end
 
   def git_stats(commit)
-    @logger.info("\tGetting stats for #{commit}...")
     added_lines = 0
     deleted_lines = 0
     git_numstat(commit).each do |stt|

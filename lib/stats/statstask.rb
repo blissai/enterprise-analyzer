@@ -40,6 +40,7 @@ class StatsTask
 
   def process_commit(commit)
     all_stats = execute_stats_cmd(commit)
-    post_stats(all_stats)
+    result = post_stats(all_stats)
+    @logger.success("\tFinished stats for commit #{commit}.") unless result.nil?
   end
 end
