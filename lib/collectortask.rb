@@ -65,7 +65,6 @@ class CollectorTask
     checkout_commit(dir_name, @repos[name]['branch'])
     @logger.info("\tGetting history for #{name}...")
     lines = git_log(dir_name)
-    @repos[name]['gitlog_checksum'] = Digest::MD5.hexdigest(lines)
     repo_key = @repos[name]['repo_key']
     if needs_running? name, @repos[name]['gitlog_checksum']
       save_git_log(name, lines, repo_key)
