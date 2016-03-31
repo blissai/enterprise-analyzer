@@ -3,5 +3,5 @@ $LOAD_PATH << '../lib'
 require_relative '../lib/bootstrap'
 include Cmd
 @args = ARGV
-gitlog = LocalGitlogger.new(arg('dir'), arg('log'))
+gitlog = LocalGitlogger.new(arg('dir'), arg('branch'), arg('fork_url'))
 gitlog.execute

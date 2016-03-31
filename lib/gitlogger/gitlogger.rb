@@ -4,7 +4,6 @@ module Gitlogger
   include AwsUploader
 
   def git_log(dir_name, limit = nil)
-    @logger.info("#{@name} - Collecting gitlog...")
     log_fmt = '"%H|%P|%ai|%aN|%aE|%s"'
     cmd = "cd #{dir_name} && git log --numstat --shortstat --all --pretty=format:#{log_fmt}"
     cmd += " --max-count=#{limit}" if limit
@@ -19,10 +18,15 @@ module Gitlogger
     key
   end
 
-  def collect_logs(dir_name, name, branch = nil, limit = nil)
-    @logger.info("\tChecking out #{branch} branch...")
+  def collect_logs(dir_name, branch = nil, limit = nil)
     checkout_commit(dir_name, branch) if branch
-    @logger.info("\tGetting gitlog for #{name}")
     git_log(dir_name, limit)
+  end
+
+  def fetch_fork(git_url)
+    temp_branch = "fork#{SecureRandom.hex 5}"
+    `cd #{@git_dir} && git checkout -b #{temp_branch}`
+    `cd #{@git_dir} && git pull #{git_url} #{temp_branch}`
+    @branch = temp_branch
   end
 end
