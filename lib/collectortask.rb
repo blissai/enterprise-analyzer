@@ -63,7 +63,7 @@ class CollectorTask
     puts "\tCreated repo ##{repo_details['id']} - #{repo_details['full_name']}".green
     @repos[name] = repo_details
     checkout_commit(dir_name, @repos[name]['branch'])
-    @logger.info("\tGetting history for #{name}...")
+    @logger.info("\tGetting history...")
     lines = git_log(dir_name)
     repo_key = @repos[name]['repo_key']
     if needs_running? name, @repos[name]['gitlog_checksum']
