@@ -27,7 +27,7 @@ module Gitbase
                         .encode('UTF-8', invalid: :replace, undef: :replace, replace: '')
                         .split("\n")
     open_source_lines.keep_if do |line|
-      line =~ /License|Copyright|CdnPath|OVERWRITTEN WHEN REGENERATING|NEVER EDIT THIS FILE/i
+      line =~ /License|Licence|Copyright|CdnPath|OVERWRITTEN WHEN REGENERATING|NEVER EDIT THIS FILE/i
     end
     open_source_lines
   end
@@ -45,6 +45,7 @@ module Gitbase
     end
     todo.uniq!
     todo.each do |cmd, fn|
+      puts cmd
       begin
         `#{cmd} > /dev/null 2>&1`
       rescue

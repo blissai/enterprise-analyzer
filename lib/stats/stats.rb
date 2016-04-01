@@ -86,4 +86,9 @@ module Stats
     end
     { added_lines: added_lines, deleted_lines: deleted_lines }
   end
+
+  def fill_stats_if_empty(result)
+    return result unless result.empty?
+    
+  end
 end
