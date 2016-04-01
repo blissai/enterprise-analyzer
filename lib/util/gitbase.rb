@@ -62,10 +62,10 @@ module Gitbase
       # puts "manifest file found: #{line}"
       file_name = "#{git_dir}#{match[1]}"
       return nil if file_name == git_dir
-      return ["rm -rf '#{file_name.shellescape}/*'", file_name] if match[1]
+      return ["rm -rf #{file_name.shellescape}/*", file_name] if match[1]
     elsif match = /^#{git_dir}([^:]+?):/i.match(line)
       file_name = "#{git_dir}#{match[1]}"
-      return ["rm '#{file_name.shellescape}'", file_name] if match[1]
+      return ["rm #{file_name.shellescape}", file_name] if match[1]
     end
     nil
   end
