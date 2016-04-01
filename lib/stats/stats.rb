@@ -18,10 +18,13 @@ module Stats
     num_proc = parts.size
     num_proc = 4 if num_proc > 4
     clocs = Parallel.map(parts, in_processes: num_proc) do |part|
+      total_cloc = cloc_total(part)
+      cloc = cloc_original(part)
+      cloc_tests
       {
-        total_cloc: cloc_total(part),
-        cloc: cloc_original(part),
-        cloc_tests: cloc_tests(part)
+        total_cloc: total_cloc,
+        cloc: cloc,
+        cloc_tests: cloc_tests
       }
     end
     consolidate_clocs(clocs)
@@ -89,6 +92,6 @@ module Stats
 
   def fill_stats_if_empty(result)
     return result unless result.empty?
-    
+
   end
 end
