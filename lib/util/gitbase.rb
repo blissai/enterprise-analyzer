@@ -44,8 +44,7 @@ module Gitbase
       todo << rm_cmd unless rm_cmd.nil?
     end
     todo.uniq!
-    todo.each do |cmd, fn|
-      puts cmd
+    todo.each do |cmd, _fn|
       begin
         `#{cmd} > /dev/null 2>&1`
       rescue
