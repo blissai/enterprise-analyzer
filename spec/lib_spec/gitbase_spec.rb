@@ -79,10 +79,10 @@ RSpec.describe Gitbase do
     end
 
     it 'Removes open source files from a project when a license' do
-      file_count = Dir.glob("#{@ostestdir}/**/*").size
+      file_count = Dir.glob("#{@ostestdir}/**/*.*").size
       expect do
         including_class.new.remove_open_source_files(@ostestdir)
-      end.to change { Dir.glob("#{@ostestdir}/**/*").size }.from(file_count).to(1)
+      end.to change { Dir.glob("#{@ostestdir}/**/*.*").size }.from(file_count).to(1)
     end
 
     it 'Removes min.js files' do
