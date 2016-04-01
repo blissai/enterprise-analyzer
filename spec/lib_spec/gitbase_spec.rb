@@ -69,7 +69,7 @@ RSpec.describe Gitbase do
     end
 
     it 'Removes open source files from a project' do
-      File.copy_file(Dir.glob("#{@osdir}/src/js/*.js").first, "#{@osdir}/src/js/here is a file with spaces.js")
+      FileUtils.copy_file(Dir.glob("#{@osdir}/src/js/*.js").first, "#{@osdir}/src/js/here is a file with spaces.js")
       file_count = Dir.glob("#{@osdir}/src/js/*.js").size
       expect do
         including_class.new.remove_open_source_files(@osdir)
