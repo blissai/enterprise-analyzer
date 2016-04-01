@@ -12,16 +12,6 @@ RSpec.describe Gitbase do
     @osdir = "#{@testdir}/osproj"
     @ostestdir = "#{@testdir}/ostest"
     `git clone https://github.com/OwlCarousel2/OwlCarousel2.git #{@osdir}`
-
-    FileUtils.mkdir_p("#{@iosdir}/Pods")
-    FileUtils.mkdir_p("#{@iosdir}/Frameworks")
-    File.open("#{@iosdir}/Pods/test.txt", 'w+') { |file| file.write('A pod.') }
-    File.open("#{@iosdir}/Frameworks/test.txt", 'w+') { |file| file.write('A framework.') }
-
-    FileUtils.mkdir_p("#{@iosdir}/Nested/Pods")
-    FileUtils.mkdir_p("#{@iosdir}/Nested/Frameworks")
-    File.open("#{@iosdir}/Nested/Pods/test.txt", 'w+') { |file| file.write('A pod.') }
-    File.open("#{@iosdir}/Nested/Frameworks/test.txt", 'w+') { |file| file.write('A framework.') }
   end
 
   after(:all) do
