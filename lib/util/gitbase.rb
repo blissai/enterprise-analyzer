@@ -54,7 +54,7 @@ module Gitbase
   end
 
   def rm_if_license(git_dir, line)
-    if match = /^#{git_dir}([^:]+?)\/[^\/:\s]*license|licence|readme|(.txt|.md):/i.match(line)
+    if match = /^#{git_dir}([^:]+?)\/[^\/]*license|licence|readme|(.txt|.md):/i.match(line)
       # puts "license file found: #{line}"
       file_name = "#{git_dir}#{match[1]}"
       return nil if file_name == git_dir
