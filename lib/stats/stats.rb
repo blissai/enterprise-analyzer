@@ -19,11 +19,11 @@ module Stats
     num_proc = 4 if num_proc > 4
     clocs = Parallel.map(parts, in_processes: num_proc) do |part|
       total_cloc = cloc_total(part)
-      cloc = cloc_original(part)
-      cloc_tests
+      cloc_original = cloc_original(part)
+      cloc_tests = cloc_tests(part)
       {
         total_cloc: total_cloc,
-        cloc: cloc,
+        cloc: cloc_original,
         cloc_tests: cloc_tests
       }
     end
