@@ -86,10 +86,9 @@ RSpec.describe Gitbase do
     end
 
     it 'Removes min.js files' do
-      file_count = Dir.glob("#{@minjsdir}/**/*.js").size
       expect do
         including_class.new.remove_open_source_files(@minjsdir)
-      end.to change { Dir.glob("#{@minjsdir}/**/*.js").size }.from(file_count).to(1)
+      end.to change { Dir.glob("#{@minjsdir}/**/*.js").size }.from(1).to(0)
     end
   end
 end
