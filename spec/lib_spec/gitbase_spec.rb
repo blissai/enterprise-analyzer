@@ -8,8 +8,9 @@ RSpec.describe Gitbase do
     @rubydir = "#{@testdir}/ruby"
     @phpdir = "#{@testdir}/php"
     @iosdir = "#{@testdir}/ios"
-    @osdir = "#{Dir.pwd}/spec/fixtures/projs/osproj"
-    @ostestdir = "#{Dir.pwd}/spec/fixtures/projs/ostest"
+    @minjsdir = "#{@testdir}/minjs"
+    @osdir = "#{@testdir}/osproj"
+    @ostestdir = "#{@testdir}/ostest"
     `git clone https://github.com/OwlCarousel2/OwlCarousel2.git #{@osdir}`
 
     FileUtils.mkdir_p("#{@iosdir}/Pods")
@@ -77,11 +78,18 @@ RSpec.describe Gitbase do
       end.to change { Dir.glob("#{@osdir}/src/js/*.js").size }.from(file_count).to(0)
     end
 
-    it 'Removes open source files from a project when a license is found or when minified files' do
+    it 'Removes open source files from a project when a license' do
       file_count = Dir.glob("#{@ostestdir}/**/*").size
       expect do
-        including_class.new.remove_open_source_files(@osdir)
+        including_class.new.remove_open_source_files(@ostestdir)
       end.to change { Dir.glob("#{@ostestdir}/**/*").size }.from(file_count).to(1)
+    end
+
+    it 'Removes min.js files' do
+      file_count = Dir.glob("#{@minjsdir}/**/*.js").size
+      expect do
+        including_class.new.remove_open_source_files(@minjsdir)
+      end.to change { Dir.glob("#{@minjsdir}/**/*.js").size }.from(file_count).to(1)
     end
   end
 end
