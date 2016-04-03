@@ -7,7 +7,7 @@ FROM centos:latest
 
 # Install dependencies
 RUN yum install -y git bzip2 which wget gcc-c++ make git-svn unzip epel-release readline-devel openssl-devel automake libtool bison \
-    && yum install -y perl php java-1.8.0-openjdk java-1.8.0-openjdk-devel python-devel php-xml \
+    && yum install -y perl php java-1.8.0-openjdk java-1.8.0-openjdk-devel python-devel php-xml elixir \
     && yum clean all
 
 # Increase PHP Memory Limit

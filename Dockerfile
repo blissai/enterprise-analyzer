@@ -44,6 +44,16 @@ RUN cd ~/sonarlint && \
     cd ~/sonarlint/bin && \
     mono SonarLint.DocGenerator.exe
 
+RUN git clone https://github.com/rrrene/bunt ~/bunt && \
+    cd ~/bunt && \
+    mix archive.build && \
+    mix archive.install && \
+    git clone git@github.com:rrrene/credo.git ~/credo && \
+    cd credo && \
+    mix deps.get && \
+    mix archive.build &&
+    mix archive.install
+
 # Install fpart
 RUN git clone https://github.com/martymac/fpart.git /tmp/fpart \
     && cd /tmp/fpart \
