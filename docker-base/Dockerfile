@@ -14,14 +14,10 @@ RUN yum install -y git bzip2 which wget gcc-c++ make git-svn unzip epel-release 
 RUN sed -i 's/memory_limit = .*/memory_limit = 2048m/' /etc/php.ini
 
 # Set JAVA_HOME max heap space for java
-ENV JAVA_OPTS '-Xms512m -Xmx3072m'
-ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.71-2.b15.el7_2.x86_64
+ENV JAVA_OPTS='-Xms512m -Xmx3072m' JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.71-2.b15.el7_2.x86_64
 
 # Set default encoding
-ENV LC_ALL en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
-ENV HEAPSIZE 3072m
+ENV LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 HEAPSIZE=3072m
 
 # Install pip
 RUN curl https://bootstrap.pypa.io/get-pip.py | python
@@ -43,9 +39,8 @@ RUN cd /tmp && \
     tar -C /usr/local -xzf /tmp/go1.5.linux-amd64.tar.gz && \
     ln -s /usr/local/go/bin/go /usr/local/bin/go && \
     ln -s /usr/local/go/bin/godoc /usr/local/bin/godoc && \
-        mkdir /root/go
-ENV GOPATH /root/go
-ENV PATH $PATH:/usr/local/go/bin:$GOPATH/bin
+    mkdir /root/go
+ENV GOPATH=/root/go PATH=$PATH:/usr/local/go/bin:/root/go/bin
 
 # Install Node.js
 RUN curl --silent --location https://rpm.nodesource.com/setup | bash - \
@@ -67,13 +62,11 @@ RUN cd /tmp && \
     make install && \
     ln -s /usr/bin/mono /usr/local/bin/mono
 
-# Install Erlang
+# Install Erlang and Elixir
 RUN wget http://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm && \
     rpm -Uvh erlang-solutions-1.0-1.noarch.rpm && \
-    yum install -y erlang
-
-# Install Elixir
-RUN wget https://github.com/elixir-lang/elixir/releases/download/v1.2.4/Precompiled.zip && \
+    yum install -y erlang && \
+    wget https://github.com/elixir-lang/elixir/releases/download/v1.2.4/Precompiled.zip && \
     mkdir -p /usr/local/elixir && cd /usr/local/elixir && unzip /Precompiled.zip && \
     ln -s /usr/local/elixir/bin/elixir /usr/local/bin/elixir && \
     ln -s /usr/local/elixir/bin/elixirc /usr/local/bin/elixirc && \
