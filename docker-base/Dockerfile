@@ -7,7 +7,7 @@ FROM centos:latest
 
 # Install dependencies
 RUN yum install -y git bzip2 which wget gcc-c++ make git-svn unzip epel-release readline-devel openssl-devel automake libtool bison \
-    && yum install -y perl php java-1.8.0-openjdk java-1.8.0-openjdk-devel python-devel php-xml elixir \
+    && yum install -y perl php java-1.8.0-openjdk java-1.8.0-openjdk-devel python-devel php-xml \
     && yum clean all
 
 # Increase PHP Memory Limit
@@ -66,6 +66,18 @@ RUN cd /tmp && \
     make && \
     make install && \
     ln -s /usr/bin/mono /usr/local/bin/mono
+
+# Install Erlang
+RUN wget http://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm
+RUN rpm -Uvh erlang-solutions-1.0-1.noarch.rpm
+RUN yum install -y erlang
+
+# Install Elixir
+RUN wget https://github.com/elixir-lang/elixir/releases/download/v1.0.4/Precompiled.zip && \
+    mkdir -p /usr/local/elixir && cd /usr/local/elixir && unzip /Precompiled.zip
+
+# Install hex & rebar
+RUN mix local.hex <<< 'Y' && mix local.rebar <<< 'Y'
 
 WORKDIR /root
 
