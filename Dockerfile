@@ -47,12 +47,12 @@ RUN cd ~/sonarlint && \
 RUN git clone https://github.com/rrrene/bunt ~/bunt && \
     cd ~/bunt && \
     mix archive.build && \
-    mix archive.install && \
+    mix archive.install <<< 'Y' && \
     git clone https://github.com/rrrene/credo.git ~/credo && \
     cd credo && \
-    mix deps.get && \
+    mix deps.get <<< 'Y' && \
     mix archive.build && \
-    mix archive.install
+    mix archive.install <<< 'Y'
 
 # Install fpart
 RUN git clone https://github.com/martymac/fpart.git /tmp/fpart \
