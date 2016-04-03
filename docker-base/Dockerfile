@@ -52,9 +52,9 @@ RUN curl --silent --location https://rpm.nodesource.com/setup | bash - \
     && yum install -y nodejs
 
 # Install Mono
-RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
-RUN yum-config-manager --add-repo http://download.mono-project.com/repo/centos/
-RUN yum install -y mono-complete nuget
+RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF" && \
+    yum-config-manager --add-repo http://download.mono-project.com/repo/centos/ && \
+    yum install -y mono-complete nuget
 
 # Install NAnt
 RUN cd /tmp && \
@@ -68,9 +68,9 @@ RUN cd /tmp && \
     ln -s /usr/bin/mono /usr/local/bin/mono
 
 # Install Erlang
-RUN wget http://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm
-RUN rpm -Uvh erlang-solutions-1.0-1.noarch.rpm
-RUN yum install -y erlang
+RUN wget http://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm && \
+    rpm -Uvh erlang-solutions-1.0-1.noarch.rpm && \
+    yum install -y erlang
 
 # Install Elixir
 RUN wget https://github.com/elixir-lang/elixir/releases/download/v1.2.4/Precompiled.zip && \
@@ -78,10 +78,9 @@ RUN wget https://github.com/elixir-lang/elixir/releases/download/v1.2.4/Precompi
     ln -s /usr/local/elixir/bin/elixir /usr/local/bin/elixir && \
     ln -s /usr/local/elixir/bin/elixirc /usr/local/bin/elixirc && \
     ln -s /usr/local/elixir/bin/iex /usr/local/bin/iex && \
-    ln -s /usr/local/elixir/bin/mix /usr/local/bin/mix
-
-# Install hex & rebar
-RUN mix local.hex <<< 'Y' && mix local.rebar <<< 'Y'
+    ln -s /usr/local/elixir/bin/mix /usr/local/bin/mix && \
+    mix local.hex <<< 'Y' && \
+    mix local.rebar <<< 'Y'
 
 WORKDIR /root
 
