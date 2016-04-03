@@ -74,7 +74,11 @@ RUN yum install -y erlang
 
 # Install Elixir
 RUN wget https://github.com/elixir-lang/elixir/releases/download/v1.0.4/Precompiled.zip && \
-    mkdir -p /usr/local/elixir && cd /usr/local/elixir && unzip /Precompiled.zip
+    mkdir -p /usr/local/elixir && cd /usr/local/elixir && unzip /Precompiled.zip && \
+    ln -s /usr/local/elixir/bin/elixir /usr/local/bin/elixir && \
+    ln -s /usr/local/elixir/bin/elixirc /usr/local/bin/elixirc && \
+    ln -s /usr/local/elixir/bin/iex /usr/local/bin/iex && \
+    ln -s /usr/local/elixir/bin/mix /usr/local/bin/mix
 
 # Install hex & rebar
 RUN mix local.hex <<< 'Y' && mix local.rebar <<< 'Y'
