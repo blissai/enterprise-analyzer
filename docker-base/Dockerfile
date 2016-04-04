@@ -16,13 +16,10 @@ RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E03
     yum clean all  && \
 
 # Increase PHP Memory Limit
-    sed -i 's/memory_limit = .*/memory_limit = 2048m/' /etc/php.ini
-
-# Set ENV VARS
-ENV JAVA_OPTS='-Xms512m -Xmx3072m' JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.71-2.b15.el7_2.x86_64 LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 HEAPSIZE=3072m
+    sed -i 's/memory_limit = .*/memory_limit = 2048m/' /etc/php.ini && \
 
 # Install pip
-RUN curl https://bootstrap.pypa.io/get-pip.py | python && \
+    curl https://bootstrap.pypa.io/get-pip.py | python && \
 
 # Install ruby 2.2.3
     cd /tmp && \
@@ -40,12 +37,10 @@ RUN curl https://bootstrap.pypa.io/get-pip.py | python && \
     tar -C /usr/local -xzf /tmp/go1.5.linux-amd64.tar.gz && \
     ln -s /usr/local/go/bin/go /usr/local/bin/go && \
     ln -s /usr/local/go/bin/godoc /usr/local/bin/godoc && \
-    mkdir /root/go
-
-ENV GOPATH=/root/go PATH=$PATH:/usr/local/go/bin:/root/go/bin
+    mkdir /root/go && \
 
 # Install NAnt
-RUN cd /tmp && \
+    cd /tmp && \
     mkdir /tmp/nant && \
     wget http://nant.sourceforge.net/nightly/latest/nant-src.tar.gz && \
     tar -xvf /tmp/nant-src.tar.gz -C /tmp/nant --strip-components 1 && \
@@ -67,6 +62,9 @@ RUN cd /tmp && \
     ln -s /usr/local/elixir/bin/mix /usr/local/bin/mix && \
     mix local.hex <<< 'Y' && \
     mix local.rebar <<< 'Y'
+
+# Set ENV VARS
+ENV GOPATH=/root/go PATH=$PATH:/usr/local/go/bin:/root/go/bin JAVA_OPTS='-Xms512m -Xmx3072m' JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.71-2.b15.el7_2.x86_64 LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 HEAPSIZE=3072m
 
 WORKDIR /root
 
