@@ -63,8 +63,7 @@ RUN git clone https://github.com/martymac/fpart.git /tmp/fpart \
     && make install
 
 # Install gems before adding of project to use caching properly
-ADD Gemfile /tmp/Gemfile
-ADD Gemfile.lock /tmp/Gemfile.lock
+COPY Gemfile* /tmp/
 RUN cd /tmp && bundle install --without test
 
 ENV BLISS_CLI_VERSION 90
