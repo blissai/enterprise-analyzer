@@ -70,8 +70,7 @@ ENV BLISS_CLI_VERSION 90
 
 # Get collector tasks and gems
 ADD . /root/collector
-RUN cd /root/collector \
-    && mkdir /root/bliss && mv /root/collector/.prospector.yml /root/bliss/.prospector.yml \
+RUN mkdir /root/bliss && mv /root/collector/.prospector.yml /root/bliss/.prospector.yml \
     && mv /root/collector/phpmd-ruleset.xml /root/phpmd/phpmd-ruleset.xml
 
 WORKDIR /root/collector
