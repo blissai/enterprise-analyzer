@@ -62,12 +62,16 @@ RUN git clone https://github.com/martymac/fpart.git /tmp/fpart \
     && make \
     && make install
 
+# Install gems before adding of project to use caching properly
+ADD Gemfile /tmp/Gemfile
+ADD Gemfile.lock /tmp/Gemfile.lock
+RUN cd /tmp && bundle install --without test
+
 ENV BLISS_CLI_VERSION 90
 
 # Get collector tasks and gems
 ADD . /root/collector
 RUN cd /root/collector \
-    && bundle install --without test \
     && mkdir /root/bliss && mv /root/collector/.prospector.yml /root/bliss/.prospector.yml \
     && mv /root/collector/phpmd-ruleset.xml /root/phpmd/phpmd-ruleset.xml
 
