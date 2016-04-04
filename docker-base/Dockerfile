@@ -65,7 +65,7 @@ RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E03
     mix local.rebar <<< 'Y'
 
   # Install Scala
-  RUN wget -O /tmp/scala.tgz http://www.scala-lang.org/files/archive/scala-2.10.1.tgz && \
+  RUN wget -O /tmp/scala.tgz http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz && \
       cd /tmp && \
       tar xvf /tmp/scala.tgz && \
       mv scala-2.10.1 /usr/lib && \
