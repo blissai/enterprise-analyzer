@@ -51,11 +51,12 @@ RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E03
     ln -s /usr/bin/mono /usr/local/bin/mono && \
 
 # Install Erlang and Elixir
+    mkdir /tmp/elixir && \
     wget http://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm && \
     rpm -Uvh erlang-solutions-1.0-1.noarch.rpm && \
     yum install -y erlang && \
-    wget https://github.com/elixir-lang/elixir/releases/download/v1.2.4/Precompiled.zip && \
-    mkdir -p /usr/local/elixir && cd /usr/local/elixir && unzip /Precompiled.zip && \
+    wget -O /tmp/eixir/pre.zip https://github.com/elixir-lang/elixir/releases/download/v1.2.4/Precompiled.zip && \
+    mkdir -p /usr/local/elixir && cd /usr/local/elixir && unzip /tmp/eixir/pre.zip && \
     ln -s /usr/local/elixir/bin/elixir /usr/local/bin/elixir && \
     ln -s /usr/local/elixir/bin/elixirc /usr/local/bin/elixirc && \
     ln -s /usr/local/elixir/bin/iex /usr/local/bin/iex && \
