@@ -8,34 +8,34 @@ FROM centos:latest
 # Install Mono and Node repos
 RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF" && \
     yum-config-manager --add-repo http://download.mono-project.com/repo/centos/ && \
-    curl --silent --location https://rpm.nodesource.com/setup | bash -
+    curl --silent --location https://rpm.nodesource.com/setup | bash - && \
 
 # Install dependencies
-RUN yum install -y git bzip2 which wget gcc-c++ make git-svn unzip epel-release readline-devel openssl-devel automake libtool bison \
-    && yum install -y perl php java-1.8.0-openjdk java-1.8.0-openjdk-devel python-devel php-xml mono-complete nuget nodejs \
-    && yum clean all
+    yum install -y git bzip2 which wget gcc-c++ make git-svn unzip epel-release readline-devel openssl-devel automake libtool bison && \
+    yum install -y perl php java-1.8.0-openjdk java-1.8.0-openjdk-devel python-devel php-xml mono-complete nuget nodejs  && \
+    yum clean all  && \
 
 # Increase PHP Memory Limit
-RUN sed -i 's/memory_limit = .*/memory_limit = 2048m/' /etc/php.ini
+    sed -i 's/memory_limit = .*/memory_limit = 2048m/' /etc/php.ini
 
 # Set ENV VARS
 ENV JAVA_OPTS='-Xms512m -Xmx3072m' JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.71-2.b15.el7_2.x86_64 LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 HEAPSIZE=3072m
 
 # Install pip
-RUN curl https://bootstrap.pypa.io/get-pip.py | python
+RUN curl https://bootstrap.pypa.io/get-pip.py | python && \
 
 # Install ruby 2.2.3
-RUN cd /tmp && \
+    cd /tmp && \
     wget https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.3.tar.bz2 && \
     tar -xvjf /tmp/ruby-2.2.3.tar.bz2 && \
     cd /tmp/ruby-2.2.3 && \
     ./configure && \
     make && \
     make install && \
-    gem install bundler
+    gem install bundler && \
 
 # Install Go 1.5
-RUN cd /tmp && \
+    cd /tmp && \
     wget https://storage.googleapis.com/golang/go1.5.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf /tmp/go1.5.linux-amd64.tar.gz && \
     ln -s /usr/local/go/bin/go /usr/local/bin/go && \
@@ -53,10 +53,10 @@ RUN cd /tmp && \
     cd /tmp/nant && \
     make && \
     make install && \
-    ln -s /usr/bin/mono /usr/local/bin/mono
+    ln -s /usr/bin/mono /usr/local/bin/mono && \
 
 # Install Erlang and Elixir
-RUN wget http://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm && \
+    wget http://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm && \
     rpm -Uvh erlang-solutions-1.0-1.noarch.rpm && \
     yum install -y erlang && \
     wget https://github.com/elixir-lang/elixir/releases/download/v1.2.4/Precompiled.zip && \
