@@ -49,7 +49,7 @@ RUN git clone https://github.com/rrrene/bunt ~/bunt && \
     mix archive.build && \
     mix archive.install <<< 'Y' && \
     git clone https://github.com/rrrene/credo.git ~/credo && \
-    cd credo && \
+    cd ~/credo && \
     mix deps.get <<< 'Y' && \
     mix archive.build && \
     mix archive.install <<< 'Y'
