@@ -62,6 +62,14 @@ RUN git clone https://github.com/martymac/fpart.git /tmp/fpart \
     && make \
     && make install
 
+# Install ScalaStyle
+RUN mkdir ~/scalastyle
+    && wget -O ~/scalastyle/scalastyle.jar https://oss.sonatype.org/content/repositories/releases/org/scalastyle/scalastyle_2.11/0.8.0/scalastyle_2.11-0.6.0-batch.jar
+    && echo '#!/bin/bash' > ~/scalastyle/scalastyle \
+    && echo 'java -jar path/to/scalastyle_2.10-0.8.0-batch.jar "$@"' >> ~/scalastyle/scalastyle \
+    && chmod +x ~/scalastyle/scalastyle \
+    && ln -s ~/scalastyle/scalastyle /usr/local/bin/scalastyle
+
 # Install gems before adding of project to use caching properly
 COPY Gemfile* /tmp/
 RUN cd /tmp && bundle install --without test

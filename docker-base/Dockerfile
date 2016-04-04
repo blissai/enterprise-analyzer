@@ -65,11 +65,11 @@ RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E03
     mix local.rebar <<< 'Y'
 
   # Install Scala
-  RUN wget -O /tmp/scala.tgz http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz && \
-      cd /tmp && \
-      tar xvf /tmp/scala.tgz && \
-      mv scala-2.11.8 /usr/lib && \
-      ln -s /usr/lib/scala-2.11.8 /usr/lib/scala
+RUN wget -O /tmp/scala.tgz http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz && \
+    cd /tmp && \
+    tar xvf /tmp/scala.tgz && \
+    mv scala-2.11.8 /usr/lib && \
+    ln -s /usr/lib/scala-2.11.8 /usr/lib/scala
 
 # Set ENV VARS
 ENV GOPATH=/root/go PATH=$PATH:/usr/local/go/bin:/root/go/bin:/usr/lib/scala/bin JAVA_OPTS='-Xms512m -Xmx3072m' JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.71-2.b15.el7_2.x86_64 LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 HEAPSIZE=3072m
