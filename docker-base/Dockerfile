@@ -5,9 +5,14 @@
 # Pull base image.
 FROM centos:latest
 
+# Install Mono and Node repos
+RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF" && \
+    yum-config-manager --add-repo http://download.mono-project.com/repo/centos/ && \
+    curl --silent --location https://rpm.nodesource.com/setup | bash -
+
 # Install dependencies
 RUN yum install -y git bzip2 which wget gcc-c++ make git-svn unzip epel-release readline-devel openssl-devel automake libtool bison \
-    && yum install -y perl php java-1.8.0-openjdk java-1.8.0-openjdk-devel python-devel php-xml \
+    && yum install -y perl php java-1.8.0-openjdk java-1.8.0-openjdk-devel python-devel php-xml mono-complete nuget nodejs \
     && yum clean all
 
 # Increase PHP Memory Limit
@@ -26,9 +31,8 @@ RUN cd /tmp && \
     cd /tmp/ruby-2.2.3 && \
     ./configure && \
     make && \
-    make install
-
-RUN gem install bundler
+    make install && \
+    gem install bundler
 
 # Install Go 1.5
 RUN cd /tmp && \
@@ -39,15 +43,6 @@ RUN cd /tmp && \
     mkdir /root/go
 
 ENV GOPATH=/root/go PATH=$PATH:/usr/local/go/bin:/root/go/bin
-
-# Install Node.js
-RUN curl --silent --location https://rpm.nodesource.com/setup | bash - \
-    && yum install -y nodejs
-
-# Install Mono
-RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF" && \
-    yum-config-manager --add-repo http://download.mono-project.com/repo/centos/ && \
-    yum install -y mono-complete nuget
 
 # Install NAnt
 RUN cd /tmp && \
