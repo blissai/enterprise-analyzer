@@ -55,8 +55,8 @@ RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E03
     wget http://packages.erlang-solutions.com/erlang-solutions-1.0-1.noarch.rpm && \
     rpm -Uvh erlang-solutions-1.0-1.noarch.rpm && \
     yum install -y erlang && \
-    wget -O /tmp/eixir/pre.zip https://github.com/elixir-lang/elixir/releases/download/v1.2.4/Precompiled.zip && \
-    mkdir -p /usr/local/elixir && cd /usr/local/elixir && unzip /tmp/eixir/pre.zip && \
+    wget -O /tmp/elixir/pre.zip https://github.com/elixir-lang/elixir/releases/download/v1.2.4/Precompiled.zip && \
+    mkdir -p /usr/local/elixir && cd /usr/local/elixir && unzip /tmp/elixir/pre.zip && \
     ln -s /usr/local/elixir/bin/elixir /usr/local/bin/elixir && \
     ln -s /usr/local/elixir/bin/elixirc /usr/local/bin/elixirc && \
     ln -s /usr/local/elixir/bin/iex /usr/local/bin/iex && \
