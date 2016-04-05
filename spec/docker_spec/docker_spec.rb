@@ -11,7 +11,11 @@ RSpec.describe 'docker build' do
     # `sudo yum update -y bliss`
     # `cd #{Dir.pwd} && docker build -t blissai/collector .`
     setup_repos
-    @repos = [@ruby_repo, @java_repo, @dotnet_repo, @python_repo, @php_repo]
+    @repos = [
+      @ruby_repo, @java_repo, @dotnet_repo, @python_repo, @php_repo,
+      @js_repo, @ios_repo, @elixir_repo, @scala_repo, @coffeescript_repo,
+      @scss_repo, @stylus_repo, @swift_repo, @go_repo
+    ]
 
     @repos.each do |r|
       `git clone #{r[:git_url]} #{r[:git_dir]}` unless File.directory?(r[:git_dir])
