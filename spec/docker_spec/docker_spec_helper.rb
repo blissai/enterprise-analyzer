@@ -120,7 +120,7 @@ module DockerSpecHelper
 
     @elixir_repo = {
       git_dir: "#{@repos_path}/elixir",
-      git_url: 'git clone https://github.com/thoughtbot/bamboo.git',
+      git_url: 'https://github.com/thoughtbot/bamboo.git',
       commit: '709457976189dfcef057f6d1522d5398264aa2d3',
       excluded_dirs: '',
       remove_os: false
@@ -128,7 +128,7 @@ module DockerSpecHelper
 
     @scala_repo = {
       git_dir: "#{@repos_path}/scala",
-      git_url: 'git clone https://github.com/akka/akka.git',
+      git_url: 'https://github.com/akka/akka.git',
       commit: '60c8648b591966701791d1a2106d5168d4f7d6bd',
       excluded_dirs: '',
       remove_os: false
