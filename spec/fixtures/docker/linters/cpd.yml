@@ -1,0 +1,27 @@
+---
+name: cpd-php
+quality_command: sh ~/pmd/bin/run.sh cpd --files git_dir --language php --minimum-tokens 70 --format csv -failOnViolation false --skip-lexical-errors > file_name
+quality_tool: cpd-php
+output_format: csv
+languages:
+- PHP
+- wordpress
+- php
+created_at: 2015-10-13 19:03:00.742239000 Z
+updated_at: 2016-04-04 22:55:57.042488000 Z
+cd_first:
+install_command:
+quality_tool_version: 2
+operating_system: linux
+git_dir_regex:
+project_filename_pattern:
+ignore_lines: []
+areas:
+- CPC
+error_code: 1
+success_match:
+default: true
+violation_version: 1
+partitionable: false
+help: For php we tune CPD to match duplicate code based on 70 tokens
+url: https://pmd.github.io/pmd-5.4.1/usage/cpd-usage.html

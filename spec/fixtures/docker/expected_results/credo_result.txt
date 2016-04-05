@@ -1,0 +1,19 @@
+<--LintFilePartition-->
+Checking 19 source files ...
+[R] → lib/bamboo/sent_email.ex:39:13 Modules should have a @moduledoc tag.
+[R] → lib/bamboo/sent_email.ex:14:13 Modules should have a @moduledoc tag.
+[R] → lib/bamboo/adapters/sendgrid_adapter.ex:27:13 Modules should have a @moduledoc tag.
+[R] → lib/bamboo/adapters/mandrill_adapter.ex:26:13 Modules should have a @moduledoc tag.
+[R] → lib/bamboo.ex:19:13 Modules should have a @moduledoc tag.
+[R] → lib/bamboo.ex:6:13 Modules should have a @moduledoc tag.
+[F] → lib/bamboo/test.ex:125 Pipe chain should start with a raw value.
+[F] → lib/bamboo/test.ex:100 Pipe chain should start with a raw value.
+[F] → lib/bamboo/mailer.ex:190 Pipe chain should start with a raw value.
+[F] → lib/bamboo/mailer.ex:187 Pipe chain should start with a raw value.
+[F] → lib/mix/start_email_preview_task.ex:38 Pipe chain should start with a raw value.
+[F] → lib/bamboo/sent_email.ex:121 Pipe chain should start with a raw value.
+[F] → lib/bamboo/plug/helper.ex:16 Pipe chain should start with a raw value.
+[F] → lib/bamboo/plug/email_preview_plug.ex:46 There should be no matches in `if` conditions.
+[W] ↗ lib/bamboo/adapters/mandrill_adapter.ex:116:33 Parameter `recipients` has same name as a private function in the same module.
+[W] ↗ lib/bamboo/adapters/mandrill_adapter.ex:115:23 Parameter `recipients` has same name as a private function in the same module.
+[W] ↗ lib/bamboo/adapters/mandrill_adapter.ex:101:58 Parameter `message_params` has same name as a private function in the same module.

@@ -135,139 +135,139 @@ module DockerSpecHelper
     }
 
     @brakeman = {
-      linter: "#{@dckr}/brakeman.yml",
+      linter: "#{@dckr}/linters/brakeman.yml",
       result: "#{@dckr}/results/brakeman_result.txt",
       expected: "#{@dckr}/expected_results/brakeman_result.txt"
     }.merge(@ruby_repo)
 
     @cpd = {
-      linter: "#{@dckr}/cpd.yml",
-      result: "#{@dckr}/results/cpd-ruby_result.txt",
-      expected: "#{@dckr}/expected_results/cpd-ruby_result.txt"
-    }.merge(@ruby_repo)
+      linter: "#{@dckr}/linters/cpd.yml",
+      result: "#{@dckr}/results/cpd-php_result.txt",
+      expected: "#{@dckr}/expected_results/cpd-php_result.txt"
+    }.merge(@php_repo)
 
     @rubocop = {
-      linter: "#{@dckr}/rubocop.yml",
+      linter: "#{@dckr}/linters/rubocop.yml",
       result: "#{@dckr}/results/rubocop_result.txt",
       expected: "#{@dckr}/expected_results/runocop_result.txt"
     }.merge(@ruby_repo)
 
     @rbp = {
-      linter: "#{@dckr}/rbp.yml",
+      linter: "#{@dckr}/linters/rbp.yml",
       result: "#{@dckr}/results/rbp_result.txt",
       expected: "#{@dckr}/expected_results/rbp_result.txt"
     }.merge(@ruby_repo)
 
     @pmd = {
-      linter: "#{@dckr}/pmd.yml",
+      linter: "#{@dckr}/linters/pmd.yml",
       result: "#{@dckr}/results/pmd_result.txt",
       expected: "#{@dckr}/expected_results/pmd_result.txt"
     }.merge(@java_repo)
 
     @sonarlint = {
-      linter: "#{@dckr}/sonarlint.yml",
+      linter: "#{@dckr}/linters/sonarlint.yml",
       result: "#{@dckr}/results/sonarlint_result.txt",
       expected: "#{@dckr}/expected_results/sonarlint_result.txt"
     }.merge(@dotnet_repo)
 
     @prospector = {
-      linter: "#{@dckr}/prospector.yml",
+      linter: "#{@dckr}/linters/prospector.yml",
       result: "#{@dckr}/results/prospector_result.txt",
       expected: "#{@dckr}/expected_results/prospector_result.txt"
     }.merge(@python_repo)
 
     @phpcs = {
-      linter: "#{@dckr}/phpcs.yml",
+      linter: "#{@dckr}/linters/phpcs.yml",
       result: "#{@dckr}/results/phpcs_result.txt",
       expected: "#{@dckr}/expected_results/phpcs_result.txt"
     }.merge(@php_repo)
 
     @csslint = {
-      linter: "#{@dckr}/csslint.yml",
+      linter: "#{@dckr}/linters/csslint.yml",
       result: "#{@dckr}/results/csslint_result.txt",
       expected: "#{@dckr}/expected_results/csslint_result.txt"
     }.merge(@php_repo)
 
     @lizard = {
-      linter: "#{@dckr}/lizard.yml",
+      linter: "#{@dckr}/linters/lizard.yml",
       result: "#{@dckr}/results/lizard_result.txt",
       expected: "#{@dckr}/expected_results/lizard_result.txt"
     }.merge(@php_repo)
 
     @coffeelint = {
-      linter: "#{@dckr}/coffeelint.yml",
+      linter: "#{@dckr}/linters/coffeelint.yml",
       result: "#{@dckr}/results/coffeelint_result.txt",
       expected: "#{@dckr}/expected_results/coffeelint_result.txt"
     }.merge(@coffeescript_repo)
 
     @jscpd_jsx = {
-      linter: "#{@dckr}/jscpdjsx.yml",
+      linter: "#{@dckr}/linters/jscpdjsx.yml",
       result: "#{@dckr}/results/jscpd-jsx_result.txt",
       expected: "#{@dckr}/expected_results/jscpd-jsx_result.txt"
     }.merge(@js_repo)
 
     @eslint = {
-      linter: "#{@dckr}/eslint.yml",
+      linter: "#{@dckr}/linters/eslint.yml",
       result: "#{@dckr}/results/eslint_result.txt",
       expected: "#{@dckr}/expected_results/eslint_result.txt"
     }.merge(@js_repo)
 
     @jshint = {
-      linter: "#{@dckr}/jshint.yml",
+      linter: "#{@dckr}/linters/jshint.yml",
       result: "#{@dckr}/results/jshint_result.txt",
       expected: "#{@dckr}/expected_results/jshint_result.txt"
     }.merge(@js_repo)
 
     @nsp = {
-      linter: "#{@dckr}/nsp.yml",
+      linter: "#{@dckr}/linters/nsp.yml",
       result: "#{@dckr}/results/nsp_result.txt",
       expected: "#{@dckr}/expected_results/nsp_result.txt"
     }.merge(@js_repo)
 
     @ocstyle = {
-      linter: "#{@dckr}/ocstyle.yml",
+      linter: "#{@dckr}/linters/ocstyle.yml",
       result: "#{@dckr}/results/ocstyle_result.txt",
       expected: "#{@dckr}/expected_results/ocstyle_result.txt"
     }.merge(@ios_repo)
 
     @sasslint = {
-      linter: "#{@dckr}/sasslint.yml",
+      linter: "#{@dckr}/linters/sasslint.yml",
       result: "#{@dckr}/results/sass-lint_result.txt",
       expected: "#{@dckr}/expected_results/sass-lint_result.txt"
     }.merge(@scss_repo)
 
     @scsslint = {
-      linter: "#{@dckr}/scsslint.yml",
+      linter: "#{@dckr}/linters/scsslint.yml",
       result: "#{@dckr}/results/scss-lint_result.txt",
       expected: "#{@dckr}/expected_results/scss-lint_result.txt"
     }.merge(@scss_repo)
 
     @stylint = {
-      linter: "#{@dckr}/stylint.yml",
+      linter: "#{@dckr}/linters/stylint.yml",
       result: "#{@dckr}/results/stylint_result.txt",
       expected: "#{@dckr}/expected_results/stylint_result.txt"
     }.merge(@stylus_repo)
 
     @tailor = {
-      linter: "#{@dckr}/tailor.yml",
+      linter: "#{@dckr}/linters/tailor.yml",
       result: "#{@dckr}/results/tailor_result.txt",
       expected: "#{@dckr}/expected_results/tailor_result.txt"
     }.merge(@swift_repo)
 
     @gometalinter = {
-      linter: "#{@dckr}/gometalinter.yml",
+      linter: "#{@dckr}/linters/gometalinter.yml",
       result: "#{@dckr}/results/gometalinter_result.txt",
       expected: "#{@dckr}/expected_results/gometalinter_result.txt"
     }.merge(@go_repo)
 
     @credo = {
-      linter: "#{@dckr}/credo.yml",
+      linter: "#{@dckr}/linters/credo.yml",
       result: "#{@dckr}/results/credo_result.txt",
       expected: "#{@dckr}/expected_results/credo_result.txt"
     }.merge(@elixir_repo)
 
     @scalastyle = {
-      linter: "#{@dckr}/scalastyle.yml",
+      linter: "#{@dckr}/linters/scalastyle.yml",
       result: "#{@dckr}/results/scalastyle.txt",
       expected: "#{@dckr}/expected_results/scalastyle_result.txt"
     }.merge(@scala_repo)
