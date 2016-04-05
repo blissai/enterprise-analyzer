@@ -138,6 +138,14 @@ module DockerSpecHelper
       remove_os: false
     }
 
+    @css_repo = {
+      git_dir: "#{@repos_path}/css",
+      git_url: 'https://github.com/arik-so/tsa.git',
+      commit: '3d50be9787c7e3a91323f144a163b7845a96b103',
+      excluded_dirs: '',
+      remove_os: false
+    }
+
     @brakeman = {
       linter: "#{@dckr}/linters/brakeman.yml",
       result: "#{@dckr}/results/brakeman_result.txt",
@@ -190,7 +198,7 @@ module DockerSpecHelper
       linter: "#{@dckr}/linters/csslint.yml",
       result: "#{@dckr}/results/csslint_result.txt",
       expected: "#{@dckr}/expected_results/csslint_result.txt"
-    }.merge(@js_repo)
+    }.merge(@css_repo)
 
     @lizard = {
       linter: "#{@dckr}/linters/lizard.yml",
