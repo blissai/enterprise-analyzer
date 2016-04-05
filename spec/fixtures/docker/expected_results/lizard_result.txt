@@ -1,0 +1,4 @@
+<--LintFilePartition-->
+/repository/wp-content/themes/inc/template-tags.php:47: warning: twentyfifteen_entry_meta has 67 NLOC, 19 CCN, 408 token, 0 PARAM, 79 length
+/repository/wp-content/themes/js/functions.js:66: warning: scroll has 35 NLOC, 16 CCN, 295 token, 0 PARAM, 38 length
+/repository/wp-content/themes/js/html5.js:5: warning: p has 1 NLOC, 8 CCN, 117 token, 3 PARAM, 1 length
