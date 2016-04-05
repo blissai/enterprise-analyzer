@@ -190,7 +190,7 @@ module DockerSpecHelper
       linter: "#{@dckr}/linters/csslint.yml",
       result: "#{@dckr}/results/csslint_result.txt",
       expected: "#{@dckr}/expected_results/csslint_result.txt"
-    }.merge(@go_repo)
+    }.merge(@js_repo)
 
     @lizard = {
       linter: "#{@dckr}/linters/lizard.yml",
