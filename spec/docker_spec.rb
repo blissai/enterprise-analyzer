@@ -114,13 +114,41 @@ RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
       remove_os: false
     }
 
-    @brakeman = { linter: "#{@dckr}/brakeman.yml", result: "#{@dckr}/brakeman_result.txt" }.merge(@ruby_repo)
-    @cpd = { linter: "#{@dckr}/cpd.yml", result: "#{@dckr}/cpd-ruby_result.txt" }.merge(@ruby_repo)
-    @rubocop = { linter: "#{@dckr}/rubocop.yml", result: "#{@dckr}/rubocop_result.txt" }.merge(@ruby_repo)
-    @rbp = { linter: "#{@dckr}/rbp.yml", result: "#{@dckr}/rbp_result.txt" }.merge(@ruby_repo)
-    @pmd = { linter: "#{@dckr}/pmd.yml", result: "#{@dckr}/pmd_result.txt" }.merge(@java_repo)
-    @sonarlint = { linter: "#{@dckr}/sonarlint.yml", result: "#{@dckr}/sonarlint_result.txt" }.merge(@dotnet_repo)
-    @prospector = { linter: "#{@dckr}/prospector.yml", result: "#{@dckr}/prospector_result.txt" }.merge(@python_repo)
+    @brakeman = {
+      linter: "#{@dckr}/brakeman.yml",
+      result: "#{@dckr}/brakeman_result.txt"
+    }.merge(@ruby_repo)
+
+    @cpd = {
+      linter: "#{@dckr}/cpd.yml",
+      result: "#{@dckr}/cpd-ruby_result.txt"
+    }.merge(@ruby_repo)
+
+    @rubocop = {
+      linter: "#{@dckr}/rubocop.yml",
+      result: "#{@dckr}/rubocop_result.txt"
+    }.merge(@ruby_repo)
+
+    @rbp = {
+      linter: "#{@dckr}/rbp.yml",
+      result: "#{@dckr}/rbp_result.txt"
+    }.merge(@ruby_repo)
+
+    @pmd = {
+      linter: "#{@dckr}/pmd.yml",
+      result: "#{@dckr}/pmd_result.txt"
+    }.merge(@java_repo)
+
+    @sonarlint = {
+      linter: "#{@dckr}/sonarlint.yml",
+      result: "#{@dckr}/sonarlint_result.txt"
+    }.merge(@dotnet_repo)
+
+    @prospector = {
+      linter: "#{@dckr}/prospector.yml",
+      result: "#{@dckr}/prospector_result.txt"
+    }.merge(@python_repo)
+
     @phpcs = { linter: "#{@dckr}/phpcs.yml", result: "#{@dckr}/phpcs_result.txt" }.merge(@php_repo)
     @csslint = { linter: "#{@dckr}/csslint.yml", result: "#{@dckr}/csslint_result.txt" }.merge(@php_repo)
     @lizard = { linter: "#{@dckr}/lizard.yml", result: "#{@dckr}/lizard_result.txt" }.merge(@php_repo)
@@ -255,7 +283,7 @@ RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
       'prospector_result.txt', 'rbp_result.txt',
       'rubocop_result.txt', 'sass-lint_result.txt',
       'scalastyle_result.txt', 'scss-lint_result.txt',
-      'sonarlint_result.txt', 'stylint_result.txt',
+      'sonarlint_result.txt', 'stylint_result.txt'
     ]
   end
 
