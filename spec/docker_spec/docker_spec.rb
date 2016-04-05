@@ -20,7 +20,7 @@ RSpec.describe 'docker build' do
 
   after(:all) do
     result_files.each do |rf|
-      File.write("#{@dckr}/results/#{rf}", '')
+      # File.write("#{@dckr}/results/#{rf}", '')
     end
     `docker push blissai/collector` if @passed
   end
