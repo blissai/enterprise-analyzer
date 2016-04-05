@@ -1,5 +1,4 @@
 module DockerSpecHelper
-
   def result_files
     [
       'brakeman_result.txt', 'coffeelint_result.txt', 'cpd-ruby_result.txt', 'credo_result.txt',
@@ -245,7 +244,7 @@ module DockerSpecHelper
       result: "#{@dckr}/results/credo_result.txt"
     }.merge(@elixir_repo)
 
-    @scala = {
+    @scalastyle = {
       linter: "#{@dckr}/scalastyle.yml",
       result: "#{@dckr}/results/scalastyle.txt"
     }.merge(@scala_repo)
