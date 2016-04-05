@@ -140,8 +140,8 @@ module DockerSpecHelper
 
     @css_repo = {
       git_dir: "#{@repos_path}/css",
-      git_url: 'https://github.com/arik-so/tsa.git',
-      commit: '3d50be9787c7e3a91323f144a163b7845a96b103',
+      git_url: 'https://github.com/IanLunn/Hover.git',
+      commit: '01d128f01ae5e436a8c5be958648d16ade99b4c8',
       excluded_dirs: '',
       remove_os: false
     }
