@@ -1,6 +1,6 @@
 require 'pry'
 require_relative './docker_spec_helper'
-RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
+RSpec.describe 'docker build' do
   include DockerSpecHelper
 
   before(:all) do
@@ -8,9 +8,9 @@ RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
     @dckr = "#{Dir.pwd}/spec/fixtures/docker"
     @repos_path = File.expand_path('~/rspec/repos')
     FileUtils.mkdir_p(@repos_path)
-    `sudo yum update -y bliss`
-    `cd #{Dir.pwd} && docker build -t blissai/collector .`
-
+    # `sudo yum update -y bliss`
+    # `cd #{Dir.pwd} && docker build -t blissai/collector .`
+    setup_repos
     @repos = [@ruby_repo, @java_repo, @dotnet_repo, @python_repo, @php_repo]
 
     @repos.each do |r|

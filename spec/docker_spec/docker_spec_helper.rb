@@ -34,6 +34,7 @@ module DockerSpecHelper
     @java_repo = {
       git_dir: "#{@repos_path}/java",
       git_url: 'https://github.com/iconnor/simple_java.git',
+      commit: 'bac210ce7b8080118d74c9754ac828b1ef625a4f',
       excluded_dirs: '',
       remove_os: true
     }
@@ -41,6 +42,7 @@ module DockerSpecHelper
     @dotnet_repo = {
       git_dir: "#{@repos_path}/dotnet",
       git_url: 'https://github.com/iconnor/simple_dotnet.git',
+      commit: '36a679d4cc20c5df40da26ca2d345fc85055b0aa',
       excluded_dirs: '',
       remove_os: true
     }
@@ -48,6 +50,7 @@ module DockerSpecHelper
     @python_repo = {
       git_dir: "#{@repos_path}/django",
       git_url: 'https://github.com/iconnor/django-test.git',
+      commit: 'bfee08adb3d5de51fe0ebb69f55e83b2282e2951',
       excluded_dirs: '',
       remove_os: true
     }
@@ -55,6 +58,7 @@ module DockerSpecHelper
     @php_repo = {
       git_dir: "#{@repos_path}/php",
       git_url: 'https://github.com/iconnor/simple_wp.git',
+      commit: '8ea2ececefa6ae3088182ac4e9b72bf9e576f5ad',
       excluded_dirs: '',
       remove_os: true
     }
@@ -62,6 +66,7 @@ module DockerSpecHelper
     @coffeescript_repo = {
       git_dir: "#{@repos_path}/coffee",
       git_url: 'https://github.com/atom/atom.git',
+      commit: 'f638bcbb6d97a27a90d9d8b780659eb61d87de55',
       excluded_dirs: '',
       remove_os: false
     }
@@ -69,6 +74,7 @@ module DockerSpecHelper
     @js_repo = {
       git_dir: "#{@repos_path}/js",
       git_url: 'https://github.com/rarescarab/flock.git',
+      commit: '5b7224dfd0b74e3033950d5f73d9368ee0e33032',
       excluded_dirs: '',
       remove_os: false
     }
@@ -76,6 +82,7 @@ module DockerSpecHelper
     @ios_repo = {
       git_dir: "#{@repos_path}/ios",
       git_url: 'https://github.com/iconnor/simple_iphone.git',
+      commit: 'd233213b125e7821e5db591cd3fb41ac0c3a8221',
       excluded_dirs: '',
       remove_os: true
     }
@@ -83,6 +90,7 @@ module DockerSpecHelper
     @scss_repo = {
       git_dir: "#{@repos_path}/scss",
       git_url: 'https://github.com/kristerkari/normalize.scss.git',
+      commit: '74eb24e4d3b2f86b2cb3ca7e0f553cf277fc695b',
       excluded_dirs: '',
       remove_os: false
     }
@@ -90,6 +98,7 @@ module DockerSpecHelper
     @stylus_repo = {
       git_dir: "#{@repos_path}/stylus",
       git_url: 'https://github.com/maxmx/bootstrap-stylus.git',
+      commit: '75eea475ab8a4219c8daa6c50a7930657778bc4d',
       excluded_dirs: '',
       remove_os: false
     }
@@ -97,6 +106,7 @@ module DockerSpecHelper
     @swift_repo = {
       git_dir: "#{@repos_path}/swift",
       git_url: 'https://github.com/SwiftyJSON/SwiftyJSON.git',
+      commit: '20ee3ed7bd9e49c250d91f402f01fe87caeacf2a',
       excluded_dirs: '',
       remove_os: false
     }
@@ -104,6 +114,7 @@ module DockerSpecHelper
     @go_repo = {
       git_dir: "#{@repos_path}/go",
       git_url: 'https://github.com/spf13/hugo.git',
+      commit: '43b5dfabb5fb36bb4574289912c66a46ef20ffce',
       excluded_dirs: '',
       remove_os: false
     }
@@ -111,13 +122,7 @@ module DockerSpecHelper
     @elixir_repo = {
       git_dir: "#{@repos_path}/elixir",
       git_url: 'git clone https://github.com/thoughtbot/bamboo.git',
-      excluded_dirs: '',
-      remove_os: false
-    }
-
-    @elixir_repo = {
-      git_dir: "#{@repos_path}/elixir",
-      git_url: 'git clone https://github.com/thoughtbot/bamboo.git',
+      commit: '709457976189dfcef057f6d1522d5398264aa2d3',
       excluded_dirs: '',
       remove_os: false
     }
@@ -125,123 +130,124 @@ module DockerSpecHelper
     @scala_repo = {
       git_dir: "#{@repos_path}/scala",
       git_url: 'git clone https://github.com/akka/akka.git',
+      commit: '60c8648b591966701791d1a2106d5168d4f7d6bd',
       excluded_dirs: '',
       remove_os: false
     }
 
     @brakeman = {
       linter: "#{@dckr}/brakeman.yml",
-      result: "#{@dckr}/brakeman_result.txt"
+      result: "#{@dckr}/results/brakeman_result.txt"
     }.merge(@ruby_repo)
 
     @cpd = {
       linter: "#{@dckr}/cpd.yml",
-      result: "#{@dckr}/cpd-ruby_result.txt"
+      result: "#{@dckr}/results/cpd-ruby_result.txt"
     }.merge(@ruby_repo)
 
     @rubocop = {
       linter: "#{@dckr}/rubocop.yml",
-      result: "#{@dckr}/rubocop_result.txt"
+      result: "#{@dckr}/results/rubocop_result.txt"
     }.merge(@ruby_repo)
 
     @rbp = {
       linter: "#{@dckr}/rbp.yml",
-      result: "#{@dckr}/rbp_result.txt"
+      result: "#{@dckr}/results/rbp_result.txt"
     }.merge(@ruby_repo)
 
     @pmd = {
       linter: "#{@dckr}/pmd.yml",
-      result: "#{@dckr}/pmd_result.txt"
+      result: "#{@dckr}/results/pmd_result.txt"
     }.merge(@java_repo)
 
     @sonarlint = {
       linter: "#{@dckr}/sonarlint.yml",
-      result: "#{@dckr}/sonarlint_result.txt"
+      result: "#{@dckr}/results/sonarlint_result.txt"
     }.merge(@dotnet_repo)
 
     @prospector = {
       linter: "#{@dckr}/prospector.yml",
-      result: "#{@dckr}/prospector_result.txt"
+      result: "#{@dckr}/results/prospector_result.txt"
     }.merge(@python_repo)
 
     @phpcs = {
       linter: "#{@dckr}/phpcs.yml",
-      result: "#{@dckr}/phpcs_result.txt"
+      result: "#{@dckr}/results/phpcs_result.txt"
     }.merge(@php_repo)
 
     @csslint = {
       linter: "#{@dckr}/csslint.yml",
-      result: "#{@dckr}/csslint_result.txt"
+      result: "#{@dckr}/results/csslint_result.txt"
     }.merge(@php_repo)
 
     @lizard = {
       linter: "#{@dckr}/lizard.yml",
-      result: "#{@dckr}/lizard_result.txt"
+      result: "#{@dckr}/results/lizard_result.txt"
     }.merge(@php_repo)
 
     @coffeelint = {
       linter: "#{@dckr}/coffeelint.yml",
-      result: "#{@dckr}/coffeelint_result.txt"
+      result: "#{@dckr}/results/coffeelint_result.txt"
     }.merge(@coffeescript_repo)
 
     @jscpd_jsx = {
       linter: "#{@dckr}/jscpdjsx.yml",
-      result: "#{@dckr}/jscpd-jsx_result.txt"
+      result: "#{@dckr}/results/jscpd-jsx_result.txt"
     }.merge(@js_repo)
 
     @eslint = {
       linter: "#{@dckr}/eslint.yml",
-      result: "#{@dckr}/eslint_result.txt"
+      result: "#{@dckr}/results/eslint_result.txt"
     }.merge(@js_repo)
 
     @jshint = {
       linter: "#{@dckr}/jshint.yml",
-      result: "#{@dckr}/jshint_result.txt"
+      result: "#{@dckr}/results/jshint_result.txt"
     }.merge(@js_repo)
 
     @nsp = {
       linter: "#{@dckr}/nsp.yml",
-      result: "#{@dckr}/nsp_result.txt"
+      result: "#{@dckr}/results/nsp_result.txt"
     }.merge(@js_repo)
 
     @ocstyle = {
       linter: "#{@dckr}/ocstyle.yml",
-      result: "#{@dckr}/ocstyle_result.txt"
+      result: "#{@dckr}/results/ocstyle_result.txt"
     }.merge(@ios_repo)
 
     @sasslint = {
       linter: "#{@dckr}/sasslint.yml",
-      result: "#{@dckr}/sass-lint_result.txt"
+      result: "#{@dckr}/results/sass-lint_result.txt"
     }.merge(@scss_repo)
 
     @scsslint = {
       linter: "#{@dckr}/scsslint.yml",
-      result: "#{@dckr}/scss-lint_result.txt"
+      result: "#{@dckr}/results/scss-lint_result.txt"
     }.merge(@scss_repo)
 
     @stylint = {
       linter: "#{@dckr}/stylint.yml",
-      result: "#{@dckr}/stylint_result.txt"
+      result: "#{@dckr}/results/stylint_result.txt"
     }.merge(@stylus_repo)
 
     @tailor = {
       linter: "#{@dckr}/tailor.yml",
-      result: "#{@dckr}/tailor_result.txt"
+      result: "#{@dckr}/results/tailor_result.txt"
     }.merge(@swift_repo)
 
     @gometalinter = {
       linter: "#{@dckr}/gometalinter.yml",
-      result: "#{@dckr}/gometalinter_result.txt"
+      result: "#{@dckr}/results/gometalinter_result.txt"
     }.merge(@go_repo)
 
     @credo = {
       linter: "#{@dckr}/credo.yml",
-      result: "#{@dckr}/credo_result.txt"
+      result: "#{@dckr}/results/credo_result.txt"
     }.merge(@elixir_repo)
 
     @scala = {
       linter: "#{@dckr}/scalastyle.yml",
-      result: "#{@dckr}/scalastyle.txt"
+      result: "#{@dckr}/results/scalastyle.txt"
     }.merge(@scala_repo)
   end
 end
