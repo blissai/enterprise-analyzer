@@ -11,14 +11,18 @@ module DockerSpecHelper
   end
 
   def bliss_lint_cmd(repo)
-    "bliss lint dir=#{repo[:git_dir]} linter_config_path=#{repo[:linter]} " \
+    cmd = "bliss lint dir=#{repo[:git_dir]} linter_config_path=#{repo[:linter]} " \
     "log=\"enterprise_rspec\" output_file=#{repo[:result]} commit=#{repo[:commit]} " \
     "#{repo[:excluded_dirs]} remove_open_source=#{repo[:remove_os]}"
+    puts "Running #{cmd}"
+    cmd
   end
 
   def bliss_stats_cmd(repo)
-    "bliss stats dir=#{repo[:git_dir]} output_file=#{repo[:result]} commit=#{repo[:commit]} " \
+    cmd = "bliss stats dir=#{repo[:git_dir]} output_file=#{repo[:result]} commit=#{repo[:commit]} " \
     "repo_test_files=test repo_test_dirs=test,spec remove_open_source=#{repo[:remove_os]}"
+    puts "Running #{cmd}"
+    cmd
   end
 
   def setup_repos
@@ -59,7 +63,7 @@ module DockerSpecHelper
       git_url: 'https://github.com/iconnor/simple_wp.git',
       commit: '8ea2ececefa6ae3088182ac4e9b72bf9e576f5ad',
       excluded_dirs: '',
-      remove_os: true
+      remove_os: false
     }
 
     @coffeescript_repo = {
@@ -186,7 +190,7 @@ module DockerSpecHelper
       linter: "#{@dckr}/linters/csslint.yml",
       result: "#{@dckr}/results/csslint_result.txt",
       expected: "#{@dckr}/expected_results/csslint_result.txt"
-    }.merge(@php_repo)
+    }.merge(@go_repo)
 
     @lizard = {
       linter: "#{@dckr}/linters/lizard.yml",
