@@ -68,7 +68,7 @@ RSpec.describe Gitbase do
       end.to change { Dir.glob("#{@osdir}/src/js/*.js").size }.from(file_count).to(0)
     end
 
-    it 'Removes open source files from a project when a license' do
+    it 'Removes open source files from a project when a license is found' do
       file_count = Dir.glob("#{@ostestdir}/**/*.*").size
       expect do
         including_class.new.remove_open_source_files(@ostestdir)
