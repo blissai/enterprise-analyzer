@@ -1,0 +1,27 @@
+---
+name: jscpd-jsx
+quality_command: jscpd --path git_dir --languages jsx --min-tokens 40 --reporter json
+  --output file_name
+quality_tool: jscpd-jsx
+output_format: json
+languages:
+- jsx
+created_at: 2016-03-09 01:51:27.147527000 Z
+updated_at: 2016-04-04 05:19:37.486340000 Z
+cd_first:
+install_command: npm install jscpd -g
+quality_tool_version: 1
+operating_system: linux
+git_dir_regex:
+project_filename_pattern:
+ignore_lines: []
+areas:
+- CPC
+error_code: -1
+success_match: duplicates
+default: false
+violation_version: 1
+partitionable: false
+help: Where PMD/CPD is not supported, we use jscpd for detect copy/paste "design pattern"
+  in programming source code. For JSX we tune it for 40 tokens
+url: https://github.com/kucherenko/jscpd

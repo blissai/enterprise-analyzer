@@ -1,0 +1,40 @@
+---
+name: lizard
+quality_command: lizard -w -C 7 git_dir > file_name
+quality_tool: lizard
+output_format: xml
+languages:
+- ".NET"
+- C#
+- net
+- ios
+- Objective-C
+- Objective-C++
+- Swift
+- JavaScript
+- node
+- nodejs
+created_at: 2015-10-13 05:26:23.304530000 Z
+updated_at: 2016-04-04 05:19:37.534735000 Z
+cd_first:
+install_command: git clone https://github.com/terryyin/lizard.git;cd lizard;python
+  setup.py install
+quality_tool_version: 2
+operating_system: linux
+git_dir_regex:
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Complexity
+error_code: 2
+success_match:
+default: true
+violation_version: 1
+partitionable: true
+help: 'We cannot say enough nice things about Terry Yin. He is the creator of Lizard:
+  A simple code complexity analyser that does not need header files or complilation
+  for many popular languages. It is fast, reliable and we recently supported the addition
+  of C# (namely as there was no reliable open source complexity tools available).
+  We score this based on 7 being the ideal and then about 0.1 tech debt line for complexity
+  above that.'
+url: https://github.com/terryyin/lizard

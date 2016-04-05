@@ -1,0 +1,30 @@
+---
+name: nsp
+quality_command: cp -n /root/collector/empty_package.json git_dir/package.json;nsp check -o json --warn-only 2> file_name
+quality_tool: nsp
+output_format: json
+languages:
+- JavaScript
+- node
+- nodejs
+created_at: 2016-02-01 03:15:42.670967000 Z
+updated_at: 2016-04-04 05:19:37.587748000 Z
+cd_first: true
+install_command: npm install --save-dev nsp
+quality_tool_version: 1
+operating_system: linux
+git_dir_regex:
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Security
+error_code: 1
+success_match:
+default: false
+violation_version: 1
+partitionable: false
+help: This is the node security project command-line tool. It does require a package.json
+  in the root of your repository. If it is not found, it will not work - so if your
+  node project is a few directories deep, contact us for help. Adam Baldwin @adam_baldwin
+  does a great job here and we are a big fan of @nodesecurity
+url: https://github.com/nodesecurity/nsp

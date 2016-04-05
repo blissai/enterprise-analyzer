@@ -1,0 +1,32 @@
+---
+name: phpcs-psr2
+quality_command: "~/phpcs/scripts/phpcs -d memory_limit=2048M --extensions=php --report='json'
+  --standard=PSR2 --report-file=file_name git_dir"
+quality_tool: phpcs
+output_format: json
+languages:
+- PHP
+- Laravel
+- php
+- elgg
+created_at: 2015-10-13 05:26:23.380017000 Z
+updated_at: 2016-04-04 05:19:37.475307000 Z
+cd_first:
+install_command: composer global require "squizlabs/php_codesniffer=*"
+quality_tool_version: 1
+operating_system: linux
+git_dir_regex:
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Style
+error_code: 255
+success_match:
+default: true
+violation_version: 1
+partitionable: false
+help: PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations
+  of a defined set of coding standards. This defaults to the PSR2 standards for style.
+  For complexity and duplication, we suggest other linting tools and only run PHPCS
+  for style.
+url: https://github.com/squizlabs/PHP_CodeSniffer

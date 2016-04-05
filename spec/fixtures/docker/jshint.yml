@@ -1,0 +1,29 @@
+---
+name: jshint
+quality_command: jshint --config jshintoptions.json --reporter json.js git_dir > file_name
+quality_tool: jshint
+output_format: json
+languages:
+- JavaScript
+- node
+- nodejs
+- javascript
+created_at: 2015-10-13 05:26:23.266464000 Z
+updated_at: 2016-04-04 05:19:37.529328000 Z
+cd_first:
+install_command: npm install --save-dev jshint-json
+quality_tool_version: 1
+operating_system: linux
+git_dir_regex:
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Complexity
+- Style
+error_code: 1
+success_match:
+default: true
+violation_version: 1
+partitionable: true
+help: We include as an option for JavaScript the library JSHint
+url: https://github.com/jshint/jshint

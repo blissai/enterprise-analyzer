@@ -1,0 +1,30 @@
+---
+name: prospector
+quality_command: prospector --profile ~/bliss/.prospector.yml --zero-exit git_dir > file_name
+quality_tool: prospector
+output_format: json
+languages:
+- Python
+- django
+created_at: 2015-10-13 05:26:23.417315000 Z
+updated_at: 2016-04-04 05:19:37.540128000 Z
+cd_first:
+install_command: pip install django;pip install prospector
+quality_tool_version: 2
+operating_system: linux
+git_dir_regex:
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Complexity
+- Style
+error_code: 1
+success_match:
+default: true
+violation_version: 1
+partitionable: false
+help: This brings together Pylint, pep8, and McCabe complexity into one tool. Pylint
+  is a tool that checks for errors in Python code, tries to enforce a coding standard
+  and looks for bad code smells. Python Enhancement Proposals 8 (PEP 8) is the style
+  guide for python code comprising the standard library in the main Python distribution.
+url: https://pypi.python.org/pypi/prospector

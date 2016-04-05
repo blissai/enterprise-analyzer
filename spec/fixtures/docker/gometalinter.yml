@@ -1,0 +1,29 @@
+---
+name: gometalinter
+quality_command: gometalinter --json --cyclo-over=7 --deadline=10800s --min-confidence=0 --disable=gotype --disable=dupl --disable=aligncheck --disable=structcheck git_dir/... > file_name
+quality_tool: gometalinter
+output_format: json
+languages:
+- Go
+created_at: 2016-02-01 22:28:26.686980000 Z
+updated_at: 2016-04-04 05:19:37.593208000 Z
+cd_first:
+install_command: go get github.com/alecthomas/gometalinter && gometalinter --install
+  --update
+quality_tool_version: 1
+operating_system: linux
+git_dir_regex:
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Style
+- Complexity
+error_code: 2
+success_match:
+default: true
+violation_version: 1
+partitionable: true
+help: This is a set of more than 15 linters for the Go language. We do not run gotype,
+  dupl, aligncheck or structcheck due to noise in these linters. We use the rest and
+  rely on PMD/CPD to detect duplicate code instead.
+url: https://github.com/alecthomas/gometalinter

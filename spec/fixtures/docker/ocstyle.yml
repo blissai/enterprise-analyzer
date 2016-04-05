@@ -1,0 +1,28 @@
+---
+name: ocstyle
+quality_command: python ~/ocstyle/src/ocstyle/main.py git_dir > file_name
+quality_tool: ocstyle
+output_format: json
+languages:
+- ios
+- Objective-C
+- Objective-C++
+created_at: 2015-12-09 02:32:05.148747000 Z
+updated_at: 2016-04-04 05:19:37.502396000 Z
+cd_first:
+install_command: ''
+quality_tool_version: 1
+operating_system: linux
+git_dir_regex:
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Style
+error_code: 1
+success_match:
+default: true
+violation_version: 1
+partitionable: true
+help: Objective-C style checker with the goal to make it easy to share and enforce
+  style rules for Objective C.
+url: https://github.com/Cue/ocstyle

@@ -1,0 +1,28 @@
+---
+name: eslint
+quality_command: rm git_dir/package.json;rm git_dir/.eslint*;eslint -c ./.eslintrc
+  --format ./eslintformatter.js git_dir > file_name
+quality_tool: eslint
+output_format: text
+languages:
+- JavaScript
+- node
+- nodejs
+created_at: 2016-01-29 02:37:58.092471000 Z
+updated_at: 2016-04-04 05:19:37.491690000 Z
+cd_first:
+install_command: npm install --save-dev eslint
+quality_tool_version: 1
+operating_system: linux
+git_dir_regex:
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Style
+error_code: -1
+success_match: problems
+default: false
+violation_version: 1
+partitionable: true
+help: The JavaScript library we use for this is ESLint (the default rules)
+url: https://github.com/eslint/eslint

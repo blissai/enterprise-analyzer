@@ -1,0 +1,32 @@
+---
+name: credo
+quality_command: mix credo --all --format=oneline > file_name
+quality_tool: credo
+output_format: text
+languages:
+- elixir
+created_at: 2016-04-04 05:19:37.610375000 Z
+updated_at: 2016-04-04 05:19:37.610375000 Z
+cd_first: true
+install_command: git clone https://github.com/rrrene/bunt; cd bunt; mix archive.build;
+  mix archive.install; cd ..;git clone git@github.com:rrrene/credo.git; cd credo;
+  mix deps.get; mix archive.build; mix archive.install
+quality_tool_version: 1
+operating_system: linux
+git_dir_regex:
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Style
+- CPC
+- Complexity
+error_code: -1
+success_match: files
+default: true
+violation_version: 1
+partitionable: true
+help: Elixir is a dynamic, functional language designed for building scalable and
+  maintainable applications. To support cool companies that want to run Elixir, we
+  support Credo. This is a static code analysis tool for the Elixir language with
+  a focus on code consistency and teaching.
+url: https://github.com/rrrene/credo

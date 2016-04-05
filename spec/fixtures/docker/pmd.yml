@@ -1,0 +1,30 @@
+---
+name: pmd
+quality_command: sh ~/pmd/bin/run.sh pmd -dir git_dir -format xml -rulesets java-basic,java-codesize,java-imports,java-strings,java-unusedcode > file_name
+quality_tool: pmd
+output_format: xml
+languages:
+- Java
+- java
+created_at: 2015-10-13 05:26:23.229793000 Z
+updated_at: 2016-04-04 05:19:37.524028000 Z
+cd_first:
+install_command: if [[ ! -e pmd ]]; then git clone https://github.com/iconnor/pmd.git ~/pmd; fi
+quality_tool_version: 1
+operating_system: linux
+git_dir_regex:
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Complexity
+- Style
+error_code: 1
+success_match:
+default: true
+violation_version: 1
+partitionable: true
+help: If you know Java, you probably know PMD. It is the mothership for linters and
+  source code analyzer in many ways. We tune it the basic rules only and work to keep
+  it running and up to date. Many people can spend their lives tuning it further.
+  If you need more than basic here, contact us and we can help.
+url: https://pmd.github.io/

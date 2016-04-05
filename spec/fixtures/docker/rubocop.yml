@@ -1,0 +1,30 @@
+---
+name: rubocop
+quality_command: cp -f .rubocop.yml git_dir;rubocop -c git_dir/.rubocop.yml --format json --out file_name git_dir 2>&1
+quality_tool: rubocop
+output_format: json
+languages:
+- rails
+- ruby
+created_at: 2015-11-12 02:40:46.873321000 Z
+updated_at: 2016-04-04 05:19:37.545425000 Z
+cd_first:
+install_command: gem install rubocop rubocop-rspec
+quality_tool_version: 1
+operating_system: linux
+git_dir_regex: "^\\/"
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Complexity
+- Style
+error_code: 2
+success_match:
+default: true
+violation_version: 1
+partitionable: true
+help: A Ruby static code analyzer, based on the community Ruby style guide. By following
+  the community style guide, this decreases the time spent training new hires and
+  documenting your own standards. It can be altered if you contact us, but we would
+  first warn you that it might not be the best way going forward.
+url: https://github.com/bbatsov/rubocop

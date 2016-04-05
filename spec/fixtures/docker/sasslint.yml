@@ -1,0 +1,28 @@
+---
+name: sass-lint
+quality_command: sass-lint -c .sass-lint.yml git_dir/**/*.sass -s sass --no-exit -v
+  -f JSON -o file_name
+quality_tool: sass-lint
+output_format: json
+languages:
+- sass
+- sass
+created_at: 2016-03-01 05:37:22.297038000 Z
+updated_at: 2016-04-04 05:19:37.566597000 Z
+cd_first:
+install_command: npm install sass-lint -g
+quality_tool_version: 1
+operating_system: linux
+git_dir_regex:
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Style
+error_code: -1
+success_match: "\\["
+default: true
+violation_version: 1
+partitionable: true
+help: Sass (Syntactically Awesome Stylesheets) is a style sheet language. We suggest
+  this project for the linting.
+url: https://github.com/sasstools/sass-lint

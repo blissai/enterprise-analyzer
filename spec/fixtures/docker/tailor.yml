@@ -1,0 +1,26 @@
+---
+name: tailor
+quality_command: tailor -f json --max-severity error git_dir > file_name
+quality_tool: tailor
+output_format: json
+languages:
+- Swift
+created_at: 2016-01-18 23:31:15.883300000 Z
+updated_at: 2016-04-04 05:19:37.582477000 Z
+cd_first:
+install_command:
+quality_tool_version: 1
+operating_system: linux
+git_dir_regex:
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Style
+error_code:
+success_match:
+default: true
+violation_version: 1
+partitionable: true
+help: A style static analyzer and linter for Apple's Swift programming language. It
+  analyzes your code to ensure consistent styling and help avoid bugs.
+url: https://github.com/sleekbyte/tailor

@@ -1,0 +1,26 @@
+---
+name: coffeelint
+quality_command: coffeelint -f .coffeelint.json --reporter jslint git_dir > file_name
+quality_tool: coffeelint
+output_format: xml
+languages:
+- CoffeeScript
+created_at: 2016-03-01 05:37:22.236070000 Z
+updated_at: 2016-04-04 05:19:37.513271000 Z
+cd_first:
+install_command: npm install --save-dev coffeelint
+quality_tool_version: 1
+operating_system: linux
+git_dir_regex:
+project_filename_pattern:
+ignore_lines: []
+areas:
+- Complexity
+- Style
+error_code: -1
+success_match: file name
+default: true
+violation_version: 1
+partitionable: true
+help: CoffeeLint is a style checker that helps keep CoffeeScript code clean and consistent
+url: http://www.coffeelint.org/
