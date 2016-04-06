@@ -291,5 +291,11 @@ module DockerSpecHelper
       result: "#{@dckr}/results/scalastyle.txt",
       expected: "#{@dckr}/expected_results/scalastyle_result.txt"
     }.merge(@scala_repo)
+
+    @repos = [
+      @ruby_repo, @java_repo, @dotnet_repo, @python_repo, @php_repo,
+      @js_repo, @ios_repo, @elixir_repo, @scala_repo, @coffeescript_repo,
+      @scss_repo, @stylus_repo, @swift_repo, @go_repo, @css_repo, @simple_ruby_repo
+    ]
   end
 end
