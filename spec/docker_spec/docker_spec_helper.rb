@@ -11,16 +11,16 @@ module DockerSpecHelper
   end
 
   def bliss_lint_cmd(repo)
-    cmd = "bliss lint dir=#{repo[:git_dir]} linter_config_path=#{repo[:linter]} " \
+    cmd = "\nbliss lint dir=#{repo[:git_dir]} linter_config_path=#{repo[:linter]} " \
     "log=\"enterprise_rspec\" output_file=#{repo[:result]} commit=#{repo[:commit]} " \
-    "#{repo[:excluded_dirs]} remove_open_source=#{repo[:remove_os]}"
+    "#{repo[:excluded_dirs]} remove_open_source=#{repo[:remove_os]}\n"
     puts "Running #{cmd}"
     cmd
   end
 
   def bliss_stats_cmd(repo)
-    cmd = "bliss stats dir=#{repo[:git_dir]} output_file=#{repo[:result]} commit=#{repo[:commit]} " \
-    "repo_test_files=test repo_test_dirs=test,spec remove_open_source=#{repo[:remove_os]}"
+    cmd = "\nbliss stats dir=#{repo[:git_dir]} output_file=#{repo[:result]} commit=#{repo[:commit]} " \
+    "repo_test_files=test repo_test_dirs=test,spec remove_open_source=#{repo[:remove_os]}\n"
     puts "Running #{cmd}"
     cmd
   end
@@ -300,6 +300,6 @@ module DockerSpecHelper
   end
 
   def expected_result?(linter)
-    File.read(linter[:result]).strip == File.read(linter[:expected])
+    File.read(linter[:result]).strip == File.read(linter[:expected]).strip
   end
 end
