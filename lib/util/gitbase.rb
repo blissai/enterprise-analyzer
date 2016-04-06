@@ -89,8 +89,7 @@ module Gitbase
   end
 
   def cloc_command
-    pwd = `git rev-parse --show-toplevel`.strip
-    "#{pwd}/bin/cloc"
+    'bin/cloc'
   end
 
   def sense_project_type(git_dir)
