@@ -1,0 +1,9 @@
+<--LintFilePartition-->
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="5.4.0" timestamp="2016-04-06T00:26:17.294">
+<file name="/repository/app/controllers/Application.java">
+<violation beginline="16" endline="16" begincolumn="23" endcolumn="25" rule="UnusedLocalVariable" ruleset="Unused Code" package="controllers" class="Application" method="doSomething" variable="fis" externalInfoUrl="https://pmd.github.io/pmd-5.4.0/pmd-java/rules/java/unusedcode.html#UnusedLocalVariable" priority="3">
+Avoid unused local variables such as 'fis'.
+</violation>
+</file>
+</pmd>

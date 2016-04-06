@@ -28,8 +28,8 @@ module DockerSpecHelper
   def setup_repos
     @ruby_repo = {
       git_dir: "#{@repos_path}/rails",
-      git_url: 'https://github.com/iconnor/simple_rails.git',
-      commit: '06e2f784f085e0548229f7dd87bf2bbc80296541',
+      git_url: 'https://github.com/discourse/discourse.git',
+      commit: '04631877727f421a69b662aff85fec8ab0dd3a8c',
       excluded_dirs: 'excluded_dirs=public,vendor,bin,coverage,db,config',
       remove_os: true
     }
