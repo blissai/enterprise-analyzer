@@ -1,0 +1,14 @@
+[
+  {
+    "module": "ws",
+    "version": "0.8.1",
+    "vulnerable_versions": "< 1.0.1",
+    "patched_versions": ">= 1.0.1",
+    "title": "Remote Memory Disclosure",
+    "path": [
+      "react-native-desktop@0.5.6",
+      "ws@0.8.1"
+    ],
+    "advisory": "https://nodesecurity.io/advisories/67"
+  }
+]

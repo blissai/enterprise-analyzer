@@ -1,0 +1,221 @@
+<--LintFilePartition-->
+{
+    "violations": [
+        {
+            "line": 12,
+            "type": "BadClassName",
+            "file": "simple_iphoneTests/simple_iphoneTests.m",
+            "error": "BadClassName - Class names must be capitalized"
+        },
+        {
+            "line": 16,
+            "type": "BadClassName",
+            "file": "simple_iphoneTests/simple_iphoneTests.m",
+            "error": "BadClassName - Class names must be capitalized"
+        },
+        {
+            "line": 18,
+            "type": "MissingNewline",
+            "file": "simple_iphoneTests/simple_iphoneTests.m",
+            "error": "MissingNewline - Should have newline after ;"
+        },
+        {
+            "line": 18,
+            "type": "MissingSemicolon",
+            "file": "simple_iphoneTests/simple_iphoneTests.m",
+            "error": "MissingSemicolon - Expected a semicolon"
+        },
+        {
+            "line": 23,
+            "type": "MissingNewline",
+            "file": "simple_iphoneTests/simple_iphoneTests.m",
+            "error": "MissingNewline - Should have newline after ;"
+        },
+        {
+            "line": 23,
+            "type": "MissingSemicolon",
+            "file": "simple_iphoneTests/simple_iphoneTests.m",
+            "error": "MissingSemicolon - Expected a semicolon"
+        },
+        {
+            "line": 28,
+            "type": "MissingNewline",
+            "file": "simple_iphoneTests/simple_iphoneTests.m",
+            "error": "MissingNewline - Should have newline after ;"
+        },
+        {
+            "line": 28,
+            "type": "MissingSemicolon",
+            "file": "simple_iphoneTests/simple_iphoneTests.m",
+            "error": "MissingSemicolon - Expected a semicolon"
+        },
+        {
+            "line": 33,
+            "type": "MissingNewline",
+            "file": "simple_iphoneTests/simple_iphoneTests.m",
+            "error": "MissingNewline - Should have newline after ;"
+        },
+        {
+            "line": 33,
+            "type": "MissingSemicolon",
+            "file": "simple_iphoneTests/simple_iphoneTests.m",
+            "error": "MissingSemicolon - Expected a semicolon"
+        },
+        {
+            "line": 17,
+            "type": "MissingNewline",
+            "file": "simple_iphone/ViewController.m",
+            "error": "MissingNewline - Should have newline after ;"
+        },
+        {
+            "line": 17,
+            "type": "MissingSemicolon",
+            "file": "simple_iphone/ViewController.m",
+            "error": "MissingSemicolon - Expected a semicolon"
+        },
+        {
+            "line": 22,
+            "type": "MissingNewline",
+            "file": "simple_iphone/ViewController.m",
+            "error": "MissingNewline - Should have newline after ;"
+        },
+        {
+            "line": 22,
+            "type": "MissingSemicolon",
+            "file": "simple_iphone/ViewController.m",
+            "error": "MissingSemicolon - Expected a semicolon"
+        },
+        {
+            "line": 11,
+            "type": "ExpectedInterfaceDocInHeader",
+            "file": "simple_iphone/AppDelegate.h",
+            "error": "ExpectedInterfaceDocInHeader - Interface requires /** documentation */"
+        },
+        {
+            "line": 13,
+            "type": "ExpectedPropertyDocInHeader",
+            "file": "simple_iphone/AppDelegate.h",
+            "error": "ExpectedPropertyDocInHeader - Property requires /** documentation */"
+        },
+        {
+            "line": 18,
+            "type": "MissingNewline",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "MissingNewline - Should have newline after ;"
+        },
+        {
+            "line": 18,
+            "type": "MissingSemicolon",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "MissingSemicolon - Expected a semicolon"
+        },
+        {
+            "line": 23,
+            "type": "MissingNewline",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "MissingNewline - Should have newline after ;"
+        },
+        {
+            "line": 23,
+            "type": "MissingSemicolon",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "MissingSemicolon - Expected a semicolon"
+        },
+        {
+            "line": 24,
+            "type": "LineTooLong",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "LineTooLong - Line too long: 281 chars over the 120 limit"
+        },
+        {
+            "line": 25,
+            "type": "LineTooLong",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "LineTooLong - Line too long: 151 chars over the 120 limit"
+        },
+        {
+            "line": 28,
+            "type": "MissingNewline",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "MissingNewline - Should have newline after ;"
+        },
+        {
+            "line": 28,
+            "type": "MissingSemicolon",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "MissingSemicolon - Expected a semicolon"
+        },
+        {
+            "line": 29,
+            "type": "LineTooLong",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "LineTooLong - Line too long: 214 chars over the 120 limit"
+        },
+        {
+            "line": 30,
+            "type": "LineTooLong",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "LineTooLong - Line too long: 137 chars over the 120 limit"
+        },
+        {
+            "line": 33,
+            "type": "MissingNewline",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "MissingNewline - Should have newline after ;"
+        },
+        {
+            "line": 33,
+            "type": "MissingSemicolon",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "MissingSemicolon - Expected a semicolon"
+        },
+        {
+            "line": 34,
+            "type": "LineTooLong",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "LineTooLong - Line too long: 153 chars over the 120 limit"
+        },
+        {
+            "line": 37,
+            "type": "MissingNewline",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "MissingNewline - Should have newline after ;"
+        },
+        {
+            "line": 37,
+            "type": "MissingSemicolon",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "MissingSemicolon - Expected a semicolon"
+        },
+        {
+            "line": 38,
+            "type": "LineTooLong",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "LineTooLong - Line too long: 190 chars over the 120 limit"
+        },
+        {
+            "line": 41,
+            "type": "MissingNewline",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "MissingNewline - Should have newline after ;"
+        },
+        {
+            "line": 41,
+            "type": "MissingSemicolon",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "MissingSemicolon - Expected a semicolon"
+        },
+        {
+            "line": 42,
+            "type": "LineTooLong",
+            "file": "simple_iphone/AppDelegate.m",
+            "error": "LineTooLong - Line too long: 124 chars over the 120 limit"
+        },
+        {
+            "line": 11,
+            "type": "ExpectedInterfaceDocInHeader",
+            "file": "simple_iphone/ViewController.h",
+            "error": "ExpectedInterfaceDocInHeader - Interface requires /** documentation */"
+        }
+    ]
+}

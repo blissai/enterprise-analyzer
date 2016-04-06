@@ -39,7 +39,7 @@ module DockerSpecHelper
       git_url: 'https://github.com/iconnor/simple_java.git',
       commit: 'bac210ce7b8080118d74c9754ac828b1ef625a4f',
       excluded_dirs: '',
-      remove_os: true
+      remove_os: false
     }
 
     @dotnet_repo = {

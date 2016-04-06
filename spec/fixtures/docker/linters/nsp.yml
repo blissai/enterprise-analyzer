@@ -1,6 +1,6 @@
 ---
 name: nsp
-quality_command: cp -n /root/collector/empty_package.json git_dir/package.json;nsp check -o json --warn-only 2> file_name
+quality_command: cp -n /root/collector/empty_package.json git_dir/package.json;nsp check -o json --warn-only > file_name
 quality_tool: nsp
 output_format: json
 languages:
