@@ -4,7 +4,6 @@ RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
   include DockerSpecHelper
 
   before(:all) do
-    @passed = false
     @dckr = "#{Dir.pwd}/spec/fixtures/docker"
     @repos_path = File.expand_path('~/rspec/repos')
     FileUtils.mkdir_p(@repos_path)
@@ -13,13 +12,6 @@ RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
     @repos.each do |r|
       `git clone #{r[:git_url]} #{r[:git_dir]}` unless File.directory?(r[:git_dir])
     end
-  end
-
-  after(:all) do
-    result_files.each do |rf|
-      # File.write("#{@dckr}/results/#{rf}", '')
-    end
-    `docker push blissai/collector` if @passed
   end
 
   it 'can run brakeman over a ruby project' do
