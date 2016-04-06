@@ -74,7 +74,7 @@ RUN mkdir ~/scalastyle \
 COPY Gemfile* /tmp/
 RUN cd /tmp && bundle install --without test
 
-ENV BLISS_CLI_VERSION 90
+ENV BLISS_CLI_VERSION=90 ClOC_VERSION=1
 
 # Get collector tasks and gems
 ADD . /root/collector

@@ -1,0 +1,1261 @@
+<--LintFilePartition-->
+{
+  "/repository/_normalize.scss": [
+    {
+      "line": 14,
+      "column": 2,
+      "length": 37,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 18,
+      "column": 2,
+      "length": 43,
+      "severity": "warning",
+      "reason": "Name of variable `normalized_font_family` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 20,
+      "column": 2,
+      "length": 33,
+      "severity": "warning",
+      "reason": "Name of variable `normalize_headings` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 22,
+      "column": 2,
+      "length": 26,
+      "severity": "warning",
+      "reason": "Name of variable `h1_font_size` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 23,
+      "column": 2,
+      "length": 28,
+      "severity": "warning",
+      "reason": "Name of variable `h2_font_size` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 24,
+      "column": 2,
+      "length": 29,
+      "severity": "warning",
+      "reason": "Name of variable `h3_font_size` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 25,
+      "column": 2,
+      "length": 26,
+      "severity": "warning",
+      "reason": "Name of variable `h4_font_size` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 26,
+      "column": 2,
+      "length": 29,
+      "severity": "warning",
+      "reason": "Name of variable `h5_font_size` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 26,
+      "column": 16,
+      "length": 6,
+      "severity": "warning",
+      "reason": "`0.83` should be written without a leading zero as `.83`",
+      "linter": "LeadingZero"
+    },
+    {
+      "line": 27,
+      "column": 2,
+      "length": 29,
+      "severity": "warning",
+      "reason": "Name of variable `h6_font_size` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 27,
+      "column": 16,
+      "length": 6,
+      "severity": "warning",
+      "reason": "`0.75` should be written without a leading zero as `.75`",
+      "linter": "LeadingZero"
+    },
+    {
+      "line": 29,
+      "column": 2,
+      "length": 28,
+      "severity": "warning",
+      "reason": "Name of variable `h1_margin` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 29,
+      "column": 13,
+      "length": 6,
+      "severity": "warning",
+      "reason": "`0.67` should be written without a leading zero as `.67`",
+      "linter": "LeadingZero"
+    },
+    {
+      "line": 30,
+      "column": 2,
+      "length": 28,
+      "severity": "warning",
+      "reason": "Name of variable `h2_margin` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 30,
+      "column": 13,
+      "length": 6,
+      "severity": "warning",
+      "reason": "`0.83` should be written without a leading zero as `.83`",
+      "linter": "LeadingZero"
+    },
+    {
+      "line": 31,
+      "column": 2,
+      "length": 25,
+      "severity": "warning",
+      "reason": "Name of variable `h3_margin` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 32,
+      "column": 2,
+      "length": 28,
+      "severity": "warning",
+      "reason": "Name of variable `h4_margin` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 33,
+      "column": 2,
+      "length": 28,
+      "severity": "warning",
+      "reason": "Name of variable `h5_margin` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 34,
+      "column": 2,
+      "length": 28,
+      "severity": "warning",
+      "reason": "Name of variable `h6_margin` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 56,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 64,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 65,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 65,
+      "column": 9,
+      "length": 22,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 66,
+      "column": 9,
+      "length": 16,
+      "severity": "warning",
+      "reason": "Unknown property *display",
+      "linter": "PropertySpelling"
+    },
+    {
+      "line": 67,
+      "column": 9,
+      "length": 8,
+      "severity": "warning",
+      "reason": "Unknown property *zoom",
+      "linter": "PropertySpelling"
+    },
+    {
+      "line": 75,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 76,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 84,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Each selector in a comma sequence should be on its own single line",
+      "linter": "SingleLinePerSelector"
+    },
+    {
+      "line": 85,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 98,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 98,
+      "column": 9,
+      "length": 22,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 101,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented with spaces, not tabs",
+      "linter": "Indentation"
+    },
+    {
+      "line": 102,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented with spaces, not tabs",
+      "linter": "Indentation"
+    },
+    {
+      "line": 103,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 103,
+      "column": 5,
+      "length": 30,
+      "severity": "warning",
+      "reason": "Properties should be ordered background, color, -ms-text-size-adjust, -webkit-text-size-adjust",
+      "linter": "PropertySortOrder"
+    },
+    {
+      "line": 103,
+      "column": 5,
+      "length": 30,
+      "severity": "warning",
+      "reason": "Avoid vendor prefixes.",
+      "linter": "VendorPrefix"
+    },
+    {
+      "line": 104,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 104,
+      "column": 5,
+      "length": 26,
+      "severity": "warning",
+      "reason": "Avoid vendor prefixes.",
+      "linter": "VendorPrefix"
+    },
+    {
+      "line": 114,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 114,
+      "column": 18,
+      "length": 23,
+      "severity": "warning",
+      "reason": "Name of variable `normalized_font_family` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 120,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 134,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line contains trailing whitespace",
+      "linter": "TrailingWhitespace"
+    },
+    {
+      "line": 135,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 139,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 145,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 158,
+      "column": 5,
+      "length": 19,
+      "severity": "warning",
+      "reason": "Name of variable `normalize_headings` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 160,
+      "column": 20,
+      "length": 13,
+      "severity": "warning",
+      "reason": "Name of variable `h1_font_size` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 161,
+      "column": 17,
+      "length": 10,
+      "severity": "warning",
+      "reason": "Name of variable `h1_margin` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 165,
+      "column": 20,
+      "length": 13,
+      "severity": "warning",
+      "reason": "Name of variable `h2_font_size` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 166,
+      "column": 17,
+      "length": 10,
+      "severity": "warning",
+      "reason": "Name of variable `h2_margin` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 170,
+      "column": 20,
+      "length": 13,
+      "severity": "warning",
+      "reason": "Name of variable `h3_font_size` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 171,
+      "column": 17,
+      "length": 10,
+      "severity": "warning",
+      "reason": "Name of variable `h3_margin` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 175,
+      "column": 20,
+      "length": 13,
+      "severity": "warning",
+      "reason": "Name of variable `h4_font_size` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 176,
+      "column": 17,
+      "length": 10,
+      "severity": "warning",
+      "reason": "Name of variable `h4_margin` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 180,
+      "column": 20,
+      "length": 13,
+      "severity": "warning",
+      "reason": "Name of variable `h5_font_size` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 181,
+      "column": 17,
+      "length": 10,
+      "severity": "warning",
+      "reason": "Name of variable `h5_margin` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 185,
+      "column": 20,
+      "length": 13,
+      "severity": "warning",
+      "reason": "Name of variable `h6_font_size` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 186,
+      "column": 17,
+      "length": 10,
+      "severity": "warning",
+      "reason": "Name of variable `h6_margin` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 192,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Avoid qualifying attribute selectors with an element.",
+      "linter": "QualifyingElement"
+    },
+    {
+      "line": 193,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 200,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 203,
+      "column": 5,
+      "length": 22,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 212,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 218,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 218,
+      "column": 17,
+      "length": 4,
+      "severity": "warning",
+      "reason": "Color literals like `#ff0` should only be used in variable declarations; they should be referred to via variable everywhere else.",
+      "linter": "ColorVariable"
+    },
+    {
+      "line": 219,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 219,
+      "column": 12,
+      "length": 4,
+      "severity": "warning",
+      "reason": "Color literals like `#000` should only be used in variable declarations; they should be referred to via variable everywhere else.",
+      "linter": "ColorVariable"
+    },
+    {
+      "line": 223,
+      "column": 5,
+      "length": 22,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 237,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 238,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 238,
+      "column": 9,
+      "length": 22,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 239,
+      "column": 9,
+      "length": 38,
+      "severity": "warning",
+      "reason": "Unknown property _font-family",
+      "linter": "PropertySpelling"
+    },
+    {
+      "line": 241,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 247,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 248,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 248,
+      "column": 5,
+      "length": 21,
+      "severity": "warning",
+      "reason": "Property `white-space` already defined on line 247",
+      "linter": "DuplicateProperty"
+    },
+    {
+      "line": 249,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 255,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 255,
+      "column": 13,
+      "length": 31,
+      "severity": "warning",
+      "reason": "Prefer single quoted strings",
+      "linter": "StringQuotes"
+    },
+    {
+      "line": 262,
+      "column": 5,
+      "length": 22,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 269,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Merge rule `q` with rule on line 254",
+      "linter": "MergeableSelector"
+    },
+    {
+      "line": 270,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 270,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Begin pseudo elements with double colons: `::`",
+      "linter": "PseudoElement"
+    },
+    {
+      "line": 270,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Begin pseudo elements with double colons: `::`",
+      "linter": "PseudoElement"
+    },
+    {
+      "line": 270,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line contains trailing whitespace",
+      "linter": "TrailingWhitespace"
+    },
+    {
+      "line": 273,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line contains trailing whitespace",
+      "linter": "TrailingWhitespace"
+    },
+    {
+      "line": 273,
+      "column": 9,
+      "length": 13,
+      "severity": "warning",
+      "reason": "Property `content` already defined on line 272",
+      "linter": "DuplicateProperty"
+    },
+    {
+      "line": 280,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 288,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 289,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 290,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 291,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 295,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 295,
+      "column": 10,
+      "length": 6,
+      "severity": "warning",
+      "reason": "`0.5` should be written without a leading zero as `.5`",
+      "linter": "LeadingZero"
+    },
+    {
+      "line": 299,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 299,
+      "column": 13,
+      "length": 7,
+      "severity": "warning",
+      "reason": "`0.25` should be written without a leading zero as `.25`",
+      "linter": "LeadingZero"
+    },
+    {
+      "line": 307,
+      "column": 5,
+      "length": 22,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 316,
+      "column": 5,
+      "length": 22,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 323,
+      "column": 5,
+      "length": 22,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 334,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 336,
+      "column": 13,
+      "length": 22,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 351,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 352,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 352,
+      "column": 9,
+      "length": 22,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 360,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 370,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 378,
+      "column": 5,
+      "length": 22,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 387,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 387,
+      "column": 13,
+      "length": 17,
+      "severity": "warning",
+      "reason": "Color literals like `#c0c0c0` should only be used in variable declarations; they should be referred to via variable everywhere else.",
+      "linter": "ColorVariable"
+    },
+    {
+      "line": 388,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 389,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 389,
+      "column": 14,
+      "length": 21,
+      "severity": "warning",
+      "reason": "`0.35` should be written without a leading zero as `.35`",
+      "linter": "LeadingZero"
+    },
+    {
+      "line": 389,
+      "column": 14,
+      "length": 21,
+      "severity": "warning",
+      "reason": "`0.625` should be written without a leading zero as `.625`",
+      "linter": "LeadingZero"
+    },
+    {
+      "line": 389,
+      "column": 14,
+      "length": 21,
+      "severity": "warning",
+      "reason": "`0.75` should be written without a leading zero as `.75`",
+      "linter": "LeadingZero"
+    },
+    {
+      "line": 398,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 399,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 400,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 401,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 401,
+      "column": 9,
+      "length": 22,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 402,
+      "column": 9,
+      "length": 18,
+      "severity": "warning",
+      "reason": "Unknown property *margin-left",
+      "linter": "PropertySpelling"
+    },
+    {
+      "line": 415,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 416,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 417,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 418,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 419,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 419,
+      "column": 9,
+      "length": 22,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 420,
+      "column": 9,
+      "length": 23,
+      "severity": "warning",
+      "reason": "Unknown property *vertical-align",
+      "linter": "PropertySpelling"
+    },
+    {
+      "line": 426,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Each selector in a comma sequence should be on its own single line",
+      "linter": "SingleLinePerSelector"
+    },
+    {
+      "line": 427,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 437,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 448,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Avoid qualifying attribute selectors with an element.",
+      "linter": "QualifyingElement"
+    },
+    {
+      "line": 448,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Avoid qualifying attribute selectors with an element.",
+      "linter": "QualifyingElement"
+    },
+    {
+      "line": 448,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Avoid qualifying attribute selectors with an element.",
+      "linter": "QualifyingElement"
+    },
+    {
+      "line": 452,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 453,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 454,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 454,
+      "column": 9,
+      "length": 22,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 455,
+      "column": 9,
+      "length": 18,
+      "severity": "warning",
+      "reason": "Unknown property *overflow",
+      "linter": "PropertySpelling"
+    },
+    {
+      "line": 461,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Avoid qualifying attribute selectors with an element.",
+      "linter": "QualifyingElement"
+    },
+    {
+      "line": 461,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Avoid qualifying attribute selectors with an element.",
+      "linter": "QualifyingElement"
+    },
+    {
+      "line": 463,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 469,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Merge rule `button, input` with rule on line 426",
+      "linter": "MergeableSelector"
+    },
+    {
+      "line": 469,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Each selector in a comma sequence should be on its own single line",
+      "linter": "SingleLinePerSelector"
+    },
+    {
+      "line": 470,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 480,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 481,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 491,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 492,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 498,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 500,
+      "column": 9,
+      "length": 28,
+      "severity": "warning",
+      "reason": "Avoid vendor prefixes.",
+      "linter": "VendorPrefix"
+    },
+    {
+      "line": 501,
+      "column": 9,
+      "length": 31,
+      "severity": "warning",
+      "reason": "Avoid vendor prefixes.",
+      "linter": "VendorPrefix"
+    },
+    {
+      "line": 503,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line contains trailing whitespace",
+      "linter": "TrailingWhitespace"
+    },
+    {
+      "line": 511,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line contains trailing whitespace",
+      "linter": "TrailingWhitespace"
+    },
+    {
+      "line": 516,
+      "column": 1,
+      "length": 1,
+      "severity": "warning",
+      "reason": "Line should be indented 2 spaces, but was indented 4 spaces",
+      "linter": "Indentation"
+    },
+    {
+      "line": 520,
+      "column": 10,
+      "length": 22,
+      "severity": "warning",
+      "reason": "Name of variable `legacy_support_for_ie` should be written in all lowercase letters with hyphens instead of underscores",
+      "linter": "NameFormat"
+    },
+    {
+      "line": 521,
+      "column": 10,
+      "length": 13,
+      "severity": "warning",
+      "reason": "Unknown property *height",
+      "linter": "PropertySpelling"
+    },
+    {
+      "line": 522,
+      "column": 10,
+      "length": 12,
+      "severity": "warning",
+      "reason": "Unknown property *width",
+      "linter": "PropertySpelling"
+    }
+  ]
+}

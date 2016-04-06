@@ -149,7 +149,7 @@ module DockerSpecHelper
     @css_repo = {
       git_dir: "#{@repos_path}/css",
       git_url: 'https://github.com/founderbliss/simple_css.git',
-      commit: 'dfb6c31c170371faf7d78e6eb21993a411e5074c',
+      commit: '11c89da66bfc9bc4deda6441b3549fec815f59ca',
       excluded_dirs: '',
       remove_os: false
     }
@@ -254,7 +254,7 @@ module DockerSpecHelper
       linter: "#{@dckr}/linters/sasslint.yml",
       result: "#{@dckr}/results/sass-lint_result.txt",
       expected: "#{@dckr}/expected_results/sass-lint_result.txt"
-    }.merge(@scss_repo)
+    }.merge(@css_repo)
 
     @scsslint = {
       linter: "#{@dckr}/linters/scsslint.yml",
