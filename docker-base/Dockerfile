@@ -72,7 +72,7 @@ RUN wget -O /tmp/scala.tgz http://downloads.lightbend.com/scala/2.11.8/scala-2.1
     ln -s /usr/lib/scala-2.11.8 /usr/lib/scala
 
 # Set ENV VARS
-ENV GOPATH=/root/go PATH=$PATH:/usr/local/go/bin:/root/go/bin:/usr/lib/scala/bin JAVA_OPTS='-Xms512m -Xmx3072m' JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.71-2.b15.el7_2.x86_64 LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 HEAPSIZE=3072m
+ENV GOPATH=/root/go PATH=$PATH:/usr/local/go/bin:/root/go/bin:/usr/lib/scala/bin JAVA_OPTS='-Xms512m -Xmx3072m' JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.77-0.b03.el7_2.x86_64 LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 HEAPSIZE=3072m
 
 WORKDIR /root
 

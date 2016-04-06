@@ -1,0 +1,31 @@
+<--LintFilePartition-->
+<?xml version="1.0" encoding="utf-8"?>
+<!--This XML format is not an API-->
+<AnalysisOutput>
+  <Files>
+    <File>
+      <Path>/repository/HelloWorldMvc/App_Start/RouteConfig.cs</Path>
+
+      <Issues>
+        <Issue>
+          <Id>S1118</Id>
+          <Line>10</Line>
+          <Message>Add a "protected" constructor or the "static" keyword to the class declaration.</Message>
+        </Issue>
+      </Issues>
+    </File>
+
+
+    <File>
+      <Path>/repository/HelloWorldMvc/Controllers/HomeController.cs</Path>
+
+      <Issues>
+        <Issue>
+          <Id>S105</Id>
+          <Line>17</Line>
+          <Message>Replace all tab characters in this file by sequences of white-spaces.</Message>
+        </Issue>
+      </Issues>
+    </File>
+  </Files>
+</AnalysisOutput>
