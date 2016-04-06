@@ -298,4 +298,8 @@ module DockerSpecHelper
       @scss_repo, @stylus_repo, @swift_repo, @go_repo, @css_repo, @simple_ruby_repo
     ]
   end
+
+  def expected_result?(linter)
+    File.read(linter[:result]).strip == File.read(linter[:expected])
+  end
 end
