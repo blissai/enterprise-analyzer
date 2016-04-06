@@ -149,7 +149,7 @@ module DockerSpecHelper
     @css_repo = {
       git_dir: "#{@repos_path}/css",
       git_url: 'https://github.com/founderbliss/simple_css.git',
-      commit: '478b4704ac29bd11356ec21cb0c0e06cd65d4fee',
+      commit: 'dcb3f4e64e145409e5a8aab536c8f2849647ca3c',
       excluded_dirs: '',
       remove_os: false
     }
