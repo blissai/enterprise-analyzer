@@ -1,4 +1,15 @@
 <--LintFilePartition-->
-/repository/wp-content/themes/inc/template-tags.php:47: warning: twentyfifteen_entry_meta has 67 NLOC, 19 CCN, 408 token, 0 PARAM, 79 length
-/repository/wp-content/themes/js/functions.js:66: warning: scroll has 35 NLOC, 16 CCN, 295 token, 0 PARAM, 38 length
-/repository/wp-content/themes/js/html5.js:5: warning: p has 1 NLOC, 8 CCN, 117 token, 3 PARAM, 1 length
+/repository/js/modal.js:183: warning: Modal.prototype.backdrop has 29 NLOC, 13 CCN, 215 token, 1 PARAM, 51 length
+/repository/js/tooltip.js:49: warning: Tooltip.prototype.init has 26 NLOC, 12 CCN, 344 token, 3 PARAM, 32 length
+/repository/js/tooltip.js:110: warning: Tooltip.prototype.enter has 19 NLOC, 9 CCN, 177 token, 1 PARAM, 28 length
+/repository/js/tooltip.js:147: warning: Tooltip.prototype.leave has 16 NLOC, 8 CCN, 159 token, 1 PARAM, 25 length
+/repository/js/tooltip.js:173: warning: Tooltip.prototype.show has 51 NLOC, 21 CCN, 467 token, 0 PARAM, 75 length
+/repository/js/tooltip.js:249: warning: Tooltip.prototype.applyPlacement has 28 NLOC, 8 CCN, 264 token, 2 PARAM, 49 length
+/repository/js/tooltip.js:380: warning: Tooltip.prototype.getViewportAdjustedDelta has 124 NLOC, 8 CCN, 211 token, 4 PARAM, 135 length
+/repository/js/affix.js:40: warning: Affix.prototype.getState has 16 NLOC, 14 CCN, 165 token, 4 PARAM, 21 length
+/repository/js/affix.js:74: warning: Affix.prototype.checkPosition has 30 NLOC, 11 CCN, 278 token, 0 PARAM, 40 length
+/repository/js/alert.js:25: warning: Alert.prototype.close has 22 NLOC, 8 CCN, 144 token, 1 PARAM, 34 length
+/repository/js/collapse.js:45: warning: Collapse.prototype.show has 31 NLOC, 13 CCN, 254 token, 0 PARAM, 50 length
+/repository/js/scrollspy.js:74: warning: ScrollSpy.prototype.process has 25 NLOC, 11 CCN, 192 token, 0 PARAM, 29 length
+/repository/js/dropdown.js:94: warning: Dropdown.prototype.keydown has 21 NLOC, 15 CCN, 205 token, 1 PARAM, 31 length
+/repository/js/carousel.js:117: warning: Carousel.prototype.slide has 39 NLOC, 11 CCN, 290 token, 2 PARAM, 54 length

@@ -141,7 +141,7 @@ module DockerSpecHelper
     @css_repo = {
       git_dir: "#{@repos_path}/css",
       git_url: 'https://github.com/founderbliss/simple_css.git',
-      commit: '0b1611ef8a64e008e02502d0a991dadbb323ca70',
+      commit: 'dfb6c31c170371faf7d78e6eb21993a411e5074c',
       excluded_dirs: '',
       remove_os: false
     }
@@ -234,7 +234,7 @@ module DockerSpecHelper
       linter: "#{@dckr}/linters/nsp.yml",
       result: "#{@dckr}/results/nsp_result.txt",
       expected: "#{@dckr}/expected_results/nsp_result.txt"
-    }.merge(@js_repo)
+    }.merge(@css_repo)
 
     @ocstyle = {
       linter: "#{@dckr}/linters/ocstyle.yml",
