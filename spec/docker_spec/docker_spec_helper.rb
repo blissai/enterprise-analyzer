@@ -323,9 +323,11 @@ module DockerSpecHelper
   end
 
   def expected_result?(linter)
-    expected_warning_count = File.read(linter[:expected]).strip.scan(/#{linter[:match]}/).count
-    actual_warning_count = File.read(linter[:result]).strip.scan(/#{linter[:match]}/).count
-    if expected_warning_count == actual_warning_count
+    expected_result = File.read(linter[:expected]).strip
+    expected_count = expected_result.scan(/#{linter[:match]}/).count
+    actual_result = File.read(linter[:result]).strip
+    actual_count = actual_result.scan(/#{linter[:match]}/).count
+    if expected_count == actual_count
       return true
     else
       binding.pry
