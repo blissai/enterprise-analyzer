@@ -288,7 +288,7 @@ module DockerSpecHelper
 
     @scalastyle = {
       linter: "#{@dckr}/linters/scalastyle.yml",
-      result: "#{@dckr}/results/scalastyle.txt",
+      result: "#{@dckr}/results/scalastyle_result.txt",
       expected: "#{@dckr}/expected_results/scalastyle_result.txt"
     }.merge(@scala_repo)
 

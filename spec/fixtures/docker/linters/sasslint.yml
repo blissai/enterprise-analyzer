@@ -1,7 +1,6 @@
 ---
 name: sass-lint
-quality_command: sass-lint -c .sass-lint.yml git_dir/**/*.sass -s sass --no-exit -v
-  -f JSON -o file_name
+quality_command: sass-lint -c .sass-lint.yml git_dir/**/*.sass -s sass --no-exit -v -f JSON -o file_name
 quality_tool: sass-lint
 output_format: json
 languages:
