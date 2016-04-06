@@ -169,7 +169,7 @@ module DockerSpecHelper
     @rubocop = {
       linter: "#{@dckr}/linters/rubocop.yml",
       result: "#{@dckr}/results/rubocop_result.txt",
-      expected: "#{@dckr}/expected_results/runocop_result.txt"
+      expected: "#{@dckr}/expected_results/rubocop_result.txt"
     }.merge(@simple_ruby_repo)
 
     @rbp = {
