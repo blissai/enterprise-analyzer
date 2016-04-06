@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo yum update -y bliss
+docker build -t blissai/collector .
+rspec ./spec/docker_spec/docker_spec.rb
