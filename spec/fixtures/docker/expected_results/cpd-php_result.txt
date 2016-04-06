@@ -1,3 +1,4 @@
+<--LintFilePartition-->
 lines,tokens,occurrences
 37,913,2,24,/repository/wp-content/themes/content.php,21,/repository/wp-content/themes/content-link.php
 29,661,2,31,/repository/wp-content/themes/index.php,34,/repository/wp-content/themes/archive.php
