@@ -204,7 +204,7 @@ module DockerSpecHelper
       linter: "#{@dckr}/linters/lizard.yml",
       result: "#{@dckr}/results/lizard_result.txt",
       expected: "#{@dckr}/expected_results/lizard_result.txt"
-    }.merge(@swift_repo)
+    }.merge(@stylus_repo)
 
     @coffeelint = {
       linter: "#{@dckr}/linters/coffeelint.yml",
