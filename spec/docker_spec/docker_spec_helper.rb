@@ -39,7 +39,7 @@ module DockerSpecHelper
       git_url: 'https://github.com/iconnor/simple_rails.git',
       commit: '0045ab57d2160acbe8323a41e9703a11d8281758',
       excluded_dirs: 'excluded_dirs=public,vendor,bin,coverage,db,config',
-      remove_os: true
+      remove_os: false
     }
 
     @java_repo = {
