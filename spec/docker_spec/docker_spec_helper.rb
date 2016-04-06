@@ -34,6 +34,14 @@ module DockerSpecHelper
       remove_os: true
     }
 
+    @simple_ruby_repo = {
+      git_dir: "#{@repos_path}/simple_rails",
+      git_url: 'https://github.com/iconnor/simple_rails.git',
+      commit: '0045ab57d2160acbe8323a41e9703a11d8281758',
+      excluded_dirs: 'excluded_dirs=public,vendor,bin,coverage,db,config',
+      remove_os: true
+    }
+
     @java_repo = {
       git_dir: "#{@repos_path}/java",
       git_url: 'https://github.com/iconnor/simple_java.git',
@@ -162,7 +170,7 @@ module DockerSpecHelper
       linter: "#{@dckr}/linters/rubocop.yml",
       result: "#{@dckr}/results/rubocop_result.txt",
       expected: "#{@dckr}/expected_results/runocop_result.txt"
-    }.merge(@ruby_repo)
+    }.merge(@simple_ruby_repo)
 
     @rbp = {
       linter: "#{@dckr}/linters/rbp.yml",

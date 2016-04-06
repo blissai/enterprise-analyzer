@@ -2,11 +2,11 @@
 {
   "scan_info": {
     "app_path": "/repository",
-    "rails_version": "4.1.9",
-    "security_warnings": 2,
-    "start_time": "2016-04-05 22:03:35 +0000",
-    "end_time": "2016-04-05 22:03:35 +0000",
-    "duration": 0.028445654,
+    "rails_version": "4.2.6",
+    "security_warnings": 90,
+    "start_time": "2016-04-06 00:34:18 +0000",
+    "end_time": "2016-04-06 00:34:27 +0000",
+    "duration": 8.212687968,
     "checks_performed": [
       "BasicAuth",
       "ContentTag",
@@ -67,40 +67,1627 @@
       "XMLDoS",
       "YAMLParsing"
     ],
-    "number_of_controllers": 1,
-    "number_of_models": 0,
-    "number_of_templates": 1,
+    "number_of_controllers": 70,
+    "number_of_models": 143,
+    "number_of_templates": 45,
     "ruby_version": "2.2.3",
     "brakeman_version": "3.1.4"
   },
   "warnings": [
     {
-      "warning_type": "Denial of Service",
-      "warning_code": 88,
-      "fingerprint": "ab42647fbdea61e25c4b794e82a8b315054e2fac4328bb3fd4be6a744889a987",
-      "message": "Rails 4.1.9 is vulnerable to denial of service via XML parsing (CVE-2015-3227). Upgrade to Rails version 4.1.11",
-      "file": "Gemfile.lock",
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "05bd2b8e6fd551775d9652c39ab318b8c914f362d57ebeda05cb7f63ebaabdef",
+      "message": "Render path contains parameter value",
+      "file": "app/controllers/static_controller.rb",
       "line": 58,
-      "link": "https://groups.google.com/d/msg/rubyonrails-security/bahr2JLnxvk/x4EocXnHPp8J",
+      "link": "http://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => ((\"static/#{(params[:id] or \"faq\")}.#{I18n.locale}\" or \"static/#{(params[:id] or \"faq\")}.en\") or \"static/#{(params[:id] or \"faq\")}\"), { :layout => (not request.xhr?), :formats => ([:html]) })",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "StaticController",
+        "method": "show"
+      },
+      "user_input": "params[:id]",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "06cd0924b0a58ea44f8e2a903863a239199ae6bee1ada70b8c13d9b9a7165b18",
+      "message": "Possible SQL injection",
+      "file": "app/controllers/directory_items_controller.rb",
+      "line": 16,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "DirectoryItem.where(:period_type => DirectoryItem.period_types[params.require(:period).to_sym]).includes(:user).order(\"directory_items.#{(params[:order] or DirectoryItem.headings.first)} #{(\"ASC\" or \"DESC\")}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "DirectoryItemsController",
+        "method": "index"
+      },
+      "user_input": "params[:order]",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "0c4de023cff2048ea8a27c90af251e93917272adc18f73e6f5c5c59e5fe66c36",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/permalinks_controller.rb",
+      "line": 14,
+      "link": "http://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(Permalink.find_by_url(request.fullpath).target_url, :status => :moved_permanently)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "PermalinksController",
+        "method": "show"
+      },
+      "user_input": "Permalink.find_by_url(request.fullpath).target_url",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "18d84ea738b7732b1febe2395cc903fc4e6d2d3ab43f5d368342d14b638b05df",
+      "message": "Possible command injection",
+      "file": "lib/backup_restore/restorer.rb",
+      "line": 170,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`tar --extract --file '#{@tar_filename}' #{BackupRestore::METADATA_FILE}`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "BackupRestore::Restorer",
+        "method": "extract_metadata"
+      },
+      "user_input": "@tar_filename",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "193cbd48642abdc5d2ca5d807d23fd46292eedb2e37a0c43cc2538aba39d5006",
+      "message": "Model attribute used in file name",
+      "file": "app/controllers/uploads_controller.rb",
+      "line": 41,
+      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "send_file(Discourse.store.path_for((Upload.find_by(:sha1 => params[:sha]) or Upload.find_by(:id => params[:id], :url => request.env[\"PATH_INFO\"]))), :filename => (Upload.find_by(:sha1 => params[:sha]) or Upload.find_by(:id => params[:id], :url => request.env[\"PATH_INFO\"])).original_filename, :disposition => \"inline\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "UploadsController",
+        "method": "show"
+      },
+      "user_input": "Upload.find_by(:id => params[:id], :url => request.env[\"PATH_INFO\"])",
+      "confidence": "Weak"
+    },
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "1d9955e37ef614b1c06681ca913822e09a7365ee8b684335b09b042a6539fc68",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/posts_controller.rb",
+      "line": 130,
+      "link": "http://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(Post.find(params[:post_id].to_i).url)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "PostsController",
+        "method": "short_link"
+      },
+      "user_input": "Post.find(params[:post_id].to_i).url",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "Denial of Service",
+      "warning_code": 76,
+      "fingerprint": "1e5ebc06fb38b1d5d938f4d1563fb96aa857cc9aa525f1b2ce5d18c1fd92822d",
+      "message": "Model attribute used in regex",
+      "file": "app/models/admin_dashboard_data.rb",
+      "line": 171,
+      "link": "http://brakemanscanner.org/docs/warning_types/denial_of_service/",
+      "code": "/#{SiteSetting.defaults[:favicon_url].split(\"/\").last}/",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "AdminDashboardData",
+        "method": "default_logo_check"
+      },
+      "user_input": "SiteSetting.defaults[:favicon_url].split(\"/\").last",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "22aec7f5d48dbcc25c4c9e7b479d20d4869c5d80c317ff8c4d59abfa435b43ad",
+      "message": "Possible SQL injection",
+      "file": "app/models/topic.rb",
+      "line": 679,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "Post.where(:topic_id => id).sum(\"#{type}_count\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Topic",
+        "method": "update_action_counts"
+      },
+      "user_input": "type",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "231e2511fd9dee05250c43a3d15b36833bc96a22fe438e478dbdb6df07a03827",
+      "message": "Possible command injection",
+      "file": "app/models/upload.rb",
+      "line": 73,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "system(\"identify '#{file.path}' >/dev/null 2>&1\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Upload",
+        "method": "Upload.create_for"
+      },
+      "user_input": "file.path",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "258df087dffdd6fe150110d88b4259b76e24fb820ea76cb3ffcfb400166d6b21",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/list_controller.rb",
+      "line": 357,
+      "link": "http://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(Permalink.find_by_url(request.fullpath).external_url, :status => :moved_permanently)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ListController",
+        "method": "redirect_or_not_found"
+      },
+      "user_input": "Permalink.find_by_url(request.fullpath).external_url",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "25cc69a36c7ac657cb82546c8fac15b7c1b0bbf5ea140dd01c25d53fd67478c5",
+      "message": "Possible command injection",
+      "file": "lib/backup_restore/backuper.rb",
+      "line": 199,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`#{sed_command}`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "BackupRestore::Backuper",
+        "method": "update_dump"
+      },
+      "user_input": "sed_command",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "286bee4b3e0f9b6b7f3559768b2da71500c710fc97c3388ae261ff9c229ff1d2",
+      "message": "Possible SQL injection",
+      "file": "app/models/user_search.rb",
+      "line": 93,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "User.joins(\"JOIN (SELECT unnest uid, row_number() OVER () AS rn\\n      FROM unnest('{#{search_ids.join(\",\")}}'::int[])\\n    ) x on uid = users.id\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "UserSearch",
+        "method": "search"
+      },
+      "user_input": "search_ids.join(\",\")",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "2a81853ddc9fa73ef1fb68d05b965dbbd0f24fbc5bf34be6deae9ac7169f48fe",
+      "message": "Possible command injection",
+      "file": "lib/autospec/qunit_runner.rb",
+      "line": 64,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "Process.spawn(\"phantomjs #{Rails.root}/lib/autospec/run-qunit.js \\\"#{(\"http://localhost:#{port}/qunit\" << \"?module=#{try_to_find_module_name(specs.strip)}\")}\\\"\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Autospec::QunitRunner",
+        "method": "run"
+      },
+      "user_input": "try_to_find_module_name(specs.strip)",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "2c227a9031e78edae8783db17a7a8ca59060d8f6c2f57757f7d03964a7bfddcb",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/static_controller.rb",
+      "line": 25,
+      "link": "http://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(SiteSetting.send({ \"faq\" => ({ :redirect => \"faq_url\", :topic_id => \"guidelines_topic_id\" }), \"tos\" => ({ :redirect => \"tos_url\", :topic_id => \"tos_topic_id\" }), \"privacy\" => ({ :redirect => \"privacy_policy_url\", :topic_id => \"privacy_topic_id\" }) }[params[:id]][:redirect]))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "StaticController",
+        "method": "show"
+      },
+      "user_input": "SiteSetting.send({ \"faq\" => ({ :redirect => \"faq_url\", :topic_id => \"guidelines_topic_id\" }), \"tos\" => ({ :redirect => \"tos_url\", :topic_id => \"tos_topic_id\" }), \"privacy\" => ({ :redirect => \"privacy_policy_url\", :topic_id => \"privacy_topic_id\" }) }[params[:id]][:redirect])",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "33a7971ace1f096cf030c8684243e54de8b1204432d16a6095871df9974beec1",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/permalinks_controller.rb",
+      "line": 12,
+      "link": "http://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(Permalink.find_by_url(request.fullpath).external_url, :status => :moved_permanently)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "PermalinksController",
+        "method": "show"
+      },
+      "user_input": "Permalink.find_by_url(request.fullpath).external_url",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "3487b927972086f1bc56e4fdb0ebc51c4f499784db5c0fb5646ef7bfada932c3",
+      "message": "Parameter value used in file name",
+      "file": "app/controllers/user_avatars_controller.rb",
+      "line": 58,
+      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "send_file(LetterAvatar.generate(params[:username].to_s, params[:size].to_i), :disposition => nil)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "UserAvatarsController",
+        "method": "show_letter"
+      },
+      "user_input": "params[:size]",
+      "confidence": "Weak"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "3702378da133ac143902103f457f5253f26246063bfc8d55b21b2e3d3e0931d5",
+      "message": "Possible SQL injection",
+      "file": "app/models/post_action.rb",
+      "line": 437,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "Post.where(:topic_id => Post.with_deleted.where(:id => post_id).pluck(:topic_id).first).sum(\"#{post_action_type_key}_count\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "PostAction",
+        "method": "update_counters"
+      },
+      "user_input": "post_action_type_key",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "3c2136335e32d1c41622842326dd9488657278d010187ae6cc7b2bcd9dd84b00",
+      "message": "Possible command injection",
+      "file": "lib/backup_restore/backuper.rb",
+      "line": 158,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "IO.popen(\"#{pg_dump_command} 2>&1\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "BackupRestore::Backuper",
+        "method": "dump_public_schema"
+      },
+      "user_input": "pg_dump_command",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "44459b2f73f881358b604d7b77a16d5b8ac6190bc65522e84a9453051743b11b",
+      "message": "Possible SQL injection",
+      "file": "app/models/topic.rb",
+      "line": 148,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "where(\"category_id IS NULL OR category_id IN (\\n           SELECT c.id FROM categories c\\n           WHERE #{([\"NOT c.read_restricted or c.id in (:cats)\", { :cats => guardian.secure_category_ids }] or [\"NOT c.read_restricted\"])[0]})\", ([\"NOT c.read_restricted or c.id in (:cats)\", { :cats => guardian.secure_category_ids }] or [\"NOT c.read_restricted\"])[1])",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Topic",
+        "method": "secured"
+      },
+      "user_input": "([\"NOT c.read_restricted or c.id in (:cats)\", { :cats => guardian.secure_category_ids }] or [\"NOT c.read_restricted\"])[0]",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "49f922d869e69d18a9c03b7f055481a4ed7717be63fa916321f8f1ecdc3f913b",
+      "message": "Possible SQL injection",
+      "file": "lib/search.rb",
+      "line": 475,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "Post.where(:post_type => Topic.visible_post_types(@guardian.user)).joins(:post_search_data, :topic).joins(\"LEFT JOIN categories ON categories.id = topics.category_id\").where(\"topics.deleted_at\" => nil).where(\"topics.visible\").where(\"topics.archetype =  ?\", Archetype.private_message).where(\"topics.id IN (SELECT topic_id FROM topic_allowed_users WHERE user_id = ?)\", @guardian.user.id).where(\"topics.archetype <> ?\", Archetype.private_message).joins(\"JOIN users u ON u.id = posts.user_id\").where(\"posts.raw  || ' ' || u.username || ' ' || u.name ilike ?\", \"%#{@term}%\").where(\"post_search_data.search_data @@ #{ts_query}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Search",
+        "method": "posts_query"
+      },
+      "user_input": "ts_query",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "4b9966daa966820eab21d8ab7769f24919e7167522c98dc354b252c7c2acc043",
+      "message": "Possible command injection",
+      "file": "lib/backup_restore/restorer.rb",
+      "line": 160,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`cp '#{File.join(Backup.base_directory, @filename)}' '#{@archive_filename}'`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "BackupRestore::Restorer",
+        "method": "copy_archive_to_tmp_directory"
+      },
+      "user_input": "Backup.base_directory",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "4bcf566cefacd432216da7824a4ec31a6b49d75ee45ab90054d547d26205e300",
+      "message": "Possible SQL injection",
+      "file": "app/models/screened_ip_address.rb",
+      "line": 59,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "find_by(\"'#{ip_address.to_s}' <<= ip_address\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ScreenedIpAddress",
+        "method": "ScreenedIpAddress.match_for_ip_address"
+      },
+      "user_input": "ip_address",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Cross-Site Request Forgery",
+      "warning_code": 86,
+      "fingerprint": "4d109bd02e4ccb3ea4c51485c947be435ee006a61af7d2cd37d1b358c7469189",
+      "message": "protect_from_forgery should be configured with 'with: :exception'",
+      "file": "app/controllers/application_controller.rb",
+      "line": null,
+      "link": "http://brakemanscanner.org/docs/warning_types/cross-site_request_forgery/",
       "code": null,
       "render_path": null,
-      "location": null,
+      "location": {
+        "type": "controller",
+        "controller": "ApplicationController"
+      },
       "user_input": null,
       "confidence": "Medium"
     },
     {
-      "warning_type": "Cross Site Scripting",
-      "warning_code": 87,
-      "fingerprint": "cf49f6493f12042d71268d610822dac4eb1100771c80946eed8fb55193b7f2be",
-      "message": "Rails 4.1.9 does not encode JSON keys (CVE-2015-3226). Upgrade to Rails version 4.1.11",
-      "file": "Gemfile.lock",
-      "line": 58,
-      "link": "https://groups.google.com/d/msg/rubyonrails-security/7VlB_pck3hU/3QZrGIaQW6cJ",
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "51652866c2da14533cb2ea468e805f06606253764498134ff278d8c48d6a4ad3",
+      "message": "Possible command injection",
+      "file": "lib/backup_restore/backuper.rb",
+      "line": 296,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`rm -f #{@archive_directory}/*.tar`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "BackupRestore::Backuper",
+        "method": "remove_tar_leftovers"
+      },
+      "user_input": "@archive_directory",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "587c1c442d88a47140c2d0295e72aa8f3989408fd92c792bd1a196d57ea8672f",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/session_controller.rb",
+      "line": 111,
+      "link": "http://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to((DiscourseSingleSignOn.parse(request.query_string).return_path or path(\"/\")))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "SessionController",
+        "method": "sso_login"
+      },
+      "user_input": "DiscourseSingleSignOn.parse(request.query_string).return_path",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "5c59a30bed53891ce5f01182f7aa50928d43279aa24eb37fdf4233230f4baa40",
+      "message": "Possible command injection",
+      "file": "lib/backup_restore/backuper.rb",
+      "line": 243,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`tar --append --dereference --file #{\"#{@archive_basename}.tar\"} #{File.basename(@meta_filename)}`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "BackupRestore::Backuper",
+        "method": "create_archive"
+      },
+      "user_input": "@archive_basename",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Dangerous Send",
+      "warning_code": 23,
+      "fingerprint": "5d0f8c196c1fc38c194d7e8ab73536f5a9139bf302c4d8a968bd336d7efd44ca",
+      "message": "User controlled method execution",
+      "file": "app/controllers/admin/site_settings_controller.rb",
+      "line": 13,
+      "link": "http://brakemanscanner.org/docs/warning_types/dangerous_send/",
+      "code": "SiteSetting.send(params[:id])",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Admin::SiteSettingsController",
+        "method": "update"
+      },
+      "user_input": "params[:id]",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "Dangerous Eval",
+      "warning_code": 13,
+      "fingerprint": "68164b0ef8d786b0f02a0e294e18ae507c559f7280ed1996a08b9133fa92d21f",
+      "message": "User input in eval",
+      "file": "lib/pretty_text.rb",
+      "line": 205,
+      "link": "http://brakemanscanner.org/docs/warning_types/dangerous_eval/",
+      "code": "v8.eval(\"Discourse.Dialect.setUnicodeReplacements(#{Emoji.unicode_replacements_json})\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "PrettyText",
+        "method": "s(:self).markdown"
+      },
+      "user_input": "Emoji.unicode_replacements_json",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "6b57dee47205eff8551767863633597e1da802e509b3367ffbbc4d3efb47b9ae",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/list_controller.rb",
+      "line": 270,
+      "link": "http://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(Category.find_by_id(params[:id].to_i).url, :status => 301)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ListController",
+        "method": "set_category"
+      },
+      "user_input": "Category.find_by_id(params[:id].to_i).url",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "6f23288bd588f19b3e58fa7d6d13006ac9ef6ff7756555803c73b26540aa1a40",
+      "message": "Possible SQL injection",
+      "file": "app/models/post_action.rb",
+      "line": 438,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "Topic.where(:id => Post.with_deleted.where(:id => post_id).pluck(:topic_id).first).update_all([\"#{\"#{post_action_type_key}_count\"} = ?\", Post.where(:topic_id => Post.with_deleted.where(:id => post_id).pluck(:topic_id).first).sum(\"#{post_action_type_key}_count\")])",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "PostAction",
+        "method": "update_counters"
+      },
+      "user_input": "post_action_type_key",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Dangerous Send",
+      "warning_code": 23,
+      "fingerprint": "6f2e68b03b4a62a0c7f4ad7cbcf88a10259906e224503dc1e2fd1cd12ef8001e",
+      "message": "User controlled method execution",
+      "file": "app/controllers/admin/users_controller.rb",
+      "line": 155,
+      "link": "http://brakemanscanner.org/docs/warning_types/dangerous_send/",
+      "code": "Promotion.send(\"tl#{(params[:level].to_i + 1)}_met?\", User.find_by(:id => params[:user_id]))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Admin::UsersController",
+        "method": "trust_level"
+      },
+      "user_input": "(params[:level].to_i + 1)",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "6f4822ffd2316b4a8946ff657703ecbe3a84e5a65125b038129b404c2010d8ae",
+      "message": "Possible command injection",
+      "file": "lib/memory_diagnostics.rb",
+      "line": 146,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`cat /proc/#{Process.pid}/status`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "MemoryDiagnostics",
+        "method": "s(:self).memory_report"
+      },
+      "user_input": "Process.pid",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "71b69e6f52ddd73c96cb1768ba3151e56acc4e16e51fee7b9bf80dcf3c8a9253",
+      "message": "Possible SQL injection",
+      "file": "lib/search.rb",
+      "line": 441,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "User.includes(:user_search_data).references(:user_search_data).where(:active => true).where(:staged => false).where(\"user_search_data.search_data @@ #{ts_query(\"simple\")}\").order(\"CASE WHEN username_lower = '#{@original_term.downcase}' THEN 0 ELSE 1 END\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Search",
+        "method": "user_search"
+      },
+      "user_input": "@original_term.downcase",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "741ffe6211eb5debd383bb26fde23c24b3243c7e5c8a5395d9021e0edf7fc038",
+      "message": "Possible SQL injection",
+      "file": "app/models/group.rb",
+      "line": 204,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "GroupUser.joins(\"RIGHT JOIN (#{case name\nwhen :admins then\n  \"SELECT u.id FROM users u WHERE u.admin\"\nwhen :moderators then\n  \"SELECT u.id FROM users u WHERE u.moderator\"\nwhen :staff then\n  \"SELECT u.id FROM users u WHERE u.moderator OR u.admin\"\nwhen :trust_level_1, :trust_level_2, :trust_level_3, :trust_level_4 then\n  \"SELECT u.id FROM users u WHERE u.trust_level >= #{({ :everyone => 0, :admins => 1, :moderators => 2, :staff => 3, :trust_level_0 => 10, :trust_level_1 => 11, :trust_level_2 => 12, :trust_level_3 => 13, :trust_level_4 => 14 }[name] - 10)}\"\nwhen :trust_level_0 then\n  \"SELECT u.id FROM users u\"\nelse\n  # do nothing\nend}) X ON X.id = user_id AND group_id = #{(self.lookup_group(name) or Group.new(:name => name.to_s, :automatic => true)).id}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Group",
+        "method": "Group.refresh_automatic_group!"
+      },
+      "user_input": "case name\nwhen :admins then\n  \"SELECT u.id FROM users u WHERE u.admin\"\nwhen :moderators then\n  \"SELECT u.id FROM users u WHERE u.moderator\"\nwhen :staff then\n  \"SELECT u.id FROM users u WHERE u.moderator OR u.admin\"\nwhen :trust_level_1, :trust_level_2, :trust_level_3, :trust_level_4 then\n  \"SELECT u.id FROM users u WHERE u.trust_level >= #{({ :everyone => 0, :admins => 1, :moderators => 2, :staff => 3, :trust_level_0 => 10, :trust_level_1 => 11, :trust_level_2 => 12, :trust_level_3 => 13, :trust_level_4 => 14 }[name] - 10)}\"\nwhen :trust_level_0 then\n  \"SELECT u.id FROM users u\"\nelse\n  # do nothing\nend",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "76614cccb7245872a0a54e48efebeacc8588f7ed7c2e807dd489120e81a2d754",
+      "message": "Possible command injection",
+      "file": "lib/backup_restore/backuper.rb",
+      "line": 256,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`tar --append --dereference --file #{\"#{@archive_basename}.tar\"} #{(\"uploads/\" + @current_db)}`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "BackupRestore::Backuper",
+        "method": "create_archive"
+      },
+      "user_input": "@archive_basename",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "7a5d3141b946bdc48a5ef7984c2ecbc642c36443e3deea42d6f636917675974e",
+      "message": "Possible SQL injection",
+      "file": "app/models/user_history.rb",
+      "line": 107,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "self.where(:action => filters[:action_id]).where(:custom_type => filters[:custom_type]).where(\"#{key}_id = ?\", User.where(:username_lower => filters[key].downcase).pluck(:id))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "UserHistory",
+        "method": "UserHistory.with_filters"
+      },
+      "user_input": "key",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "7ab3608392647cf7ef2fd4fb73f80fc88f822dfb820aa16fdabcb5cd609b3ab4",
+      "message": "Possible command injection",
+      "file": "lib/backup_restore/restorer.rb",
+      "line": 185,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`tar --extract --file '#{@tar_filename}' #{BackupRestore::DUMP_FILE}`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "BackupRestore::Restorer",
+        "method": "extract_dump"
+      },
+      "user_input": "@tar_filename",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Format Validation",
+      "warning_code": 30,
+      "fingerprint": "7fc553eaf5e6db36d1621ef168ed6a615fa8fba0f60a9e2c92c4f9d7c12cedec",
+      "message": "Insufficient validation for 'website' using /(^$)|(^(http|https):\\/\\/[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,9}(([0-9]{1,5})?\\/.*)?$)/ix. Use \\A and \\z as anchors",
+      "file": "app/models/user_profile.rb",
+      "line": 7,
+      "link": "http://brakemanscanner.org/docs/warning_types/format_validation/",
       "code": null,
       "render_path": null,
-      "location": null,
+      "location": {
+        "type": "model",
+        "model": "UserProfile"
+      },
       "user_input": null,
+      "confidence": "High"
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "7fe84167c1ea89a7ef2221c95ec22974137976e5ac63eeb5fe845ae16027d27c",
+      "message": "Model attribute used in file name",
+      "file": "app/models/optimized_image.rb",
+      "line": 186,
+      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "FileUtils.rm(((FileHelper.download(((SiteSetting.scheme + \":\") + optimized_image.url.dup), SiteSetting.max_image_size_kb.kilobytes, \"discourse\", true) rescue nil).path or FileStore::LocalStore.new.path_for(optimized_image)), :force => true)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "OptimizedImage",
+        "method": "OptimizedImage.migrate_to_new_scheme"
+      },
+      "user_input": "SiteSetting.max_image_size_kb.kilobytes",
+      "confidence": "Weak"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "8407759c590b64ab8bf7c5b9d4900b3c7f8036ed1ad7df9ed54722d9b8ae28b1",
+      "message": "Possible SQL injection",
+      "file": "app/models/post_action.rb",
+      "line": 424,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "Post.where(:id => post_id).update_all([\"#{\"#{post_action_type_key}_count\"} = ?\", PostAction.where(:post_id => post_id).where(:post_action_type_id => post_action_type_id).count])",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "PostAction",
+        "method": "update_counters"
+      },
+      "user_input": "post_action_type_key",
       "confidence": "Medium"
+    },
+    {
+      "warning_type": "Remote Code Execution",
+      "warning_code": 24,
+      "fingerprint": "861cfbb935e8e7362ff4c78d1edcd41df7cc33528ff978cd98633089072c10e9",
+      "message": "Unsafe reflection method constantize called with parameter value",
+      "file": "app/controllers/search_controller.rb",
+      "line": 85,
+      "link": "http://brakemanscanner.org/docs/warning_types/remote_code_execution/",
+      "code": "(params[:search_context] or { :type => params[:context], :id => params[:context_id] })[:type].classify.constantize",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "SearchController",
+        "method": "lookup_search_context"
+      },
+      "user_input": "params[:search_context]",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "864828cbeb29abc1a852bfeeecaa5605a057dfef8cab768f9d72c5987633b68a",
+      "message": "Parameter value used in file name",
+      "file": "app/controllers/user_avatars_controller.rb",
+      "line": 41,
+      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "send_file(LetterAvatar.generate(params[:letter].to_s, params[:size].to_i, :identity => LetterAvatar::Identity.new), :disposition => nil)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "UserAvatarsController",
+        "method": "show_proxy_letter"
+      },
+      "user_input": "params[:size]",
+      "confidence": "Weak"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "89f2b08cd51f10cbfd1524c76580dc0625219d0ec3d0d41eb799686e04b3ae70",
+      "message": "Possible command injection",
+      "file": "app/models/upload.rb",
+      "line": 199,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`convert #{path} -auto-orient #{path}`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Upload",
+        "method": "Upload.fix_image_orientation"
+      },
+      "user_input": "path",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "8d942336762e2c8031ec6e83a84148c9cb6dc8d60571cc61a0dd4c7a8c51fe4f",
+      "message": "Possible command injection",
+      "file": "lib/backup_restore/backuper.rb",
+      "line": 248,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`tar --append --dereference --file #{\"#{@archive_basename}.tar\"} #{File.basename(@dump_filename)}`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "BackupRestore::Backuper",
+        "method": "create_archive"
+      },
+      "user_input": "@archive_basename",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "90de1f24278b14d2ed13555f1999606e8ae7d4ec448590fd7146819bf9849cb9",
+      "message": "Possible command injection",
+      "file": "lib/file_store/base_store.rb",
+      "line": 112,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`ls -tr #{CACHE_DIR} | head -n +#{CACHE_MAXIMUM_SIZE} | xargs rm -f`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "FileStore::BaseStore",
+        "method": "cache_file"
+      },
+      "user_input": "CACHE_DIR",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "914de8a12b3c9d53e5c260fb1e49c430ece166c22c9aedfb3bc51d2c6ba78514",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/clicks_controller.rb",
+      "line": 20,
+      "link": "http://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(TopicLinkClick.create_from(track_params.merge(:ip => request.remote_ip)))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ClicksController",
+        "method": "track"
+      },
+      "user_input": "TopicLinkClick.create_from(track_params.merge(:ip => request.remote_ip))",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "94a115465d9e90b6a2fa49c22d53fa6c21c7be74ef6070edc36f78890f09671a",
+      "message": "Model attribute used in file name",
+      "file": "app/models/optimized_image.rb",
+      "line": 177,
+      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "File.open(((FileHelper.download(((SiteSetting.scheme + \":\") + optimized_image.url.dup), SiteSetting.max_image_size_kb.kilobytes, \"discourse\", true) rescue nil).path or FileStore::LocalStore.new.path_for(optimized_image)))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "OptimizedImage",
+        "method": "OptimizedImage.migrate_to_new_scheme"
+      },
+      "user_input": "SiteSetting.max_image_size_kb.kilobytes",
+      "confidence": "Weak"
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "94b4661855f3bc57ea8bfad9e87098f475dc907d46c6e94bd5707f33241c4f95",
+      "message": "Model attribute used in file name",
+      "file": "app/models/emoji.rb",
+      "line": 72,
+      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "File.open(\"#{Emoji.base_directory}/#{name}#{File.extname(file.original_filename)}\", \"wb\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Emoji",
+        "method": "Emoji.create_for"
+      },
+      "user_input": "Emoji.base_directory",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "9949fbcf2e080c94fa5c88252b015038bf49037376f0722c580746d4aff844fa",
+      "message": "Possible command injection",
+      "file": "lib/backup_restore/backuper.rb",
+      "line": 261,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`gzip -5 #{\"#{@archive_basename}.tar\"}`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "BackupRestore::Backuper",
+        "method": "create_archive"
+      },
+      "user_input": "@archive_basename",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "9c23bacb3bd17708419aa3dd8be50dd4afbd2c264d02cb270d5a563a92ccfd5f",
+      "message": "Model attribute used in file name",
+      "file": "app/models/emoji.rb",
+      "line": 71,
+      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "FileUtils.mkdir_p(Pathname.new(\"#{Emoji.base_directory}/#{name}#{File.extname(file.original_filename)}\").dirname)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Emoji",
+        "method": "Emoji.create_for"
+      },
+      "user_input": "Emoji.base_directory",
+      "confidence": "Weak"
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "9c2b469f8b2e1ee87f27eea23574260d00a12e8d318941f6effaaa6a323fbbe6",
+      "message": "Model attribute used in file name",
+      "file": "app/controllers/admin/backups_controller.rb",
+      "line": 52,
+      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "send_file(Backup[params.fetch(:id)].path)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Admin::BackupsController",
+        "method": "show"
+      },
+      "user_input": "Backup[params.fetch(:id)].path",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "9e7e6d1ac85975876caec5f8d91d98ce85c07023e566db6e2e69ffbc2fef91d5",
+      "message": "Possible command injection",
+      "file": "lib/file_store/local_store.rb",
+      "line": 56,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`find #{tombstone_dir} -mtime +#{grace_period} -type f -delete`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "FileStore::LocalStore",
+        "method": "purge_tombstone"
+      },
+      "user_input": "tombstone_dir",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "9f998acb922eb7faa321bb8ab1fa1326e3182c3b8acd197a46c23b62e8007ba9",
+      "message": "Model attribute used in file name",
+      "file": "app/controllers/export_csv_controller.rb",
+      "line": 21,
+      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "send_file(UserExport.get_download_path(params.fetch(:id)))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ExportCsvController",
+        "method": "show"
+      },
+      "user_input": "UserExport.get_download_path(params.fetch(:id))",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Cross Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "a478c8b30bfaa4e1abbfc5af2749eac0f72234f7ad0fd037327c8d1381b698d5",
+      "message": "Unescaped model attribute",
+      "file": "app/views/static/show.html.erb",
+      "line": 19,
+      "link": "http://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "Topic.find_by_id(SiteSetting.send({ \"faq\" => ({ :redirect => \"faq_url\", :topic_id => \"guidelines_topic_id\" }), \"tos\" => ({ :redirect => \"tos_url\", :topic_id => \"tos_topic_id\" }), \"privacy\" => ({ :redirect => \"privacy_policy_url\", :topic_id => \"privacy_topic_id\" }) }[(params[:id] or \"faq\")][:topic_id])).posts.first.cooked",
+      "render_path": [{"type":"controller","class":"StaticController","method":"show","line":40,"file":"app/controllers/static_controller.rb"}],
+      "location": {
+        "type": "template",
+        "template": "static/show"
+      },
+      "user_input": null,
+      "confidence": "High"
+    },
+    {
+      "warning_type": "Denial of Service",
+      "warning_code": 76,
+      "fingerprint": "a4b731154c7bead8f17334c2f0467d35152f79c7494832a5f2a0a2a12467fe4d",
+      "message": "Model attribute used in regex",
+      "file": "app/models/admin_dashboard_data.rb",
+      "line": 169,
+      "link": "http://brakemanscanner.org/docs/warning_types/denial_of_service/",
+      "code": "/#{SiteSetting.defaults[:logo_url].split(\"/\").last}/",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "AdminDashboardData",
+        "method": "default_logo_check"
+      },
+      "user_input": "SiteSetting.defaults[:logo_url].split(\"/\").last",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Denial of Service",
+      "warning_code": 76,
+      "fingerprint": "a5331be5d8f8416463397e90ba4245b952b63746fccb39b5ae4789faf57de574",
+      "message": "Model attribute used in regex",
+      "file": "app/models/upload.rb",
+      "line": 194,
+      "link": "http://brakemanscanner.org/docs/warning_types/denial_of_service/",
+      "code": "/^#{SiteSetting.s3_cdn_url}/i",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Upload",
+        "method": "Upload.get_from_url"
+      },
+      "user_input": "SiteSetting.s3_cdn_url",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Dangerous Eval",
+      "warning_code": 13,
+      "fingerprint": "a669b9037d740fa5e43db5d354ee5b560b7d9b4a9ddf1f13d3299a0a8f3ab6de",
+      "message": "User input in eval",
+      "file": "lib/pretty_text.rb",
+      "line": 157,
+      "link": "http://brakemanscanner.org/docs/warning_types/dangerous_eval/",
+      "code": "context.eval(\"Discourse.SiteSettings = #{SiteSetting.client_settings_json};\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "PrettyText",
+        "method": "s(:self).decorate_context"
+      },
+      "user_input": "SiteSetting.client_settings_json",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "a7a0145f8b81bbb0db36dc741b7abc39f2506c5dc8f9cd9836419b8aab479823",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/session_controller.rb",
+      "line": 87,
+      "link": "http://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(SiteSetting.sso_not_approved_url)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "SessionController",
+        "method": "sso_login"
+      },
+      "user_input": "SiteSetting.sso_not_approved_url",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "aaa55760337f372fbde15f2d12e4332151452541a147adb35dcf2bd2f734aeb2",
+      "message": "Possible SQL injection",
+      "file": "app/controllers/admin/screened_ip_addresses_controller.rb",
+      "line": 12,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "ScreenedIpAddress.where(\"cidr '#{IPAddr.handle_wildcards(params[:filter])}' >>= ip_address\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Admin::ScreenedIpAddressesController",
+        "method": "index"
+      },
+      "user_input": "params[:filter]",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "ab0a6f39f6578cdb700ab7a041d13dc2c0b1d0f97de102a426d7a844022eb0bb",
+      "message": "Possible command injection",
+      "file": "lib/autospec/simple_runner.rb",
+      "line": 15,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "Process.spawn({ \"RAILS_ENV\" => \"test\" }, \"bundle exec rspec #{[\"-r\", \"#{File.dirname(\"/repository/lib/autospec/simple_runner.rb\")}/formatter.rb\", \"-f\", \"Autospec::Formatter\", specs.split].flatten.join(\" \")}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Autospec::SimpleRunner",
+        "method": "run"
+      },
+      "user_input": "File.dirname(\"/repository/lib/autospec/simple_runner.rb\")",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "ae73346f8f5665d2aa51e29ed6cd108a63691832f90421bae4b77dd8a91c1bc6",
+      "message": "Possible SQL injection",
+      "file": "app/models/post_action.rb",
+      "line": 421,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "PostAction.joins(:user).where(:post_id => post_id).sum(\"CASE WHEN users.moderator OR users.admin THEN #{SiteSetting.staff_like_weight} ELSE 1 END\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "PostAction",
+        "method": "update_counters"
+      },
+      "user_input": "SiteSetting.staff_like_weight",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "aeb768c46971c115f6f34cb15bc0511639a1509481f653a18a1a56faca74cea4",
+      "message": "Possible command injection",
+      "file": "lib/plugin/instance.rb",
+      "line": 343,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`mkdir -p #{((Rails.configuration.assets.paths << auto_generated_path).root.to_s + \"/public/plugins/\")}`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Plugin::Instance",
+        "method": "activate!"
+      },
+      "user_input": "((Rails.configuration.assets.paths << auto_generated_path).root.to_s + \"/public/plugins/\")",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "b06bf72488abe0b4b9111f806b93f481db0300c4ee639985102a40d47cbd82a3",
+      "message": "Possible command injection",
+      "file": "lib/backup_restore/restorer.rb",
+      "line": 204,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "IO.popen(\"#{psql_command} 2>&1\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "BackupRestore::Restorer",
+        "method": "restore_dump"
+      },
+      "user_input": "psql_command",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "b5e892449dc6d3464d4df3883c5954c95b8c561632b97a81bd6d17d3de6f7afc",
+      "message": "Possible command injection",
+      "file": "lib/backup_restore/backuper.rb",
+      "line": 236,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`rm -f #{\"#{@archive_basename}.tar\"}.gz`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "BackupRestore::Backuper",
+        "method": "create_archive"
+      },
+      "user_input": "@archive_basename",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "c034bcd07e7e0f2c496a8f7966d905ea38fe28e3a6a6fb5ae55dd428a49bd812",
+      "message": "Possible command injection",
+      "file": "lib/backup_restore/restorer.rb",
+      "line": 165,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`gzip --decompress '#{@archive_filename}'`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "BackupRestore::Restorer",
+        "method": "unzip_archive"
+      },
+      "user_input": "@archive_filename",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "c7bf63308ea9c1d2fb52efff6e4794ccbb85b743bb3e77c01bd82e0d3843ba45",
+      "message": "Possible command injection",
+      "file": "lib/plugin/instance.rb",
+      "line": 378,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`#{(\"gem install #{name} -v #{version} -i #{(File.dirname(path) + \"/gems/#{RUBY_VERSION}\")} --no-document --ignore-dependencies\" << \" --source #{opts[:source]}\")}`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Plugin::Instance",
+        "method": "gem"
+      },
+      "user_input": "(\"gem install #{name} -v #{version} -i #{(File.dirname(path) + \"/gems/#{RUBY_VERSION}\")} --no-document --ignore-dependencies\" << \" --source #{opts[:source]}\")",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "c7f364433d761af982462bb5b111c4f53afdc50b47d9993fe0d814d437d654b9",
+      "message": "Possible SQL injection",
+      "file": "app/controllers/list_controller.rb",
+      "line": 332,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "TopTopic.where(\"#{period}_score > 0\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ListController",
+        "method": "ListController.best_period_for"
+      },
+      "user_input": "period",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "c9a7def50fb23405010b43726c2eb9efc44f4c328cdc463b679d3e7f7d47d9ca",
+      "message": "Possible SQL injection",
+      "file": "lib/search.rb",
+      "line": 422,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "Category.includes(:category_search_data).where(\"category_search_data.search_data @@ #{ts_query}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Search",
+        "method": "category_search"
+      },
+      "user_input": "ts_query",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Cross Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "c9f9d47622a7ecbe98a2f2730ba875afe0d25f302ab0031cd2811687764a3079",
+      "message": "Unescaped model attribute",
+      "file": "app/views/static/login.html.erb",
+      "line": 2,
+      "link": "http://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "PrettyText.cook(I18n.t(\"login_required.welcome_message\", :title => SiteSetting.title))",
+      "render_path": null,
+      "location": {
+        "type": "template",
+        "template": "static/login"
+      },
+      "user_input": "SiteSetting.title",
+      "confidence": "Weak"
+    },
+    {
+      "warning_type": "Cross Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "ca80e7fdcbe620f55cc186031a274b506ac49dbf178edbe10a3ea94c2035e561",
+      "message": "Unescaped parameter value",
+      "file": "app/views/topics/show.html.erb",
+      "line": 61,
+      "link": "http://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "crawlable_meta_data(:title => TopicView.new(params[:topic_id]).title, :description => TopicView.new(params[:topic_id]).summary, :image => TopicView.new(params[:topic_id]).image_url, :read_time => TopicView.new(params[:topic_id]).read_time, :like_count => TopicView.new(params[:topic_id]).like_count)",
+      "render_path": [{"type":"controller","class":"TopicsController","method":"feed","line":486,"file":"app/controllers/topics_controller.rb"}],
+      "location": {
+        "type": "template",
+        "template": "topics/show"
+      },
+      "user_input": "params[:topic_id]",
+      "confidence": "Weak"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "cb330469e65353a423621de2810d0154448b69a392b49090fbc02ac0007bb97a",
+      "message": "Possible command injection",
+      "file": "lib/letter_avatar.rb",
+      "line": 75,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`convert #{[\"-size\", \"#{FULLSIZE}x#{FULLSIZE}\", \"xc:#{to_rgb(identity.color)}\", \"-pointsize\", \"#{POINTSIZE}\", \"-fill\", \"'#FFFFFFCC'\", \"-font\", \"'Helvetica'\", \"-gravity\", \"Center\", \"-annotate\", \"-0+26\", \"'#{identity.letter}'\", \"-depth\", \"8\", \"'#{fullsize_path(identity)}'\"].join(\" \")}`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "LetterAvatar",
+        "method": "generate_fullsize"
+      },
+      "user_input": "[\"-size\", \"#{FULLSIZE}x#{FULLSIZE}\", \"xc:#{to_rgb(identity.color)}\", \"-pointsize\", \"#{POINTSIZE}\", \"-fill\", \"'#FFFFFFCC'\", \"-font\", \"'Helvetica'\", \"-gravity\", \"Center\", \"-annotate\", \"-0+26\", \"'#{identity.letter}'\", \"-depth\", \"8\", \"'#{fullsize_path(identity)}'\"].join(\" \")",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "cbd38b54a74ec69870b6249dec43fe317cc4a46a6ac1ee5c758a3b8ecb8ad311",
+      "message": "Possible command injection",
+      "file": "lib/plugin/instance.rb",
+      "line": 347,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`ln -s #{(File.dirname(path) + \"/public\")} #{(((Rails.configuration.assets.paths << auto_generated_path).root.to_s + \"/public/plugins/\") << name.gsub(/\\s/, \"_\"))}`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Plugin::Instance",
+        "method": "activate!"
+      },
+      "user_input": "(File.dirname(path) + \"/public\")",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "cc180bd6c5181aba29b25d4ca2a50f215982177f6f4f8a8de1d7c6ea629f6c8a",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/invites_controller.rb",
+      "line": 109,
+      "link": "http://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(path(\"#{Invite.find_by(:invite_key => params[:token]).topics.first.relative_url}\"))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "InvitesController",
+        "method": "redeem_disposable_invite"
+      },
+      "user_input": "Invite.find_by(:invite_key => params[:token]).topics.first.relative_url",
+      "confidence": "Weak"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "d2d6239d28927b9d1f85ae0d5d68ce5a64f3d05c75899a0ae54694f075ccaab4",
+      "message": "Possible command injection",
+      "file": "lib/backup_restore/restorer.rb",
+      "line": 281,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`tar --extract --keep-newer-files --file '#{@tar_filename}' uploads/`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "BackupRestore::Restorer",
+        "method": "extract_uploads"
+      },
+      "user_input": "@tar_filename",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "d2ee88ef8224dd841aeca15c59f5dc9622ced40dfec8bc7dfb1d80f7b7af89c2",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/list_controller.rb",
+      "line": 359,
+      "link": "http://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(\"#{Discourse.base_uri}#{Permalink.find_by_url(request.fullpath).target_url}\", :status => :moved_permanently)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ListController",
+        "method": "redirect_or_not_found"
+      },
+      "user_input": "Permalink.find_by_url(request.fullpath).target_url",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "d7b1248f0242c9babc8fb23c86d17db3ca4e6ff2960f218607ba1669b67ac5fc",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/invites_controller.rb",
+      "line": 24,
+      "link": "http://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(path(\"#{Invite.find_by(:invite_key => params[:id]).topics.first.relative_url}\"))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "InvitesController",
+        "method": "show"
+      },
+      "user_input": "Invite.find_by(:invite_key => params[:id]).topics.first.relative_url",
+      "confidence": "Weak"
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "d81d6e0d64945b748c2026978676047d5f019de05c4ef5ad008e5a6a87562299",
+      "message": "Possible SQL injection",
+      "file": "app/models/topic.rb",
+      "line": 419,
+      "link": "http://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "Topic.visible.secured(Guardian.new(user)).listable_topics.joins(\"JOIN topic_search_data s ON topics.id = s.topic_id\").where(\"search_data @@ #{Search.ts_query(Search.prepare_data(((title + \" \") + raw[(0...200)])), nil, \"|\")}\").order(\"ts_rank(search_data, #{Search.ts_query(Search.prepare_data(((title + \" \") + raw[(0...200)])), nil, \"|\")}) DESC\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Topic",
+        "method": "Topic.similar_to"
+      },
+      "user_input": "Search.ts_query(Search.prepare_data(((title + \" \") + raw[(0...200)])), nil, \"|\")",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "d8f6f1ed486c9cd90fd7d19b580afc10eed9f01eb5388001a04f8e3f59a34c04",
+      "message": "Model attribute used in file name",
+      "file": "app/models/upload.rb",
+      "line": 235,
+      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "File.open(((FileHelper.download(((SiteSetting.scheme + \":\") + upload.url.dup), [SiteSetting.max_image_size_kb, SiteSetting.max_attachment_size_kb].max.kilobytes, \"discourse\", true) rescue nil).path or FileStore::LocalStore.new.path_for(upload)))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Upload",
+        "method": "Upload.migrate_to_new_scheme"
+      },
+      "user_input": "SiteSetting.max_attachment_size_kb",
+      "confidence": "Weak"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "e84964fb1200169901dffe600a60087b73a88c8d2682dfb3540e58197de74cfc",
+      "message": "Possible command injection",
+      "file": "lib/plugin/instance.rb",
+      "line": 346,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`rm -f #{(((Rails.configuration.assets.paths << auto_generated_path).root.to_s + \"/public/plugins/\") << name.gsub(/\\s/, \"_\"))}`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Plugin::Instance",
+        "method": "activate!"
+      },
+      "user_input": "(((Rails.configuration.assets.paths << auto_generated_path).root.to_s + \"/public/plugins/\") << name.gsub(/\\s/, \"_\"))",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "e9fcd410465b178f680596a1fc57c70d1408adaff733f1353108d2d4ac5192d3",
+      "message": "Possible command injection",
+      "file": "app/models/optimized_image.rb",
+      "line": 134,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`#{instructions.join(\" \")} &> /dev/null`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "OptimizedImage",
+        "method": "OptimizedImage.convert_with"
+      },
+      "user_input": "instructions.join(\" \")",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "eff411d46f9273be111c8e6d6f67f457db0f7e0204e4bc8285db1ab24ba30ed6",
+      "message": "Parameter value used in file name",
+      "file": "app/controllers/static_controller.rb",
+      "line": 155,
+      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "send_file(File.expand_path(((Rails.root + \"public/assets/\") + params[:path])), :disposition => nil, :type => \"application/javascript\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "StaticController",
+        "method": "cdn_asset"
+      },
+      "user_input": "params[:path]",
+      "confidence": "Weak"
+    },
+    {
+      "warning_type": "Denial of Service",
+      "warning_code": 76,
+      "fingerprint": "f1319d4973bda7d0d3b2b2557bc5cd5964cdb8f189aa4897b781464076bc36a2",
+      "message": "Model attribute used in regex",
+      "file": "app/models/admin_dashboard_data.rb",
+      "line": 170,
+      "link": "http://brakemanscanner.org/docs/warning_types/denial_of_service/",
+      "code": "/#{SiteSetting.defaults[:logo_small_url].split(\"/\").last}/",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "AdminDashboardData",
+        "method": "default_logo_check"
+      },
+      "user_input": "SiteSetting.defaults[:logo_small_url].split(\"/\").last",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Session Manipulation",
+      "warning_code": 89,
+      "fingerprint": "f308eedbd6cb657a4893fff37cbfa80299981a96a994dff9c2a5080e30360aa8",
+      "message": "Parameter value used as key in session hash",
+      "file": "app/controllers/users_controller.rb",
+      "line": 374,
+      "link": "http://brakemanscanner.org/docs/warning_types/session_manipulation/",
+      "code": "session[\"password-#{params[:token]}\"] = (EmailToken.confirm(params[:token]) or EmailToken.confirmable(params[:token]).user).id",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "UsersController",
+        "method": "password_reset"
+      },
+      "user_input": "params[:token]",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "f34d8e049b3e4bd03c5712f8c4f9e62552ce5ab3c670e9eff5f726d38747cf8c",
+      "message": "Parameter value used in file name",
+      "file": "app/controllers/user_avatars_controller.rb",
+      "line": 113,
+      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "send_file(Discourse.store.path_for(get_optimized_image((Upload.find_by(:id => upload_id.to_i) or User.find_by(:username_lower => params[:username].to_s.downcase).uploaded_avatar), params[:size].to_i)), :disposition => nil)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "UserAvatarsController",
+        "method": "show_in_site"
+      },
+      "user_input": "params[:size]",
+      "confidence": "Weak"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "f9cdd92be2a44a582cabab063aeac887310ab26970e7bb097e06e0b47e9e7b5c",
+      "message": "Possible command injection",
+      "file": "lib/backup_restore/backuper.rb",
+      "line": 235,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`rm -f #{\"#{@archive_basename}.tar\"}`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "BackupRestore::Backuper",
+        "method": "create_archive"
+      },
+      "user_input": "@archive_basename",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "fa9a6640b64857e264ca1b2bdb1be10da6af20e0fcf94ac451f2116211d2c4a4",
+      "message": "Model attribute used in file name",
+      "file": "app/models/user_export.rb",
+      "line": 19,
+      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "File.delete(\"#{UserExport.base_directory}/#{\"#{expired_export.file_name}-#{expired_export.id}.csv.gz\"}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "UserExport",
+        "method": "UserExport.remove_old_exports"
+      },
+      "user_input": "UserExport.base_directory",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Remote Code Execution",
+      "warning_code": 24,
+      "fingerprint": "fad1cbc1cbdcf4bfe0a9fce8f267957d1ea0d117c9fd8937e3f0114cc2ceb615",
+      "message": "Unsafe reflection method constantize called with parameter value",
+      "file": "lib/scheduler/web.rb",
+      "line": 29,
+      "link": "http://brakemanscanner.org/docs/warning_types/remote_code_execution/",
+      "code": "params[:name].constantize",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Scheduler::Web",
+        "method": "s(:self).registered"
+      },
+      "user_input": "params[:name]",
+      "confidence": "High"
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "fbf1b88e99636735c995e828b3d163f7cbcd18232540c174caeb4598ecc2e7fa",
+      "message": "Model attribute used in file name",
+      "file": "app/models/upload.rb",
+      "line": 245,
+      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "FileUtils.rm(((FileHelper.download(((SiteSetting.scheme + \":\") + upload.url.dup), [SiteSetting.max_image_size_kb, SiteSetting.max_attachment_size_kb].max.kilobytes, \"discourse\", true) rescue nil).path or FileStore::LocalStore.new.path_for(upload)), :force => true)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Upload",
+        "method": "Upload.migrate_to_new_scheme"
+      },
+      "user_input": "SiteSetting.max_attachment_size_kb",
+      "confidence": "Weak"
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "fce2c9b55e9c2de76b8f5b8ac96cc447ef44b42805909568152f24934595ded9",
+      "message": "Possible command injection",
+      "file": "lib/backup_restore/backuper.rb",
+      "line": 239,
+      "link": "http://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`tar --create --file #{\"#{@archive_basename}.tar\"} --files-from /dev/null`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "BackupRestore::Backuper",
+        "method": "create_archive"
+      },
+      "user_input": "@archive_basename",
+      "confidence": "Medium"
+    },
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "fd9cd0f768df613c4cd4c7a3f604af202192c1b84fd8bbff9e06427bfa196476",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/session_controller.rb",
+      "line": 23,
+      "link": "http://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(DiscourseSingleSignOn.generate_url((params[:return_path] or if session[:destination_url] then\n  URI.parse(session[:destination_url]).path\nelse\n  path(\"/\")\nend)))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "SessionController",
+        "method": "sso"
+      },
+      "user_input": "DiscourseSingleSignOn.generate_url((params[:return_path] or if session[:destination_url] then\n  URI.parse(session[:destination_url]).path\nelse\n  path(\"/\")\nend))",
+      "confidence": "High"
     }
   ],
   "ignored_warnings": [
