@@ -318,7 +318,7 @@ module DockerSpecHelper
     @rubystats = {
       result: "#{@dckr}/results/rubystats_result.txt",
       expected: "#{@dckr}/expected_results/rubystats_result.txt"
-    }.merge(@sruby_repo)
+    }.merge(@ruby_repo)
 
     @repos = [
       @ruby_repo, @java_repo, @dotnet_repo, @python_repo, @php_repo,
