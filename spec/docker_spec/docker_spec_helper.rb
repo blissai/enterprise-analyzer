@@ -320,6 +320,41 @@ module DockerSpecHelper
       expected: "#{@dckr}/expected_results/rubystats_result.txt"
     }.merge(@ruby_repo)
 
+    @scalastats = {
+      result: "#{@dckr}/results/scalastats_result.txt",
+      expected: "#{@dckr}/expected_results/scalastats_result.txt"
+    }.merge(@scala_repo)
+
+    @jsstats = {
+      result: "#{@dckr}/results/jsstats_result.txt",
+      expected: "#{@dckr}/expected_results/jsstats_result.txt"
+    }.merge(@js_repo)
+
+    @phpstats = {
+      result: "#{@dckr}/results/phpstats_result.txt",
+      expected: "#{@dckr}/expected_results/phpstats_result.txt"
+    }.merge(@php_repo)
+
+    @swiftstats = {
+      result: "#{@dckr}/results/swiftstats_result.txt",
+      expected: "#{@dckr}/expected_results/swiftstats_result.txt"
+    }.merge(@swift_repo)
+
+    @pythonstats = {
+      result: "#{@dckr}/results/pythonstats_result.txt",
+      expected: "#{@dckr}/expected_results/pythonstats_result.txt"
+    }.merge(@python_repo)
+
+    @dotnetstats = {
+      result: "#{@dckr}/results/dotnetstats_result.txt",
+      expected: "#{@dckr}/expected_results/dotnetstats_result.txt"
+    }.merge(@dotnet_repo)
+
+    @gostats = {
+      result: "#{@dckr}/results/gostats_result.txt",
+      expected: "#{@dckr}/expected_results/gostats_result.txt"
+    }.merge(@go_repo)
+
     @repos = [
       @ruby_repo, @java_repo, @dotnet_repo, @python_repo, @php_repo,
       @js_repo, @ios_repo, @elixir_repo, @scala_repo, @coffeescript_repo,
