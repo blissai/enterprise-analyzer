@@ -128,4 +128,9 @@ RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
     `#{bliss_lint_cmd(@scalastyle)}`
     expect(expected_result?(@scalastyle)).to eq(true)
   end
+
+  it 'can run stats over a project' do
+    `#{bliss_stats_cmd(@ruby_stats)}`
+    expect(expected_result?(@rubystats)).to eq(true)
+  end
 end

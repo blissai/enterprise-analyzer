@@ -315,6 +315,11 @@ module DockerSpecHelper
       match: 'warning '
     }.merge(@scala_repo)
 
+    @rubystats = {
+      result: "#{@dckr}/results/rubystats_result.txt",
+      expected: "#{@dckr}/expected_results/rubystats_result.txt"
+    }.merge(@sruby_repo)
+
     @repos = [
       @ruby_repo, @java_repo, @dotnet_repo, @python_repo, @php_repo,
       @js_repo, @ios_repo, @elixir_repo, @scala_repo, @coffeescript_repo,
@@ -323,11 +328,13 @@ module DockerSpecHelper
   end
 
   def expected_result?(linter)
-    expected_result = File.read(linter[:expected]).strip
-    expected_count = expected_result.scan(/#{linter[:match]}/).count
-    actual_result = File.read(linter[:result]).strip
-    actual_count = actual_result.scan(/#{linter[:match]}/).count
-    if expected_count == actual_count
+    expected = File.read(linter[:expected]).strip
+    actual = File.read(linter[:result]).strip
+    if linter[:match]
+      expected = expected.scan(/#{linter[:match]}/).count
+      actual = actual.scan(/#{linter[:match]}/).count
+    end
+    if expected == actual
       return true
     else
       binding.pry
