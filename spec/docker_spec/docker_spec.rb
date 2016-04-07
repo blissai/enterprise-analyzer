@@ -130,7 +130,7 @@ RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
   end
 
   it 'can run stats over a project' do
-    `#{bliss_stats_cmd(@ruby_stats)}`
+    `#{bliss_stats_cmd(@rubystats)}`
     expect(expected_result?(@rubystats)).to eq(true)
   end
 end
