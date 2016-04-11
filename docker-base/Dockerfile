@@ -20,6 +20,7 @@ RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E03
 
 # Install pip
     curl https://bootstrap.pypa.io/get-pip.py | python3.4 && \
+    curl https://bootstrap.pypa.io/get-pip.py | python && \
 
 # Install ruby 2.2.3
     cd /tmp && \

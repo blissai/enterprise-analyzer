@@ -20,7 +20,8 @@ RUN yum install -y 'perl(Perl::Critic)'
 RUN mkdir ~/phpmd && wget -O ~/phpmd/phpmd.phar -c http://static.phpmd.org/php/latest/phpmd.phar
 
 # Install pip modules
-RUN pip3 install argparse django prospector parcon ocstyle bandit
+RUN pip3 install django prospector bandit
+RUN pip install argparse parcon ocstyle
 
 # Install lizard
 RUN git clone https://github.com/terryyin/lizard.git ~/lizard && \
