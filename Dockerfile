@@ -20,12 +20,12 @@ RUN yum install -y 'perl(Perl::Critic)'
 RUN mkdir ~/phpmd && wget -O ~/phpmd/phpmd.phar -c http://static.phpmd.org/php/latest/phpmd.phar
 
 # Install pip modules
-RUN pip install importlib argparse django prospector parcon ocstyle bandit
+RUN pip3 install argparse django prospector parcon ocstyle bandit
 
 # Install lizard
 RUN git clone https://github.com/terryyin/lizard.git ~/lizard && \
     cd ~/lizard && \
-    python setup.py install
+    python3.4 setup.py install
 
 # Install Tailor
 RUN curl -fsSL https://s3.amazonaws.com/bliss-cli-dependencies/tailor-install.sh | sh
@@ -74,7 +74,7 @@ RUN mkdir ~/scalastyle \
 COPY Gemfile* /tmp/
 RUN cd /tmp && bundle install --without test
 
-ENV BLISS_CLI_VERSION=90 CLOC_VERSION=1 LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 
+ENV BLISS_CLI_VERSION=90 CLOC_VERSION=1 LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8
 
 # Get collector tasks and gems
 ADD . /root/collector
