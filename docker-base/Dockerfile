@@ -12,14 +12,14 @@ RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E03
 
 # Install dependencies
     yum install -y git bzip2 which wget gcc-c++ make git-svn unzip epel-release readline-devel openssl-devel automake libtool bison && \
-    yum install -y perl php java-1.8.0-openjdk java-1.8.0-openjdk-devel python-devel php-xml mono-complete nuget nodejs  && \
+    yum install -y perl php java-1.8.0-openjdk java-1.8.0-openjdk-devel python-devel php-xml mono-complete nuget nodejs python34  && \
     yum clean all  && \
 
 # Increase PHP Memory Limit
     sed -i 's/memory_limit = .*/memory_limit = 2048m/' /etc/php.ini && \
 
 # Install pip
-    curl https://bootstrap.pypa.io/get-pip.py | python && \
+    curl https://bootstrap.pypa.io/get-pip.py | python3.4 && \
 
 # Install ruby 2.2.3
     cd /tmp && \
@@ -72,7 +72,7 @@ RUN wget -O /tmp/scala.tgz http://downloads.lightbend.com/scala/2.11.8/scala-2.1
     ln -s /usr/lib/scala-2.11.8 /usr/lib/scala
 
 # Set ENV VARS
-ENV GOPATH=/root/go PATH=$PATH:/usr/local/go/bin:/root/go/bin:/usr/lib/scala/bin JAVA_OPTS='-Xms512m -Xmx3072m' JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.77-0.b03.el7_2.x86_64 LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 HEAPSIZE=3072m
+ENV GOPATH=/root/go PATH=$PATH:/usr/local/go/bin:/root/go/bin:/usr/lib/scala/bin JAVA_OPTS='-Xms512m -Xmx3072m' JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.77-0.b03.el7_2.x86_64 HEAPSIZE=3072m
 
 WORKDIR /root
 
