@@ -68,7 +68,7 @@ module DockerSpecHelper
 
     @django_repo = {
       git_dir: "#{@repos_path}/django-complex",
-      git_url: 'https://github.com/iconnor/django-test.git',
+      git_url: 'https://github.com/django/django.git',
       commit: '9e3f141701b96b6974b3386f83dc76e70a41377d',
       excluded_dirs: '',
       remove_os: false
