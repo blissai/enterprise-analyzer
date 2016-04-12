@@ -66,6 +66,14 @@ module DockerSpecHelper
       remove_os: true
     }
 
+    @django_repo = {
+      git_dir: "#{@repos_path}/django-complex",
+      git_url: 'https://github.com/iconnor/django-test.git',
+      commit: '9e3f141701b96b6974b3386f83dc76e70a41377d',
+      excluded_dirs: '',
+      remove_os: false
+    }
+
     @php_repo = {
       git_dir: "#{@repos_path}/php",
       git_url: 'https://github.com/iconnor/simple_wp.git',
@@ -315,6 +323,13 @@ module DockerSpecHelper
       match: 'warning '
     }.merge(@scala_repo)
 
+    @bandit = {
+      linter: "#{@dckr}/linters/bandit.yml",
+      result: "#{@dckr}/results/bandit_result.txt",
+      expected: "#{@dckr}/expected_results/bandit_result.txt",
+      match: "\n"
+    }
+
     @rubystats = {
       result: "#{@dckr}/results/rubystats_result.txt",
       expected: "#{@dckr}/expected_results/rubystats_result.txt"
@@ -356,7 +371,7 @@ module DockerSpecHelper
     }.merge(@go_repo)
 
     @repos = [
-      @ruby_repo, @java_repo, @dotnet_repo, @python_repo, @php_repo,
+      @ruby_repo, @java_repo, @dotnet_repo, @python_repo, @django_repo, @php_repo,
       @js_repo, @ios_repo, @elixir_repo, @scala_repo, @coffeescript_repo,
       @scss_repo, @stylus_repo, @swift_repo, @go_repo, @css_repo, @simple_ruby_repo
     ]

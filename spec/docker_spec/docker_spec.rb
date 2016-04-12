@@ -129,6 +129,11 @@ RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
     expect(expected_result?(@scalastyle)).to eq(true)
   end
 
+  it 'can run bandit over a python project' do
+    `#{bliss_lint_cmd(@bandit)}`
+    expect(expected_result?(@bandit)).to eq(true)
+  end
+
   it 'can run stats over a ruby project' do
     `#{bliss_stats_cmd(@rubystats)}`
     expect(expected_result?(@rubystats)).to eq(true)
