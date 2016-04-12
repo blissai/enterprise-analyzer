@@ -1,0 +1,22 @@
+---
+name: bandit
+languages:
+- python
+- django
+output_format: csv
+quality_command: bandit -r git_dir -iii -ll -f csv -o file_name
+quality_tool: bandit
+install_command: pip install bandit
+operating_system: linux
+quality_tool_version: 1
+areas:
+- Security
+ignore_lines: []
+error_code: -1
+success_match: filename,test_name,test_id,issue_severity,issue_confidence,issue_text,line_number,line_range
+partitionable: true
+help: Bandit is a security linter for Python source code, utilizing the ast module
+  from the Python standard library. The ast module is used to convert source code
+  into a parsed tree of Python syntax nodes. Bandit allows users to define custom
+  tests that are performed against those nodes.
+url: https://github.com/openstack/bandit.git
