@@ -1,4 +1,5 @@
 #!/bin/bash
+export DOCKER_BUILD_SERVER=true
 sudo yum update -y bliss
 docker build -t blissai/collector .
 rspec ./spec/docker_spec/docker_spec.rb
