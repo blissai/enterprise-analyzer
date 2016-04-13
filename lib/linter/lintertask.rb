@@ -27,14 +27,14 @@ class LinterTask
     metrics.each do |metric|
       commit = metric['commit']
       @logger.success("Running linters over #{commit}")
-      process_commit(commit)
+      process_commit(commit, metric['missing_lintfiles'])
     end
     # Go back to main branch
     checkout_commit(@git_dir, @repo['branch'])
     @logger.success('Linter finished...')
   end
 
-  def process_commit(commit)
+  def process_commit(commit, missing_lintfiles = [])
     checkout_commit(@git_dir, commit)
     @logger.info('Removing open source and excluded files...')
     remove_open_source_files(@git_dir) unless @repo['detect_open_source'] == false
@@ -42,6 +42,7 @@ class LinterTask
     remove_symlinks(@git_dir)
     Dir.mktmpdir do |tmp_dir|
       @linters.each do |linter|
+        next unless missing_lintfiles.include?(linter['quality_tool'])
         @output_file = File.join(tmp_dir, "#{linter['quality_tool']}.#{linter['output_format']}")
         @commit = commit
         partition_and_lint(linter)
