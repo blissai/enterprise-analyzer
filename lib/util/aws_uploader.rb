@@ -13,7 +13,7 @@ module AwsUploader
         sleep 2**tried
         upload_to_aws(bucket, key, content, tried + 1)
       else
-        puts 'Could not connect to AWS. Connection timed out.'.red
+        raise "Could not connect to AWS. Connection timed out. Tried #{tried} times.".red
       end
     end
   end
