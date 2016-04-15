@@ -71,6 +71,10 @@ RUN mkdir ~/scalastyle \
     && chmod +x ~/scalastyle/scalastyle \
     && ln -s ~/scalastyle/scalastyle /usr/local/bin/scalastyle
 
+# Install CCM and tslint
+RUN git clone https://github.com/jonasblunck/ccm.git ~/ccm \
+    && npm install -g tslint
+
 # Install gems before adding of project to use caching properly
 COPY Gemfile* /tmp/
 RUN cd /tmp && bundle install --without test

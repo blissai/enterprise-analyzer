@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+require 'securerandom'
+require 'fileutils'
+abort 'Requires 2 args of path to be analyzed and output file.' unless ARGV.size == 2
+path_to_analyze = File.expand_path(ARGV[0])
+output_file = File.expand_path(ARGV[1])
+ccm_exe = File.expand_path('~/ccm/bin/CCM.exe')
+abort 'Not a directory.' unless File.directory? path_to_analyze
+abort 'Output file does not exist.' unless File.exist? output_file
+ccm_conf = File.read('ccm_config.xml')
+ccm_conf = ccm_conf.gsub('git_dir', path_to_analyze)
+new_config_path = File.expand_path("~/#{SecureRandom.hex 5}/ccm_config.xml")
+FileUtils.mkdir_p(File.dirname(new_config_path))
+File.write(new_config_path, ccm_conf)
+cmd = "mono #{ccm_exe} #{new_config_path} > #{output_file}"
+`#{cmd}`
+output = File.read(output_file)
+output = output.gsub(/WARNING: The runtime version supported by this.*/, '')
+         .gsub(/Using default runtime: v.*/, '')
+         .strip
+File.write(output_file, output)

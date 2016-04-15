@@ -1,0 +1,11 @@
+<ccm>
+   <recursive>yes</recursive>
+   <outputter>csv</outputter>
+   <analyze>
+     <folder>git_dir</folder>
+   </analyze>
+   <suppressMethodSignatures>yes</suppressMethodSignatures>
+   <fileExtensions>
+     <fileExtension>.ts</fileExtension>
+   </fileExtensions>
+ </ccm>
