@@ -73,7 +73,7 @@ RUN mkdir ~/scalastyle \
 
 # Install CCM and tslint
 RUN wget -O /tmp/ccm.zip https://github.com/jonasblunck/ccm/releases/download/v1.1.9/ccm.1.1.9.zip \
-    && unzip /tmp/ccm.zip -d /root/ccm
+    && unzip /tmp/ccm.zip -d /root/ccm \
     && npm install -g tslint
 
 # Install gems before adding of project to use caching properly
