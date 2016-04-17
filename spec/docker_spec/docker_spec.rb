@@ -134,6 +134,16 @@ RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
     expect(expected_result?(@bandit)).to eq(true)
   end
 
+  it 'can run tslint over a typescript project' do
+    `#{bliss_lint_cmd(@tslint)}`
+    expect(expected_result?(@tslint)).to eq(true)
+  end
+
+  it 'can run ccm over a typescript project' do
+    `#{bliss_lint_cmd(@ccm)}`
+    expect(expected_result?(@ccm)).to eq(true)
+  end
+
   it 'can run stats over a ruby project' do
     `#{bliss_stats_cmd(@rubystats)}`
     expect(expected_result?(@rubystats)).to eq(true)

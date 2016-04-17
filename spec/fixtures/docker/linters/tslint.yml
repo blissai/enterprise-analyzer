@@ -1,0 +1,18 @@
+---
+name: tslint
+languages:
+- typescript
+- TypeScript
+output_format: txt
+quality_command: shopt -s globstar && tslint -o file_name git_dir/**/*.ts
+quality_tool: tslint
+install_command: npm install --save-dev tslint
+operating_system: linux
+quality_tool_version: 1
+areas:
+- Style
+ignore_lines: []
+error_code: 1
+partitionable: true
+help: An extensible linter for the TypeScript language.
+url: https://github.com/palantir/tslint.git

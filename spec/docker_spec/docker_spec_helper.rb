@@ -162,6 +162,14 @@ module DockerSpecHelper
       remove_os: false
     }
 
+    @typescript_repo = {
+      git_dir: "#{@repos_path}/ts",
+      git_url: 'https://github.com/Microsoft/code-push.git',
+      commit: 'c46d3d4016845be6c109385074e849448b3e4629',
+      excluded_dirs: '',
+      remove_os: false
+    }
+
     @brakeman = {
       linter: "#{@dckr}/linters/brakeman.yml",
       result: "#{@dckr}/results/brakeman_result.txt",
@@ -330,6 +338,20 @@ module DockerSpecHelper
       match: "\n"
     }.merge(@django_repo)
 
+    @tslint = {
+      linter: "#{@dckr}/linters/tslint.yml",
+      result: "#{@dckr}/results/tslint_result.txt",
+      expected: "#{@dckr}/expected_results/tslint_result.txt",
+      match: "\n"
+    }.merge(@typescript_repo)
+
+    @ccm = {
+      linter: "#{@dckr}/linters/ccm.yml",
+      result: "#{@dckr}/results/ccm_result.txt",
+      expected: "#{@dckr}/expected_results/ccm_result.txt",
+      match: '<ccm>'
+    }.merge(@typescript_repo)
+
     @rubystats = {
       result: "#{@dckr}/results/rubystats_result.txt",
       expected: "#{@dckr}/expected_results/rubystats_result.txt"
@@ -373,7 +395,8 @@ module DockerSpecHelper
     @repos = [
       @ruby_repo, @java_repo, @dotnet_repo, @python_repo, @django_repo, @php_repo,
       @js_repo, @ios_repo, @elixir_repo, @scala_repo, @coffeescript_repo,
-      @scss_repo, @stylus_repo, @swift_repo, @go_repo, @css_repo, @simple_ruby_repo
+      @scss_repo, @stylus_repo, @swift_repo, @go_repo, @css_repo, @simple_ruby_repo,
+      @typescript_repo
     ]
   end
 

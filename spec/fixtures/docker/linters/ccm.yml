@@ -1,0 +1,19 @@
+---
+name: ccm
+languages:
+- typescript
+- TypeScript
+output_format: xml
+quality_command: bin/ccm git_dir file_name
+quality_tool: ccm
+install_command: git clone https://github.com/jonasblunck/ccm.git
+operating_system: linux
+quality_tool_version: 1
+areas:
+- Complexity
+ignore_lines: []
+error_code: -1
+success_match: <ccm>
+partitionable: true
+url: https://github.com/jonasblunck/ccm.git
+help: CCM is a tool that analyzes TypeScript code and reports back with cyclomatic complexity metric.
