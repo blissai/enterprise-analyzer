@@ -4,7 +4,7 @@ require 'fileutils'
 abort 'Requires 2 args of path to be analyzed and output file.' unless ARGV.size == 2
 path_to_analyze = File.expand_path(ARGV[0])
 output_file = File.expand_path(ARGV[1])
-ccm_exe = File.expand_path('~/ccm/bin/CCM.exe')
+ccm_exe = File.expand_path('~/ccm/CCM.exe')
 abort 'Not a directory.' unless File.directory? path_to_analyze
 abort 'Output file does not exist.' unless File.exist? output_file
 ccm_conf = File.read('ccm_config.xml')
