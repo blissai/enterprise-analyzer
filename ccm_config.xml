@@ -1,6 +1,6 @@
 <ccm>
    <recursive>yes</recursive>
-   <outputter>csv</outputter>
+   <outputter>XML</outputter>
    <analyze>
      <folder>git_dir</folder>
    </analyze>
