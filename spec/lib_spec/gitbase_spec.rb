@@ -60,6 +60,18 @@ RSpec.describe Gitbase do
       expect(File.directory?("#{@iosdir}/Nested/Frameworks")).to be false
     end
 
+    it 'removes config from ruby projs' do
+      excluded_dirs = 'public,vendor,bin,coverage,db,config'
+      excluded_dirs = begin
+                         excluded_dirs.split(',')
+                       rescue
+                         []
+                       end
+      expect(File.directory?("#{@rubydir}/config")).to be true
+      including_class.new.remove_excluded_directories(excluded_dirs, @rubydir)
+      expect(File.directory?("#{@rubydir}/config")).to be false
+    end
+
     it 'Removes open source files from a project' do
       FileUtils.copy_file(Dir.glob("#{@osdir}/src/js/*.js").first, "#{@osdir}/src/js/here is a file with spaces.js")
       file_count = Dir.glob("#{@osdir}/src/js/*.js").size
