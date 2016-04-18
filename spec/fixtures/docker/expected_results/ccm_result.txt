@@ -1,0 +1,273 @@
+<--LintFilePartition-->
+<ccm>
+  <metric>
+    <complexity>84</complexity>
+    <unit>createCommand()</unit>
+    <classification>untestable, very high risk</classification>
+    <file>/cli/script/command-parser.ts</file>
+    <startLineNumber>407</startLineNumber>
+    <endLineNumber>743</endLineNumber>
+    <SLOC>336</SLOC>
+  </metric>
+  <metric>
+    <complexity>35</complexity>
+    <unit>execute(command:cli.ICommand)</unit>
+    <classification>complex, high risk</classification>
+    <file>/cli/script/command-executor.ts</file>
+    <startLineNumber>394</startLineNumber>
+    <endLineNumber>515</endLineNumber>
+    <SLOC>121</SLOC>
+  </metric>
+  <metric>
+    <complexity>17</complexity>
+    <unit>getReactNativeProjectAppVersion(platform:string,projectName:string)</unit>
+    <classification>more complex, moderate risk</classification>
+    <file>/cli/script/command-executor.ts</file>
+    <startLineNumber>816</startLineNumber>
+    <endLineNumber>890</endLineNumber>
+    <SLOC>74</SLOC>
+  </metric>
+  <metric>
+    <complexity>12</complexity>
+    <unit>AcquisitionManager::queryUpdateWithCurrentPackage(currentPackage:Package,callback?:Callback&lt;RemotePackage|NativeUpdateNotification&gt;)</unit>
+    <classification>more complex, moderate risk</classification>
+    <file>/sdk/script/acquisition-sdk.ts</file>
+    <startLineNumber>84</startLineNumber>
+    <endLineNumber>153</endLineNumber>
+    <SLOC>69</SLOC>
+  </metric>
+  <metric>
+    <complexity>12</complexity>
+    <unit>AcquisitionManager::reportStatusDeploy(deployedPackage?:Package,status?:string,previousLabelOrAppVersion?:string,previousDeploymentKey?:string,callback?:Callback&lt;void&gt;)</unit>
+    <classification>more complex, moderate risk</classification>
+    <file>/sdk/script/acquisition-sdk.ts</file>
+    <startLineNumber>155</startLineNumber>
+    <endLineNumber>213</endLineNumber>
+    <SLOC>58</SLOC>
+  </metric>
+  <metric>
+    <complexity>11</complexity>
+    <unit>printDeploymentHistory(command:cli.IDeploymentHistoryCommand,deploymentHistory:PackageWithMetrics[],currentUserEmail:string)</unit>
+    <classification>more complex, moderate risk</classification>
+    <file>/cli/script/command-executor.ts</file>
+    <startLineNumber>699</startLineNumber>
+    <endLineNumber>748</endLineNumber>
+    <SLOC>49</SLOC>
+  </metric>
+  <metric>
+    <complexity>9</complexity>
+    <unit>HttpRequester::request(verb:acquisitionSdk.Http.Verb,url:string,requestBodyOrCallback:string|acquisitionSdk.Callback&lt;acquisitionSdk.Http.Response&gt;,callback?:acquisitionSdk.Callback&lt;acquisitionSdk.Http.Response&gt;)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/sdk/test/acquisition-rest-mock.ts</file>
+    <startLineNumber>28</startLineNumber>
+    <endLineNumber>43</endLineNumber>
+    <SLOC>15</SLOC>
+  </metric>
+  <metric>
+    <complexity>9</complexity>
+    <unit>makeApiRequest(method:string,endpoint:string,requestBody:string,expectResponseBody:boolean,contentType:string)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/sdk/script/management-sdk.ts</file>
+    <startLineNumber>289</startLineNumber>
+    <endLineNumber>332</endLineNumber>
+    <SLOC>43</SLOC>
+  </metric>
+  <metric>
+    <complexity>8</complexity>
+    <unit>getPackageMetricsString(obj:Package)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/cli/script/command-executor.ts</file>
+    <startLineNumber>777</startLineNumber>
+    <endLineNumber>815</endLineNumber>
+    <SLOC>38</SLOC>
+  </metric>
+  <metric>
+    <complexity>8</complexity>
+    <unit>Server::onUpdateCheck(params:any,callback:acquisitionSdk.Callback&lt;acquisitionSdk.Http.Response&gt;)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/sdk/test/acquisition-rest-mock.ts</file>
+    <startLineNumber>78</startLineNumber>
+    <endLineNumber>106</endLineNumber>
+    <SLOC>28</SLOC>
+  </metric>
+  <metric>
+    <complexity>7</complexity>
+    <unit>printDeploymentList(command:cli.IDeploymentListCommand,deployments:Deployment[],showPackage:boolean=true)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/cli/script/command-executor.ts</file>
+    <startLineNumber>667</startLineNumber>
+    <endLineNumber>698</endLineNumber>
+    <SLOC>31</SLOC>
+  </metric>
+  <metric>
+    <complexity>6</complexity>
+    <unit>.pipe(plugins.typescript(tsProj,undefined,{error:fullReporter.error,finish:function(results)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/gulp/scripts.js</file>
+    <startLineNumber>48</startLineNumber>
+    <endLineNumber>55</endLineNumber>
+    <SLOC>7</SLOC>
+  </metric>
+  <metric>
+    <complexity>6</complexity>
+    <unit>queryStringify(object:Object)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/sdk/script/acquisition-sdk.ts</file>
+    <startLineNumber>241</startLineNumber>
+    <endLineNumber>262</endLineNumber>
+    <SLOC>21</SLOC>
+  </metric>
+  <metric>
+    <complexity>4</complexity>
+    <unit>AcquisitionManager::reportStatusDownload(downloadedPackage:Package,callback?:Callback&lt;void&gt;)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/sdk/script/acquisition-sdk.ts</file>
+    <startLineNumber>215</startLineNumber>
+    <endLineNumber>240</endLineNumber>
+    <SLOC>25</SLOC>
+  </metric>
+  <metric>
+    <complexity>3</complexity>
+    <unit>showHelp(showRootDescription?:boolean)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/cli/script/command-parser.ts</file>
+    <startLineNumber>18</startLineNumber>
+    <endLineNumber>35</endLineNumber>
+    <SLOC>17</SLOC>
+  </metric>
+  <metric>
+    <complexity>3</complexity>
+    <unit>accessKeyRemove(command:cli.IAccessKeyRemoveCommand)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/cli/script/command-executor.ts</file>
+    <startLineNumber>117</startLineNumber>
+    <endLineNumber>133</endLineNumber>
+    <SLOC>16</SLOC>
+  </metric>
+  <metric>
+    <complexity>3</complexity>
+    <unit>deserializeConnectionInfo()</unit>
+    <classification>simple, without much risk</classification>
+    <file>/cli/script/command-executor.ts</file>
+    <startLineNumber>376</startLineNumber>
+    <endLineNumber>393</endLineNumber>
+    <SLOC>17</SLOC>
+  </metric>
+  <metric>
+    <complexity>3</complexity>
+    <unit>isValidRollout(args:any)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/cli/script/command-parser.ts</file>
+    <startLineNumber>744</startLineNumber>
+    <endLineNumber>752</endLineNumber>
+    <SLOC>8</SLOC>
+  </metric>
+  <metric>
+    <complexity>3</complexity>
+    <unit>getServerUrl(url:string)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/cli/script/command-parser.ts</file>
+    <startLineNumber>759</startLineNumber>
+    <endLineNumber>771</endLineNumber>
+    <SLOC>12</SLOC>
+  </metric>
+  <metric>
+    <complexity>3</complexity>
+    <unit>login(command:cli.ILoginCommand)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/cli/script/command-executor.ts</file>
+    <startLineNumber>559</startLineNumber>
+    <endLineNumber>575</endLineNumber>
+    <SLOC>16</SLOC>
+  </metric>
+  <metric>
+    <complexity>3</complexity>
+    <unit>loginWithExternalAuthentication(action:string,serverUrl?:string)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/cli/script/command-executor.ts</file>
+    <startLineNumber>576</startLineNumber>
+    <endLineNumber>599</endLineNumber>
+    <SLOC>23</SLOC>
+  </metric>
+  <metric>
+    <complexity>3</complexity>
+    <unit>formatDate(unixOffset:number)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/cli/script/command-executor.ts</file>
+    <startLineNumber>616</startLineNumber>
+    <endLineNumber>627</endLineNumber>
+    <SLOC>11</SLOC>
+  </metric>
+  <metric>
+    <complexity>3</complexity>
+    <unit>printAppList(format:string,apps:App[],deploymentLists:string[][])</unit>
+    <classification>simple, without much risk</classification>
+    <file>/cli/script/command-executor.ts</file>
+    <startLineNumber>628</startLineNumber>
+    <endLineNumber>647</endLineNumber>
+    <SLOC>19</SLOC>
+  </metric>
+  <metric>
+    <complexity>3</complexity>
+    <unit>printCollaboratorsList(format:string,collaborators:CollaboratorMap)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/cli/script/command-executor.ts</file>
+    <startLineNumber>652</startLineNumber>
+    <endLineNumber>666</endLineNumber>
+    <SLOC>14</SLOC>
+  </metric>
+  <metric>
+    <complexity>3</complexity>
+    <unit>getPackageString(packageObject:Package)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/cli/script/command-executor.ts</file>
+    <startLineNumber>758</startLineNumber>
+    <endLineNumber>776</endLineNumber>
+    <SLOC>18</SLOC>
+  </metric>
+  <metric>
+    <complexity>3</complexity>
+    <unit>printAccessKeys(format:string,keys:AccessKey[])</unit>
+    <classification>simple, without much risk</classification>
+    <file>/cli/script/command-executor.ts</file>
+    <startLineNumber>895</startLineNumber>
+    <endLineNumber>911</endLineNumber>
+    <SLOC>16</SLOC>
+  </metric>
+  <metric>
+    <complexity>3</complexity>
+    <unit>throwForInvalidOutputFormat(format:string)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/cli/script/command-executor.ts</file>
+    <startLineNumber>1302</startLineNumber>
+    <endLineNumber>1312</endLineNumber>
+    <SLOC>10</SLOC>
+  </metric>
+  <metric>
+    <complexity>3</complexity>
+    <unit>which(&quot;npm&quot;,function(err,resolvedPath)</unit>
+    <classification>simple, without much risk</classification>
+    <file>/gulp/link.js</file>
+    <startLineNumber>13</startLineNumber>
+    <endLineNumber>25</endLineNumber>
+    <SLOC>12</SLOC>
+  </metric>
+  <metric>
+    <complexity>3</complexity>
+    <unit>urlEncode(strings:string[],...values:string[])</unit>
+    <classification>simple, without much risk</classification>
+    <file>/sdk/script/management-sdk.ts</file>
+    <startLineNumber>32</startLineNumber>
+    <endLineNumber>42</endLineNumber>
+    <SLOC>10</SLOC>
+  </metric>
+  <metric>
+    <complexity>3</complexity>
+    <unit>isAuthenticated()</unit>
+    <classification>simple, without much risk</classification>
+    <file>/sdk/script/management-sdk.ts</file>
+    <startLineNumber>69</startLineNumber>
+    <endLineNumber>86</endLineNumber>
+    <SLOC>17</SLOC>
+  </metric>
+</ccm>
