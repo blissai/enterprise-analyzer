@@ -24,8 +24,8 @@ module Gitlogger
 
   def save_git_log(name, lines, repo_key)
     s3_object_key = prepare_log(name, lines)
-    http_post("#{@host}/api/gitlog",   repo_key: repo_key,
-                                       object_key: s3_object_key,
-                                       bucket: 'bliss-collector-files')
+    http_post("#{@host}/api/gitlog", repo_key: repo_key,
+                                     object_key: s3_object_key,
+                                     bucket: 'bliss-collector-files')
   end
 end
