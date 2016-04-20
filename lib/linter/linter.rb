@@ -34,7 +34,7 @@ module Linter
       fail LinterError, result
     else
       if linter_name =~ /cpd/
-        empty_tag = 'lines,tokens,occurrences\n'
+        empty_tag = 'lines,tokens,occurrences'
         File.write(file_name, empty_tag) if File.read(file_name).strip.empty?
       end
       if @scrubber
