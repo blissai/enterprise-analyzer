@@ -33,6 +33,9 @@ module Linter
       File.write(file_name, "#{result} - failtorundocker")
       fail LinterError, result
     else
+      if linter_name =~ /cpd/
+        File.write(file_name, '<?xml version="1.0" encoding="UTF-8"?><pmd-cpd></pmd-cpd>') if File.read(file_name).strip.empty?
+      end
       if @scrubber
         unscrubbed = File.read(file_name)
         File.write(file_name, @scrubber.scrub(unscrubbed))
