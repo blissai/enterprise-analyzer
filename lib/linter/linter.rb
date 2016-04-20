@@ -34,7 +34,8 @@ module Linter
       fail LinterError, result
     else
       if linter_name =~ /cpd/
-        File.write(file_name, '<?xml version="1.0" encoding="UTF-8"?><pmd-cpd></pmd-cpd>') if File.read(file_name).strip.empty?
+        empty_tag = 'lines,tokens,occurrences\n'
+        File.write(file_name, empty_tag) if File.read(file_name).strip.empty?
       end
       if @scrubber
         unscrubbed = File.read(file_name)
