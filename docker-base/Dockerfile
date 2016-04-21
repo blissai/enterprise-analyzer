@@ -29,10 +29,10 @@ RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E03
     && autoreconf -i \
     && ./configure \
     && make \
-    && make install && \
+    && make install
 
 # Install ruby 2.3.0
-    cd /tmp && \
+RUN cd /tmp && \
     wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.0.tar.bz2 && \
     tar -xvjf /tmp/ruby-2.3.0.tar.bz2 && \
     cd /tmp/ruby-2.3.0 && \
@@ -72,10 +72,10 @@ RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E03
     ln -s /usr/local/elixir/bin/iex /usr/local/bin/iex && \
     ln -s /usr/local/elixir/bin/mix /usr/local/bin/mix && \
     mix local.hex <<< 'Y' && \
-    mix local.rebar <<< 'Y'
+    mix local.rebar <<< 'Y' && \
 
   # Install Scala
-RUN wget -O /tmp/scala.tgz http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz && \
+    wget -O /tmp/scala.tgz http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz && \
     cd /tmp && \
     tar xvf /tmp/scala.tgz && \
     mv scala-2.11.8 /usr/lib && \
