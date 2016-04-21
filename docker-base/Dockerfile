@@ -22,11 +22,11 @@ RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E03
     curl https://bootstrap.pypa.io/get-pip.py | python3.4 && \
     curl https://bootstrap.pypa.io/get-pip.py | python && \
 
-# Install ruby 2.2.3
+# Install ruby 2.3.0
     cd /tmp && \
-    wget https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.3.tar.bz2 && \
-    tar -xvjf /tmp/ruby-2.2.3.tar.bz2 && \
-    cd /tmp/ruby-2.2.3 && \
+    wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.0.tar.bz2 && \
+    tar -xvjf /tmp/ruby-2.3.0.tar.bz2 && \
+    cd /tmp/ruby-2.3.0 && \
     ./configure && \
     make && \
     make install && \
