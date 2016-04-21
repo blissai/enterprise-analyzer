@@ -55,14 +55,6 @@ RUN git clone https://github.com/rrrene/bunt ~/bunt && \
     mix archive.build && \
     mix archive.install <<< 'Y'
 
-# Install fpart
-RUN git clone https://github.com/martymac/fpart.git /tmp/fpart \
-    && cd /tmp/fpart \
-    && autoreconf -i \
-    && ./configure \
-    && make \
-    && make install
-
 # Install ScalaStyle
 RUN mkdir ~/scalastyle \
     && wget -O ~/scalastyle/scalastyle.jar https://oss.sonatype.org/content/repositories/releases/org/scalastyle/scalastyle_2.10/0.8.0/scalastyle_2.10-0.8.0-batch.jar \

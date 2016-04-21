@@ -22,6 +22,15 @@ RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E03
     curl https://bootstrap.pypa.io/get-pip.py | python3.4 && \
     curl https://bootstrap.pypa.io/get-pip.py | python && \
 
+
+# Install fpart
+    git clone https://github.com/martymac/fpart.git /tmp/fpart \
+    && cd /tmp/fpart \
+    && autoreconf -i \
+    && ./configure \
+    && make \
+    && make install && \
+
 # Install ruby 2.3.0
     cd /tmp && \
     wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.0.tar.bz2 && \
@@ -73,7 +82,7 @@ RUN wget -O /tmp/scala.tgz http://downloads.lightbend.com/scala/2.11.8/scala-2.1
     ln -s /usr/lib/scala-2.11.8 /usr/lib/scala
 
 # Set ENV VARS
-ENV GOPATH=/root/go PATH=$PATH:/usr/local/go/bin:/root/go/bin:/usr/lib/scala/bin JAVA_OPTS='-Xms512m -Xmx3072m' JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.77-0.b03.el7_2.x86_64 HEAPSIZE=3072m
+ENV GOPATH=/root/go PATH=$PATH:/usr/local/go/bin:/root/go/bin:/usr/lib/scala/bin JAVA_OPTS='-Xms512m -Xmx3072m' JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64 HEAPSIZE=3072m
 
 WORKDIR /root
 

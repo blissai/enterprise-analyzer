@@ -2,6 +2,8 @@
 export DOCKER_BUILD_SERVER=true
 sudo yum update -y bliss
 docker build -t blissai/collector .
+ec=$?
+if [[ $ec != 0 ]]; then exit $ec; fi
 rspec ./spec/docker_spec/docker_spec.rb
 ec=$?
 if [[ $ec != 0 ]]; then exit $ec; fi
