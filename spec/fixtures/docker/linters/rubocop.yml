@@ -1,6 +1,6 @@
 ---
 name: rubocop
-quality_command: cp -f .rubocop.yml git_dir;rubocop -c git_dir/.rubocop.yml --format json --out file_name git_dir 2>&1
+quality_command: cp -f .rubocop.yml git_dir;sed -i 's/TargetRubyVersion: .*/TargetRubyVersion: 2.2/' git_dir/.rubocop.yml;rubocop -c git_dir/.rubocop.yml --format json --out file_name git_dir 2>&1
 quality_tool: rubocop
 output_format: json
 languages:
