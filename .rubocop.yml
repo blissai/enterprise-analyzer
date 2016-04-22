@@ -12,6 +12,7 @@ Style/RegexpLiteral:
 Lint/Debugger:
   Severity: error
 AllCops:
+  TargetRubyVersion: 2.3
   Exclude:
     - 'db/schema.rb'
     - 'db/**/*'
