@@ -11,6 +11,7 @@ gem 'faraday'
 gem 'figaro'
 gem 'scss_lint'
 gem 'parallel'
+gem 'parser', '~> 2.3'
 group :test do
   gem 'nokogiri'
   gem 'equivalent-xml'
