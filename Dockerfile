@@ -36,7 +36,7 @@ RUN go get github.com/alecthomas/gometalinter
 RUN gometalinter --install --update
 
 # Install CSSlint, ESlint, nsp
-RUN npm install -g jshint csslint eslint nsp coffeelint stylint sass-lint@1.5.1 jscpd eslint-config-airbnb@7.0.0 eslint-config-hapi
+RUN npm install -g jshint@2.9.2 csslint@0.10.0 eslint@2.8.0 nsp@2.3.1 coffeelint@1.15.7 stylint@1.3.8 sass-lint@1.5.1 jscpd@0.6.1 eslint-config-airbnb@7.0.0 eslint-config-hapi@9.1.0
 
 # Install SonarLint for .NET
 RUN git clone --recursive https://github.com/mikesive/sonaranalyzer-csharp-mono.git ~/sonarlint
