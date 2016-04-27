@@ -2,6 +2,7 @@
 $LOAD_PATH << 'lib'
 require_relative 'lib/bootstrap'
 include Common
+include Daemon
 
 config = {
   'TOP_LVL_DIR' => ENV['TOP_LVL_DIR'],
@@ -17,8 +18,6 @@ config = {
 configure_http
 loop do
   collector_result = CollectorTask.new(config).execute
-  new_repos = collector_result['new_repos']
-
   ctasks = ConcurrentTasks.new(config)
 
   continue_stats = collector_result['stats_todo'] > 0
@@ -26,6 +25,6 @@ loop do
 
   continue_linters = collector_result['linters_todo'] > 0
   ctasks.linter if continue_linters
-
+  break if stop_daemon?
   break unless continue_stats || continue_linters
 end
