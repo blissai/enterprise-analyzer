@@ -33,15 +33,19 @@ module Linter
       File.write(file_name, "#{result} - failtorundocker")
       fail LinterError, result
     else
-      if linter_name =~ /cpd/
-        empty_tag = 'lines,tokens,occurrences'
-        File.write(file_name, empty_tag) if File.read(file_name).strip.empty?
-      end
-      if @scrubber
-        unscrubbed = File.read(file_name)
-        File.write(file_name, @scrubber.scrub(unscrubbed))
-      end
+      fill_empty_file(linter_name, file_name) if File.read(file_name).strip.empty?
+      File.write(file_name, @scrubber.scrub(File.read(file_name))) if @scrubber
     end
+  end
+
+  def fill_empty_file(linter_name, file_name)
+    empty_tag = nil
+    if linter_name =~ /cpd/
+      empty_tag = 'lines,tokens,occurrences'
+    elsif linter_name =~ /stylint/
+      empty_tag = "Stylint: 0 Errors.\nStylint: 0 Warnings."
+    end
+    File.write(file_name, empty_tag) unless empty_tag.nil?
   end
 
   # Post lintfile to AWS and notify Bliss
