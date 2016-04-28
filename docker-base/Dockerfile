@@ -8,7 +8,7 @@ FROM centos:latest
 # Install Mono and Node repos
 RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF" && \
     yum-config-manager --add-repo http://download.mono-project.com/repo/centos/ && \
-    curl --silent --location https://rpm.nodesource.com/setup | bash - && \
+    curl --silent --location https://rpm.nodesource.com/setup_5.x | bash - && \
 
 # Install dependencies
     yum install -y git bzip2 which wget gcc-c++ make git-svn unzip epel-release readline-devel openssl-devel automake libtool bison && \
