@@ -106,14 +106,6 @@ module DockerSpecHelper
       remove_os: true
     }
 
-    @scss_repo = {
-      git_dir: "#{@repos_path}/scss",
-      git_url: 'https://github.com/kristerkari/normalize.scss.git',
-      commit: '74eb24e4d3b2f86b2cb3ca7e0f553cf277fc695b',
-      excluded_dirs: '',
-      remove_os: false
-    }
-
     @stylus_repo = {
       git_dir: "#{@repos_path}/stylus",
       git_url: 'https://github.com/maxmx/bootstrap-stylus.git',
@@ -158,6 +150,22 @@ module DockerSpecHelper
       git_dir: "#{@repos_path}/css",
       git_url: 'https://github.com/founderbliss/simple_css.git',
       commit: '67b5bfc929b01b7da099c339802a80d9e632753e',
+      excluded_dirs: '',
+      remove_os: false
+    }
+
+    @scss_repo = {
+      git_dir: "#{@repos_path}/scss",
+      git_url: 'https://github.com/oddbird/susy.git',
+      commit: 'c360b5ffbddb0a86213717336c558fd66ab92c34',
+      excluded_dirs: '',
+      remove_os: false
+    }
+
+    @sass_repo = {
+      git_dir: "#{@repos_path}/sass",
+      git_url: 'https://github.com/chriseppstein/blueprint-sass.git',
+      commit: '0eae4c8ecebb22df85a2cfb09d2d0d0df9fcf451',
       excluded_dirs: '',
       remove_os: false
     }
@@ -287,10 +295,10 @@ module DockerSpecHelper
       result: "#{@dckr}/results/sass-lint_result.txt",
       expected: "#{@dckr}/expected_results/sass-lint_result.txt",
       match: '"message":'
-    }.merge(@css_repo)
+    }.merge(@sass_repo)
 
     @scsslint = {
-      linter: "#{@dckr}/linters/scsslint.yml",
+      linter: "#{@dckr}/linters/sasslint.yml",
       result: "#{@dckr}/results/scss-lint_result.txt",
       expected: "#{@dckr}/expected_results/scss-lint_result.txt",
       match: '<issue '

@@ -11,7 +11,7 @@ options:
   output-file: 'linters/sass-lint.html'
 # File Options
 files:
-  include: 'sass/**/*.s+(a|c)ss'
+  include: '**/*.s+(a|c)ss'
   ignore:
     - 'sass/vendor/**/*.*'
 # Rule Configuration

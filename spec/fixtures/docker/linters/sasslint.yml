@@ -1,6 +1,6 @@
 ---
 name: sass-lint
-quality_command: sass-lint -c .sass-lint.yml git_dir/**/*.sass -s sass --no-exit -v -f JSON -o file_name
+quality_command: sass-lint -c .sass-lint.yml --no-exit -v -f JSON -o file_name \'git_dir/**/*.s+(a|c)ss\'
 quality_tool: sass-lint
 output_format: json
 languages:
@@ -22,6 +22,5 @@ success_match: "\\["
 default: true
 violation_version: 1
 partitionable: true
-help: Sass (Syntactically Awesome Stylesheets) is a style sheet language. We suggest
-  this project for the linting.
+help: Sass (Syntactically Awesome Stylesheets) is a style sheet language. We suggest this project for the linting.
 url: https://github.com/sasstools/sass-lint
