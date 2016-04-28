@@ -404,7 +404,7 @@ module DockerSpecHelper
       @ruby_repo, @java_repo, @dotnet_repo, @python_repo, @django_repo, @php_repo,
       @js_repo, @ios_repo, @elixir_repo, @scala_repo, @coffeescript_repo,
       @scss_repo, @stylus_repo, @swift_repo, @go_repo, @css_repo, @simple_ruby_repo,
-      @typescript_repo
+      @typescript_repo, @sass_repo
     ]
   end
 
