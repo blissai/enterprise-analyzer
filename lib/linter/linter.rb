@@ -44,6 +44,8 @@ module Linter
       empty_tag = 'lines,tokens,occurrences'
     elsif linter_name =~ /stylint/
       empty_tag = "Stylint: 0 Errors.\nStylint: 0 Warnings."
+    elsif linter_name =~ /tslint|lizard/
+      empty_tag = 'No violations found.'
     end
     File.write(file_name, empty_tag) unless empty_tag.nil?
   end
