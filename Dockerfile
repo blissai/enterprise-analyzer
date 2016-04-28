@@ -65,7 +65,7 @@ RUN wget -O /tmp/ccm.zip https://github.com/jonasblunck/ccm/releases/download/v1
     && unzip /tmp/ccm.zip -d /root/ccm
 
 # Install CSSlint, ESlint, nsp
-RUN npm install -g jshint@2.9.2 csslint@0.10.0 eslint@2.8.0 nsp@2.3.1 coffeelint@1.15.7 stylint@1.3.8 https://github.com/founderbliss/sass-lint.git#develop jscpd@0.6.1 eslint-config-airbnb@7.0.0 eslint-config-hapi@9.1.0 typescript tslint@3.8.1
+RUN npm install -g jshint@2.9.2 csslint@0.10.0 eslint@2.8.0 nsp@2.3.1 coffeelint@1.15.7 stylint@1.3.8 sass-lint jscpd@0.6.1 eslint-config-airbnb@7.0.0 eslint-config-hapi@9.1.0 typescript tslint@3.8.1
 # RUN npm install -g jshint csslint eslint nsp coffeelint stylint sass-lint jscpd eslint-config-airbnb eslint-config-hapi tslint
 
 # Install gems before adding of project to use caching properly
