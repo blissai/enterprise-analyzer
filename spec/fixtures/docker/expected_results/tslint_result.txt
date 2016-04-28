@@ -5,113 +5,113 @@
 /repository/cli/script/command-executor.ts[507, 1]: trailing whitespace
 /repository/cli/script/command-executor.ts[875, 1]: trailing whitespace
 /repository/cli/script/command-executor.ts[1128, 1]: trailing whitespace
-/repository/cli/script/command-executor.ts[6, 1]: forbidden var keyword
-/repository/cli/script/command-executor.ts[8, 1]: forbidden var keyword
-/repository/cli/script/command-executor.ts[10, 1]: forbidden var keyword
-/repository/cli/script/command-executor.ts[13, 1]: forbidden var keyword
-/repository/cli/script/command-executor.ts[14, 1]: forbidden var keyword
-/repository/cli/script/command-executor.ts[15, 1]: forbidden var keyword
-/repository/cli/script/command-executor.ts[18, 1]: forbidden var keyword
-/repository/cli/script/command-executor.ts[21, 1]: forbidden var keyword
-/repository/cli/script/command-executor.ts[28, 1]: forbidden var keyword
-/repository/cli/script/command-executor.ts[29, 1]: forbidden var keyword
-/repository/cli/script/command-executor.ts[30, 1]: forbidden var keyword
-/repository/cli/script/command-executor.ts[31, 1]: forbidden var keyword
-/repository/cli/script/command-executor.ts[32, 1]: forbidden var keyword
-/repository/cli/script/command-executor.ts[74, 1]: forbidden var keyword
-/repository/cli/script/command-executor.ts[138, 13]: forbidden var keyword
-/repository/cli/script/command-executor.ts[150, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[154, 13]: forbidden var keyword
-/repository/cli/script/command-executor.ts[158, 25]: forbidden var keyword
-/repository/cli/script/command-executor.ts[295, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[301, 17]: forbidden var keyword
-/repository/cli/script/command-executor.ts[306, 37]: forbidden var keyword
-/repository/cli/script/command-executor.ts[359, 13]: forbidden var keyword
-/repository/cli/script/command-executor.ts[377, 9]: forbidden var keyword
-/repository/cli/script/command-executor.ts[378, 9]: forbidden var keyword
-/repository/cli/script/command-executor.ts[524, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[525, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[527, 10]: forbidden var keyword
-/repository/cli/script/command-executor.ts[535, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[544, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[548, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[549, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[616, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[617, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[629, 9]: forbidden var keyword
-/repository/cli/script/command-executor.ts[630, 13]: forbidden var keyword
-/repository/cli/script/command-executor.ts[637, 9]: forbidden var keyword
-/repository/cli/script/command-executor.ts[640, 17]: forbidden var keyword
-/repository/cli/script/command-executor.ts[653, 9]: forbidden var keyword
-/repository/cli/script/command-executor.ts[656, 9]: forbidden var keyword
-/repository/cli/script/command-executor.ts[659, 17]: forbidden var keyword
-/repository/cli/script/command-executor.ts[670, 9]: forbidden var keyword
-/repository/cli/script/command-executor.ts[682, 17]: forbidden var keyword
-/repository/cli/script/command-executor.ts[702, 9]: forbidden var keyword
-/repository/cli/script/command-executor.ts[711, 17]: forbidden var keyword
-/repository/cli/script/command-executor.ts[712, 17]: forbidden var keyword
-/repository/cli/script/command-executor.ts[716, 21]: forbidden var keyword
-/repository/cli/script/command-executor.ts[717, 21]: forbidden var keyword
-/repository/cli/script/command-executor.ts[725, 17]: forbidden var keyword
-/repository/cli/script/command-executor.ts[727, 21]: forbidden var keyword
-/repository/cli/script/command-executor.ts[762, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[777, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[778, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[784, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[787, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[796, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[797, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[816, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[819, 13]: forbidden var keyword
-/repository/cli/script/command-executor.ts[820, 13]: forbidden var keyword
-/repository/cli/script/command-executor.ts[831, 13]: forbidden var keyword
-/repository/cli/script/command-executor.ts[846, 9]: forbidden var keyword
-/repository/cli/script/command-executor.ts[857, 21]: forbidden var keyword
-/repository/cli/script/command-executor.ts[868, 9]: forbidden var keyword
-/repository/cli/script/command-executor.ts[870, 13]: forbidden var keyword
-/repository/cli/script/command-executor.ts[871, 13]: forbidden var keyword
-/repository/cli/script/command-executor.ts[912, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[927, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[942, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[950, 10]: forbidden var keyword
-/repository/cli/script/command-executor.ts[968, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[969, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[970, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[975, 13]: forbidden var keyword
-/repository/cli/script/command-executor.ts[983, 17]: forbidden var keyword
-/repository/cli/script/command-executor.ts[984, 17]: forbidden var keyword
-/repository/cli/script/command-executor.ts[985, 17]: forbidden var keyword
-/repository/cli/script/command-executor.ts[986, 17]: forbidden var keyword
-/repository/cli/script/command-executor.ts[998, 22]: forbidden var keyword
-/repository/cli/script/command-executor.ts[999, 21]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1000, 21]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1015, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1016, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1023, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1028, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1050, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1051, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1052, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1053, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1054, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1064, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1078, 9]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1083, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1084, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1094, 13]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1096, 13]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1112, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1113, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1114, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1115, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1116, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1135, 9]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1136, 9]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1167, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1230, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1244, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1267, 5]: forbidden var keyword
-/repository/cli/script/command-executor.ts[1272, 5]: forbidden var keyword
+/repository/cli/script/command-executor.ts[6, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[8, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[10, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[13, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[14, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[15, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[18, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[21, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[28, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[29, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[30, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[31, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[32, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[74, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[138, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[150, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[154, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[158, 25]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[295, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[301, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[306, 37]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[359, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[377, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[378, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[524, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[525, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[527, 10]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[535, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[544, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[548, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[549, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[616, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[617, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[629, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[630, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[637, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[640, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[653, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[656, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[659, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[670, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[682, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[702, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[711, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[712, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[716, 21]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[717, 21]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[725, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[727, 21]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[762, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[777, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[778, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[784, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[787, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[796, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[797, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[816, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[819, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[820, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[831, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[846, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[857, 21]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[868, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[870, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[871, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[912, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[927, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[942, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[950, 10]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[968, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[969, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[970, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[975, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[983, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[984, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[985, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[986, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[998, 22]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[999, 21]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1000, 21]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1015, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1016, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1023, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1028, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1050, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1051, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1052, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1053, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1054, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1064, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1078, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1083, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1084, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1094, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1096, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1112, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1113, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1114, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1115, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1116, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1135, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1136, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1167, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1230, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1244, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1267, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[1272, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/cli/script/command-executor.ts[98, 2]: missing semicolon
 /repository/cli/script/command-executor.ts[286, 23]: missing semicolon
 /repository/cli/script/command-executor.ts[327, 2]: missing semicolon
@@ -123,3 +123,305 @@
 /repository/cli/script/command-executor.ts[1264, 2]: missing semicolon
 /repository/cli/script/command-executor.ts[1070, 24]: == should be ===
 /repository/cli/script/command-executor.ts[748, 74]: variable name clashes with keyword/type
+/repository/cli/script/command-parser.ts[733, 1]: trailing whitespace
+/repository/cli/script/command-parser.ts[7, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[12, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[14, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[15, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[36, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[158, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[405, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[409, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[410, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[411, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[412, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[413, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[473, 29]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[484, 29]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[532, 29]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[543, 29]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[555, 29]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[568, 29]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[579, 29]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[592, 29]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[610, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[624, 21]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[642, 21]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[658, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[667, 21]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[685, 21]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[704, 21]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[726, 21]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[744, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[849, 1]: trailing whitespace
+/repository/cli/test/cli.ts[873, 1]: trailing whitespace
+/repository/cli/test/cli.ts[206, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[207, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[208, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[209, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[237, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[247, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[248, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[256, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[266, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[267, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[282, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[287, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[301, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[306, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[321, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[326, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[327, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[340, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[350, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[351, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[380, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[385, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[399, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[404, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[419, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[425, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[438, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[444, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[457, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[463, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[476, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[487, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[488, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[502, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[508, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[522, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[528, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[540, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[546, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[560, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[566, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[581, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[593, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[594, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[628, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[634, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[648, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[654, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[669, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[676, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[689, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[697, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[705, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[706, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[749, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[761, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[774, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[786, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[799, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[811, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[824, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[836, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[851, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[862, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[875, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[886, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[899, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[906, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[919, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[934, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[949, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[964, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[987, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[999, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1000, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1001, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1002, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1018, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1030, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1031, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1032, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1049, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1061, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1062, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1079, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1091, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1094, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1107, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1108, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1109, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1126, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1138, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1141, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1154, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1155, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1156, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1173, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1184, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1185, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1202, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1216, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1217, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1234, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1247, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1248, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1265, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1266, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1281, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1282, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1299, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1300, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1314, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1318, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1323, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1324, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1337, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1350, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1354, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1355, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1360, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1361, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1374, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1387, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1391, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1392, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1397, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1398, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1411, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1424, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1428, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1429, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1434, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1435, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1448, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1449, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1465, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1469, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1474, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1475, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1488, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1489, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1504, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1508, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1513, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1514, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1527, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1528, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1543, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1547, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1551, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1552, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1565, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[1105, 10]: missing semicolon
+/repository/cli/test/cli.ts[1152, 10]: missing semicolon
+/repository/cli/test/cli.ts[1281, 100]: missing semicolon
+/repository/cli/test/cli.ts[1314, 100]: missing semicolon
+/repository/cli/test/cli.ts[1350, 100]: missing semicolon
+/repository/cli/test/cli.ts[1387, 100]: missing semicolon
+/repository/cli/test/cli.ts[1424, 100]: missing semicolon
+/repository/cli/test/cli.ts[1465, 100]: missing semicolon
+/repository/cli/test/cli.ts[1504, 100]: missing semicolon
+/repository/cli/test/cli.ts[1543, 100]: missing semicolon
+/repository/definitions/oauth2-server.d.ts[1, 1]: forbidden internal module
+/repository/definitions/oauth2-server.d.ts[10, 5]: forbidden internal module
+/repository/definitions/oauth2-server.d.ts[8, 30]: ' should be "
+/repository/definitions/rest-definitions.d.ts[19, 58]: missing semicolon
+/repository/definitions/rest-definitions.d.ts[118, 40]: missing semicolon
+/repository/definitions/superagent.d.ts[15, 3]: forbidden internal module
+/repository/definitions/superagent.d.ts[13, 3]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/definitions/superagent.d.ts[9, 27]: ' should be "
+/repository/definitions/yargs.d.ts[21, 5]: forbidden internal module
+/repository/definitions/yargs.d.ts[131, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/acquisition-sdk.ts[5, 1]: forbidden internal module
+/repository/sdk/script/acquisition-sdk.ts[126, 1]: trailing whitespace
+/repository/sdk/script/acquisition-sdk.ts[131, 1]: trailing whitespace
+/repository/sdk/script/acquisition-sdk.ts[153, 1]: trailing whitespace
+/repository/sdk/script/acquisition-sdk.ts[160, 1]: trailing whitespace
+/repository/sdk/script/acquisition-sdk.ts[164, 1]: trailing whitespace
+/repository/sdk/script/acquisition-sdk.ts[168, 1]: trailing whitespace
+/repository/sdk/script/acquisition-sdk.ts[186, 1]: trailing whitespace
+/repository/sdk/script/acquisition-sdk.ts[190, 1]: trailing whitespace
+/repository/sdk/script/acquisition-sdk.ts[194, 1]: trailing whitespace
+/repository/sdk/script/acquisition-sdk.ts[196, 1]: trailing whitespace
+/repository/sdk/script/acquisition-sdk.ts[213, 1]: trailing whitespace
+/repository/sdk/script/acquisition-sdk.ts[221, 1]: trailing whitespace
+/repository/sdk/script/acquisition-sdk.ts[88, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/acquisition-sdk.ts[97, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/acquisition-sdk.ts[111, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/acquisition-sdk.ts[112, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/acquisition-sdk.ts[122, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/acquisition-sdk.ts[139, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/acquisition-sdk.ts[155, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/acquisition-sdk.ts[156, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/acquisition-sdk.ts[215, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/acquisition-sdk.ts[216, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/acquisition-sdk.ts[241, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/acquisition-sdk.ts[242, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/acquisition-sdk.ts[244, 10]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/acquisition-sdk.ts[246, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/acquisition-sdk.ts[53, 31]: missing semicolon
+/repository/sdk/script/management-sdk.ts[173, 1]: trailing whitespace
+/repository/sdk/script/management-sdk.ts[11, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[32, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[33, 10]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[70, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[79, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[80, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[92, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[93, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[131, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[169, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[212, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[215, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[226, 25]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[240, 29]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[256, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[262, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[290, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[308, 21]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[338, 18]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[22, 6]: missing semicolon
+/repository/sdk/test/acquisition-rest-mock.ts[23, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-rest-mock.ts[24, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-rest-mock.ts[25, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-rest-mock.ts[34, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-rest-mock.ts[79, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-rest-mock.ts[90, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[98, 1]: trailing whitespace
+/repository/sdk/test/acquisition-sdk.ts[239, 1]: trailing whitespace
+/repository/sdk/test/acquisition-sdk.ts[11, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[13, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[20, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[30, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[41, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[52, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[61, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[64, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[73, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[76, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[85, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[88, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[99, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[109, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[112, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[121, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[124, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[133, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[136, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[141, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[149, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[152, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[157, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[165, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[168, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[171, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[182, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[191, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[194, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[206, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[209, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[214, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[227, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[241, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[18, 2]: missing semicolon
+/repository/sdk/test/management-sdk.ts[8, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/management-sdk.ts[10, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/management-sdk.ts[25, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/management-sdk.ts[47, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/management-sdk.ts[383, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/management-sdk.ts[385, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
