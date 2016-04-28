@@ -3,6 +3,7 @@ class StatsTask
   include Stats
   include Common
   include Gitbase
+  include Daemon
 
   def initialize(git_dir, api_key, host, repo)
     init_configuration(git_dir, api_key, host, repo)
@@ -24,6 +25,7 @@ class StatsTask
       @logger.success("Processing Stats between #{dates}")
     end
     metrics.each do |metric|
+      break if stop_daemon?
       commit = metric['commit']
       result = process_commit(commit)
       @logger.success("\tFinished stats for commit #{commit}.") unless result.nil?

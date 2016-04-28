@@ -4,6 +4,7 @@ class LinterTask
   include Common
   include Gitbase
   include AwsUploader
+  include Daemon
 
   def initialize(git_dir, api_key, host, repo)
     init_configuration(git_dir, api_key, host, repo)
@@ -25,6 +26,7 @@ class LinterTask
       @logger.success("Processing Linters between #{dates}")
     end
     metrics.each do |metric|
+      break if stop_daemon?
       commit = metric['commit']
       @logger.success("Running linters over #{commit}")
       process_commit(commit, metric['missing_lintfiles'])
@@ -42,6 +44,7 @@ class LinterTask
     remove_symlinks(@git_dir)
     Dir.mktmpdir do |tmp_dir|
       @linters.each do |linter|
+        break if stop_daemon?
         next unless missing_lintfiles.include?(linter['quality_tool'])
         @output_file = File.join(tmp_dir, "#{linter['quality_tool']}.#{linter['output_format']}")
         @commit = commit
