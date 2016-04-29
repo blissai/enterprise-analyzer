@@ -104,6 +104,11 @@ RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
     expect(expected_result?(@scsslint)).to eq(true)
   end
 
+  it 'can run sasslint over an empty sass project' do
+    puts `#{bliss_lint_cmd(@sasslint_empty)}`
+    expect(expected_result?(@sasslint_empty)).to eq(true)
+  end
+
   it 'can run stylint over a stylus project' do
     puts `#{bliss_lint_cmd(@stylint)}`
     expect(expected_result?(@stylint)).to eq(true)
