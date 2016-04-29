@@ -170,6 +170,14 @@ module DockerSpecHelper
       remove_os: false
     }
 
+    @sass_empty_repo = {
+      git_dir: "#{@repos_path}/sass",
+      git_url: 'https://github.com/chriseppstein/blueprint-sass.git',
+      commit: '0eae4c8ecebb22df85a2cfb09d2d0d0df9fcf451',
+      excluded_dirs: 'blueprint,examples,generators,test',
+      remove_os: false
+    }
+
     @typescript_repo = {
       git_dir: "#{@repos_path}/ts",
       git_url: 'https://github.com/Microsoft/code-push.git',
@@ -297,6 +305,13 @@ module DockerSpecHelper
       match: '"message":'
     }.merge(@sass_repo)
 
+    @sasslint_empty = {
+      linter: "#{@dckr}/linters/sasslint.yml",
+      result: "#{@dckr}/results/sass-lint_empty_result.txt",
+      expected: "#{@dckr}/expected_results/sass-lint_empty_result.txt",
+      match: '"message":'
+    }.merge(@sass_empty_repo)
+
     @scsslint = {
       linter: "#{@dckr}/linters/sasslint.yml",
       result: "#{@dckr}/results/scss-lint_result.txt",
@@ -404,7 +419,7 @@ module DockerSpecHelper
       @ruby_repo, @java_repo, @dotnet_repo, @python_repo, @django_repo, @php_repo,
       @js_repo, @ios_repo, @elixir_repo, @scala_repo, @coffeescript_repo,
       @scss_repo, @stylus_repo, @swift_repo, @go_repo, @css_repo, @simple_ruby_repo,
-      @typescript_repo, @sass_repo
+      @typescript_repo, @sass_repo, @sass_empty_repo
     ]
   end
 
