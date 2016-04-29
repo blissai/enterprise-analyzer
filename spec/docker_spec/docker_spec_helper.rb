@@ -174,7 +174,7 @@ module DockerSpecHelper
       git_dir: "#{@repos_path}/sass",
       git_url: 'https://github.com/chriseppstein/blueprint-sass.git',
       commit: '0eae4c8ecebb22df85a2cfb09d2d0d0df9fcf451',
-      excluded_dirs: 'blueprint,examples,generators,test',
+      excluded_dirs: 'excluded_dirs=blueprint,examples,generators,test',
       remove_os: false
     }
 
