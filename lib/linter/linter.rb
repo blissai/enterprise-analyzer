@@ -29,9 +29,14 @@ module Linter
       wait_thr.value
     end
     if thread_status.exitstatus == error_code
-      @logger.error("#{linter_name} - linter failed.")
-      File.write(file_name, "#{result} - failtorundocker")
-      fail LinterError, result
+      if linter_name.eql?('nsp') && File.read(file_name).eql?("Debug output: undefined\n{}\n")
+        File.read(file_name).include?('Debug output: undefined')
+        File.write(file_name, '["Scan failed: Cannot parse package.json - invalid JSON formatting."]')
+      else
+        @logger.error("#{linter_name} - linter failed.")
+        File.write(file_name, "#{result} - failtorundocker")
+        fail LinterError, result
+      end
     else
       fill_empty_file(linter_name, file_name) if File.read(file_name).strip.empty?
       File.write(file_name, @scrubber.scrub(File.read(file_name))) if @scrubber
