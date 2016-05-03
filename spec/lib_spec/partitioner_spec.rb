@@ -8,7 +8,7 @@ RSpec.describe Partitioner do
   it 'can create partition files' do
     partitioner = Partitioner.new(@git_dir, @logger, { 'partitionable' => true, 'max_lines' => 1 })
     partitioner.create_partitions
-    expect(partitioner.partition_dirs.first).not.to eq(@git_dir)
+    expect(partitioner.partition_dirs.first).not_to eq(@git_dir)
     expect(partitioner.partition_dirs.first).to include('/tmp/parts')
     expect()
     # expect(partitioner.create_partitions.size).to eq(2)
