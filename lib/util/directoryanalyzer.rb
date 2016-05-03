@@ -2,9 +2,9 @@ class DirectoryAnalyzer
   attr_reader :directory
   attr_reader :total_lines
 
-  def initialize(dir, max_lines = 750000)
+  def initialize(dir, max_lines = nil)
     @directory = File.expand_path(dir)
-    @max_lines = max_lines
+    @max_lines = max_lines.nil? ? 750000 : max_lines
     calculate_total_lines
   end
 

@@ -70,7 +70,7 @@ module Linter
 
   def partition_and_lint(linter, directory = nil)
     directory_to_analyze = directory.nil? ? @git_dir : directory
-    parts = Partitioner.new(directory_to_analyze, @logger, linter['partitionable']).create_partitions
+    parts = Partitioner.new(directory_to_analyze, @logger, linter).create_partitions
     multipart = parts.size > 1
     num_proc = parts.size
     num_proc = 8 if num_proc > 8

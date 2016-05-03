@@ -1,4 +1,5 @@
 module Stats
+  STATS_DEFAULT_THRESHOLD = 104_857_600
   def execute_stats_cmd(commit, directory = nil)
     stats = git_stats(commit)
     checkout_commit(@git_dir, commit)
@@ -12,7 +13,7 @@ module Stats
 
   def partition_and_stats(directory = nil)
     directory_to_analyze = directory.nil? ? @git_dir : directory
-    parts = Partitioner.new(directory_to_analyze, @logger, true, 104_857_600).create_partitions
+    parts = Partitioner.new(directory_to_analyze, @logger, { 'partitionable' => true }, STATS_DEFAULT_THRESHOLD).create_partitions
     @logger.info("\tRunning Stats on #{@commit}... This may take a while...")
     @logger.info("\tCounting total, original and test lines of code...")
     num_proc = parts.size

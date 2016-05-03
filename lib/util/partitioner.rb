@@ -1,10 +1,10 @@
 class Partitioner
   attr_accessor :partition_dirs
-  def initialize(src_dir, logger, linter_partitionable = false, byte_limit = 26214400)
+  def initialize(src_dir, logger, linter, byte_limit = 26214400)
     @src_dir = src_dir
-    @dir_analyzer = DirectoryAnalyzer.new(@src_dir)
+    @linter = linter
+    @dir_analyzer = DirectoryAnalyzer.new(@src_dir, @linter['max_lines'].to_i)
     @logger = logger
-    @linter_partitionable = linter_partitionable
     @byte_limit = byte_limit
   end
 
@@ -34,7 +34,7 @@ class Partitioner
   end
 
   def create_partitions
-    if @dir_analyzer.too_big? && @linter_partitionable
+    if @dir_analyzer.too_big? && @linter['partitionable']
       @logger.info("\tRepository is too large. Creating partitions...")
       build_partition_lists
       @partition_dirs = partition_files
