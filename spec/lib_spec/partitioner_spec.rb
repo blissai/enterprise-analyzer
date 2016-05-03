@@ -3,6 +3,7 @@ RSpec.describe Partitioner do
   before(:all) do
     @logger = BlissLogger.new(nil, nil, 'partitionerspec')
     @git_dir = "#{Dir.pwd}/spec/fixtures/projs/ruby"
+    puts "\n\n#{@git_dir}\n\n"
   end
 
   it 'can create partition files' do
