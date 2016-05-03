@@ -4,7 +4,7 @@ class DirectoryAnalyzer
 
   def initialize(dir, max_lines = nil)
     @directory = File.expand_path(dir)
-    @max_lines = max_lines.nil? ? 750000 : max_lines
+    @max_lines = max_lines.nil? ? 750000 : max_lines.to_i
     calculate_total_lines
   end
 

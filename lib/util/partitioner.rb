@@ -3,7 +3,7 @@ class Partitioner
   def initialize(src_dir, logger, linter, byte_limit = 26214400)
     @src_dir = src_dir
     @linter = linter
-    @dir_analyzer = DirectoryAnalyzer.new(@src_dir, @linter['max_lines'].to_i)
+    @dir_analyzer = DirectoryAnalyzer.new(@src_dir, @linter['max_lines'])
     @logger = logger
     @byte_limit = byte_limit
   end
