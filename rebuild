@@ -1,11 +1,11 @@
 #!/bin/bash
 export DOCKER_BUILD_SERVER=true
 sudo yum update -y bliss
-docker build -t blissai/collector:wip .
+docker build -t blissai/collector:latest .
 ec=$?
 if [[ $ec != 0 ]]; then exit $ec; fi
 rspec ./spec/docker_spec/docker_spec.rb
 ec=$?
 if [[ $ec != 0 ]]; then exit $ec; fi
-docker tag blissai/collector:wip blissai/collector:latest
-docker push blissai/collector:latest
+# docker tag blissai/collector:wip blissai/collector:latest
+docker push blissai/collector
