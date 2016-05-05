@@ -86,7 +86,7 @@ module Linter
   def consolidate_output
     FileUtils.touch(@output_file)
     File.truncate(@output_file, 0)
-    Dir.glob('/tmp/result_part*.txt').each do |r|
+    Dir.glob('/tmp/result_*.txt').each do |r|
       File.open(@output_file, 'a') do |f|
         f.write("<--LintFilePartition-->\n#{File.read(r)}")
       end
