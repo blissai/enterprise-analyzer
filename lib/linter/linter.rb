@@ -10,7 +10,8 @@ module Linter
     rescue LinterError => e
       @logger.error(e.message)
     rescue Errno::ENOENT => e
-      @logger.info("Dependency Error: #{quality_tool} not installed or not configured correctly... \n#{e.message}")
+      @logger.info("Dependency Error: #{quality_tool} not installed or not configured correctly...")
+      @logger.error(e.message)
     end
   end
 
