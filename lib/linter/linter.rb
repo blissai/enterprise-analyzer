@@ -77,7 +77,7 @@ module Linter
     num_proc = 8 if num_proc > 8
     @logger.info("\tRunning #{linter['quality_tool']} on #{@commit}... This may take a while...")
     Parallel.each_with_index(parts, in_processes: num_proc) do |part, index|
-      result_path = multipart ? "/resultpart#{index}.txt" : @output_file
+      result_path = multipart ? "/tmp/result_#{index}.txt" : @output_file
       lint_commit(linter, result_path, part)
     end
     consolidate_output if multipart
@@ -86,7 +86,7 @@ module Linter
   def consolidate_output
     FileUtils.touch(@output_file)
     File.truncate(@output_file, 0)
-    Dir.glob('/resultpart*.txt').each do |r|
+    Dir.glob('/tmp/result_part*.txt').each do |r|
       File.open(@output_file, 'a') do |f|
         f.write("<--LintFilePartition-->\n#{File.read(r)}")
       end
