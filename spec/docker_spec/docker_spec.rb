@@ -14,6 +14,12 @@ RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
     end
   end
 
+  after(:all) do
+    Dir.glob("#{@dckr}/results/*.txt").each do |f|
+      File.truncate(f, 0)
+    end
+  end
+
   it 'can run brakeman over a ruby project' do
     puts `#{bliss_lint_cmd(@brakeman)}`
     expect(expected_result?(@brakeman)).to eq(true)
