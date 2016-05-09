@@ -15,14 +15,14 @@ class LocalLinter
   end
 
   def setup_vars(params)
-    @logger = BlissLogger.new(nil, nil, params['log_prefix'])
-    @git_dir = params['git_dir']
-    @linter_config_path = params['linter_config_path']
-    @commit = params['commit']
-    @name = params['log_prefix']
-    @excluded_dirs = params['excluded_dirs']
-    @remove_open_source = params['remove_open_source']
-    @repo_key = params['repo_key']
+    @logger = BlissLogger.new(nil, nil, params[:log_prefix])
+    @git_dir = params[:git_dir]
+    @linter_config_path = params[:linter_config_path]
+    @commit = params[:commit]
+    @name = params[:log_prefix]
+    @excluded_dirs = params[:excluded_dirs]
+    @remove_open_source = params[:remove_open_source]
+    @repo_key = params[:repo_key]
     @output_file = '/result.txt'
     @api_key = nil
   end
