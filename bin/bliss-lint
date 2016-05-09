@@ -3,6 +3,20 @@ $LOAD_PATH << '../lib'
 require_relative '../lib/bootstrap'
 include Cmd
 @args = ARGV
-linter = LocalLinter.new(arg('dir'), arg('commit'), arg('log'),
-                         arg('linter_file'), arg('excluded_dirs'), arg('remove_open_source') == 'true')
+dir = arg('dir')
+git_dir = dir.nil? ? '/repository' : File.expand_path(dir)
+linter_file = arg('linter_file')
+linter_config_path = linter_file.nil? ? '/linter.yml' : File.expand_path(linter_file)
+excluded_dirs = arg('excluded_dirs').split(',') rescue []
+remove_os = arg('remove_open_source') == 'true'
+params = {
+  git_dir: git_dir,
+  commit: arg('commit'),
+  log_prefix: arg('log'),
+  linter_config_path: linter_config_path,
+  excluded_dirs: excluded_dirs,
+  repo_key: arg('repo_key'),
+  remove_open_source: remove_os
+}
+linter = LocalLinter.new(params)
 linter.execute

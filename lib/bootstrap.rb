@@ -17,6 +17,7 @@ $HTTP_MUTEX = Mutex.new
 Figaro::Application.new(path: 'application.yml').load
 require_relative 'util/daemon'
 require_relative 'util/common'
+require_relative 'util/status'
 require_relative 'util/cmd'
 require_relative 'util/gitbase'
 require_relative 'util/aws_uploader'

@@ -3,24 +3,28 @@ class LocalLinter
   include Gitbase
   include Linter
 
-  def initialize(git_dir, commit, log_prefix, linter_config_path, excluded_dirs, remove_open_source = true)
-    @logger = BlissLogger.new(nil, nil, log_prefix)
-    @git_dir = git_dir.nil? ? '/repository' : File.expand_path(git_dir)
-    @linter_config_path = linter_config_path.nil? ? '/linter.yml' : File.expand_path(linter_config_path)
-    @commit = commit
-    @name = log_prefix
-    @excluded_dirs = begin
-                       excluded_dirs.split(',')
-                     rescue
-                       []
-                     end
-    @remove_open_source = remove_open_source
-    @output_file = '/result.txt'
-    @api_key = nil
-    @repo_key = nil
+  def initialize(params)
+    setup_vars(params)
     check_args
     @linter = YAML.load_file(@linter_config_path)
     @scrubber = SourceScrubber.new
+    unless @repo_key.nil?
+      @status = Status.new(@repo_key, @commit)
+      @status.run
+    end
+  end
+
+  def setup_vars(params)
+    @logger = BlissLogger.new(nil, nil, params['log_prefix'])
+    @git_dir = params['git_dir']
+    @linter_config_path = params['linter_config_path']
+    @commit = params['commit']
+    @name = params['log_prefix']
+    @excluded_dirs = params['excluded_dirs']
+    @remove_open_source = params['remove_open_source']
+    @repo_key = params['repo_key']
+    @output_file = '/result.txt'
+    @api_key = nil
   end
 
   def execute
@@ -32,6 +36,7 @@ class LocalLinter
     start = Time.now
     partition_and_lint(@linter)
     time = Time.now - start
+    @status.finish
     @logger.info("\tTook #{time} seconds to run #{@linter['quality_tool']}...")
   end
 
