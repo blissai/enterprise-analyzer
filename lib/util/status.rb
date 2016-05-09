@@ -6,35 +6,30 @@ class Status
     @commit = commit
     @api_key = api_key
     @finished = false
-    @mutex = Mutex.new
     configure_http
   end
 
   def run
-    start
-    @bt = Thread.new do
+    ping
+    @background_thread = Thread.new do
       loop do
+        wait
         ping
-        sleep 30
-        break if @finished
       end
     end
-    @bt.join
   end
 
   def finish
-    @mutex.synchronize { @finished = true }
+    Thread.kill(@background_thread)
   end
 
   def ping
-    update(false)
+    http_post('https://app.founderbliss.com/api/status/ping', commit: @commit, started: false)
   end
 
-  def start
-    update(true)
-  end
+  private
 
-  def update(started)
-    http_post('https://app.founderbliss.com/api/status/ping', commit: @commit, start: started)
+  def wait
+    sleep 30
   end
 end
