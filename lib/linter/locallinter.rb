@@ -8,7 +8,7 @@ class LocalLinter
     check_args
     @linter = YAML.load_file(@linter_config_path)
     @scrubber = SourceScrubber.new
-    unless @repo_key.nil?
+    if @repo_key
       @status = Status.new(@repo_key, @commit)
       @status.run
     end
@@ -36,7 +36,7 @@ class LocalLinter
     start = Time.now
     partition_and_lint(@linter)
     time = Time.now - start
-    @status.finish
+    @status.finish if @status
     @logger.info("\tTook #{time} seconds to run #{@linter['quality_tool']}...")
   end
 
