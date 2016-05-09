@@ -24,7 +24,7 @@ class Status
   end
 
   def ping
-    http_post('https://app.founderbliss.com/api/status/ping', commit: @commit, started: false)
+    http_post('https://app.founderbliss.com/api/status/ping', commit: @commit, start: false)
   end
 
   private
