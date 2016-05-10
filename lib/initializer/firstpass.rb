@@ -4,7 +4,6 @@ class FirstPass
   include Initializer
   include Gitlogger
   include Common
-  include AwsUploader
 
   def initialize(subdir = nil)
     @git_dir = '/repository'

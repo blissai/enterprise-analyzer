@@ -1,7 +1,6 @@
 module Gitlogger
   include Common
   include Gitbase
-  include AwsUploader
 
   def git_log(dir_name, limit = nil)
     log_fmt = '"%H|%P|%ai|%aN|%aE|%s"'

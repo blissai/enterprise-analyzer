@@ -3,7 +3,6 @@ class LinterTask
   include Linter
   include Common
   include Gitbase
-  include AwsUploader
   include Daemon
 
   def initialize(git_dir, api_key, host, repo)

@@ -2,7 +2,6 @@
 class CollectorTask
   include Common
   include Gitbase
-  include AwsUploader
   include Gitlogger
 
   def initialize(config)
