@@ -174,24 +174,24 @@ RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
     puts `#{bliss_stats_cmd(@phpstats)}`
     expect(expected_result?(@phpstats)).to eq(true)
   end
-
-  it 'can run stats over a swift project' do
-    puts `#{bliss_stats_cmd(@swiftstats)}`
-    expect(expected_result?(@swiftstats)).to eq(true)
-  end
-
-  it 'can run stats over a python project' do
-    puts `#{bliss_stats_cmd(@pythonstats)}`
-    expect(expected_result?(@pythonstats)).to eq(true)
-  end
-
-  it 'can run stats over a dotnet project' do
-    puts `#{bliss_stats_cmd(@dotnetstats)}`
-    expect(expected_result?(@dotnetstats)).to eq(true)
-  end
-
-  it 'can run stats over a go project' do
-    puts `#{bliss_stats_cmd(@gostats)}`
-    expect(expected_result?(@gostats)).to eq(true)
+  #
+  # it 'can run stats over a swift project' do
+  #   puts `#{bliss_stats_cmd(@swiftstats)}`
+  #   expect(expected_result?(@swiftstats)).to eq(true)
+  # end
+  #
+  # it 'can run stats over a python project' do
+  #   puts `#{bliss_stats_cmd(@pythonstats)}`
+  #   expect(expected_result?(@pythonstats)).to eq(true)
+  # end
+  #
+  # it 'can run stats over a dotnet project' do
+  #   puts `#{bliss_stats_cmd(@dotnetstats)}`
+  #   expect(expected_result?(@dotnetstats)).to eq(true)
+  # end
+  #
+  # it 'can run stats over a go project' do
+  #   puts `#{bliss_stats_cmd(@gostats)}`
+  #   expect(expected_result?(@gostats)).to eq(true)
   end
 end
