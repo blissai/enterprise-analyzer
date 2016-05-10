@@ -152,6 +152,7 @@ DEPENDENCIES
   pry-nav
   rails_best_practices
   rspec
+  rspec-mocks
   rubocop (~> 0.39)
   rubocop-rspec
   scss_lint

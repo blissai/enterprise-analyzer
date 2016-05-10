@@ -42,45 +42,61 @@ module Common
   end
 
   # Recursive function to retry http GET requests
-  def http_get(url, tried = 0)
-    json_return = nil
-    begin
-      $HTTP_MUTEX.synchronize do
-        response = @agent.get(url, @auth_headers)
-        json_return = JSON.parse(response.body)
-      end
-    rescue Mechanize::UnauthorizedError
-      @logger.error('Your API key is not valid.') if @logger
-    rescue Mechanize::ResponseCodeError
-      if tried < 5
-        puts 'Warning: Server in maintenance mode, waiting for 20 seconds and trying again'.yellow
-        sleep(20)
-        http_get(url, tried + 1)
-      else
-        @logger.error("Warning: Can't connect to Bliss server... Tried max times.") if @logger
-      end
-    rescue Net::HTTP::Persistent::Error
-      if tried < 5
-        reset_http_agent
-        http_get(url, tried + 1)
-      else
-        @logger.error('Net::ReadTimeout error occurred. Tried too many times') if @logger
-      end
+  def http_get(url)
+    json_return = exponential_backoff do
+      response = @agent.get(url, @auth_headers)
+      json_return = JSON.parse(response.body)
     end
     json_return
   end
 
   # Recursive function to retry http POST requests
-  def http_post(url, params, json = false, tried = 0)
+  def http_post(url, params = nil, json = false)
+    exponential_backoff = ExponentialBackoff.new(5, )
+    json_return = nil
+    if json && params
+      params = params.to_json
+      @auth_headers['Content-Type'] = 'application/json'
+    end
+    json_return = exponential_backoff do
+      response = @agent.post(url, params, @auth_headers)
+      json_return = JSON.parse(response.body)
+    end
+    json_return
+  end
+
+  def exponential_backoff(&code)
+    eb = ExponentialBackoff.new(5,
+      Mechanize::ResponseCodeError => 'Warning: Server in maintenance mode, trying again.',
+      Net::HTTP::Persistent::Error => 'Net::ReadTimeout error occurred.'.red
+    )
+    eb.run do
+      yield
+    end
+  end
+
+  def http_errors
+    {
+      Mechanize::ResponseCodeError => {
+        msg: 'Warning: Server in maintenance mode, trying again.',
+        rescuable: true
+      },
+      Net::HTTP::Persistent::Error => {
+        msg: 'Net::ReadTimeout error occurred.',
+        rescuable: true
+      },
+      Mechanize::UnauthorizedError => {
+        msg: 'Your API key is not valid.',
+        rescuable: false
+      }
+    }
+  end
+
+  def exponential_backoff
     json_return = nil
     begin
-      if json
-        params = params.to_json
-        @auth_headers['Content-Type'] = 'application/json'
-      end
       $HTTP_MUTEX.synchronize do
-        response = @agent.post(url, params, @auth_headers)
-        json_return = JSON.parse(response.body)
+        yield(url, params, json)
       end
     rescue Mechanize::UnauthorizedError
       @logger.error('Your API key is not valid.') if @logger
@@ -88,19 +104,27 @@ module Common
       if tried < 5
         puts "Warning: Server in maintenance mode, waiting for #{2**tried} seconds and trying again".yellow
         sleep(2**tried)
-        http_post(url, params, json, tried + 1)
+        $HTTP_MUTEX.synchronize do
+          yield(url, params, json)
+        end
       else
         @logger.error("Warning: Can't connect to Bliss server... Tried max times.") if @logger
       end
     rescue Net::HTTP::Persistent::Error
       if tried < 5
         reset_http_agent
-        http_post(url, params, json, tried + 1)
+        $HTTP_MUTEX.synchronize do
+          yield(url, params, json)
+        end
       else
         @logger.error('Net::ReadTimeout error occurred. Tried too many times') if @logger
       end
     end
     json_return
+  end
+
+  def http_get(url)
+    eb = ExponentialBackoff.new
   end
 
   def todo_count(repo_key, type, tried = 0)

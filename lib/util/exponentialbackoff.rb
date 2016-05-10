@@ -1,0 +1,46 @@
+class ExponentialBackoff
+  attr_reader :max_tries
+  attr_reader :tried
+  def initialize(max_tries = 5, rescuable = {})
+    @rescuable = rescuable
+    @tried = 0
+    @max_tries = max_tries
+  end
+
+  def run(&code)
+    begin
+      @tried += 1
+      yield
+    rescue Exception => e
+      if @tried <= @max_tries
+        sleep(2**@tried)
+        run(&code) if should_rescue?(e)
+      else
+        puts 'Tried max number of times.'.red
+      end
+    end
+  end
+
+  def should_rescue?(e)
+    default_rescue? || rescuable?(e)
+  end
+
+  def default_rescue?
+    if @rescuable.empty?
+      puts 'Task failed. Trying again...'.yellow
+      return true
+    end
+    false
+  end
+
+  def rescuable?(e)
+    @rescuable.each do |t, m|
+      if e.is_a? t
+        puts m.yellow
+        return true
+      end
+    end
+    throw e
+    false
+  end
+end
