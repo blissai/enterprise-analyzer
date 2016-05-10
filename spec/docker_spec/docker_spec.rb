@@ -193,5 +193,5 @@ RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
   # it 'can run stats over a go project' do
   #   puts `#{bliss_stats_cmd(@gostats)}`
   #   expect(expected_result?(@gostats)).to eq(true)
-  end
+  # end
 end
