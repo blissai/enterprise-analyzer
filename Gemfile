@@ -16,7 +16,6 @@ group :test do
   gem 'rspec-core'
   gem 'rspec-expectations'
   gem 'rspec-mocks'
-  gem 'rspec-rails'
   gem 'rspec-support'
   gem 'nokogiri'
   gem 'equivalent-xml'
