@@ -34,10 +34,10 @@ class ExponentialBackoff
   end
 
   def rescuable?(e)
-    @rescuable.each do |t, m|
+    @rescuable.each do |t, v|
       if e.is_a? t
-        puts m.yellow
-        return true
+        v[:action].call
+        return v[:rescuable]
       end
     end
     throw e

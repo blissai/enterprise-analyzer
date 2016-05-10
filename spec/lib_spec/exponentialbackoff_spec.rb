@@ -2,7 +2,7 @@ require_relative '../spec_helper.rb'
 RSpec.describe ExponentialBackoff do
 
   let(:backoff) do
-    ExponentialBackoff.new(2, { NoMethodError => 'Received standard error.' })
+    ExponentialBackoff.new(2, { NoMethodError => { rescuable: true, action: Proc.new{ puts 'response action' } } })
   end
 
   context 'exponential backoff' do
