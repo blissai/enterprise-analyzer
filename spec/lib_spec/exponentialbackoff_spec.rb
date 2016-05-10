@@ -1,7 +1,15 @@
 require_relative '../spec_helper.rb'
 RSpec.describe ExponentialBackoff do
   let(:backoff) do
-    ExponentialBackoff.new(2, { NoMethodError => { rescuable: true, action: Proc.new{ puts 'response action' } } })
+    error = {
+      NoMethodError => {
+        rescuable: true,
+        action: proc do
+          puts 'response action'
+        end
+      }
+    }
+    ExponentialBackoff.new(2, error)
   end
 
   context 'exponential backoff' do
