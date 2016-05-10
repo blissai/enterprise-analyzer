@@ -32,7 +32,7 @@ module Http
     json_return
   end
 
-  def http_mutipart_put(url, file_content)
+  def http_multipart_put(url, file_content)
     @auth_headers['Content-Type'] = 'multipart/form-data'
     exponential_backoff do
       begin
