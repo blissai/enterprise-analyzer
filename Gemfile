@@ -13,7 +13,6 @@ gem 'figaro'
 gem 'scss_lint'
 gem 'parallel'
 group :test do
-  gem 'rspec-mocks'
   gem 'rspec-core'
   gem 'rspec-expectations'
   gem 'rspec-mocks'
