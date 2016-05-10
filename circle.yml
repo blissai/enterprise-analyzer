@@ -38,4 +38,4 @@ dependencies:
   override:
     - rvm install rubygems 2.4.8 --force
     - gem install bundler
-    - bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+    - bundle install
