@@ -35,5 +35,3 @@ dependencies:
     - ~/phpcs/scripts/phpcs --config-set installed_paths wpcs;
     - if [[ ! -d ~/fpart ]]; then git clone https://github.com/martymac/fpart.git ~/fpart; fi
     - cd ~/fpart && autoreconf -i && ./configure && sudo make && sudo make install
-    - rvm install rubygems 2.4.8 --force
-    - gem install bundler -v 1.11.2
