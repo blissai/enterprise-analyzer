@@ -32,9 +32,9 @@ module Common
   end
 
   def upload_to_aws(bucket, key, content, tried = 0)
-    url = "https://#{bucket}.s3.amazonaws.com/#{key}"
+    url = "http://#{bucket}.s3.amazonaws.com/#{key}"
     @auth_headers['x-amz-acl'] = 'bucket-owner-read'
-    http_multipart_put('http://bliss-collector-files.s3.amazonaws.com/testfile.txt', content)
+    http_multipart_put(url, content)
   end
 
   def todo_count(repo_key, type, tried = 0)
