@@ -1,6 +1,7 @@
 module Http
   # function to retry http GET requests
   def http_get(url)
+    json_return = nil
     exponential_backoff do
       begin
         response = @agent.get(url, @auth_headers)
