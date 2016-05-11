@@ -1,7 +1,7 @@
 require_relative '../spec_helper.rb'
 RSpec.describe Status do
   let(:status) do
-    s = Status.new('testrepokey', 'testcommit')
+    s = Status.new('testrepokey', 'testcommit', 'testlinter')
     allow(s).to receive(:http_post).and_return(success: 'ok')
     allow(s).to receive(:wait)
     s
