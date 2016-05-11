@@ -32,7 +32,7 @@ module Common
   end
 
   def upload_to_aws(bucket, key, content, tried = 0)
-    url = "http://#{bucket}.s3.amazonaws.com/#{key}"
+    url = "https://#{bucket}.s3.amazonaws.com/#{key}"
     @auth_headers['x-amz-acl'] = 'bucket-owner-read'
     http_multipart_put(url, content)
   end
