@@ -64,14 +64,20 @@ module Http
     {
       Mechanize::ResponseCodeError => {
         rescuable: true,
-        action: Proc.new do
+        action: proc do
           puts 'Warning: Server in maintenance mode.'.yellow
         end
       },
       Mechanize::UnauthorizedError => {
         rescuable: false,
-        action: Proc.new do
+        action: proc do
           puts 'Your API key is not valid.'.red
+        end
+      },
+      JSON::ParserError => {
+        rescuable: true,
+        action: proc do
+          puts 'Warning: Server in maintenance mode.'.yellow
         end
       }
     }
