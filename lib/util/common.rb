@@ -1,16 +1,6 @@
 # Set of common functions used by all commands
 module Common
-  def configure_http
-    @agent = Mechanize.new { |m| m.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE }
-    @auth_headers = { 'X-User-Token' => @api_key }
-  end
-
-  def reset_http_agent
-    $HTTP_MUTEX.synchronize do
-      @agent.shutdown
-      configure_http
-    end
-  end
+  include Http
 
   def init_configuration(git_dir, api_key, host, repo)
     @git_dir = git_dir
@@ -41,66 +31,10 @@ module Common
     JSON.parse(File.open("#{top_dir_name}/.bliss.json", 'r').read)
   end
 
-  # Recursive function to retry http GET requests
-  def http_get(url, tried = 0)
-    json_return = nil
-    begin
-      $HTTP_MUTEX.synchronize do
-        response = @agent.get(url, @auth_headers)
-        json_return = JSON.parse(response.body)
-      end
-    rescue Mechanize::UnauthorizedError
-      @logger.error('Your API key is not valid.') if @logger
-    rescue Mechanize::ResponseCodeError
-      if tried < 5
-        puts 'Warning: Server in maintenance mode, waiting for 20 seconds and trying again'.yellow
-        sleep(20)
-        http_get(url, tried + 1)
-      else
-        @logger.error("Warning: Can't connect to Bliss server... Tried max times.") if @logger
-      end
-    rescue Net::HTTP::Persistent::Error
-      if tried < 5
-        reset_http_agent
-        http_get(url, tried + 1)
-      else
-        @logger.error('Net::ReadTimeout error occurred. Tried too many times') if @logger
-      end
-    end
-    json_return
-  end
-
-  # Recursive function to retry http POST requests
-  def http_post(url, params, json = false, tried = 0)
-    json_return = nil
-    begin
-      if json
-        params = params.to_json
-        @auth_headers['Content-Type'] = 'application/json'
-      end
-      $HTTP_MUTEX.synchronize do
-        response = @agent.post(url, params, @auth_headers)
-        json_return = JSON.parse(response.body)
-      end
-    rescue Mechanize::UnauthorizedError
-      @logger.error('Your API key is not valid.') if @logger
-    rescue Mechanize::ResponseCodeError
-      if tried < 5
-        puts "Warning: Server in maintenance mode, waiting for #{2**tried} seconds and trying again".yellow
-        sleep(2**tried)
-        http_post(url, params, json, tried + 1)
-      else
-        @logger.error("Warning: Can't connect to Bliss server... Tried max times.") if @logger
-      end
-    rescue Net::HTTP::Persistent::Error
-      if tried < 5
-        reset_http_agent
-        http_post(url, params, json, tried + 1)
-      else
-        @logger.error('Net::ReadTimeout error occurred. Tried too many times') if @logger
-      end
-    end
-    json_return
+  def upload_to_aws(bucket, key, content, tried = 0)
+    url = "https://#{bucket}.s3.amazonaws.com/#{key}"
+    @auth_headers['x-amz-acl'] = 'bucket-owner-read'
+    http_multipart_put(url, content)
   end
 
   def todo_count(repo_key, type, tried = 0)

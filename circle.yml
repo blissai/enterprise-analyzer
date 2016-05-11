@@ -1,6 +1,6 @@
 machine:
   ruby:
-    version: 2.2.3
+    version: 2.3.0
   node:
     version: 0.10.22
   php:
@@ -36,4 +36,6 @@ dependencies:
     - if [[ ! -d ~/fpart ]]; then git clone https://github.com/martymac/fpart.git ~/fpart; fi
     - cd ~/fpart && autoreconf -i && ./configure && sudo make && sudo make install
   override:
-    - bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+    - rvm install rubygems 2.4.8 --force
+    - gem install bundler
+    - bundle install
