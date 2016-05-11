@@ -1,7 +1,7 @@
 module Http
   # function to retry http GET requests
   def http_get(url)
-    json_return = exponential_backoff do
+    exponential_backoff do
       begin
         response = @agent.get(url, @auth_headers)
       rescue Net::HTTP::Persistent::Error
@@ -20,7 +20,7 @@ module Http
       params = params.to_json
       @auth_headers['Content-Type'] = 'application/json'
     end
-    json_return = exponential_backoff do
+    exponential_backoff do
       begin
         response = @agent.post(url, params, @auth_headers)
       rescue Net::HTTP::Persistent::Error
