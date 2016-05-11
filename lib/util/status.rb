@@ -1,9 +1,10 @@
 class Status
   attr_accessor :finished
   include Common
-  def initialize(repo_key, commit, api_key = nil)
+  def initialize(repo_key, commit, quality_tool, api_key = nil)
     @repo_key = repo_key
     @commit = commit
+    @quality_tool = quality_tool
     @api_key = api_key
     @finished = false
     configure_http
@@ -24,7 +25,7 @@ class Status
   end
 
   def ping
-    http_post('https://app.founderbliss.com/api/status/ping', commit: @commit, repo_key: @repo_key)
+    http_post('https://app.founderbliss.com/api/status/ping', commit: @commit, repo_key: @repo_key, quality_tool: @quality_tool)
   end
 
   private
