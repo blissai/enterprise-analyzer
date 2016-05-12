@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 $LOAD_PATH << 'lib'
 require_relative 'lib/bootstrap'
+require_relative 'lib/onexit'
 include Common
 include Daemon
 

@@ -1,14 +1,9 @@
 #!/usr/bin/env ruby
 $LOAD_PATH << '../lib'
 require_relative '../lib/bootstrap'
+require_relative '../lib/onexit'
 include Cmd
 @args = ARGV
-at_exit do
-  unless $!.nil? || $!.is_a?(SystemExit) && $!.success?
-    logger = BlissLogger.new(nil, nil, 'DockerError')
-    logger.error("#{$!.backtrace}\n#{$!.message}", $!.class)
-  end
-end
 dir = arg('dir')
 git_dir = dir.nil? ? '/repository' : File.expand_path(dir)
 linter_file = arg('linter_file')
