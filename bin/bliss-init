@@ -3,5 +3,11 @@ $LOAD_PATH << '../lib'
 require_relative '../lib/bootstrap'
 include Cmd
 @args = ARGV
+at_exit do
+  unless $!.nil? || $!.is_a?(SystemExit) && $!.success?
+    logger = BlissLogger.new(nil, nil, 'DockerError')
+    logger.error("#{$!.backtrace}\n#{$!.message}", $!.class)
+  end
+end
 firstpass = FirstPass.new(arg('subdir'))
 firstpass.execute
