@@ -1,46 +1,50 @@
 module Http
   # function to retry http GET requests
   def http_get(url)
-    json_return = nil
     exponential_backoff do
-      begin
-        response = @agent.get(url, @auth_headers)
-      rescue Net::HTTP::Persistent::Error
-        response = @agent.get(url, @auth_headers)
-        reset_http_agent
+      @mutex.synchronize do
+        begin
+          response = @agent.get(url, @auth_headers)
+          return JSON.parse(response.body)
+        rescue Net::HTTP::Persistent::Error
+          reset_http_agent
+          response = @agent.get(url, @auth_headers)
+          return JSON.parse(response.body)
+        end
       end
-      json_return = JSON.parse(response.body)
     end
-    json_return
   end
 
   # function to retry http POST requests
   def http_post(url, params, json = false)
-    json_return = nil
     if json && params
       params = params.to_json
       @auth_headers['Content-Type'] = 'application/json'
     end
     exponential_backoff do
-      begin
-        response = @agent.post(url, params, @auth_headers)
-      rescue Net::HTTP::Persistent::Error
-        reset_http_agent
-        response = @agent.post(url, params, @auth_headers)
+      @mutex.synchronize do
+        begin
+          response = @agent.post(url, params, @auth_headers)
+          return JSON.parse(response.body)
+        rescue Net::HTTP::Persistent::Error
+          reset_http_agent
+          response = @agent.post(url, params, @auth_headers)
+          return JSON.parse(response.body)
+        end
       end
-      json_return = JSON.parse(response.body)
     end
-    json_return
   end
 
   def http_multipart_put(url, file_content)
     @auth_headers['Content-Type'] = 'multipart/form-data'
     exponential_backoff do
-      begin
-        @agent.put(url, file_content, @auth_headers)
-      rescue Net::HTTP::Persistent::Error
-        reset_http_agent
-        @agent.put(url, file_content, @auth_headers)
+      @mutex.synchronize do
+        begin
+          @agent.put(url, file_content, @auth_headers)
+        rescue Net::HTTP::Persistent::Error
+          reset_http_agent
+          @agent.put(url, file_content, @auth_headers)
+        end
       end
     end
   end
@@ -52,10 +56,11 @@ module Http
   def configure_http
     @agent = Mechanize.new { |m| m.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE }
     @auth_headers = { 'X-User-Token' => @api_key }
+    @mutex = Mutex.new
   end
 
   def reset_http_agent
-    $HTTP_MUTEX.synchronize do
+    @mutex.synchronize do
       @agent.shutdown
       configure_http
     end
@@ -72,7 +77,7 @@ module Http
       Mechanize::UnauthorizedError => {
         rescuable: false,
         action: proc do
-          puts 'Your API key is not valid.'.red
+          abort 'Your API key is not valid.'.red
         end
       },
       JSON::ParserError => {

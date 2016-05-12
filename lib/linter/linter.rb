@@ -8,35 +8,33 @@ module Linter
     begin
       execute_linter_cmd(cmd, output_file, linter['name'], linter['error_code'])
     rescue LinterError => e
-      @logger.error(e.message)
+      @logger.error(e.message, 'LinterError')
     rescue Errno::ENOENT => e
       @logger.info("Dependency Error: #{quality_tool} not installed or not configured correctly...")
-      @logger.error(e.message)
+      @logger.error(e.message, 'Errno::ENOENT')
     end
   end
 
   def lint_command(linter, output_file, directory = nil)
     directory = @git_dir if directory.nil?
     linter['quality_command'].gsub('git_dir', directory)
-      .gsub('file_name', output_file)
-      .gsub('proj_filename', '')
+                             .gsub('file_name', output_file)
+                             .gsub('proj_filename', '')
   end
 
   def execute_linter_cmd(cmd, file_name, linter_name, error_code)
     result = ''
     error_code = -1 if error_code.nil? || error_code.to_s.empty?
-    thread_status = Open3.popen2e("#{cmd}") do |_stdin, stdout_err, wait_thr|
+    thread_status = Open3.popen2e(cmd) do |_stdin, stdout_err, wait_thr|
       result += stdout_err.read
       wait_thr.value
     end
     if thread_status.exitstatus == error_code
       if linter_name.eql?('nsp') && File.read(file_name).eql?("Debug output: undefined\n{}\n")
-        File.read(file_name).include?('Debug output: undefined')
         File.write(file_name, '["Scan failed: Cannot parse package.json - invalid JSON formatting."]')
       else
-        @logger.error("#{linter_name} - linter failed.")
         File.write(file_name, "#{result} - failtorundocker")
-        fail LinterError, result
+        fail LinterError, "#{linter_name}\n#{result}"
       end
     else
       fill_empty_file(linter_name, file_name) if File.read(file_name).strip.empty?

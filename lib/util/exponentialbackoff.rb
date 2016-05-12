@@ -40,7 +40,6 @@ class ExponentialBackoff
         return v[:rescuable]
       end
     end
-    throw e
-    false
+    raise e
   end
 end

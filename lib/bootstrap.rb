@@ -12,7 +12,6 @@ require 'parallel'
 require 'thread'
 require 'digest'
 require 'shellwords'
-$HTTP_MUTEX = Mutex.new
 Figaro::Application.new(path: 'application.yml').load
 require_relative 'util/exponentialbackoff'
 require_relative 'util/http'
