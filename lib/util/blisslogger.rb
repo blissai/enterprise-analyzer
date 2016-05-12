@@ -1,5 +1,6 @@
 class BlissLogger
   include Common
+  API_ENDPOINT = 'https://app.founderbliss.com/api/gitlog/enterprise_log'.freeze
   def initialize(api_key = nil, repo_key = nil, log_prefix = '')
     @api_key = api_key
     configure_http
@@ -16,9 +17,13 @@ class BlissLogger
     end
   end
 
-  def error(line)
+  def error(line, error = nil)
     print "#{@log_prefix}#{line}\n".red
-    log_to_papertrail("Error: #{line}")
+    if error
+      log_to_bugsnag(line, error)
+    else
+      log_to_papertrail("Error: #{line}")
+    end
   end
 
   def info(line)
@@ -36,8 +41,17 @@ class BlissLogger
     log_to_papertrail("Success: #{line}")
   end
 
+  private
+
   def log_to_papertrail(line)
-    http_post('https://app.founderbliss.com/api/gitlog/enterprise_log',
-              api_key: @api_key, repo_key: @repo_key, message: "#{@log_prefix}#{line.gsub!(/\t/, '')}")
+    http_post(API_ENDPOINT, log_params(line))
+  end
+
+  def log_to_bugsnag(line, error)
+    http_post(API_ENDPOINT, log_params(line).merge(error: error))
+  end
+
+  def log_params(line)
+    { api_key: @api_key, repo_key: @repo_key, message: "#{@log_prefix}#{line.gsub!(/\t/, '')}" }
   end
 end

@@ -15,7 +15,14 @@ config = {
 @org_name = config['ORG_NAME']
 @api_key = config['API_KEY']
 @host = config['BLISS_HOST']
-configure_http
+
+at_exit do
+  unless $!.nil? || $!.is_a?(SystemExit) && $!.success?
+    logger = BlissLogger.new(@api_key, nil, 'DockerError')
+    logger.error("#{$!.backtrace}\n#{$!.message}", $!.class)
+  end
+end
+
 loop do
   collector_result = CollectorTask.new(config).execute
   ctasks = ConcurrentTasks.new(config)

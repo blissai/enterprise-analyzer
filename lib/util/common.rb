@@ -61,4 +61,12 @@ module Common
       sleep delay
     end
   end
+
+  def extract_repo_key(str)
+    key = /^repo_key\([^\)]*\)/.match(str)
+    return [nil, str] if key.nil?
+    key = key[0].gsub(/repo_key\(/, '').gsub(/\)$/, '')
+    str = str.gsub(/repo_key\([^\)]*\)/, '')
+    [key, str]
+  end
 end
