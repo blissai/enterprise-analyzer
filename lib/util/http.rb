@@ -77,7 +77,7 @@ module Http
       Mechanize::UnauthorizedError => {
         rescuable: false,
         action: proc do
-          puts 'Your API key is not valid.'.red
+          abort 'Your API key is not valid.'
         end
       },
       JSON::ParserError => {
