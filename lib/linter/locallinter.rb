@@ -9,7 +9,7 @@ class LocalLinter
     @linter = YAML.load_file(@linter_config_path)
     @scrubber = SourceScrubber.new
     if @repo_key
-      @status = Status.new(@repo_key, @commit, @linter['quality_tool'])
+      @status = Status.new(@repo_key, @commit, @linter['quality_tool'], nil)
       @status.run
     end
   end

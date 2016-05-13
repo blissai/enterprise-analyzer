@@ -7,7 +7,7 @@ class LocalStats
     @output_file = '/result.txt'
     init_params(params)
     if @repo_key
-      @status = Status.new(@repo_key, @commit)
+      @status = Status.new(@repo_key, @commit, nil, nil)
       @status.run
     end
     check_args
