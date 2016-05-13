@@ -2,27 +2,34 @@ class LocalStats
   include Gitbase
   include Stats
 
-  def initialize(git_dir, commit, log_prefix,
-                 excluded_dirs, repo_test_files, repo_test_dirs, repo_excluded_exts,
-                 remove_open_source = true)
+  def initialize(params)
     @logger = BlissLogger.new
-    @commit = commit
-    @git_dir = git_dir.nil? ? '/repository' : File.expand_path(git_dir)
     @output_file = '/result.txt'
-    @name = log_prefix
-    @excluded_dirs = excluded_dirs.split(',') rescue []
-    @repo_test_files = repo_test_files.split(',') rescue %w(test)
-    @repo_test_dirs = repo_test_dirs.split(',') rescue %w(test spec)
-    @repo_excluded_exts = repo_excluded_exts.split(',') rescue []
-    @api_key = nil
-    @repo_key = nil
-    @repo = { 'detect_open_source' => remove_open_source }
-
+    init_params(params)
+    if @repo_key
+      @status = Status.new(@repo_key, @commit)
+      @status.run
+    end
     check_args
   end
 
   def execute
     File.write(@output_file, execute_stats_cmd(@commit).to_json)
+  end
+
+  private
+
+  def init_params(params)
+    @commit = params[:commit]
+    @git_dir = params[:git_dir]
+    @name = params[:log_prefix]
+    @excluded_dirs = params[:excluded_dirs]
+    @repo_test_files = params[:repo_test_files]
+    @repo_test_dirs = params[:repo_test_dirs]
+    @repo_excluded_exts = params[:excluded_exts]
+    @repo = { 'detect_open_source' => params[:remove_open_source] }
+    @repo_key = params[:repo_key]
+    @api_key = nil
   end
 
   def check_args

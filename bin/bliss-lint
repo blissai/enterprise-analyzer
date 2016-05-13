@@ -8,7 +8,7 @@ dir = arg('dir')
 git_dir = dir.nil? ? '/repository' : File.expand_path(dir)
 linter_file = arg('linter_file')
 linter_config_path = linter_file.nil? ? '/linter.yml' : File.expand_path(linter_file)
-excluded_dirs = arg('excluded_dirs').split(',') rescue []
+excluded_dirs = array_arg('excluded_dirs', [])
 remove_os = arg('remove_open_source') == 'true'
 params = {
   git_dir: git_dir,

@@ -4,8 +4,23 @@ require_relative '../lib/bootstrap'
 require_relative '../lib/onexit'
 include Cmd
 @args = ARGV
-stats = LocalStats.new(arg('dir'), arg('commit'), arg('log'), arg('excluded_dirs'),
-                       arg('repo_test_files'), arg('repo_test_dirs'),
-                       arg('excluded_exts'),
-                       arg('remove_open_source') == 'true')
+dir = arg('dir')
+git_dir = dir.nil? ? '/repository' : File.expand_path(dir)
+excluded_dirs = array_arg('excluded_dirs', [])
+repo_test_files = array_arg('repo_test_files', %w(test))
+repo_test_dirs = array_arg('repo_test_dirs', %w(test spec))
+repo_excluded_exts = array_arg('excluded_exts', [])
+remove_os = arg('remove_open_source') == 'true'
+params = {
+  git_dir: git_dir,
+  commit: arg('commit'),
+  log_prefix: arg('log'),
+  excluded_dirs: excluded_dirs,
+  repo_test_files: repo_test_files,
+  repo_test_dirs: repo_test_dirs,
+  excluded_exts: repo_excluded_exts,
+  repo_key: arg('repo_key'),
+  remove_open_source: remove_os
+}
+stats = LocalStats.new(params)
 stats.execute

@@ -4,7 +4,7 @@ class LocalLinter
   include Linter
 
   def initialize(params)
-    setup_vars(params)
+    init_params(params)
     check_args
     @linter = YAML.load_file(@linter_config_path)
     @scrubber = SourceScrubber.new
@@ -14,7 +14,7 @@ class LocalLinter
     end
   end
 
-  def setup_vars(params)
+  def init_params(params)
     @logger = BlissLogger.new(nil, nil, params[:log_prefix])
     @git_dir = params[:git_dir]
     @linter_config_path = params[:linter_config_path]
