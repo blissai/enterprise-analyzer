@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 $LOAD_PATH << 'lib'
 require_relative 'lib/bootstrap'
-require_relative 'lib/onexit'
 include Common
 include Daemon
 
@@ -18,9 +17,10 @@ config = {
 @host = config['BLISS_HOST']
 
 at_exit do
-  unless $!.nil? || $!.is_a?(SystemExit) && $!.success?
-    logger = BlissLogger.new(@api_key, nil, 'DockerError')
-    logger.error("#{$!.backtrace}\n#{$!.message}", $!.class)
+  err = $!
+  unless err.nil? || err.is_a?(SystemExit) && err.success?
+    logger = BlissLogger.new(@api_key, nil, 'DockerEnterpriseError')
+    logger.error("#{err.backtrace}\n#{err.message}", err.class)
   end
 end
 

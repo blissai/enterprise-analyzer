@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 $LOAD_PATH << '../lib'
 require_relative '../lib/bootstrap'
-require_relative '../lib/onexit'
 include Cmd
 @args = ARGV
 dir = arg('dir')
@@ -11,6 +10,7 @@ repo_test_files = array_arg('repo_test_files', %w(test))
 repo_test_dirs = array_arg('repo_test_dirs', %w(test spec))
 repo_excluded_exts = array_arg('excluded_exts', [])
 remove_os = arg('remove_open_source') == 'true'
+repo_key = arg('repo_key')
 params = {
   git_dir: git_dir,
   commit: arg('commit'),
@@ -19,8 +19,17 @@ params = {
   repo_test_files: repo_test_files,
   repo_test_dirs: repo_test_dirs,
   excluded_exts: repo_excluded_exts,
-  repo_key: arg('repo_key'),
+  repo_key: repo_key,
   remove_open_source: remove_os
 }
+
+at_exit do
+  err = $!
+  unless err.nil? || err.is_a?(SystemExit) && err.success?
+    logger = BlissLogger.new(nil, repo_key, 'DockerStatsError')
+    logger.error("#{err.backtrace}\n#{err.message}", err.class)
+  end
+end
+
 stats = LocalStats.new(params)
 stats.execute
