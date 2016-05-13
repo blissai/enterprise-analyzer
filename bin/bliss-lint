@@ -10,14 +10,22 @@ linter_file = arg('linter_file')
 linter_config_path = linter_file.nil? ? '/linter.yml' : File.expand_path(linter_file)
 excluded_dirs = array_arg('excluded_dirs', [])
 remove_os = arg('remove_open_source') == 'true'
+repo_key = arg('repo_key')
 params = {
   git_dir: git_dir,
   commit: arg('commit'),
   log_prefix: arg('log'),
   linter_config_path: linter_config_path,
   excluded_dirs: excluded_dirs,
-  repo_key: arg('repo_key'),
+  repo_key: repo_key,
   remove_open_source: remove_os
 }
+at_exit do
+  err = $!
+  unless err.nil? || err.is_a?(SystemExit) && err.success?
+    logger = BlissLogger.new(nil, repo_key, 'DockerError')
+    logger.error("#{err.backtrace}\n#{err.message}", err.class)
+  end
+end
 linter = LocalLinter.new(params)
 linter.execute

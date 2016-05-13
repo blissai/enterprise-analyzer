@@ -18,9 +18,10 @@ config = {
 @host = config['BLISS_HOST']
 
 at_exit do
-  unless $!.nil? || $!.is_a?(SystemExit) && $!.success?
+  err = $!
+  unless err.nil? || err.is_a?(SystemExit) && err.success?
     logger = BlissLogger.new(@api_key, nil, 'DockerError')
-    logger.error("#{$!.backtrace}\n#{$!.message}", $!.class)
+    logger.error("#{err.backtrace}\n#{err.message}", err.class)
   end
 end
 
