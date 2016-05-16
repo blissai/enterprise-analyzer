@@ -11,7 +11,7 @@ module Linter
       @logger.error(e.message)
       @logger.bugsnag(e)
     rescue Errno::ENOENT => e
-      @logger.error("Dependency Error: #{quality_tool} not installed or not configured correctly..."
+      @logger.error("Dependency Error: #{quality_tool} not installed or not configured correctly...")
       @logger.bugsnag(e)
     end
   end
