@@ -8,10 +8,12 @@ module Linter
     begin
       execute_linter_cmd(cmd, output_file, linter['name'], linter['error_code'])
     rescue LinterError => e
-      @logger.error(e.message, 'LinterError')
+      @logger.error(e.message)
+      @logger.bugsnag(e)
     rescue Errno::ENOENT => e
       @logger.info("Dependency Error: #{quality_tool} not installed or not configured correctly...")
-      @logger.error(e.message, 'Errno::ENOENT')
+      @logger.error(e.message)
+      @logger.bugsnag(e)
     end
   end
 

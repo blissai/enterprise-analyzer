@@ -20,7 +20,7 @@ at_exit do
   err = $!
   unless err.nil? || err.is_a?(SystemExit) && err.success?
     logger = BlissLogger.new(@api_key, nil, 'DockerEnterpriseError')
-    logger.error("#{err.backtrace}\n#{err.message}", err.class)
+    logger.bugsnag(err)
   end
 end
 
