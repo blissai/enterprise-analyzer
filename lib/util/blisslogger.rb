@@ -52,7 +52,7 @@ class BlissLogger
   def log_to_bugsnag(error)
     n = Bugsnag::Notification.new(error, Bugsnag::Configuration.new)
     payload = n.build_exception_payload
-    http_post(BUGSNAG_API_ENDPOINT, log_params(line).merge(error: payload), true)
+    http_post(BUGSNAG_API_ENDPOINT, log_params('Bugsnag Error').merge(error: payload), true)
   end
 
   def log_params(line)
