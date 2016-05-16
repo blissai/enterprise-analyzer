@@ -31,11 +31,11 @@ RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E03
     && make \
     && make install
 
-# Install ruby 2.3.0
+# Install ruby 2.3.1
 RUN cd /tmp && \
-    wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.0.tar.bz2 && \
-    tar -xvjf /tmp/ruby-2.3.0.tar.bz2 && \
-    cd /tmp/ruby-2.3.0 && \
+    wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.1.tar.bz2 && \
+    tar -xvjf /tmp/ruby-2.3.1.tar.bz2 && \
+    cd /tmp/ruby-2.3.1 && \
     ./configure && \
     make && \
     make install && \
