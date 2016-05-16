@@ -32,8 +32,7 @@ RUN git clone https://github.com/terryyin/lizard.git ~/lizard && \
 RUN curl -fsSL https://s3.amazonaws.com/bliss-cli-dependencies/tailor-install.sh | sh
 
 # Install gometalinter
-# RUN go get github.com/alecthomas/gometalinter
-RUN go get github.com/founderbliss/gometalinter
+RUN go get github.com/alecthomas/gometalinter
 RUN gometalinter --install --update
 
 # Install SonarLint for .NET
