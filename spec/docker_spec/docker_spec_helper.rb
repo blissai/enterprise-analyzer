@@ -281,7 +281,7 @@ module DockerSpecHelper
       linter: "#{@dckr}/linters/eslint-airbnb.yml",
       result: "#{@dckr}/results/eslint-airbnb_result.txt",
       expected: "#{@dckr}/expected_results/eslint-airbnb_result.txt",
-      match: ' Warning - '
+      match: "\n"
     }.merge(@js_repo)
 
     @jshint = {

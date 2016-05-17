@@ -1,3 +1,4 @@
+<--LintFilePartition-->
 /repository/client/components/lists/categories.js: line 4, col 18, Error - Missing trailing comma. (comma-dangle)
 /repository/client/components/lists/categories.js: line 8, col 21, Error - Missing trailing comma. (comma-dangle)
 /repository/client/components/lists/categories.js: line 12, col 16, Error - Missing trailing comma. (comma-dangle)
@@ -392,6 +393,9 @@
 /repository/client/lib/foursquareAPI.js: line 12, col 1, Error - Block must not be padded by blank lines. (padded-blocks)
 /repository/client/lib/foursquareAPI.js: line 12, col 2, Error - Newline required at end of file but not found. (eol-last)
 /repository/config.js: line 1, col 1, Error - Unexpected var, use let or const instead. (no-var)
+/repository/Gruntfile.js: line 1, col 18, Warning - Missing function expression name. (func-names)
+/repository/Gruntfile.js: line 1, col 26, Error - Missing space before function parentheses. (space-before-function-paren)
+/repository/Gruntfile.js: line 1, col 27, Error - 'grunt' is defined but never used (no-unused-vars)
 /repository/server/config/middleware.js: line 1, col 1, Error - Unexpected var, use let or const instead. (no-var)
 /repository/server/config/middleware.js: line 2, col 1, Error - Unexpected var, use let or const instead. (no-var)
 /repository/server/config/middleware.js: line 2, col 22, Error - Unable to resolve path to module 'morgan'. (import/no-unresolved)
@@ -975,4 +979,4 @@
 /repository/webpack.config.js: line 31, col 33, Error - Missing trailing comma. (comma-dangle)
 /repository/webpack.config.js: line 32, col 4, Error - Missing trailing comma. (comma-dangle)
 
-976 problems
+979 problems
