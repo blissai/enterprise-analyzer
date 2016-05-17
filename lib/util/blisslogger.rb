@@ -1,6 +1,7 @@
 class BlissLogger
   include Common
-  API_ENDPOINT = 'https://app.founderbliss.com/api/gitlog/enterprise_log'.freeze
+  LOG_API_ENDPOINT = 'https://app.founderbliss.com/api/gitlog/enterprise_log'.freeze
+  BUGSNAG_API_ENDPOINT = 'https://app.founderbliss.com/api/gitlog/bugsnag'.freeze
   def initialize(api_key = nil, repo_key = nil, log_prefix = '')
     @api_key = api_key
     configure_http
@@ -17,13 +18,9 @@ class BlissLogger
     end
   end
 
-  def error(line, error = nil)
+  def error(line)
     print "#{@log_prefix}#{line}\n".red
-    if error
-      log_to_bugsnag(line, error)
-    else
-      log_to_papertrail("Error: #{line}")
-    end
+    log_to_papertrail("Error: #{line}")
   end
 
   def info(line)
@@ -41,14 +38,20 @@ class BlissLogger
     log_to_papertrail("Success: #{line}")
   end
 
+  def bugsnag(e)
+    log_to_bugsnag(e)
+  end
+
   private
 
   def log_to_papertrail(line)
-    http_post(API_ENDPOINT, log_params(line))
+    http_post(LOG_API_ENDPOINT, log_params(line))
   end
 
-  def log_to_bugsnag(line, error)
-    http_post(API_ENDPOINT, log_params(line).merge(error: error))
+  def log_to_bugsnag(error)
+    n = Bugsnag::Notification.new(error, Bugsnag::Configuration.new)
+    payload = n.build_exception_payload
+    http_post(BUGSNAG_API_ENDPOINT, log_params('Bugsnag Error').merge(error: payload), true)
   end
 
   def log_params(line)

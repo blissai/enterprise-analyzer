@@ -11,6 +11,7 @@ gem 'simplecov'
 gem 'figaro'
 gem 'scss_lint'
 gem 'parallel'
+gem 'bugsnag'
 group :test do
   gem 'rspec-core'
   gem 'rspec-expectations'
