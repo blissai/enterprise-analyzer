@@ -85,6 +85,11 @@ RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
     expect(expected_result?(@eslint)).to eq(true)
   end
 
+  it 'can run eslint airbnb over a js project' do
+    puts `#{bliss_lint_cmd(@eslint_airbnb)}`
+    expect(expected_result?(@eslint_airbnb)).to eq(true)
+  end
+
   it 'can run jshint over a js project' do
     puts `#{bliss_lint_cmd(@jshint)}`
     expect(expected_result?(@jshint)).to eq(true)

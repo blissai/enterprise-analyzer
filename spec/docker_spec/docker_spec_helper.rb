@@ -277,6 +277,13 @@ module DockerSpecHelper
       match: ' Warning - '
     }.merge(@js_repo)
 
+    @eslint_airbnb = {
+      linter: "#{@dckr}/linters/eslint-airbnb.yml",
+      result: "#{@dckr}/results/eslint-airbnb_result.txt",
+      expected: "#{@dckr}/expected_results/eslint-airbnb_result.txt",
+      match: ' Warning - '
+    }.merge(@js_repo)
+
     @jshint = {
       linter: "#{@dckr}/linters/jshint.yml",
       result: "#{@dckr}/results/jshint_result.txt",
