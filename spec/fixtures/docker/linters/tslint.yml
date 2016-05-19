@@ -4,7 +4,7 @@ languages:
 - typescript
 - TypeScript
 output_format: txt
-quality_command: shopt -s globstar && tslint -o file_name git_dir/**/*.ts
+quality_command: shopt -s globstar && tslint -c ./tslint.json -o file_name git_dir/**/*.ts
 quality_tool: tslint
 install_command: npm install --save-dev tslint
 operating_system: linux

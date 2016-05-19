@@ -1,7 +1,6 @@
 ---
 name: eslint
-quality_command: rm git_dir/package.json;rm git_dir/.eslint*;eslint -c ./.eslintrc
-  --format ./eslintformatter.js git_dir > file_name
+quality_command: rm git_dir/package.json;rm git_dir/.eslint*;eslint -c ./.eslintrc --format ./eslintformatter.js git_dir > file_name
 quality_tool: eslint
 output_format: text
 languages:
