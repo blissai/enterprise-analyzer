@@ -1,10 +1,46 @@
 <--LintFilePartition-->
+/repository/cli/definitions/backslash.d.ts[5, 2]: file should end with a newline
+/repository/cli/definitions/backslash.d.ts[1, 16]: " should be '
+/repository/cli/definitions/cli.ts[181, 2]: file should end with a newline
+/repository/cli/definitions/recursive-fs.d.ts[17, 2]: file should end with a newline
+/repository/cli/definitions/recursive-fs.d.ts[1, 16]: " should be '
+/repository/cli/definitions/slash.d.ts[5, 2]: file should end with a newline
+/repository/cli/definitions/slash.d.ts[1, 16]: " should be '
+/repository/cli/definitions/wordwrap.d.ts[4, 2]: file should end with a newline
 /repository/cli/definitions/wordwrap.d.ts[2, 1]: space indentation expected
 /repository/cli/definitions/wordwrap.d.ts[3, 1]: space indentation expected
+/repository/cli/definitions/wordwrap.d.ts[1, 16]: " should be '
+/repository/cli/script/cli.ts[3, 25]: " should be '
+/repository/cli/script/cli.ts[4, 25]: " should be '
+/repository/cli/script/cli.ts[5, 25]: " should be '
+/repository/cli/script/cli.ts[6, 24]: " should be '
+/repository/cli/script/cli.ts[16, 37]: " should be '
+/repository/cli/script/command-executor.ts[93, 17]: if statements must be braced
+/repository/cli/script/command-executor.ts[413, 21]: if statements must be braced
+/repository/cli/script/command-executor.ts[1317, 2]: file should end with a newline
+/repository/cli/script/command-executor.ts[41, 11]: interface name must start with a capitalized I
+/repository/cli/script/command-executor.ts[61, 18]: interface name must start with a capitalized I
+/repository/cli/script/command-executor.ts[65, 18]: interface name must start with a capitalized I
 /repository/cli/script/command-executor.ts[32, 5]: duplicate variable: 'progress'
+/repository/cli/script/command-executor.ts[35, 27]: LHS type (string) inferred by RHS expression, remove type annotation
+/repository/cli/script/command-executor.ts[39, 31]: LHS type (string) inferred by RHS expression, remove type annotation
+/repository/cli/script/command-executor.ts[293, 80]: LHS type (boolean) inferred by RHS expression, remove type annotation
+/repository/cli/script/command-executor.ts[524, 19]: LHS type (string) inferred by RHS expression, remove type annotation
+/repository/cli/script/command-executor.ts[525, 20]: LHS type (string) inferred by RHS expression, remove type annotation
+/repository/cli/script/command-executor.ts[549, 14]: LHS type (string) inferred by RHS expression, remove type annotation
+/repository/cli/script/command-executor.ts[666, 107]: LHS type (boolean) inferred by RHS expression, remove type annotation
+/repository/cli/script/command-executor.ts[868, 35]: LHS type (string) inferred by RHS expression, remove type annotation
+/repository/cli/script/command-executor.ts[970, 30]: LHS type (boolean) inferred by RHS expression, remove type annotation
+/repository/cli/script/command-executor.ts[882, 67]: object access via string literals is disallowed
+/repository/cli/script/command-executor.ts[1100, 47]: object access via string literals is disallowed
 /repository/cli/script/command-executor.ts[507, 1]: trailing whitespace
 /repository/cli/script/command-executor.ts[875, 1]: trailing whitespace
 /repository/cli/script/command-executor.ts[1128, 1]: trailing whitespace
+/repository/cli/script/command-executor.ts[144, 20]: variable 'deploymentList' used before declaration
+/repository/cli/script/command-executor.ts[494, 28]: variable 'release' used before declaration
+/repository/cli/script/command-executor.ts[497, 28]: variable 'releaseCordova' used before declaration
+/repository/cli/script/command-executor.ts[500, 28]: variable 'releaseReact' used before declaration
+/repository/cli/script/command-executor.ts[1179, 21]: variable 'runReactNativeBundleCommand' used before declaration
 /repository/cli/script/command-executor.ts[6, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/cli/script/command-executor.ts[8, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/cli/script/command-executor.ts[10, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
@@ -112,6 +148,298 @@
 /repository/cli/script/command-executor.ts[1244, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/cli/script/command-executor.ts[1267, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/cli/script/command-executor.ts[1272, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-executor.ts[140, 17]: The key 'appName' is not sorted alphabetically
+/repository/cli/script/command-executor.ts[946, 9]: The key 'isDisabled' is not sorted alphabetically
+/repository/cli/script/command-executor.ts[1020, 9]: The key 'total' is not sorted alphabetically
+/repository/cli/script/command-executor.ts[3, 33]: " should be '
+/repository/cli/script/command-executor.ts[4, 25]: " should be '
+/repository/cli/script/command-executor.ts[5, 24]: " should be '
+/repository/cli/script/command-executor.ts[6, 28]: " should be '
+/repository/cli/script/command-executor.ts[7, 21]: " should be '
+/repository/cli/script/command-executor.ts[8, 20]: " should be '
+/repository/cli/script/command-executor.ts[9, 25]: " should be '
+/repository/cli/script/command-executor.ts[10, 22]: " should be '
+/repository/cli/script/command-executor.ts[11, 21]: " should be '
+/repository/cli/script/command-executor.ts[12, 23]: " should be '
+/repository/cli/script/command-executor.ts[13, 21]: " should be '
+/repository/cli/script/command-executor.ts[14, 24]: " should be '
+/repository/cli/script/command-executor.ts[15, 22]: " should be '
+/repository/cli/script/command-executor.ts[16, 20]: " should be '
+/repository/cli/script/command-executor.ts[17, 30]: " should be '
+/repository/cli/script/command-executor.ts[18, 22]: " should be '
+/repository/cli/script/command-executor.ts[19, 25]: " should be '
+/repository/cli/script/command-executor.ts[20, 24]: " should be '
+/repository/cli/script/command-executor.ts[21, 21]: " should be '
+/repository/cli/script/command-executor.ts[22, 23]: " should be '
+/repository/cli/script/command-executor.ts[23, 27]: " should be '
+/repository/cli/script/command-executor.ts[25, 22]: " should be '
+/repository/cli/script/command-executor.ts[26, 159]: " should be '
+/repository/cli/script/command-executor.ts[28, 86]: " should be '
+/repository/cli/script/command-executor.ts[29, 30]: " should be '
+/repository/cli/script/command-executor.ts[30, 27]: " should be '
+/repository/cli/script/command-executor.ts[31, 36]: " should be '
+/repository/cli/script/command-executor.ts[32, 24]: " should be '
+/repository/cli/script/command-executor.ts[35, 36]: " should be '
+/repository/cli/script/command-executor.ts[37, 5]: " should be '
+/repository/cli/script/command-executor.ts[39, 40]: " should be '
+/repository/cli/script/command-executor.ts[78, 26]: " should be '
+/repository/cli/script/command-executor.ts[79, 28]: " should be '
+/repository/cli/script/command-executor.ts[86, 45]: " should be '
+/repository/cli/script/command-executor.ts[90, 57]: " should be '
+/repository/cli/script/command-executor.ts[90, 83]: " should be '
+/repository/cli/script/command-executor.ts[93, 41]: " should be '
+/repository/cli/script/command-executor.ts[93, 58]: " should be '
+/repository/cli/script/command-executor.ts[93, 101]: " should be '
+/repository/cli/script/command-executor.ts[103, 17]: " should be '
+/repository/cli/script/command-executor.ts[103, 83]: " should be '
+/repository/cli/script/command-executor.ts[103, 113]: " should be '
+/repository/cli/script/command-executor.ts[103, 121]: " should be '
+/repository/cli/script/command-executor.ts[103, 127]: " should be '
+/repository/cli/script/command-executor.ts[118, 25]: " should be '
+/repository/cli/script/command-executor.ts[125, 33]: " should be '
+/repository/cli/script/command-executor.ts[125, 85]: " should be '
+/repository/cli/script/command-executor.ts[129, 21]: " should be '
+/repository/cli/script/command-executor.ts[137, 17]: " should be '
+/repository/cli/script/command-executor.ts[137, 65]: " should be '
+/repository/cli/script/command-executor.ts[141, 25]: " should be '
+/repository/cli/script/command-executor.ts[179, 29]: " should be '
+/repository/cli/script/command-executor.ts[179, 79]: " should be '
+/repository/cli/script/command-executor.ts[183, 17]: " should be '
+/repository/cli/script/command-executor.ts[190, 17]: " should be '
+/repository/cli/script/command-executor.ts[190, 74]: " should be '
+/repository/cli/script/command-executor.ts[190, 112]: " should be '
+/repository/cli/script/command-executor.ts[209, 29]: " should be '
+/repository/cli/script/command-executor.ts[209, 100]: " should be '
+/repository/cli/script/command-executor.ts[209, 152]: " should be '
+/repository/cli/script/command-executor.ts[213, 17]: " should be '
+/repository/cli/script/command-executor.ts[222, 17]: " should be '
+/repository/cli/script/command-executor.ts[222, 59]: " should be '
+/repository/cli/script/command-executor.ts[222, 116]: " should be '
+/repository/cli/script/command-executor.ts[243, 29]: " should be '
+/repository/cli/script/command-executor.ts[243, 73]: " should be '
+/repository/cli/script/command-executor.ts[243, 132]: " should be '
+/repository/cli/script/command-executor.ts[247, 17]: " should be '
+/repository/cli/script/command-executor.ts[275, 17]: " should be '
+/repository/cli/script/command-executor.ts[275, 72]: " should be '
+/repository/cli/script/command-executor.ts[275, 119]: " should be '
+/repository/cli/script/command-executor.ts[275, 154]: " should be '
+/repository/cli/script/command-executor.ts[285, 29]: " should be '
+/repository/cli/script/command-executor.ts[285, 122]: " should be '
+/repository/cli/script/command-executor.ts[285, 170]: " should be '
+/repository/cli/script/command-executor.ts[289, 17]: " should be '
+/repository/cli/script/command-executor.ts[335, 29]: " should be '
+/repository/cli/script/command-executor.ts[335, 86]: " should be '
+/repository/cli/script/command-executor.ts[335, 134]: " should be '
+/repository/cli/script/command-executor.ts[339, 17]: " should be '
+/repository/cli/script/command-executor.ts[346, 17]: " should be '
+/repository/cli/script/command-executor.ts[346, 81]: " should be '
+/repository/cli/script/command-executor.ts[346, 133]: " should be '
+/repository/cli/script/command-executor.ts[346, 169]: " should be '
+/repository/cli/script/command-executor.ts[377, 83]: " should be '
+/repository/cli/script/command-executor.ts[403, 41]: " should be '
+/repository/cli/script/command-executor.ts[416, 41]: " should be '
+/repository/cli/script/command-executor.ts[510, 37]: " should be '
+/repository/cli/script/command-executor.ts[524, 28]: " should be '
+/repository/cli/script/command-executor.ts[525, 29]: " should be '
+/repository/cli/script/command-executor.ts[545, 52]: " should be '
+/repository/cli/script/command-executor.ts[545, 65]: " should be '
+/repository/cli/script/command-executor.ts[554, 41]: " should be '
+/repository/cli/script/command-executor.ts[567, 37]: " should be '
+/repository/cli/script/command-executor.ts[571, 48]: " should be '
+/repository/cli/script/command-executor.ts[577, 9]: " should be '
+/repository/cli/script/command-executor.ts[593, 41]: " should be '
+/repository/cli/script/command-executor.ts[618, 24]: " should be '
+/repository/cli/script/command-executor.ts[621, 28]: " should be '
+/repository/cli/script/command-executor.ts[623, 28]: " should be '
+/repository/cli/script/command-executor.ts[628, 20]: " should be '
+/repository/cli/script/command-executor.ts[636, 27]: " should be '
+/repository/cli/script/command-executor.ts[637, 24]: " should be '
+/repository/cli/script/command-executor.ts[637, 32]: " should be '
+/repository/cli/script/command-executor.ts[640, 79]: " should be '
+/repository/cli/script/command-executor.ts[648, 111]: " should be '
+/repository/cli/script/command-executor.ts[652, 20]: " should be '
+/repository/cli/script/command-executor.ts[653, 28]: " should be '
+/repository/cli/script/command-executor.ts[655, 27]: " should be '
+/repository/cli/script/command-executor.ts[656, 24]: " should be '
+/repository/cli/script/command-executor.ts[667, 28]: " should be '
+/repository/cli/script/command-executor.ts[669, 35]: " should be '
+/repository/cli/script/command-executor.ts[670, 24]: " should be '
+/repository/cli/script/command-executor.ts[672, 26]: " should be '
+/repository/cli/script/command-executor.ts[676, 26]: " should be '
+/repository/cli/script/command-executor.ts[677, 26]: " should be '
+/repository/cli/script/command-executor.ts[699, 28]: " should be '
+/repository/cli/script/command-executor.ts[701, 35]: " should be '
+/repository/cli/script/command-executor.ts[702, 24]: " should be '
+/repository/cli/script/command-executor.ts[702, 33]: " should be '
+/repository/cli/script/command-executor.ts[702, 49]: " should be '
+/repository/cli/script/command-executor.ts[702, 64]: " should be '
+/repository/cli/script/command-executor.ts[704, 26]: " should be '
+/repository/cli/script/command-executor.ts[707, 22]: " should be '
+/repository/cli/script/command-executor.ts[707, 37]: " should be '
+/repository/cli/script/command-executor.ts[713, 53]: " should be '
+/repository/cli/script/command-executor.ts[715, 60]: " should be '
+/repository/cli/script/command-executor.ts[717, 45]: " should be '
+/repository/cli/script/command-executor.ts[722, 36]: " should be '
+/repository/cli/script/command-executor.ts[725, 126]: " should be '
+/repository/cli/script/command-executor.ts[725, 134]: " should be '
+/repository/cli/script/command-executor.ts[727, 100]: " should be '
+/repository/cli/script/command-executor.ts[729, 38]: " should be '
+/repository/cli/script/command-executor.ts[735, 96]: " should be '
+/repository/cli/script/command-executor.ts[736, 112]: " should be '
+/repository/cli/script/command-executor.ts[736, 133]: " should be '
+/repository/cli/script/command-executor.ts[752, 16]: " should be '
+/repository/cli/script/command-executor.ts[754, 15]: " should be '
+/repository/cli/script/command-executor.ts[759, 30]: " should be '
+/repository/cli/script/command-executor.ts[762, 45]: " should be '
+/repository/cli/script/command-executor.ts[762, 80]: " should be '
+/repository/cli/script/command-executor.ts[763, 21]: " should be '
+/repository/cli/script/command-executor.ts[763, 67]: " should be '
+/repository/cli/script/command-executor.ts[764, 21]: " should be '
+/repository/cli/script/command-executor.ts[764, 67]: " should be '
+/repository/cli/script/command-executor.ts[764, 75]: " should be '
+/repository/cli/script/command-executor.ts[764, 83]: " should be '
+/repository/cli/script/command-executor.ts[765, 21]: " should be '
+/repository/cli/script/command-executor.ts[765, 80]: " should be '
+/repository/cli/script/command-executor.ts[766, 21]: " should be '
+/repository/cli/script/command-executor.ts[766, 95]: " should be '
+/repository/cli/script/command-executor.ts[767, 51]: " should be '
+/repository/cli/script/command-executor.ts[767, 70]: " should be '
+/repository/cli/script/command-executor.ts[767, 118]: " should be '
+/repository/cli/script/command-executor.ts[770, 43]: " should be '
+/repository/cli/script/command-executor.ts[778, 96]: " should be '
+/repository/cli/script/command-executor.ts[778, 145]: " should be '
+/repository/cli/script/command-executor.ts[781, 30]: " should be '
+/repository/cli/script/command-executor.ts[781, 85]: " should be '
+/repository/cli/script/command-executor.ts[789, 25]: " should be '
+/repository/cli/script/command-executor.ts[791, 25]: " should be '
+/repository/cli/script/command-executor.ts[793, 56]: " should be '
+/repository/cli/script/command-executor.ts[797, 44]: " should be '
+/repository/cli/script/command-executor.ts[797, 74]: " should be '
+/repository/cli/script/command-executor.ts[797, 129]: " should be '
+/repository/cli/script/command-executor.ts[797, 191]: " should be '
+/repository/cli/script/command-executor.ts[798, 21]: " should be '
+/repository/cli/script/command-executor.ts[801, 25]: " should be '
+/repository/cli/script/command-executor.ts[801, 62]: " should be '
+/repository/cli/script/command-executor.ts[805, 25]: " should be '
+/repository/cli/script/command-executor.ts[805, 44]: " should be '
+/repository/cli/script/command-executor.ts[805, 119]: " should be '
+/repository/cli/script/command-executor.ts[817, 22]: " should be '
+/repository/cli/script/command-executor.ts[819, 63]: " should be '
+/repository/cli/script/command-executor.ts[820, 98]: " should be '
+/repository/cli/script/command-executor.ts[823, 45]: " should be '
+/repository/cli/script/command-executor.ts[824, 90]: " should be '
+/repository/cli/script/command-executor.ts[845, 29]: " should be '
+/repository/cli/script/command-executor.ts[846, 49]: " should be '
+/repository/cli/script/command-executor.ts[846, 60]: " should be '
+/repository/cli/script/command-executor.ts[846, 67]: " should be '
+/repository/cli/script/command-executor.ts[848, 29]: " should be '
+/repository/cli/script/command-executor.ts[853, 33]: " should be '
+/repository/cli/script/command-executor.ts[857, 106]: " should be '
+/repository/cli/script/command-executor.ts[861, 41]: " should be '
+/repository/cli/script/command-executor.ts[864, 37]: " should be '
+/repository/cli/script/command-executor.ts[868, 44]: " should be '
+/repository/cli/script/command-executor.ts[870, 66]: " should be '
+/repository/cli/script/command-executor.ts[871, 104]: " should be '
+/repository/cli/script/command-executor.ts[873, 99]: " should be '
+/repository/cli/script/command-executor.ts[882, 67]: " should be '
+/repository/cli/script/command-executor.ts[895, 20]: " should be '
+/repository/cli/script/command-executor.ts[897, 27]: " should be '
+/repository/cli/script/command-executor.ts[898, 21]: " should be '
+/repository/cli/script/command-executor.ts[898, 28]: " should be '
+/repository/cli/script/command-executor.ts[898, 44]: " should be '
+/repository/cli/script/command-executor.ts[898, 60]: " should be '
+/repository/cli/script/command-executor.ts[902, 69]: " should be '
+/repository/cli/script/command-executor.ts[903, 53]: " should be '
+/repository/cli/script/command-executor.ts[904, 57]: " should be '
+/repository/cli/script/command-executor.ts[914, 25]: " should be '
+/repository/cli/script/command-executor.ts[923, 44]: " should be '
+/repository/cli/script/command-executor.ts[937, 17]: " should be '
+/repository/cli/script/command-executor.ts[937, 81]: " should be '
+/repository/cli/script/command-executor.ts[937, 127]: " should be '
+/repository/cli/script/command-executor.ts[937, 177]: " should be '
+/repository/cli/script/command-executor.ts[959, 21]: " should be '
+/repository/cli/script/command-executor.ts[964, 25]: " should be '
+/repository/cli/script/command-executor.ts[984, 69]: " should be '
+/repository/cli/script/command-executor.ts[989, 25]: " should be '
+/repository/cli/script/command-executor.ts[992, 25]: " should be '
+/repository/cli/script/command-executor.ts[1016, 36]: " should be '
+/repository/cli/script/command-executor.ts[1017, 19]: " should be '
+/repository/cli/script/command-executor.ts[1018, 21]: " should be '
+/repository/cli/script/command-executor.ts[1039, 25]: " should be '
+/repository/cli/script/command-executor.ts[1039, 97]: " should be '
+/repository/cli/script/command-executor.ts[1039, 128]: " should be '
+/repository/cli/script/command-executor.ts[1039, 137]: " should be '
+/repository/cli/script/command-executor.ts[1039, 152]: " should be '
+/repository/cli/script/command-executor.ts[1039, 192]: " should be '
+/repository/cli/script/command-executor.ts[1039, 238]: " should be '
+/repository/cli/script/command-executor.ts[1052, 57]: " should be '
+/repository/cli/script/command-executor.ts[1053, 61]: " should be '
+/repository/cli/script/command-executor.ts[1056, 22]: " should be '
+/repository/cli/script/command-executor.ts[1057, 50]: " should be '
+/repository/cli/script/command-executor.ts[1058, 29]: " should be '
+/repository/cli/script/command-executor.ts[1059, 50]: " should be '
+/repository/cli/script/command-executor.ts[1059, 60]: " should be '
+/repository/cli/script/command-executor.ts[1061, 25]: " should be '
+/repository/cli/script/command-executor.ts[1064, 50]: " should be '
+/repository/cli/script/command-executor.ts[1064, 60]: " should be '
+/repository/cli/script/command-executor.ts[1068, 19]: " should be '
+/repository/cli/script/command-executor.ts[1068, 56]: " should be '
+/repository/cli/script/command-executor.ts[1068, 74]: " should be '
+/repository/cli/script/command-executor.ts[1068, 89]: " should be '
+/repository/cli/script/command-executor.ts[1070, 27]: " should be '
+/repository/cli/script/command-executor.ts[1078, 75]: " should be '
+/repository/cli/script/command-executor.ts[1078, 102]: " should be '
+/repository/cli/script/command-executor.ts[1100, 47]: " should be '
+/repository/cli/script/command-executor.ts[1106, 28]: " should be '
+/repository/cli/script/command-executor.ts[1114, 55]: " should be '
+/repository/cli/script/command-executor.ts[1120, 14]: " should be '
+/repository/cli/script/command-executor.ts[1121, 14]: " should be '
+/repository/cli/script/command-executor.ts[1122, 14]: " should be '
+/repository/cli/script/command-executor.ts[1124, 43]: " should be '
+/repository/cli/script/command-executor.ts[1125, 23]: " should be '
+/repository/cli/script/command-executor.ts[1131, 29]: " should be '
+/repository/cli/script/command-executor.ts[1135, 72]: " should be '
+/repository/cli/script/command-executor.ts[1138, 29]: " should be '
+/repository/cli/script/command-executor.ts[1141, 46]: " should be '
+/repository/cli/script/command-executor.ts[1142, 29]: " should be '
+/repository/cli/script/command-executor.ts[1145, 25]: " should be '
+/repository/cli/script/command-executor.ts[1151, 25]: " should be '
+/repository/cli/script/command-executor.ts[1181, 28]: " should be '
+/repository/cli/script/command-executor.ts[1195, 21]: " should be '
+/repository/cli/script/command-executor.ts[1201, 25]: " should be '
+/repository/cli/script/command-executor.ts[1201, 98]: " should be '
+/repository/cli/script/command-executor.ts[1201, 144]: " should be '
+/repository/cli/script/command-executor.ts[1208, 26]: " should be '
+/repository/cli/script/command-executor.ts[1209, 28]: " should be '
+/repository/cli/script/command-executor.ts[1216, 45]: " should be '
+/repository/cli/script/command-executor.ts[1231, 19]: " should be '
+/repository/cli/script/command-executor.ts[1231, 35]: " should be '
+/repository/cli/script/command-executor.ts[1231, 51]: " should be '
+/repository/cli/script/command-executor.ts[1231, 64]: " should be '
+/repository/cli/script/command-executor.ts[1231, 75]: " should be '
+/repository/cli/script/command-executor.ts[1232, 9]: " should be '
+/repository/cli/script/command-executor.ts[1233, 9]: " should be '
+/repository/cli/script/command-executor.ts[1234, 9]: " should be '
+/repository/cli/script/command-executor.ts[1235, 9]: " should be '
+/repository/cli/script/command-executor.ts[1236, 9]: " should be '
+/repository/cli/script/command-executor.ts[1240, 36]: " should be '
+/repository/cli/script/command-executor.ts[1243, 20]: " should be '
+/repository/cli/script/command-executor.ts[1244, 42]: " should be '
+/repository/cli/script/command-executor.ts[1245, 44]: " should be '
+/repository/cli/script/command-executor.ts[1248, 44]: " should be '
+/repository/cli/script/command-executor.ts[1252, 44]: " should be '
+/repository/cli/script/command-executor.ts[1256, 37]: " should be '
+/repository/cli/script/command-executor.ts[1273, 56]: " should be '
+/repository/cli/script/command-executor.ts[1275, 131]: " should be '
+/repository/cli/script/command-executor.ts[1291, 25]: " should be '
+/repository/cli/script/command-executor.ts[1291, 40]: " should be '
+/repository/cli/script/command-executor.ts[1297, 25]: " should be '
+/repository/cli/script/command-executor.ts[1303, 14]: " should be '
+/repository/cli/script/command-executor.ts[1304, 14]: " should be '
+/repository/cli/script/command-executor.ts[1308, 29]: " should be '
+/repository/cli/script/command-executor.ts[1308, 60]: " should be '
+/repository/cli/script/command-executor.ts[1315, 67]: " should be '
+/repository/cli/script/command-executor.ts[716, 47]: missing radix parameter
 /repository/cli/script/command-executor.ts[98, 2]: missing semicolon
 /repository/cli/script/command-executor.ts[286, 23]: missing semicolon
 /repository/cli/script/command-executor.ts[327, 2]: missing semicolon
@@ -121,8 +449,74 @@
 /repository/cli/script/command-executor.ts[1189, 2]: missing semicolon
 /repository/cli/script/command-executor.ts[1195, 43]: missing semicolon
 /repository/cli/script/command-executor.ts[1264, 2]: missing semicolon
+/repository/cli/script/command-executor.ts[37, 49]: missing trailing comma
+/repository/cli/script/command-executor.ts[88, 13]: missing trailing comma
+/repository/cli/script/command-executor.ts[87, 17]: missing trailing comma
+/repository/cli/script/command-executor.ts[86, 67]: missing trailing comma
+/repository/cli/script/command-executor.ts[142, 33]: missing trailing comma
+/repository/cli/script/command-executor.ts[312, 64]: missing trailing comma
+/repository/cli/script/command-executor.ts[356, 73]: missing trailing comma
+/repository/cli/script/command-executor.ts[367, 48]: missing trailing comma
+/repository/cli/script/command-executor.ts[383, 85]: missing trailing comma
+/repository/cli/script/command-executor.ts[904, 58]: missing trailing comma
+/repository/cli/script/command-executor.ts[914, 33]: missing trailing comma
+/repository/cli/script/command-executor.ts[932, 32]: missing trailing comma
+/repository/cli/script/command-executor.ts[947, 32]: missing trailing comma
+/repository/cli/script/command-executor.ts[1020, 18]: missing trailing comma
+/repository/cli/script/command-executor.ts[1032, 32]: missing trailing comma
+/repository/cli/script/command-executor.ts[1218, 13]: missing trailing comma
+/repository/cli/script/command-executor.ts[1217, 17]: missing trailing comma
+/repository/cli/script/command-executor.ts[1216, 70]: missing trailing comma
 /repository/cli/script/command-executor.ts[1070, 24]: == should be ===
-/repository/cli/script/command-executor.ts[748, 74]: variable name clashes with keyword/type
+/repository/cli/script/command-parser.ts[757, 5]: if statements must be braced
+/repository/cli/script/command-parser.ts[429, 72]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[457, 66]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[510, 79]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[558, 65]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[559, 70]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[596, 68]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[597, 75]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[613, 47]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[628, 47]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[630, 53]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[630, 85]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[631, 50]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[632, 51]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[633, 65]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[634, 57]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[647, 65]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[647, 97]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[648, 62]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[649, 63]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[650, 77]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[651, 69]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[673, 58]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[674, 55]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[674, 87]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[675, 52]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[676, 53]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[677, 67]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[690, 56]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[691, 65]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[692, 62]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[692, 94]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[693, 59]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[694, 60]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[695, 74]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[696, 66]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[709, 59]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[710, 63]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[711, 57]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[712, 60]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[712, 92]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[713, 60]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[714, 58]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[715, 58]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[716, 72]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[717, 64]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[718, 64]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[730, 58]: object access via string literals is disallowed
+/repository/cli/script/command-parser.ts[744, 32]: object access via string literals is disallowed
 /repository/cli/script/command-parser.ts[733, 1]: trailing whitespace
 /repository/cli/script/command-parser.ts[7, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/cli/script/command-parser.ts[12, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
@@ -153,6 +547,552 @@
 /repository/cli/script/command-parser.ts[704, 21]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/cli/script/command-parser.ts[726, 21]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/cli/script/command-parser.ts[744, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/script/command-parser.ts[604, 71]: The key 'serverUrl' is not sorted alphabetically
+/repository/cli/script/command-parser.ts[1, 25]: " should be '
+/repository/cli/script/command-parser.ts[2, 22]: " should be '
+/repository/cli/script/command-parser.ts[3, 24]: " should be '
+/repository/cli/script/command-parser.ts[4, 33]: " should be '
+/repository/cli/script/command-parser.ts[5, 28]: " should be '
+/repository/cli/script/command-parser.ts[7, 27]: " should be '
+/repository/cli/script/command-parser.ts[9, 22]: " should be '
+/repository/cli/script/command-parser.ts[20, 36]: " should be '
+/repository/cli/script/command-parser.ts[20, 72]: " should be '
+/repository/cli/script/command-parser.ts[21, 36]: " should be '
+/repository/cli/script/command-parser.ts[21, 72]: " should be '
+/repository/cli/script/command-parser.ts[22, 36]: " should be '
+/repository/cli/script/command-parser.ts[22, 74]: " should be '
+/repository/cli/script/command-parser.ts[23, 36]: " should be '
+/repository/cli/script/command-parser.ts[23, 76]: " should be '
+/repository/cli/script/command-parser.ts[23, 103]: " should be '
+/repository/cli/script/command-parser.ts[24, 36]: " should be '
+/repository/cli/script/command-parser.ts[25, 25]: " should be '
+/repository/cli/script/command-parser.ts[26, 25]: " should be '
+/repository/cli/script/command-parser.ts[44, 32]: " should be '
+/repository/cli/script/command-parser.ts[44, 63]: " should be '
+/repository/cli/script/command-parser.ts[46, 18]: " should be '
+/repository/cli/script/command-parser.ts[46, 48]: " should be '
+/repository/cli/script/command-parser.ts[46, 72]: " should be '
+/repository/cli/script/command-parser.ts[53, 32]: " should be '
+/repository/cli/script/command-parser.ts[53, 63]: " should be '
+/repository/cli/script/command-parser.ts[55, 18]: " should be '
+/repository/cli/script/command-parser.ts[55, 47]: " should be '
+/repository/cli/script/command-parser.ts[56, 18]: " should be '
+/repository/cli/script/command-parser.ts[56, 48]: " should be '
+/repository/cli/script/command-parser.ts[56, 66]: " should be '
+/repository/cli/script/command-parser.ts[57, 17]: " should be '
+/repository/cli/script/command-parser.ts[57, 38]: " should be '
+/repository/cli/script/command-parser.ts[57, 75]: " should be '
+/repository/cli/script/command-parser.ts[57, 155]: " should be '
+/repository/cli/script/command-parser.ts[64, 32]: " should be '
+/repository/cli/script/command-parser.ts[64, 63]: " should be '
+/repository/cli/script/command-parser.ts[66, 18]: " should be '
+/repository/cli/script/command-parser.ts[66, 48]: " should be '
+/repository/cli/script/command-parser.ts[66, 89]: " should be '
+/repository/cli/script/command-parser.ts[79, 32]: " should be '
+/repository/cli/script/command-parser.ts[79, 56]: " should be '
+/repository/cli/script/command-parser.ts[81, 18]: " should be '
+/repository/cli/script/command-parser.ts[81, 40]: " should be '
+/repository/cli/script/command-parser.ts[82, 18]: " should be '
+/repository/cli/script/command-parser.ts[82, 41]: " should be '
+/repository/cli/script/command-parser.ts[82, 59]: " should be '
+/repository/cli/script/command-parser.ts[83, 17]: " should be '
+/repository/cli/script/command-parser.ts[83, 38]: " should be '
+/repository/cli/script/command-parser.ts[83, 75]: " should be '
+/repository/cli/script/command-parser.ts[83, 148]: " should be '
+/repository/cli/script/command-parser.ts[90, 32]: " should be '
+/repository/cli/script/command-parser.ts[90, 56]: " should be '
+/repository/cli/script/command-parser.ts[92, 18]: " should be '
+/repository/cli/script/command-parser.ts[92, 41]: " should be '
+/repository/cli/script/command-parser.ts[92, 51]: " should be '
+/repository/cli/script/command-parser.ts[99, 32]: " should be '
+/repository/cli/script/command-parser.ts[99, 65]: " should be '
+/repository/cli/script/command-parser.ts[101, 18]: " should be '
+/repository/cli/script/command-parser.ts[101, 50]: " should be '
+/repository/cli/script/command-parser.ts[101, 60]: " should be '
+/repository/cli/script/command-parser.ts[102, 18]: " should be '
+/repository/cli/script/command-parser.ts[102, 50]: " should be '
+/repository/cli/script/command-parser.ts[102, 74]: " should be '
+/repository/cli/script/command-parser.ts[103, 17]: " should be '
+/repository/cli/script/command-parser.ts[103, 38]: " should be '
+/repository/cli/script/command-parser.ts[103, 75]: " should be '
+/repository/cli/script/command-parser.ts[103, 152]: " should be '
+/repository/cli/script/command-parser.ts[110, 32]: " should be '
+/repository/cli/script/command-parser.ts[110, 65]: " should be '
+/repository/cli/script/command-parser.ts[112, 18]: " should be '
+/repository/cli/script/command-parser.ts[112, 50]: " should be '
+/repository/cli/script/command-parser.ts[112, 72]: " should be '
+/repository/cli/script/command-parser.ts[119, 32]: " should be '
+/repository/cli/script/command-parser.ts[119, 63]: " should be '
+/repository/cli/script/command-parser.ts[121, 18]: " should be '
+/repository/cli/script/command-parser.ts[121, 48]: " should be '
+/repository/cli/script/command-parser.ts[121, 71]: " should be '
+/repository/cli/script/command-parser.ts[128, 32]: " should be '
+/repository/cli/script/command-parser.ts[128, 63]: " should be '
+/repository/cli/script/command-parser.ts[130, 18]: " should be '
+/repository/cli/script/command-parser.ts[130, 48]: " should be '
+/repository/cli/script/command-parser.ts[130, 58]: " should be '
+/repository/cli/script/command-parser.ts[131, 18]: " should be '
+/repository/cli/script/command-parser.ts[131, 48]: " should be '
+/repository/cli/script/command-parser.ts[131, 72]: " should be '
+/repository/cli/script/command-parser.ts[132, 17]: " should be '
+/repository/cli/script/command-parser.ts[132, 38]: " should be '
+/repository/cli/script/command-parser.ts[132, 75]: " should be '
+/repository/cli/script/command-parser.ts[132, 155]: " should be '
+/repository/cli/script/command-parser.ts[133, 17]: " should be '
+/repository/cli/script/command-parser.ts[133, 41]: " should be '
+/repository/cli/script/command-parser.ts[133, 90]: " should be '
+/repository/cli/script/command-parser.ts[133, 148]: " should be '
+/repository/cli/script/command-parser.ts[139, 32]: " should be '
+/repository/cli/script/command-parser.ts[139, 63]: " should be '
+/repository/cli/script/command-parser.ts[141, 18]: " should be '
+/repository/cli/script/command-parser.ts[141, 48]: " should be '
+/repository/cli/script/command-parser.ts[141, 71]: " should be '
+/repository/cli/script/command-parser.ts[148, 32]: " should be '
+/repository/cli/script/command-parser.ts[148, 63]: " should be '
+/repository/cli/script/command-parser.ts[150, 18]: " should be '
+/repository/cli/script/command-parser.ts[150, 48]: " should be '
+/repository/cli/script/command-parser.ts[150, 71]: " should be '
+/repository/cli/script/command-parser.ts[151, 18]: " should be '
+/repository/cli/script/command-parser.ts[151, 48]: " should be '
+/repository/cli/script/command-parser.ts[151, 85]: " should be '
+/repository/cli/script/command-parser.ts[152, 17]: " should be '
+/repository/cli/script/command-parser.ts[152, 38]: " should be '
+/repository/cli/script/command-parser.ts[152, 75]: " should be '
+/repository/cli/script/command-parser.ts[152, 158]: " should be '
+/repository/cli/script/command-parser.ts[153, 17]: " should be '
+/repository/cli/script/command-parser.ts[153, 43]: " should be '
+/repository/cli/script/command-parser.ts[153, 92]: " should be '
+/repository/cli/script/command-parser.ts[153, 149]: " should be '
+/repository/cli/script/command-parser.ts[158, 39]: " should be '
+/repository/cli/script/command-parser.ts[160, 14]: " should be '
+/repository/cli/script/command-parser.ts[160, 28]: " should be '
+/repository/cli/script/command-parser.ts[162, 36]: " should be '
+/repository/cli/script/command-parser.ts[164, 22]: " should be '
+/repository/cli/script/command-parser.ts[164, 29]: " should be '
+/repository/cli/script/command-parser.ts[164, 121]: " should be '
+/repository/cli/script/command-parser.ts[165, 22]: " should be '
+/repository/cli/script/command-parser.ts[165, 32]: " should be '
+/repository/cli/script/command-parser.ts[165, 104]: " should be '
+/repository/cli/script/command-parser.ts[166, 22]: " should be '
+/repository/cli/script/command-parser.ts[166, 28]: " should be '
+/repository/cli/script/command-parser.ts[166, 100]: " should be '
+/repository/cli/script/command-parser.ts[167, 22]: " should be '
+/repository/cli/script/command-parser.ts[167, 30]: " should be '
+/repository/cli/script/command-parser.ts[167, 120]: " should be '
+/repository/cli/script/command-parser.ts[168, 22]: " should be '
+/repository/cli/script/command-parser.ts[168, 28]: " should be '
+/repository/cli/script/command-parser.ts[168, 118]: " should be '
+/repository/cli/script/command-parser.ts[173, 14]: " should be '
+/repository/cli/script/command-parser.ts[173, 21]: " should be '
+/repository/cli/script/command-parser.ts[175, 36]: " should be '
+/repository/cli/script/command-parser.ts[177, 22]: " should be '
+/repository/cli/script/command-parser.ts[177, 29]: " should be '
+/repository/cli/script/command-parser.ts[179, 44]: " should be '
+/repository/cli/script/command-parser.ts[181, 30]: " should be '
+/repository/cli/script/command-parser.ts[181, 47]: " should be '
+/repository/cli/script/command-parser.ts[185, 22]: " should be '
+/repository/cli/script/command-parser.ts[185, 32]: " should be '
+/repository/cli/script/command-parser.ts[185, 100]: " should be '
+/repository/cli/script/command-parser.ts[186, 22]: " should be '
+/repository/cli/script/command-parser.ts[186, 28]: " should be '
+/repository/cli/script/command-parser.ts[186, 96]: " should be '
+/repository/cli/script/command-parser.ts[187, 22]: " should be '
+/repository/cli/script/command-parser.ts[187, 32]: " should be '
+/repository/cli/script/command-parser.ts[189, 44]: " should be '
+/repository/cli/script/command-parser.ts[191, 30]: " should be '
+/repository/cli/script/command-parser.ts[191, 64]: " should be '
+/repository/cli/script/command-parser.ts[195, 22]: " should be '
+/repository/cli/script/command-parser.ts[195, 30]: " should be '
+/repository/cli/script/command-parser.ts[195, 108]: " should be '
+/repository/cli/script/command-parser.ts[196, 22]: " should be '
+/repository/cli/script/command-parser.ts[196, 28]: " should be '
+/repository/cli/script/command-parser.ts[196, 106]: " should be '
+/repository/cli/script/command-parser.ts[197, 22]: " should be '
+/repository/cli/script/command-parser.ts[197, 34]: " should be '
+/repository/cli/script/command-parser.ts[198, 44]: " should be '
+/repository/cli/script/command-parser.ts[200, 30]: " should be '
+/repository/cli/script/command-parser.ts[200, 64]: " should be '
+/repository/cli/script/command-parser.ts[208, 14]: " should be '
+/repository/cli/script/command-parser.ts[208, 30]: " should be '
+/repository/cli/script/command-parser.ts[210, 36]: " should be '
+/repository/cli/script/command-parser.ts[212, 22]: " should be '
+/repository/cli/script/command-parser.ts[212, 29]: " should be '
+/repository/cli/script/command-parser.ts[214, 44]: " should be '
+/repository/cli/script/command-parser.ts[216, 30]: " should be '
+/repository/cli/script/command-parser.ts[216, 68]: " should be '
+/repository/cli/script/command-parser.ts[220, 22]: " should be '
+/repository/cli/script/command-parser.ts[220, 32]: " should be '
+/repository/cli/script/command-parser.ts[220, 111]: " should be '
+/repository/cli/script/command-parser.ts[221, 22]: " should be '
+/repository/cli/script/command-parser.ts[221, 28]: " should be '
+/repository/cli/script/command-parser.ts[221, 107]: " should be '
+/repository/cli/script/command-parser.ts[222, 22]: " should be '
+/repository/cli/script/command-parser.ts[222, 30]: " should be '
+/repository/cli/script/command-parser.ts[222, 108]: " should be '
+/repository/cli/script/command-parser.ts[223, 22]: " should be '
+/repository/cli/script/command-parser.ts[223, 28]: " should be '
+/repository/cli/script/command-parser.ts[223, 106]: " should be '
+/repository/cli/script/command-parser.ts[228, 14]: " should be '
+/repository/cli/script/command-parser.ts[228, 28]: " should be '
+/repository/cli/script/command-parser.ts[230, 36]: " should be '
+/repository/cli/script/command-parser.ts[232, 22]: " should be '
+/repository/cli/script/command-parser.ts[232, 29]: " should be '
+/repository/cli/script/command-parser.ts[234, 44]: " should be '
+/repository/cli/script/command-parser.ts[236, 30]: " should be '
+/repository/cli/script/command-parser.ts[236, 67]: " should be '
+/repository/cli/script/command-parser.ts[240, 22]: " should be '
+/repository/cli/script/command-parser.ts[240, 31]: " should be '
+/repository/cli/script/command-parser.ts[240, 135]: " should be '
+/repository/cli/script/command-parser.ts[241, 22]: " should be '
+/repository/cli/script/command-parser.ts[241, 32]: " should be '
+/repository/cli/script/command-parser.ts[241, 107]: " should be '
+/repository/cli/script/command-parser.ts[242, 22]: " should be '
+/repository/cli/script/command-parser.ts[242, 28]: " should be '
+/repository/cli/script/command-parser.ts[242, 103]: " should be '
+/repository/cli/script/command-parser.ts[243, 22]: " should be '
+/repository/cli/script/command-parser.ts[243, 32]: " should be '
+/repository/cli/script/command-parser.ts[245, 44]: " should be '
+/repository/cli/script/command-parser.ts[247, 30]: " should be '
+/repository/cli/script/command-parser.ts[247, 97]: " should be '
+/repository/cli/script/command-parser.ts[251, 22]: " should be '
+/repository/cli/script/command-parser.ts[251, 30]: " should be '
+/repository/cli/script/command-parser.ts[251, 115]: " should be '
+/repository/cli/script/command-parser.ts[252, 22]: " should be '
+/repository/cli/script/command-parser.ts[252, 28]: " should be '
+/repository/cli/script/command-parser.ts[252, 113]: " should be '
+/repository/cli/script/command-parser.ts[253, 22]: " should be '
+/repository/cli/script/command-parser.ts[253, 33]: " should be '
+/repository/cli/script/command-parser.ts[253, 122]: " should be '
+/repository/cli/script/command-parser.ts[254, 22]: " should be '
+/repository/cli/script/command-parser.ts[254, 27]: " should be '
+/repository/cli/script/command-parser.ts[254, 116]: " should be '
+/repository/cli/script/command-parser.ts[259, 14]: " should be '
+/repository/cli/script/command-parser.ts[259, 22]: " should be '
+/repository/cli/script/command-parser.ts[262, 36]: " should be '
+/repository/cli/script/command-parser.ts[264, 22]: " should be '
+/repository/cli/script/command-parser.ts[264, 30]: " should be '
+/repository/cli/script/command-parser.ts[269, 14]: " should be '
+/repository/cli/script/command-parser.ts[269, 23]: " should be '
+/repository/cli/script/command-parser.ts[272, 36]: " should be '
+/repository/cli/script/command-parser.ts[274, 22]: " should be '
+/repository/cli/script/command-parser.ts[274, 31]: " should be '
+/repository/cli/script/command-parser.ts[275, 22]: " should be '
+/repository/cli/script/command-parser.ts[275, 49]: " should be '
+/repository/cli/script/command-parser.ts[276, 21]: " should be '
+/repository/cli/script/command-parser.ts[276, 43]: " should be '
+/repository/cli/script/command-parser.ts[276, 93]: " should be '
+/repository/cli/script/command-parser.ts[276, 224]: " should be '
+/repository/cli/script/command-parser.ts[281, 14]: " should be '
+/repository/cli/script/command-parser.ts[281, 24]: " should be '
+/repository/cli/script/command-parser.ts[284, 36]: " should be '
+/repository/cli/script/command-parser.ts[286, 22]: " should be '
+/repository/cli/script/command-parser.ts[286, 32]: " should be '
+/repository/cli/script/command-parser.ts[289, 14]: " should be '
+/repository/cli/script/command-parser.ts[289, 23]: " should be '
+/repository/cli/script/command-parser.ts[290, 36]: " should be '
+/repository/cli/script/command-parser.ts[292, 22]: " should be '
+/repository/cli/script/command-parser.ts[292, 85]: " should be '
+/repository/cli/script/command-parser.ts[293, 22]: " should be '
+/repository/cli/script/command-parser.ts[293, 91]: " should be '
+/repository/cli/script/command-parser.ts[294, 21]: " should be '
+/repository/cli/script/command-parser.ts[294, 39]: " should be '
+/repository/cli/script/command-parser.ts[294, 87]: " should be '
+/repository/cli/script/command-parser.ts[294, 191]: " should be '
+/repository/cli/script/command-parser.ts[295, 21]: " should be '
+/repository/cli/script/command-parser.ts[295, 45]: " should be '
+/repository/cli/script/command-parser.ts[295, 95]: " should be '
+/repository/cli/script/command-parser.ts[295, 165]: " should be '
+/repository/cli/script/command-parser.ts[296, 21]: " should be '
+/repository/cli/script/command-parser.ts[296, 42]: " should be '
+/repository/cli/script/command-parser.ts[296, 90]: " should be '
+/repository/cli/script/command-parser.ts[296, 165]: " should be '
+/repository/cli/script/command-parser.ts[297, 21]: " should be '
+/repository/cli/script/command-parser.ts[297, 43]: " should be '
+/repository/cli/script/command-parser.ts[297, 91]: " should be '
+/repository/cli/script/command-parser.ts[297, 162]: " should be '
+/repository/cli/script/command-parser.ts[298, 21]: " should be '
+/repository/cli/script/command-parser.ts[298, 41]: " should be '
+/repository/cli/script/command-parser.ts[298, 89]: " should be '
+/repository/cli/script/command-parser.ts[298, 228]: " should be '
+/repository/cli/script/command-parser.ts[299, 21]: " should be '
+/repository/cli/script/command-parser.ts[299, 53]: " should be '
+/repository/cli/script/command-parser.ts[299, 101]: " should be '
+/repository/cli/script/command-parser.ts[299, 217]: " should be '
+/repository/cli/script/command-parser.ts[304, 14]: " should be '
+/repository/cli/script/command-parser.ts[304, 25]: " should be '
+/repository/cli/script/command-parser.ts[305, 36]: " should be '
+/repository/cli/script/command-parser.ts[307, 22]: " should be '
+/repository/cli/script/command-parser.ts[307, 58]: " should be '
+/repository/cli/script/command-parser.ts[308, 22]: " should be '
+/repository/cli/script/command-parser.ts[308, 93]: " should be '
+/repository/cli/script/command-parser.ts[309, 21]: " should be '
+/repository/cli/script/command-parser.ts[309, 45]: " should be '
+/repository/cli/script/command-parser.ts[309, 95]: " should be '
+/repository/cli/script/command-parser.ts[309, 240]: " should be '
+/repository/cli/script/command-parser.ts[310, 21]: " should be '
+/repository/cli/script/command-parser.ts[310, 42]: " should be '
+/repository/cli/script/command-parser.ts[310, 90]: " should be '
+/repository/cli/script/command-parser.ts[310, 247]: " should be '
+/repository/cli/script/command-parser.ts[311, 21]: " should be '
+/repository/cli/script/command-parser.ts[311, 43]: " should be '
+/repository/cli/script/command-parser.ts[311, 91]: " should be '
+/repository/cli/script/command-parser.ts[311, 244]: " should be '
+/repository/cli/script/command-parser.ts[312, 21]: " should be '
+/repository/cli/script/command-parser.ts[312, 41]: " should be '
+/repository/cli/script/command-parser.ts[312, 55]: " should be '
+/repository/cli/script/command-parser.ts[312, 91]: " should be '
+/repository/cli/script/command-parser.ts[312, 167]: " should be '
+/repository/cli/script/command-parser.ts[313, 21]: " should be '
+/repository/cli/script/command-parser.ts[313, 53]: " should be '
+/repository/cli/script/command-parser.ts[313, 101]: " should be '
+/repository/cli/script/command-parser.ts[313, 310]: " should be '
+/repository/cli/script/command-parser.ts[318, 14]: " should be '
+/repository/cli/script/command-parser.ts[318, 26]: " should be '
+/repository/cli/script/command-parser.ts[321, 36]: " should be '
+/repository/cli/script/command-parser.ts[323, 22]: " should be '
+/repository/cli/script/command-parser.ts[323, 34]: " should be '
+/repository/cli/script/command-parser.ts[328, 14]: " should be '
+/repository/cli/script/command-parser.ts[328, 25]: " should be '
+/repository/cli/script/command-parser.ts[329, 36]: " should be '
+/repository/cli/script/command-parser.ts[331, 22]: " should be '
+/repository/cli/script/command-parser.ts[331, 52]: " should be '
+/repository/cli/script/command-parser.ts[332, 22]: " should be '
+/repository/cli/script/command-parser.ts[332, 79]: " should be '
+/repository/cli/script/command-parser.ts[333, 22]: " should be '
+/repository/cli/script/command-parser.ts[333, 85]: " should be '
+/repository/cli/script/command-parser.ts[334, 21]: " should be '
+/repository/cli/script/command-parser.ts[334, 48]: " should be '
+/repository/cli/script/command-parser.ts[334, 62]: " should be '
+/repository/cli/script/command-parser.ts[334, 101]: " should be '
+/repository/cli/script/command-parser.ts[334, 146]: " should be '
+/repository/cli/script/command-parser.ts[335, 21]: " should be '
+/repository/cli/script/command-parser.ts[335, 45]: " should be '
+/repository/cli/script/command-parser.ts[335, 95]: " should be '
+/repository/cli/script/command-parser.ts[335, 163]: " should be '
+/repository/cli/script/command-parser.ts[336, 21]: " should be '
+/repository/cli/script/command-parser.ts[336, 42]: " should be '
+/repository/cli/script/command-parser.ts[336, 91]: " should be '
+/repository/cli/script/command-parser.ts[336, 166]: " should be '
+/repository/cli/script/command-parser.ts[337, 21]: " should be '
+/repository/cli/script/command-parser.ts[337, 43]: " should be '
+/repository/cli/script/command-parser.ts[337, 92]: " should be '
+/repository/cli/script/command-parser.ts[337, 163]: " should be '
+/repository/cli/script/command-parser.ts[338, 21]: " should be '
+/repository/cli/script/command-parser.ts[338, 41]: " should be '
+/repository/cli/script/command-parser.ts[338, 55]: " should be '
+/repository/cli/script/command-parser.ts[338, 91]: " should be '
+/repository/cli/script/command-parser.ts[338, 156]: " should be '
+/repository/cli/script/command-parser.ts[343, 14]: " should be '
+/repository/cli/script/command-parser.ts[343, 33]: " should be '
+/repository/cli/script/command-parser.ts[344, 36]: " should be '
+/repository/cli/script/command-parser.ts[346, 22]: " should be '
+/repository/cli/script/command-parser.ts[346, 51]: " should be '
+/repository/cli/script/command-parser.ts[347, 22]: " should be '
+/repository/cli/script/command-parser.ts[347, 69]: " should be '
+/repository/cli/script/command-parser.ts[348, 21]: " should be '
+/repository/cli/script/command-parser.ts[348, 39]: " should be '
+/repository/cli/script/command-parser.ts[348, 88]: " should be '
+/repository/cli/script/command-parser.ts[348, 153]: " should be '
+/repository/cli/script/command-parser.ts[349, 21]: " should be '
+/repository/cli/script/command-parser.ts[349, 48]: " should be '
+/repository/cli/script/command-parser.ts[349, 62]: " should be '
+/repository/cli/script/command-parser.ts[349, 101]: " should be '
+/repository/cli/script/command-parser.ts[349, 146]: " should be '
+/repository/cli/script/command-parser.ts[350, 21]: " should be '
+/repository/cli/script/command-parser.ts[350, 45]: " should be '
+/repository/cli/script/command-parser.ts[350, 95]: " should be '
+/repository/cli/script/command-parser.ts[350, 163]: " should be '
+/repository/cli/script/command-parser.ts[351, 21]: " should be '
+/repository/cli/script/command-parser.ts[351, 42]: " should be '
+/repository/cli/script/command-parser.ts[351, 91]: " should be '
+/repository/cli/script/command-parser.ts[351, 166]: " should be '
+/repository/cli/script/command-parser.ts[352, 21]: " should be '
+/repository/cli/script/command-parser.ts[352, 43]: " should be '
+/repository/cli/script/command-parser.ts[352, 92]: " should be '
+/repository/cli/script/command-parser.ts[352, 163]: " should be '
+/repository/cli/script/command-parser.ts[353, 21]: " should be '
+/repository/cli/script/command-parser.ts[353, 41]: " should be '
+/repository/cli/script/command-parser.ts[353, 55]: " should be '
+/repository/cli/script/command-parser.ts[353, 91]: " should be '
+/repository/cli/script/command-parser.ts[353, 168]: " should be '
+/repository/cli/script/command-parser.ts[354, 21]: " should be '
+/repository/cli/script/command-parser.ts[354, 53]: " should be '
+/repository/cli/script/command-parser.ts[354, 101]: " should be '
+/repository/cli/script/command-parser.ts[354, 305]: " should be '
+/repository/cli/script/command-parser.ts[359, 14]: " should be '
+/repository/cli/script/command-parser.ts[359, 31]: " should be '
+/repository/cli/script/command-parser.ts[360, 36]: " should be '
+/repository/cli/script/command-parser.ts[362, 22]: " should be '
+/repository/cli/script/command-parser.ts[362, 49]: " should be '
+/repository/cli/script/command-parser.ts[363, 22]: " should be '
+/repository/cli/script/command-parser.ts[363, 67]: " should be '
+/repository/cli/script/command-parser.ts[364, 22]: " should be '
+/repository/cli/script/command-parser.ts[364, 59]: " should be '
+/repository/cli/script/command-parser.ts[365, 21]: " should be '
+/repository/cli/script/command-parser.ts[365, 44]: " should be '
+/repository/cli/script/command-parser.ts[365, 92]: " should be '
+/repository/cli/script/command-parser.ts[365, 329]: " should be '
+/repository/cli/script/command-parser.ts[366, 21]: " should be '
+/repository/cli/script/command-parser.ts[366, 48]: " should be '
+/repository/cli/script/command-parser.ts[366, 62]: " should be '
+/repository/cli/script/command-parser.ts[366, 101]: " should be '
+/repository/cli/script/command-parser.ts[366, 146]: " should be '
+/repository/cli/script/command-parser.ts[367, 21]: " should be '
+/repository/cli/script/command-parser.ts[367, 45]: " should be '
+/repository/cli/script/command-parser.ts[367, 95]: " should be '
+/repository/cli/script/command-parser.ts[367, 165]: " should be '
+/repository/cli/script/command-parser.ts[368, 21]: " should be '
+/repository/cli/script/command-parser.ts[368, 45]: " should be '
+/repository/cli/script/command-parser.ts[368, 96]: " should be '
+/repository/cli/script/command-parser.ts[368, 158]: " should be '
+/repository/cli/script/command-parser.ts[369, 21]: " should be '
+/repository/cli/script/command-parser.ts[369, 42]: " should be '
+/repository/cli/script/command-parser.ts[369, 91]: " should be '
+/repository/cli/script/command-parser.ts[369, 166]: " should be '
+/repository/cli/script/command-parser.ts[370, 21]: " should be '
+/repository/cli/script/command-parser.ts[370, 43]: " should be '
+/repository/cli/script/command-parser.ts[370, 91]: " should be '
+/repository/cli/script/command-parser.ts[370, 228]: " should be '
+/repository/cli/script/command-parser.ts[371, 21]: " should be '
+/repository/cli/script/command-parser.ts[371, 43]: " should be '
+/repository/cli/script/command-parser.ts[371, 92]: " should be '
+/repository/cli/script/command-parser.ts[371, 163]: " should be '
+/repository/cli/script/command-parser.ts[372, 21]: " should be '
+/repository/cli/script/command-parser.ts[372, 41]: " should be '
+/repository/cli/script/command-parser.ts[372, 55]: " should be '
+/repository/cli/script/command-parser.ts[372, 91]: " should be '
+/repository/cli/script/command-parser.ts[372, 168]: " should be '
+/repository/cli/script/command-parser.ts[373, 21]: " should be '
+/repository/cli/script/command-parser.ts[373, 49]: " should be '
+/repository/cli/script/command-parser.ts[373, 97]: " should be '
+/repository/cli/script/command-parser.ts[373, 225]: " should be '
+/repository/cli/script/command-parser.ts[374, 21]: " should be '
+/repository/cli/script/command-parser.ts[374, 53]: " should be '
+/repository/cli/script/command-parser.ts[374, 101]: " should be '
+/repository/cli/script/command-parser.ts[374, 382]: " should be '
+/repository/cli/script/command-parser.ts[379, 14]: " should be '
+/repository/cli/script/command-parser.ts[379, 26]: " should be '
+/repository/cli/script/command-parser.ts[380, 36]: " should be '
+/repository/cli/script/command-parser.ts[382, 22]: " should be '
+/repository/cli/script/command-parser.ts[382, 51]: " should be '
+/repository/cli/script/command-parser.ts[383, 22]: " should be '
+/repository/cli/script/command-parser.ts[383, 70]: " should be '
+/repository/cli/script/command-parser.ts[384, 21]: " should be '
+/repository/cli/script/command-parser.ts[384, 47]: " should be '
+/repository/cli/script/command-parser.ts[384, 95]: " should be '
+/repository/cli/script/command-parser.ts[384, 244]: " should be '
+/repository/cli/script/command-parser.ts[388, 14]: " should be '
+/repository/cli/script/command-parser.ts[388, 24]: " should be '
+/repository/cli/script/command-parser.ts[391, 36]: " should be '
+/repository/cli/script/command-parser.ts[393, 22]: " should be '
+/repository/cli/script/command-parser.ts[393, 32]: " should be '
+/repository/cli/script/command-parser.ts[396, 12]: " should be '
+/repository/cli/script/command-parser.ts[396, 17]: " should be '
+/repository/cli/script/command-parser.ts[416, 18]: " should be '
+/repository/cli/script/command-parser.ts[418, 26]: " should be '
+/repository/cli/script/command-parser.ts[425, 26]: " should be '
+/repository/cli/script/command-parser.ts[426, 26]: " should be '
+/repository/cli/script/command-parser.ts[429, 72]: " should be '
+/repository/cli/script/command-parser.ts[432, 26]: " should be '
+/repository/cli/script/command-parser.ts[433, 26]: " should be '
+/repository/cli/script/command-parser.ts[443, 18]: " should be '
+/repository/cli/script/command-parser.ts[445, 26]: " should be '
+/repository/cli/script/command-parser.ts[453, 26]: " should be '
+/repository/cli/script/command-parser.ts[454, 26]: " should be '
+/repository/cli/script/command-parser.ts[457, 66]: " should be '
+/repository/cli/script/command-parser.ts[460, 26]: " should be '
+/repository/cli/script/command-parser.ts[461, 26]: " should be '
+/repository/cli/script/command-parser.ts[469, 26]: " should be '
+/repository/cli/script/command-parser.ts[480, 26]: " should be '
+/repository/cli/script/command-parser.ts[493, 18]: " should be '
+/repository/cli/script/command-parser.ts[495, 26]: " should be '
+/repository/cli/script/command-parser.ts[504, 26]: " should be '
+/repository/cli/script/command-parser.ts[505, 26]: " should be '
+/repository/cli/script/command-parser.ts[510, 79]: " should be '
+/repository/cli/script/command-parser.ts[514, 26]: " should be '
+/repository/cli/script/command-parser.ts[515, 26]: " should be '
+/repository/cli/script/command-parser.ts[526, 18]: " should be '
+/repository/cli/script/command-parser.ts[528, 26]: " should be '
+/repository/cli/script/command-parser.ts[539, 26]: " should be '
+/repository/cli/script/command-parser.ts[550, 26]: " should be '
+/repository/cli/script/command-parser.ts[551, 26]: " should be '
+/repository/cli/script/command-parser.ts[558, 65]: " should be '
+/repository/cli/script/command-parser.ts[559, 70]: " should be '
+/repository/cli/script/command-parser.ts[563, 26]: " should be '
+/repository/cli/script/command-parser.ts[564, 26]: " should be '
+/repository/cli/script/command-parser.ts[575, 26]: " should be '
+/repository/cli/script/command-parser.ts[587, 26]: " should be '
+/repository/cli/script/command-parser.ts[588, 26]: " should be '
+/repository/cli/script/command-parser.ts[596, 68]: " should be '
+/repository/cli/script/command-parser.ts[597, 75]: " should be '
+/repository/cli/script/command-parser.ts[603, 18]: " should be '
+/repository/cli/script/command-parser.ts[607, 18]: " should be '
+/repository/cli/script/command-parser.ts[613, 47]: " should be '
+/repository/cli/script/command-parser.ts[616, 18]: " should be '
+/repository/cli/script/command-parser.ts[620, 18]: " should be '
+/repository/cli/script/command-parser.ts[628, 47]: " should be '
+/repository/cli/script/command-parser.ts[630, 53]: " should be '
+/repository/cli/script/command-parser.ts[630, 85]: " should be '
+/repository/cli/script/command-parser.ts[631, 50]: " should be '
+/repository/cli/script/command-parser.ts[632, 51]: " should be '
+/repository/cli/script/command-parser.ts[633, 65]: " should be '
+/repository/cli/script/command-parser.ts[634, 57]: " should be '
+/repository/cli/script/command-parser.ts[638, 18]: " should be '
+/repository/cli/script/command-parser.ts[647, 65]: " should be '
+/repository/cli/script/command-parser.ts[647, 97]: " should be '
+/repository/cli/script/command-parser.ts[647, 115]: " should be '
+/repository/cli/script/command-parser.ts[648, 62]: " should be '
+/repository/cli/script/command-parser.ts[649, 63]: " should be '
+/repository/cli/script/command-parser.ts[650, 77]: " should be '
+/repository/cli/script/command-parser.ts[651, 69]: " should be '
+/repository/cli/script/command-parser.ts[655, 18]: " should be '
+/repository/cli/script/command-parser.ts[663, 18]: " should be '
+/repository/cli/script/command-parser.ts[673, 58]: " should be '
+/repository/cli/script/command-parser.ts[674, 55]: " should be '
+/repository/cli/script/command-parser.ts[674, 87]: " should be '
+/repository/cli/script/command-parser.ts[674, 105]: " should be '
+/repository/cli/script/command-parser.ts[675, 52]: " should be '
+/repository/cli/script/command-parser.ts[676, 53]: " should be '
+/repository/cli/script/command-parser.ts[677, 67]: " should be '
+/repository/cli/script/command-parser.ts[681, 18]: " should be '
+/repository/cli/script/command-parser.ts[690, 56]: " should be '
+/repository/cli/script/command-parser.ts[691, 65]: " should be '
+/repository/cli/script/command-parser.ts[692, 62]: " should be '
+/repository/cli/script/command-parser.ts[692, 94]: " should be '
+/repository/cli/script/command-parser.ts[692, 112]: " should be '
+/repository/cli/script/command-parser.ts[693, 59]: " should be '
+/repository/cli/script/command-parser.ts[694, 60]: " should be '
+/repository/cli/script/command-parser.ts[695, 74]: " should be '
+/repository/cli/script/command-parser.ts[696, 66]: " should be '
+/repository/cli/script/command-parser.ts[700, 18]: " should be '
+/repository/cli/script/command-parser.ts[709, 59]: " should be '
+/repository/cli/script/command-parser.ts[710, 63]: " should be '
+/repository/cli/script/command-parser.ts[711, 57]: " should be '
+/repository/cli/script/command-parser.ts[712, 60]: " should be '
+/repository/cli/script/command-parser.ts[712, 92]: " should be '
+/repository/cli/script/command-parser.ts[712, 110]: " should be '
+/repository/cli/script/command-parser.ts[713, 60]: " should be '
+/repository/cli/script/command-parser.ts[714, 58]: " should be '
+/repository/cli/script/command-parser.ts[715, 58]: " should be '
+/repository/cli/script/command-parser.ts[716, 72]: " should be '
+/repository/cli/script/command-parser.ts[717, 64]: " should be '
+/repository/cli/script/command-parser.ts[718, 64]: " should be '
+/repository/cli/script/command-parser.ts[722, 18]: " should be '
+/repository/cli/script/command-parser.ts[730, 58]: " should be '
+/repository/cli/script/command-parser.ts[734, 18]: " should be '
+/repository/cli/script/command-parser.ts[744, 32]: " should be '
+/repository/cli/script/command-parser.ts[753, 43]: " should be '
+/repository/cli/script/command-parser.ts[753, 48]: " should be '
+/repository/cli/script/command-parser.ts[761, 33]: " should be '
+/repository/cli/script/command-parser.ts[765, 39]: " should be '
+/repository/cli/script/command-parser.ts[753, 20]: missing radix parameter
+/repository/cli/script/command-parser.ts[415, 9]: switch statement doesn't include a 'default' case
+/repository/cli/script/command-parser.ts[417, 17]: switch statement doesn't include a 'default' case
+/repository/cli/script/command-parser.ts[444, 17]: switch statement doesn't include a 'default' case
+/repository/cli/script/command-parser.ts[494, 17]: switch statement doesn't include a 'default' case
+/repository/cli/script/command-parser.ts[527, 17]: switch statement doesn't include a 'default' case
+/repository/cli/test/cli.ts[1575, 4]: file should end with a newline
+/repository/cli/test/cli.ts[210, 47]: LHS type (string) inferred by RHS expression, remove type annotation
 /repository/cli/test/cli.ts[849, 1]: trailing whitespace
 /repository/cli/test/cli.ts[873, 1]: trailing whitespace
 /repository/cli/test/cli.ts[206, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
@@ -307,6 +1247,564 @@
 /repository/cli/test/cli.ts[1551, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/cli/test/cli.ts[1552, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/cli/test/cli.ts[1565, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/cli/test/cli.ts[36, 13]: The key 'createdTime' is not sorted alphabetically
+/repository/cli/test/cli.ts[55, 13]: The key 'key' is not sorted alphabetically
+/repository/cli/test/cli.ts[66, 13]: The key 'createdTime' is not sorted alphabetically
+/repository/cli/test/cli.ts[75, 13]: The key 'collaborators' is not sorted alphabetically
+/repository/cli/test/cli.ts[75, 64]: The key 'isCurrentAccount' is not sorted alphabetically
+/repository/cli/test/cli.ts[78, 13]: The key 'collaborators' is not sorted alphabetically
+/repository/cli/test/cli.ts[78, 64]: The key 'isCurrentAccount' is not sorted alphabetically
+/repository/cli/test/cli.ts[85, 13]: The key 'key' is not sorted alphabetically
+/repository/cli/test/cli.ts[88, 13]: The key 'key' is not sorted alphabetically
+/repository/cli/test/cli.ts[94, 17]: The key 'isMandatory' is not sorted alphabetically
+/repository/cli/test/cli.ts[106, 17]: The key 'appVersion' is not sorted alphabetically
+/repository/cli/test/cli.ts[116, 17]: The key 'appVersion' is not sorted alphabetically
+/repository/cli/test/cli.ts[151, 17]: The key 'isCurrentAccount' is not sorted alphabetically
+/repository/cli/test/cli.ts[155, 17]: The key 'isCurrentAccount' is not sorted alphabetically
+/repository/cli/test/cli.ts[223, 17]: The key 'stderr' is not sorted alphabetically
+/repository/cli/test/cli.ts[239, 13]: The key 'description' is not sorted alphabetically
+/repository/cli/test/cli.ts[258, 13]: The key 'format' is not sorted alphabetically
+/repository/cli/test/cli.ts[270, 25]: The key 'createdTime' is not sorted alphabetically
+/repository/cli/test/cli.ts[284, 13]: The key 'accessKey' is not sorted alphabetically
+/repository/cli/test/cli.ts[303, 13]: The key 'accessKey' is not sorted alphabetically
+/repository/cli/test/cli.ts[323, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[342, 13]: The key 'format' is not sorted alphabetically
+/repository/cli/test/cli.ts[354, 25]: The key 'collaborators' is not sorted alphabetically
+/repository/cli/test/cli.ts[357, 33]: The key 'isCurrentAccount' is not sorted alphabetically
+/repository/cli/test/cli.ts[364, 25]: The key 'collaborators' is not sorted alphabetically
+/repository/cli/test/cli.ts[367, 33]: The key 'isCurrentAccount' is not sorted alphabetically
+/repository/cli/test/cli.ts[382, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[401, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[421, 13]: The key 'currentAppName' is not sorted alphabetically
+/repository/cli/test/cli.ts[440, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[459, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[478, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[491, 59]: The key 'isCurrentAccount' is not sorted alphabetically
+/repository/cli/test/cli.ts[492, 66]: The key 'isCurrentAccount' is not sorted alphabetically
+/repository/cli/test/cli.ts[504, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[524, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[542, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[562, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[583, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[597, 25]: The key 'key' is not sorted alphabetically
+/repository/cli/test/cli.ts[601, 25]: The key 'key' is not sorted alphabetically
+/repository/cli/test/cli.ts[607, 29]: The key 'isMandatory' is not sorted alphabetically
+/repository/cli/test/cli.ts[630, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[650, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[671, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[691, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[709, 25]: The key 'appVersion' is not sorted alphabetically
+/repository/cli/test/cli.ts[726, 25]: The key 'appVersion' is not sorted alphabetically
+/repository/cli/test/cli.ts[751, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[776, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[801, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[826, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[853, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[877, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[901, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[921, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[936, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[951, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[966, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[989, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1020, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1051, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1081, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1096, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1128, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1143, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1175, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1204, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1236, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1268, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1302, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1339, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1376, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1413, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1451, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1491, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1530, 13]: The key 'appName' is not sorted alphabetically
+/repository/cli/test/cli.ts[1, 26]: " should be '
+/repository/cli/test/cli.ts[2, 24]: " should be '
+/repository/cli/test/cli.ts[3, 20]: " should be '
+/repository/cli/test/cli.ts[4, 23]: " should be '
+/repository/cli/test/cli.ts[6, 27]: " should be '
+/repository/cli/test/cli.ts[7, 22]: " should be '
+/repository/cli/test/cli.ts[8, 26]: " should be '
+/repository/cli/test/cli.ts[9, 21]: " should be '
+/repository/cli/test/cli.ts[21, 29]: " should be '
+/repository/cli/test/cli.ts[22, 35]: " should be '
+/repository/cli/test/cli.ts[29, 20]: " should be '
+/repository/cli/test/cli.ts[35, 19]: " should be '
+/repository/cli/test/cli.ts[55, 18]: " should be '
+/repository/cli/test/cli.ts[65, 19]: " should be '
+/repository/cli/test/cli.ts[68, 26]: " should be '
+/repository/cli/test/cli.ts[74, 19]: " should be '
+/repository/cli/test/cli.ts[75, 30]: " should be '
+/repository/cli/test/cli.ts[75, 55]: " should be '
+/repository/cli/test/cli.ts[77, 19]: " should be '
+/repository/cli/test/cli.ts[78, 30]: " should be '
+/repository/cli/test/cli.ts[78, 55]: " should be '
+/repository/cli/test/cli.ts[84, 19]: " should be '
+/repository/cli/test/cli.ts[85, 18]: " should be '
+/repository/cli/test/cli.ts[87, 19]: " should be '
+/repository/cli/test/cli.ts[88, 18]: " should be '
+/repository/cli/test/cli.ts[90, 29]: " should be '
+/repository/cli/test/cli.ts[91, 30]: " should be '
+/repository/cli/test/cli.ts[92, 24]: " should be '
+/repository/cli/test/cli.ts[93, 30]: " should be '
+/repository/cli/test/cli.ts[96, 26]: " should be '
+/repository/cli/test/cli.ts[106, 29]: " should be '
+/repository/cli/test/cli.ts[108, 30]: " should be '
+/repository/cli/test/cli.ts[109, 26]: " should be '
+/repository/cli/test/cli.ts[112, 24]: " should be '
+/repository/cli/test/cli.ts[115, 30]: " should be '
+/repository/cli/test/cli.ts[116, 29]: " should be '
+/repository/cli/test/cli.ts[118, 30]: " should be '
+/repository/cli/test/cli.ts[119, 26]: " should be '
+/repository/cli/test/cli.ts[122, 24]: " should be '
+/repository/cli/test/cli.ts[129, 13]: " should be '
+/repository/cli/test/cli.ts[132, 13]: " should be '
+/repository/cli/test/cli.ts[138, 13]: " should be '
+/repository/cli/test/cli.ts[149, 13]: " should be '
+/repository/cli/test/cli.ts[150, 29]: " should be '
+/repository/cli/test/cli.ts[153, 13]: " should be '
+/repository/cli/test/cli.ts[154, 29]: " should be '
+/repository/cli/test/cli.ts[169, 18]: " should be '
+/repository/cli/test/cli.ts[205, 10]: " should be '
+/repository/cli/test/cli.ts[210, 56]: " should be '
+/repository/cli/test/cli.ts[217, 31]: " should be '
+/repository/cli/test/cli.ts[218, 31]: " should be '
+/repository/cli/test/cli.ts[219, 37]: " should be '
+/repository/cli/test/cli.ts[220, 39]: " should be '
+/repository/cli/test/cli.ts[236, 8]: " should be '
+/repository/cli/test/cli.ts[239, 26]: " should be '
+/repository/cli/test/cli.ts[248, 32]: " should be '
+/repository/cli/test/cli.ts[255, 8]: " should be '
+/repository/cli/test/cli.ts[258, 21]: " should be '
+/repository/cli/test/cli.ts[269, 31]: " should be '
+/repository/cli/test/cli.ts[272, 38]: " should be '
+/repository/cli/test/cli.ts[281, 8]: " should be '
+/repository/cli/test/cli.ts[284, 24]: " should be '
+/repository/cli/test/cli.ts[287, 72]: " should be '
+/repository/cli/test/cli.ts[292, 65]: " should be '
+/repository/cli/test/cli.ts[294, 53]: " should be '
+/repository/cli/test/cli.ts[300, 8]: " should be '
+/repository/cli/test/cli.ts[303, 24]: " should be '
+/repository/cli/test/cli.ts[306, 72]: " should be '
+/repository/cli/test/cli.ts[314, 53]: " should be '
+/repository/cli/test/cli.ts[320, 8]: " should be '
+/repository/cli/test/cli.ts[323, 22]: " should be '
+/repository/cli/test/cli.ts[326, 63]: " should be '
+/repository/cli/test/cli.ts[327, 67]: " should be '
+/repository/cli/test/cli.ts[333, 53]: " should be '
+/repository/cli/test/cli.ts[339, 8]: " should be '
+/repository/cli/test/cli.ts[342, 21]: " should be '
+/repository/cli/test/cli.ts[353, 31]: " should be '
+/repository/cli/test/cli.ts[355, 29]: " should be '
+/repository/cli/test/cli.ts[356, 45]: " should be '
+/repository/cli/test/cli.ts[360, 39]: " should be '
+/repository/cli/test/cli.ts[360, 53]: " should be '
+/repository/cli/test/cli.ts[363, 31]: " should be '
+/repository/cli/test/cli.ts[365, 29]: " should be '
+/repository/cli/test/cli.ts[366, 45]: " should be '
+/repository/cli/test/cli.ts[370, 39]: " should be '
+/repository/cli/test/cli.ts[370, 53]: " should be '
+/repository/cli/test/cli.ts[379, 8]: " should be '
+/repository/cli/test/cli.ts[382, 22]: " should be '
+/repository/cli/test/cli.ts[385, 66]: " should be '
+/repository/cli/test/cli.ts[390, 59]: " should be '
+/repository/cli/test/cli.ts[392, 53]: " should be '
+/repository/cli/test/cli.ts[398, 8]: " should be '
+/repository/cli/test/cli.ts[401, 22]: " should be '
+/repository/cli/test/cli.ts[404, 66]: " should be '
+/repository/cli/test/cli.ts[412, 53]: " should be '
+/repository/cli/test/cli.ts[418, 8]: " should be '
+/repository/cli/test/cli.ts[421, 29]: " should be '
+/repository/cli/test/cli.ts[422, 25]: " should be '
+/repository/cli/test/cli.ts[425, 66]: " should be '
+/repository/cli/test/cli.ts[431, 53]: " should be '
+/repository/cli/test/cli.ts[437, 8]: " should be '
+/repository/cli/test/cli.ts[440, 22]: " should be '
+/repository/cli/test/cli.ts[441, 20]: " should be '
+/repository/cli/test/cli.ts[444, 68]: " should be '
+/repository/cli/test/cli.ts[450, 53]: " should be '
+/repository/cli/test/cli.ts[456, 8]: " should be '
+/repository/cli/test/cli.ts[459, 22]: " should be '
+/repository/cli/test/cli.ts[460, 20]: " should be '
+/repository/cli/test/cli.ts[463, 72]: " should be '
+/repository/cli/test/cli.ts[469, 53]: " should be '
+/repository/cli/test/cli.ts[475, 8]: " should be '
+/repository/cli/test/cli.ts[478, 22]: " should be '
+/repository/cli/test/cli.ts[479, 21]: " should be '
+/repository/cli/test/cli.ts[489, 21]: " should be '
+/repository/cli/test/cli.ts[491, 25]: " should be '
+/repository/cli/test/cli.ts[491, 50]: " should be '
+/repository/cli/test/cli.ts[492, 25]: " should be '
+/repository/cli/test/cli.ts[492, 50]: " should be '
+/repository/cli/test/cli.ts[501, 8]: " should be '
+/repository/cli/test/cli.ts[504, 22]: " should be '
+/repository/cli/test/cli.ts[505, 20]: " should be '
+/repository/cli/test/cli.ts[508, 75]: " should be '
+/repository/cli/test/cli.ts[514, 53]: " should be '
+/repository/cli/test/cli.ts[521, 8]: " should be '
+/repository/cli/test/cli.ts[524, 22]: " should be '
+/repository/cli/test/cli.ts[525, 29]: " should be '
+/repository/cli/test/cli.ts[528, 70]: " should be '
+/repository/cli/test/cli.ts[534, 53]: " should be '
+/repository/cli/test/cli.ts[539, 8]: " should be '
+/repository/cli/test/cli.ts[542, 22]: " should be '
+/repository/cli/test/cli.ts[543, 29]: " should be '
+/repository/cli/test/cli.ts[546, 72]: " should be '
+/repository/cli/test/cli.ts[551, 65]: " should be '
+/repository/cli/test/cli.ts[551, 70]: " should be '
+/repository/cli/test/cli.ts[553, 53]: " should be '
+/repository/cli/test/cli.ts[559, 8]: " should be '
+/repository/cli/test/cli.ts[562, 22]: " should be '
+/repository/cli/test/cli.ts[563, 29]: " should be '
+/repository/cli/test/cli.ts[566, 72]: " should be '
+/repository/cli/test/cli.ts[574, 53]: " should be '
+/repository/cli/test/cli.ts[580, 8]: " should be '
+/repository/cli/test/cli.ts[583, 22]: " should be '
+/repository/cli/test/cli.ts[584, 21]: " should be '
+/repository/cli/test/cli.ts[596, 31]: " should be '
+/repository/cli/test/cli.ts[597, 30]: " should be '
+/repository/cli/test/cli.ts[600, 31]: " should be '
+/repository/cli/test/cli.ts[601, 30]: " should be '
+/repository/cli/test/cli.ts[603, 41]: " should be '
+/repository/cli/test/cli.ts[604, 42]: " should be '
+/repository/cli/test/cli.ts[605, 36]: " should be '
+/repository/cli/test/cli.ts[606, 42]: " should be '
+/repository/cli/test/cli.ts[609, 38]: " should be '
+/repository/cli/test/cli.ts[627, 8]: " should be '
+/repository/cli/test/cli.ts[630, 22]: " should be '
+/repository/cli/test/cli.ts[631, 29]: " should be '
+/repository/cli/test/cli.ts[634, 73]: " should be '
+/repository/cli/test/cli.ts[639, 66]: " should be '
+/repository/cli/test/cli.ts[639, 71]: " should be '
+/repository/cli/test/cli.ts[641, 53]: " should be '
+/repository/cli/test/cli.ts[647, 8]: " should be '
+/repository/cli/test/cli.ts[650, 22]: " should be '
+/repository/cli/test/cli.ts[651, 29]: " should be '
+/repository/cli/test/cli.ts[654, 73]: " should be '
+/repository/cli/test/cli.ts[662, 53]: " should be '
+/repository/cli/test/cli.ts[668, 8]: " should be '
+/repository/cli/test/cli.ts[671, 22]: " should be '
+/repository/cli/test/cli.ts[672, 36]: " should be '
+/repository/cli/test/cli.ts[673, 32]: " should be '
+/repository/cli/test/cli.ts[676, 73]: " should be '
+/repository/cli/test/cli.ts[682, 53]: " should be '
+/repository/cli/test/cli.ts[688, 8]: " should be '
+/repository/cli/test/cli.ts[691, 22]: " should be '
+/repository/cli/test/cli.ts[692, 29]: " should be '
+/repository/cli/test/cli.ts[693, 21]: " should be '
+/repository/cli/test/cli.ts[697, 77]: " should be '
+/repository/cli/test/cli.ts[709, 37]: " should be '
+/repository/cli/test/cli.ts[711, 38]: " should be '
+/repository/cli/test/cli.ts[712, 34]: " should be '
+/repository/cli/test/cli.ts[715, 32]: " should be '
+/repository/cli/test/cli.ts[725, 38]: " should be '
+/repository/cli/test/cli.ts[726, 37]: " should be '
+/repository/cli/test/cli.ts[728, 38]: " should be '
+/repository/cli/test/cli.ts[729, 34]: " should be '
+/repository/cli/test/cli.ts[732, 32]: " should be '
+/repository/cli/test/cli.ts[748, 8]: " should be '
+/repository/cli/test/cli.ts[751, 22]: " should be '
+/repository/cli/test/cli.ts[752, 29]: " should be '
+/repository/cli/test/cli.ts[753, 20]: " should be '
+/repository/cli/test/cli.ts[755, 26]: " should be '
+/repository/cli/test/cli.ts[758, 30]: " should be '
+/repository/cli/test/cli.ts[761, 62]: " should be '
+/repository/cli/test/cli.ts[773, 8]: " should be '
+/repository/cli/test/cli.ts[776, 22]: " should be '
+/repository/cli/test/cli.ts[777, 29]: " should be '
+/repository/cli/test/cli.ts[780, 26]: " should be '
+/repository/cli/test/cli.ts[783, 30]: " should be '
+/repository/cli/test/cli.ts[786, 62]: " should be '
+/repository/cli/test/cli.ts[798, 8]: " should be '
+/repository/cli/test/cli.ts[801, 22]: " should be '
+/repository/cli/test/cli.ts[802, 29]: " should be '
+/repository/cli/test/cli.ts[805, 26]: " should be '
+/repository/cli/test/cli.ts[811, 62]: " should be '
+/repository/cli/test/cli.ts[823, 8]: " should be '
+/repository/cli/test/cli.ts[826, 22]: " should be '
+/repository/cli/test/cli.ts[827, 29]: " should be '
+/repository/cli/test/cli.ts[836, 62]: " should be '
+/repository/cli/test/cli.ts[840, 32]: " should be '
+/repository/cli/test/cli.ts[843, 43]: " should be '
+/repository/cli/test/cli.ts[850, 8]: " should be '
+/repository/cli/test/cli.ts[853, 22]: " should be '
+/repository/cli/test/cli.ts[854, 35]: " should be '
+/repository/cli/test/cli.ts[855, 33]: " should be '
+/repository/cli/test/cli.ts[856, 26]: " should be '
+/repository/cli/test/cli.ts[859, 30]: " should be '
+/repository/cli/test/cli.ts[862, 64]: " should be '
+/repository/cli/test/cli.ts[874, 8]: " should be '
+/repository/cli/test/cli.ts[877, 22]: " should be '
+/repository/cli/test/cli.ts[878, 35]: " should be '
+/repository/cli/test/cli.ts[879, 33]: " should be '
+/repository/cli/test/cli.ts[880, 26]: " should be '
+/repository/cli/test/cli.ts[886, 64]: " should be '
+/repository/cli/test/cli.ts[898, 8]: " should be '
+/repository/cli/test/cli.ts[901, 22]: " should be '
+/repository/cli/test/cli.ts[902, 29]: " should be '
+/repository/cli/test/cli.ts[903, 28]: " should be '
+/repository/cli/test/cli.ts[906, 65]: " should be '
+/repository/cli/test/cli.ts[918, 8]: " should be '
+/repository/cli/test/cli.ts[921, 22]: " should be '
+/repository/cli/test/cli.ts[922, 29]: " should be '
+/repository/cli/test/cli.ts[923, 26]: " should be '
+/repository/cli/test/cli.ts[926, 30]: " should be '
+/repository/cli/test/cli.ts[927, 22]: " should be '
+/repository/cli/test/cli.ts[930, 46]: " should be '
+/repository/cli/test/cli.ts[933, 8]: " should be '
+/repository/cli/test/cli.ts[936, 22]: " should be '
+/repository/cli/test/cli.ts[937, 29]: " should be '
+/repository/cli/test/cli.ts[938, 26]: " should be '
+/repository/cli/test/cli.ts[941, 30]: " should be '
+/repository/cli/test/cli.ts[942, 22]: " should be '
+/repository/cli/test/cli.ts[948, 8]: " should be '
+/repository/cli/test/cli.ts[951, 22]: " should be '
+/repository/cli/test/cli.ts[952, 29]: " should be '
+/repository/cli/test/cli.ts[953, 26]: " should be '
+/repository/cli/test/cli.ts[956, 30]: " should be '
+/repository/cli/test/cli.ts[957, 22]: " should be '
+/repository/cli/test/cli.ts[963, 8]: " should be '
+/repository/cli/test/cli.ts[966, 22]: " should be '
+/repository/cli/test/cli.ts[967, 29]: " should be '
+/repository/cli/test/cli.ts[968, 26]: " should be '
+/repository/cli/test/cli.ts[971, 30]: " should be '
+/repository/cli/test/cli.ts[972, 22]: " should be '
+/repository/cli/test/cli.ts[978, 8]: " should be '
+/repository/cli/test/cli.ts[982, 8]: " should be '
+/repository/cli/test/cli.ts[989, 22]: " should be '
+/repository/cli/test/cli.ts[992, 29]: " should be '
+/repository/cli/test/cli.ts[993, 26]: " should be '
+/repository/cli/test/cli.ts[996, 23]: " should be '
+/repository/cli/test/cli.ts[999, 46]: " should be '
+/repository/cli/test/cli.ts[999, 56]: " should be '
+/repository/cli/test/cli.ts[1000, 63]: " should be '
+/repository/cli/test/cli.ts[1001, 60]: " should be '
+/repository/cli/test/cli.ts[1002, 67]: " should be '
+/repository/cli/test/cli.ts[1006, 32]: " should be '
+/repository/cli/test/cli.ts[1011, 52]: " should be '
+/repository/cli/test/cli.ts[1017, 8]: " should be '
+/repository/cli/test/cli.ts[1020, 22]: " should be '
+/repository/cli/test/cli.ts[1023, 29]: " should be '
+/repository/cli/test/cli.ts[1024, 26]: " should be '
+/repository/cli/test/cli.ts[1027, 23]: " should be '
+/repository/cli/test/cli.ts[1030, 63]: " should be '
+/repository/cli/test/cli.ts[1031, 60]: " should be '
+/repository/cli/test/cli.ts[1032, 67]: " should be '
+/repository/cli/test/cli.ts[1036, 32]: " should be '
+/repository/cli/test/cli.ts[1041, 52]: " should be '
+/repository/cli/test/cli.ts[1048, 8]: " should be '
+/repository/cli/test/cli.ts[1051, 22]: " should be '
+/repository/cli/test/cli.ts[1054, 29]: " should be '
+/repository/cli/test/cli.ts[1055, 26]: " should be '
+/repository/cli/test/cli.ts[1058, 23]: " should be '
+/repository/cli/test/cli.ts[1061, 60]: " should be '
+/repository/cli/test/cli.ts[1062, 67]: " should be '
+/repository/cli/test/cli.ts[1066, 32]: " should be '
+/repository/cli/test/cli.ts[1069, 43]: " should be '
+/repository/cli/test/cli.ts[1071, 52]: " should be '
+/repository/cli/test/cli.ts[1078, 8]: " should be '
+/repository/cli/test/cli.ts[1081, 22]: " should be '
+/repository/cli/test/cli.ts[1084, 29]: " should be '
+/repository/cli/test/cli.ts[1085, 26]: " should be '
+/repository/cli/test/cli.ts[1088, 23]: " should be '
+/repository/cli/test/cli.ts[1096, 22]: " should be '
+/repository/cli/test/cli.ts[1097, 30]: " should be '
+/repository/cli/test/cli.ts[1099, 29]: " should be '
+/repository/cli/test/cli.ts[1100, 26]: " should be '
+/repository/cli/test/cli.ts[1103, 47]: " should be '
+/repository/cli/test/cli.ts[1103, 60]: " should be '
+/repository/cli/test/cli.ts[1103, 67]: " should be '
+/repository/cli/test/cli.ts[1104, 23]: " should be '
+/repository/cli/test/cli.ts[1107, 63]: " should be '
+/repository/cli/test/cli.ts[1108, 61]: " should be '
+/repository/cli/test/cli.ts[1109, 67]: " should be '
+/repository/cli/test/cli.ts[1118, 32]: " should be '
+/repository/cli/test/cli.ts[1125, 8]: " should be '
+/repository/cli/test/cli.ts[1128, 22]: " should be '
+/repository/cli/test/cli.ts[1131, 29]: " should be '
+/repository/cli/test/cli.ts[1132, 26]: " should be '
+/repository/cli/test/cli.ts[1135, 23]: " should be '
+/repository/cli/test/cli.ts[1143, 22]: " should be '
+/repository/cli/test/cli.ts[1144, 30]: " should be '
+/repository/cli/test/cli.ts[1146, 29]: " should be '
+/repository/cli/test/cli.ts[1147, 26]: " should be '
+/repository/cli/test/cli.ts[1150, 47]: " should be '
+/repository/cli/test/cli.ts[1150, 60]: " should be '
+/repository/cli/test/cli.ts[1150, 71]: " should be '
+/repository/cli/test/cli.ts[1150, 81]: " should be '
+/repository/cli/test/cli.ts[1151, 23]: " should be '
+/repository/cli/test/cli.ts[1154, 63]: " should be '
+/repository/cli/test/cli.ts[1155, 61]: " should be '
+/repository/cli/test/cli.ts[1156, 67]: " should be '
+/repository/cli/test/cli.ts[1165, 32]: " should be '
+/repository/cli/test/cli.ts[1172, 8]: " should be '
+/repository/cli/test/cli.ts[1175, 22]: " should be '
+/repository/cli/test/cli.ts[1177, 29]: " should be '
+/repository/cli/test/cli.ts[1178, 26]: " should be '
+/repository/cli/test/cli.ts[1181, 23]: " should be '
+/repository/cli/test/cli.ts[1184, 60]: " should be '
+/repository/cli/test/cli.ts[1185, 65]: " should be '
+/repository/cli/test/cli.ts[1189, 32]: " should be '
+/repository/cli/test/cli.ts[1192, 43]: " should be '
+/repository/cli/test/cli.ts[1194, 50]: " should be '
+/repository/cli/test/cli.ts[1201, 8]: " should be '
+/repository/cli/test/cli.ts[1204, 22]: " should be '
+/repository/cli/test/cli.ts[1206, 29]: " should be '
+/repository/cli/test/cli.ts[1207, 26]: " should be '
+/repository/cli/test/cli.ts[1208, 24]: " should be '
+/repository/cli/test/cli.ts[1211, 23]: " should be '
+/repository/cli/test/cli.ts[1216, 60]: " should be '
+/repository/cli/test/cli.ts[1217, 65]: " should be '
+/repository/cli/test/cli.ts[1221, 32]: " should be '
+/repository/cli/test/cli.ts[1224, 43]: " should be '
+/repository/cli/test/cli.ts[1226, 50]: " should be '
+/repository/cli/test/cli.ts[1233, 8]: " should be '
+/repository/cli/test/cli.ts[1236, 22]: " should be '
+/repository/cli/test/cli.ts[1238, 29]: " should be '
+/repository/cli/test/cli.ts[1239, 26]: " should be '
+/repository/cli/test/cli.ts[1242, 23]: " should be '
+/repository/cli/test/cli.ts[1247, 60]: " should be '
+/repository/cli/test/cli.ts[1248, 65]: " should be '
+/repository/cli/test/cli.ts[1252, 32]: " should be '
+/repository/cli/test/cli.ts[1255, 43]: " should be '
+/repository/cli/test/cli.ts[1257, 50]: " should be '
+/repository/cli/test/cli.ts[1264, 8]: " should be '
+/repository/cli/test/cli.ts[1265, 26]: " should be '
+/repository/cli/test/cli.ts[1268, 22]: " should be '
+/repository/cli/test/cli.ts[1269, 30]: " should be '
+/repository/cli/test/cli.ts[1271, 29]: " should be '
+/repository/cli/test/cli.ts[1272, 26]: " should be '
+/repository/cli/test/cli.ts[1275, 23]: " should be '
+/repository/cli/test/cli.ts[1276, 30]: " should be '
+/repository/cli/test/cli.ts[1281, 61]: " should be '
+/repository/cli/test/cli.ts[1282, 65]: " should be '
+/repository/cli/test/cli.ts[1286, 32]: " should be '
+/repository/cli/test/cli.ts[1289, 43]: " should be '
+/repository/cli/test/cli.ts[1291, 50]: " should be '
+/repository/cli/test/cli.ts[1298, 8]: " should be '
+/repository/cli/test/cli.ts[1299, 26]: " should be '
+/repository/cli/test/cli.ts[1302, 22]: " should be '
+/repository/cli/test/cli.ts[1305, 29]: " should be '
+/repository/cli/test/cli.ts[1306, 26]: " should be '
+/repository/cli/test/cli.ts[1309, 23]: " should be '
+/repository/cli/test/cli.ts[1314, 61]: " should be '
+/repository/cli/test/cli.ts[1319, 65]: " should be '
+/repository/cli/test/cli.ts[1320, 50]: " should be '
+/repository/cli/test/cli.ts[1324, 70]: " should be '
+/repository/cli/test/cli.ts[1325, 44]: " should be '
+/repository/cli/test/cli.ts[1328, 34]: " should be '
+/repository/cli/test/cli.ts[1328, 50]: " should be '
+/repository/cli/test/cli.ts[1328, 66]: " should be '
+/repository/cli/test/cli.ts[1328, 79]: " should be '
+/repository/cli/test/cli.ts[1328, 136]: " should be '
+/repository/cli/test/cli.ts[1328, 190]: " should be '
+/repository/cli/test/cli.ts[1336, 8]: " should be '
+/repository/cli/test/cli.ts[1339, 22]: " should be '
+/repository/cli/test/cli.ts[1341, 29]: " should be '
+/repository/cli/test/cli.ts[1342, 26]: " should be '
+/repository/cli/test/cli.ts[1345, 23]: " should be '
+/repository/cli/test/cli.ts[1350, 61]: " should be '
+/repository/cli/test/cli.ts[1355, 66]: " should be '
+/repository/cli/test/cli.ts[1357, 50]: " should be '
+/repository/cli/test/cli.ts[1361, 70]: " should be '
+/repository/cli/test/cli.ts[1362, 44]: " should be '
+/repository/cli/test/cli.ts[1365, 34]: " should be '
+/repository/cli/test/cli.ts[1365, 50]: " should be '
+/repository/cli/test/cli.ts[1365, 66]: " should be '
+/repository/cli/test/cli.ts[1365, 79]: " should be '
+/repository/cli/test/cli.ts[1365, 167]: " should be '
+/repository/cli/test/cli.ts[1373, 8]: " should be '
+/repository/cli/test/cli.ts[1376, 22]: " should be '
+/repository/cli/test/cli.ts[1378, 29]: " should be '
+/repository/cli/test/cli.ts[1379, 26]: " should be '
+/repository/cli/test/cli.ts[1382, 23]: " should be '
+/repository/cli/test/cli.ts[1387, 61]: " should be '
+/repository/cli/test/cli.ts[1392, 66]: " should be '
+/repository/cli/test/cli.ts[1394, 50]: " should be '
+/repository/cli/test/cli.ts[1398, 70]: " should be '
+/repository/cli/test/cli.ts[1399, 44]: " should be '
+/repository/cli/test/cli.ts[1402, 34]: " should be '
+/repository/cli/test/cli.ts[1402, 50]: " should be '
+/repository/cli/test/cli.ts[1402, 66]: " should be '
+/repository/cli/test/cli.ts[1402, 79]: " should be '
+/repository/cli/test/cli.ts[1402, 167]: " should be '
+/repository/cli/test/cli.ts[1410, 8]: " should be '
+/repository/cli/test/cli.ts[1413, 22]: " should be '
+/repository/cli/test/cli.ts[1415, 29]: " should be '
+/repository/cli/test/cli.ts[1416, 26]: " should be '
+/repository/cli/test/cli.ts[1419, 23]: " should be '
+/repository/cli/test/cli.ts[1424, 61]: " should be '
+/repository/cli/test/cli.ts[1429, 58]: " should be '
+/repository/cli/test/cli.ts[1431, 50]: " should be '
+/repository/cli/test/cli.ts[1435, 70]: " should be '
+/repository/cli/test/cli.ts[1436, 44]: " should be '
+/repository/cli/test/cli.ts[1439, 34]: " should be '
+/repository/cli/test/cli.ts[1439, 50]: " should be '
+/repository/cli/test/cli.ts[1439, 66]: " should be '
+/repository/cli/test/cli.ts[1439, 79]: " should be '
+/repository/cli/test/cli.ts[1439, 167]: " should be '
+/repository/cli/test/cli.ts[1447, 8]: " should be '
+/repository/cli/test/cli.ts[1448, 26]: " should be '
+/repository/cli/test/cli.ts[1451, 22]: " should be '
+/repository/cli/test/cli.ts[1454, 29]: " should be '
+/repository/cli/test/cli.ts[1456, 26]: " should be '
+/repository/cli/test/cli.ts[1459, 23]: " should be '
+/repository/cli/test/cli.ts[1460, 30]: " should be '
+/repository/cli/test/cli.ts[1465, 61]: " should be '
+/repository/cli/test/cli.ts[1470, 65]: " should be '
+/repository/cli/test/cli.ts[1471, 50]: " should be '
+/repository/cli/test/cli.ts[1475, 70]: " should be '
+/repository/cli/test/cli.ts[1476, 44]: " should be '
+/repository/cli/test/cli.ts[1479, 34]: " should be '
+/repository/cli/test/cli.ts[1479, 50]: " should be '
+/repository/cli/test/cli.ts[1479, 66]: " should be '
+/repository/cli/test/cli.ts[1479, 79]: " should be '
+/repository/cli/test/cli.ts[1479, 136]: " should be '
+/repository/cli/test/cli.ts[1479, 190]: " should be '
+/repository/cli/test/cli.ts[1487, 8]: " should be '
+/repository/cli/test/cli.ts[1488, 26]: " should be '
+/repository/cli/test/cli.ts[1491, 22]: " should be '
+/repository/cli/test/cli.ts[1494, 29]: " should be '
+/repository/cli/test/cli.ts[1495, 26]: " should be '
+/repository/cli/test/cli.ts[1498, 23]: " should be '
+/repository/cli/test/cli.ts[1499, 30]: " should be '
+/repository/cli/test/cli.ts[1504, 61]: " should be '
+/repository/cli/test/cli.ts[1509, 65]: " should be '
+/repository/cli/test/cli.ts[1510, 50]: " should be '
+/repository/cli/test/cli.ts[1514, 70]: " should be '
+/repository/cli/test/cli.ts[1515, 44]: " should be '
+/repository/cli/test/cli.ts[1518, 34]: " should be '
+/repository/cli/test/cli.ts[1518, 50]: " should be '
+/repository/cli/test/cli.ts[1518, 66]: " should be '
+/repository/cli/test/cli.ts[1518, 79]: " should be '
+/repository/cli/test/cli.ts[1518, 136]: " should be '
+/repository/cli/test/cli.ts[1518, 190]: " should be '
+/repository/cli/test/cli.ts[1526, 8]: " should be '
+/repository/cli/test/cli.ts[1527, 26]: " should be '
+/repository/cli/test/cli.ts[1530, 22]: " should be '
+/repository/cli/test/cli.ts[1531, 30]: " should be '
+/repository/cli/test/cli.ts[1533, 29]: " should be '
+/repository/cli/test/cli.ts[1534, 26]: " should be '
+/repository/cli/test/cli.ts[1537, 23]: " should be '
+/repository/cli/test/cli.ts[1538, 30]: " should be '
+/repository/cli/test/cli.ts[1543, 61]: " should be '
+/repository/cli/test/cli.ts[1548, 65]: " should be '
+/repository/cli/test/cli.ts[1552, 70]: " should be '
+/repository/cli/test/cli.ts[1553, 44]: " should be '
+/repository/cli/test/cli.ts[1556, 34]: " should be '
+/repository/cli/test/cli.ts[1556, 50]: " should be '
+/repository/cli/test/cli.ts[1556, 66]: " should be '
+/repository/cli/test/cli.ts[1556, 79]: " should be '
+/repository/cli/test/cli.ts[1556, 136]: " should be '
+/repository/cli/test/cli.ts[1556, 190]: " should be '
+/repository/cli/test/cli.ts[1565, 64]: " should be '
+/repository/cli/test/cli.ts[1568, 23]: " should be '
 /repository/cli/test/cli.ts[1105, 10]: missing semicolon
 /repository/cli/test/cli.ts[1152, 10]: missing semicolon
 /repository/cli/test/cli.ts[1281, 100]: missing semicolon
@@ -317,16 +1815,159 @@
 /repository/cli/test/cli.ts[1465, 100]: missing semicolon
 /repository/cli/test/cli.ts[1504, 100]: missing semicolon
 /repository/cli/test/cli.ts[1543, 100]: missing semicolon
+/repository/cli/test/cli.ts[29, 28]: missing trailing comma
+/repository/cli/test/cli.ts[38, 36]: missing trailing comma
+/repository/cli/test/cli.ts[44, 22]: missing trailing comma
+/repository/cli/test/cli.ts[55, 20]: missing trailing comma
+/repository/cli/test/cli.ts[68, 43]: missing trailing comma
+/repository/cli/test/cli.ts[75, 89]: missing trailing comma
+/repository/cli/test/cli.ts[78, 89]: missing trailing comma
+/repository/cli/test/cli.ts[85, 20]: missing trailing comma
+/repository/cli/test/cli.ts[98, 13]: missing trailing comma
+/repository/cli/test/cli.ts[97, 32]: missing trailing comma
+/repository/cli/test/cli.ts[123, 13]: missing trailing comma
+/repository/cli/test/cli.ts[112, 27]: missing trailing comma
+/repository/cli/test/cli.ts[122, 27]: missing trailing comma
+/repository/cli/test/cli.ts[143, 13]: missing trailing comma
+/repository/cli/test/cli.ts[130, 27]: missing trailing comma
+/repository/cli/test/cli.ts[136, 30]: missing trailing comma
+/repository/cli/test/cli.ts[142, 30]: missing trailing comma
+/repository/cli/test/cli.ts[156, 13]: missing trailing comma
+/repository/cli/test/cli.ts[151, 38]: missing trailing comma
+/repository/cli/test/cli.ts[155, 39]: missing trailing comma
+/repository/cli/test/cli.ts[226, 17]: missing trailing comma
+/repository/cli/test/cli.ts[239, 43]: missing trailing comma
+/repository/cli/test/cli.ts[258, 26]: missing trailing comma
+/repository/cli/test/cli.ts[273, 21]: missing trailing comma
+/repository/cli/test/cli.ts[272, 55]: missing trailing comma
+/repository/cli/test/cli.ts[284, 26]: missing trailing comma
+/repository/cli/test/cli.ts[303, 26]: missing trailing comma
+/repository/cli/test/cli.ts[323, 24]: missing trailing comma
+/repository/cli/test/cli.ts[342, 26]: missing trailing comma
+/repository/cli/test/cli.ts[371, 21]: missing trailing comma
+/repository/cli/test/cli.ts[360, 62]: missing trailing comma
+/repository/cli/test/cli.ts[358, 29]: missing trailing comma
+/repository/cli/test/cli.ts[357, 54]: missing trailing comma
+/repository/cli/test/cli.ts[370, 62]: missing trailing comma
+/repository/cli/test/cli.ts[368, 29]: missing trailing comma
+/repository/cli/test/cli.ts[367, 54]: missing trailing comma
+/repository/cli/test/cli.ts[382, 24]: missing trailing comma
+/repository/cli/test/cli.ts[401, 24]: missing trailing comma
+/repository/cli/test/cli.ts[422, 27]: missing trailing comma
+/repository/cli/test/cli.ts[441, 28]: missing trailing comma
+/repository/cli/test/cli.ts[460, 28]: missing trailing comma
+/repository/cli/test/cli.ts[479, 26]: missing trailing comma
+/repository/cli/test/cli.ts[493, 21]: missing trailing comma
+/repository/cli/test/cli.ts[492, 90]: missing trailing comma
+/repository/cli/test/cli.ts[505, 28]: missing trailing comma
+/repository/cli/test/cli.ts[525, 31]: missing trailing comma
+/repository/cli/test/cli.ts[543, 37]: missing trailing comma
+/repository/cli/test/cli.ts[563, 37]: missing trailing comma
+/repository/cli/test/cli.ts[585, 29]: missing trailing comma
+/repository/cli/test/cli.ts[619, 21]: missing trailing comma
+/repository/cli/test/cli.ts[597, 32]: missing trailing comma
+/repository/cli/test/cli.ts[618, 25]: missing trailing comma
+/repository/cli/test/cli.ts[617, 29]: missing trailing comma
+/repository/cli/test/cli.ts[616, 49]: missing trailing comma
+/repository/cli/test/cli.ts[631, 37]: missing trailing comma
+/repository/cli/test/cli.ts[651, 37]: missing trailing comma
+/repository/cli/test/cli.ts[673, 34]: missing trailing comma
+/repository/cli/test/cli.ts[694, 32]: missing trailing comma
+/repository/cli/test/cli.ts[740, 21]: missing trailing comma
+/repository/cli/test/cli.ts[722, 25]: missing trailing comma
+/repository/cli/test/cli.ts[721, 45]: missing trailing comma
+/repository/cli/test/cli.ts[739, 25]: missing trailing comma
+/repository/cli/test/cli.ts[738, 45]: missing trailing comma
+/repository/cli/test/cli.ts[758, 36]: missing trailing comma
+/repository/cli/test/cli.ts[783, 36]: missing trailing comma
+/repository/cli/test/cli.ts[808, 33]: missing trailing comma
+/repository/cli/test/cli.ts[833, 33]: missing trailing comma
+/repository/cli/test/cli.ts[859, 36]: missing trailing comma
+/repository/cli/test/cli.ts[883, 33]: missing trailing comma
+/repository/cli/test/cli.ts[903, 31]: missing trailing comma
+/repository/cli/test/cli.ts[927, 34]: missing trailing comma
+/repository/cli/test/cli.ts[942, 47]: missing trailing comma
+/repository/cli/test/cli.ts[957, 47]: missing trailing comma
+/repository/cli/test/cli.ts[972, 47]: missing trailing comma
+/repository/cli/test/cli.ts[996, 27]: missing trailing comma
+/repository/cli/test/cli.ts[1027, 27]: missing trailing comma
+/repository/cli/test/cli.ts[1088, 27]: missing trailing comma
+/repository/cli/test/cli.ts[1104, 27]: missing trailing comma
+/repository/cli/test/cli.ts[1135, 31]: missing trailing comma
+/repository/cli/test/cli.ts[1151, 31]: missing trailing comma
+/repository/cli/test/cli.ts[1181, 27]: missing trailing comma
+/repository/cli/test/cli.ts[1211, 27]: missing trailing comma
+/repository/cli/test/cli.ts[1276, 51]: missing trailing comma
+/repository/cli/test/cli.ts[1309, 27]: missing trailing comma
+/repository/cli/test/cli.ts[1345, 27]: missing trailing comma
+/repository/cli/test/cli.ts[1382, 31]: missing trailing comma
+/repository/cli/test/cli.ts[1419, 31]: missing trailing comma
+/repository/cli/test/cli.ts[1460, 51]: missing trailing comma
+/repository/cli/test/cli.ts[1499, 51]: missing trailing comma
+/repository/cli/test/cli.ts[1538, 51]: missing trailing comma
+/repository/cli/test/cli.ts[222, 32]: expected call-signature to have a typedef
+/repository/cli/test/cli.ts[223, 32]: expected call-signature to have a typedef
+/repository/cli/test/cli.ts[224, 57]: expected call-signature to have a typedef
+/repository/definitions/base-64.d.ts[4, 2]: file should end with a newline
+/repository/definitions/base-64.d.ts[1, 16]: " should be '
+/repository/definitions/oauth2-server.d.ts[2, 22]: interface name must start with a capitalized I
+/repository/definitions/oauth2-server.d.ts[11, 19]: interface name must start with a capitalized I
+/repository/definitions/oauth2-server.d.ts[17, 19]: interface name must start with a capitalized I
+/repository/definitions/oauth2-server.d.ts[26, 19]: interface name must start with a capitalized I
+/repository/definitions/oauth2-server.d.ts[32, 19]: interface name must start with a capitalized I
+/repository/definitions/oauth2-server.d.ts[37, 19]: interface name must start with a capitalized I
+/repository/definitions/oauth2-server.d.ts[41, 19]: interface name must start with a capitalized I
 /repository/definitions/oauth2-server.d.ts[1, 1]: forbidden internal module
 /repository/definitions/oauth2-server.d.ts[10, 5]: forbidden internal module
-/repository/definitions/oauth2-server.d.ts[8, 30]: ' should be "
+/repository/definitions/oauth2-server.d.ts[7, 16]: " should be '
+/repository/definitions/rest-definitions.d.ts[143, 2]: file should end with a newline
+/repository/definitions/rest-definitions.d.ts[10, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[18, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[23, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[34, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[41, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[52, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[61, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[68, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[78, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[86, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[93, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[99, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[104, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[110, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[115, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[122, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[128, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[133, 22]: interface name must start with a capitalized I
+/repository/definitions/rest-definitions.d.ts[1, 16]: " should be '
 /repository/definitions/rest-definitions.d.ts[19, 58]: missing semicolon
 /repository/definitions/rest-definitions.d.ts[118, 40]: missing semicolon
+/repository/definitions/superagent.d.ts[16, 15]: interface name must start with a capitalized I
+/repository/definitions/superagent.d.ts[23, 15]: interface name must start with a capitalized I
+/repository/definitions/superagent.d.ts[57, 15]: interface name must start with a capitalized I
+/repository/definitions/superagent.d.ts[83, 15]: interface name must start with a capitalized I
+/repository/definitions/superagent.d.ts[104, 15]: interface name must start with a capitalized I
 /repository/definitions/superagent.d.ts[15, 3]: forbidden internal module
 /repository/definitions/superagent.d.ts[13, 3]: forbidden 'var' keyword, use 'let' or 'const' instead
-/repository/definitions/superagent.d.ts[9, 27]: ' should be "
+/repository/definitions/superagent.d.ts[8, 16]: " should be '
+/repository/definitions/yargs.d.ts[22, 19]: interface name must start with a capitalized I
+/repository/definitions/yargs.d.ts[114, 19]: interface name must start with a capitalized I
 /repository/definitions/yargs.d.ts[21, 5]: forbidden internal module
 /repository/definitions/yargs.d.ts[131, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/definitions/yargs.d.ts[19, 16]: " should be '
+/repository/definitions/yazl.d.ts[32, 2]: file should end with a newline
+/repository/definitions/yazl.d.ts[1, 16]: " should be '
+/repository/definitions/yazl.d.ts[2, 29]: " should be '
+/repository/definitions/yazl.d.ts[3, 29]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[10, 22]: interface name must start with a capitalized I
+/repository/sdk/script/acquisition-sdk.ts[15, 22]: interface name must start with a capitalized I
+/repository/sdk/script/acquisition-sdk.ts[23, 18]: interface name must start with a capitalized I
+/repository/sdk/script/acquisition-sdk.ts[33, 18]: interface name must start with a capitalized I
+/repository/sdk/script/acquisition-sdk.ts[37, 18]: interface name must start with a capitalized I
+/repository/sdk/script/acquisition-sdk.ts[42, 18]: interface name must start with a capitalized I
+/repository/sdk/script/acquisition-sdk.ts[46, 18]: interface name must start with a capitalized I
+/repository/sdk/script/acquisition-sdk.ts[48, 18]: interface name must start with a capitalized I
+/repository/sdk/script/acquisition-sdk.ts[242, 18]: LHS type (boolean) inferred by RHS expression, remove type annotation
 /repository/sdk/script/acquisition-sdk.ts[5, 1]: forbidden internal module
 /repository/sdk/script/acquisition-sdk.ts[126, 1]: trailing whitespace
 /repository/sdk/script/acquisition-sdk.ts[131, 1]: trailing whitespace
@@ -354,7 +1995,42 @@
 /repository/sdk/script/acquisition-sdk.ts[242, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/script/acquisition-sdk.ts[244, 10]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/script/acquisition-sdk.ts[246, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/acquisition-sdk.ts[90, 13]: The key 'appVersion' is not sorted alphabetically
+/repository/sdk/script/acquisition-sdk.ts[143, 17]: The key 'appVersion' is not sorted alphabetically
+/repository/sdk/script/acquisition-sdk.ts[3, 97]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[57, 41]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[58, 38]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[73, 43]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[74, 32]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[85, 29]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[97, 52]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[106, 58]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[155, 45]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[178, 48]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[180, 48]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[180, 84]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[195, 63]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[205, 62]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[215, 45]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[230, 62]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[241, 23]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[248, 32]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[251, 59]: " should be '
+/repository/sdk/script/acquisition-sdk.ts[252, 52]: " should be '
 /repository/sdk/script/acquisition-sdk.ts[53, 31]: missing semicolon
+/repository/sdk/script/acquisition-sdk.ts[94, 48]: missing trailing comma
+/repository/sdk/script/acquisition-sdk.ts[147, 51]: missing trailing comma
+/repository/sdk/script/acquisition-sdk.ts[158, 46]: missing trailing comma
+/repository/sdk/script/acquisition-sdk.ts[219, 42]: missing trailing comma
+/repository/sdk/script/index.ts[1, 33]: " should be '
+/repository/sdk/script/management-sdk.ts[57, 9]: if statements must be braced
+/repository/sdk/script/management-sdk.ts[338, 13]: for (... in ...) statements must be filtered with an if statement
+/repository/sdk/script/management-sdk.ts[25, 11]: interface name must start with a capitalized I
+/repository/sdk/script/management-sdk.ts[272, 55]: LHS type (boolean) inferred by RHS expression, remove type annotation
+/repository/sdk/script/management-sdk.ts[276, 99]: LHS type (string) inferred by RHS expression, remove type annotation
+/repository/sdk/script/management-sdk.ts[280, 78]: LHS type (boolean) inferred by RHS expression, remove type annotation
+/repository/sdk/script/management-sdk.ts[280, 108]: LHS type (string) inferred by RHS expression, remove type annotation
+/repository/sdk/script/management-sdk.ts[284, 55]: LHS type (boolean) inferred by RHS expression, remove type annotation
 /repository/sdk/script/management-sdk.ts[173, 1]: trailing whitespace
 /repository/sdk/script/management-sdk.ts[11, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/script/management-sdk.ts[32, 5]: forbidden 'var' keyword, use 'let' or 'const' instead
@@ -375,13 +2051,79 @@
 /repository/sdk/script/management-sdk.ts[290, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/script/management-sdk.ts[308, 21]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/script/management-sdk.ts[338, 18]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/script/management-sdk.ts[46, 9]: The key 'COLLABORATOR' is not sorted alphabetically
+/repository/sdk/script/management-sdk.ts[318, 29]: The key 'body' is not sorted alphabetically
+/repository/sdk/script/management-sdk.ts[1, 25]: " should be '
+/repository/sdk/script/management-sdk.ts[2, 25]: " should be '
+/repository/sdk/script/management-sdk.ts[3, 21]: " should be '
+/repository/sdk/script/management-sdk.ts[4, 20]: " should be '
+/repository/sdk/script/management-sdk.ts[5, 29]: " should be '
+/repository/sdk/script/management-sdk.ts[9, 174]: " should be '
+/repository/sdk/script/management-sdk.ts[11, 27]: " should be '
+/repository/sdk/script/management-sdk.ts[15, 23]: " should be '
+/repository/sdk/script/management-sdk.ts[16, 18]: " should be '
+/repository/sdk/script/management-sdk.ts[20, 29]: " should be '
+/repository/sdk/script/management-sdk.ts[32, 18]: " should be '
+/repository/sdk/script/management-sdk.ts[45, 16]: " should be '
+/repository/sdk/script/management-sdk.ts[46, 23]: " should be '
+/repository/sdk/script/management-sdk.ts[48, 32]: " should be '
+/repository/sdk/script/management-sdk.ts[57, 41]: " should be '
+/repository/sdk/script/management-sdk.ts[89, 29]: " should be '
+/repository/sdk/script/management-sdk.ts[216, 39]: " should be '
+/repository/sdk/script/management-sdk.ts[222, 28]: " should be '
+/repository/sdk/script/management-sdk.ts[223, 24]: " should be '
+/repository/sdk/script/management-sdk.ts[224, 21]: " should be '
+/repository/sdk/script/management-sdk.ts[273, 36]: " should be '
+/repository/sdk/script/management-sdk.ts[276, 108]: " should be '
+/repository/sdk/script/management-sdk.ts[277, 36]: " should be '
+/repository/sdk/script/management-sdk.ts[280, 117]: " should be '
+/repository/sdk/script/management-sdk.ts[281, 36]: " should be '
+/repository/sdk/script/management-sdk.ts[285, 36]: " should be '
+/repository/sdk/script/management-sdk.ts[295, 43]: " should be '
+/repository/sdk/script/management-sdk.ts[343, 21]: " should be '
+/repository/sdk/script/management-sdk.ts[344, 21]: " should be '
+/repository/sdk/script/management-sdk.ts[345, 21]: " should be '
 /repository/sdk/script/management-sdk.ts[22, 6]: missing semicolon
+/repository/sdk/script/management-sdk.ts[21, 9]: missing trailing comma
+/repository/sdk/script/management-sdk.ts[46, 36]: missing trailing comma
+/repository/sdk/script/management-sdk.ts[318, 38]: missing trailing comma
+/repository/sdk/script/types.ts[3, 18]: interface name must start with a capitalized I
+/repository/sdk/script/types.ts[1, 150]: " should be '
 /repository/sdk/test/acquisition-rest-mock.ts[23, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/test/acquisition-rest-mock.ts[24, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/test/acquisition-rest-mock.ts[25, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/test/acquisition-rest-mock.ts[34, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/test/acquisition-rest-mock.ts[79, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/test/acquisition-rest-mock.ts[90, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-rest-mock.ts[12, 5]: The key 'description' is not sorted alphabetically
+/repository/sdk/test/acquisition-rest-mock.ts[68, 17]: The key 'body' is not sorted alphabetically
+/repository/sdk/test/acquisition-rest-mock.ts[73, 17]: The key 'body' is not sorted alphabetically
+/repository/sdk/test/acquisition-rest-mock.ts[81, 13]: The key 'appVersion' is not sorted alphabetically
+/repository/sdk/test/acquisition-rest-mock.ts[97, 91]: The key 'appVersion' is not sorted alphabetically
+/repository/sdk/test/acquisition-rest-mock.ts[103, 17]: The key 'body' is not sorted alphabetically
+/repository/sdk/test/acquisition-rest-mock.ts[3, 26]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[4, 30]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[6, 33]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[7, 23]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[9, 33]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[11, 18]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[12, 18]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[13, 17]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[14, 12]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[18, 18]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[22, 24]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[23, 41]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[24, 43]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[25, 34]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[29, 59]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[41, 29]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[54, 46]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[55, 29]: " should be '
+/repository/sdk/test/acquisition-rest-mock.ts[19, 21]: missing trailing comma
+/repository/sdk/test/acquisition-rest-mock.ts[68, 76]: missing trailing comma
+/repository/sdk/test/acquisition-rest-mock.ts[73, 67]: missing trailing comma
+/repository/sdk/test/acquisition-rest-mock.ts[84, 31]: missing trailing comma
+/repository/sdk/test/acquisition-rest-mock.ts[103, 64]: missing trailing comma
 /repository/sdk/test/acquisition-sdk.ts[98, 1]: trailing whitespace
 /repository/sdk/test/acquisition-sdk.ts[239, 1]: trailing whitespace
 /repository/sdk/test/acquisition-sdk.ts[11, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
@@ -418,10 +2160,252 @@
 /repository/sdk/test/acquisition-sdk.ts[214, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/test/acquisition-sdk.ts[227, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/test/acquisition-sdk.ts[241, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/acquisition-sdk.ts[24, 5]: The key 'appVersion' is not sorted alphabetically
+/repository/sdk/test/acquisition-sdk.ts[35, 5]: The key 'appVersion' is not sorted alphabetically
+/repository/sdk/test/acquisition-sdk.ts[43, 5]: The key 'appVersion' is not sorted alphabetically
+/repository/sdk/test/acquisition-sdk.ts[138, 13]: The key 'body' is not sorted alphabetically
+/repository/sdk/test/acquisition-sdk.ts[154, 13]: The key 'body' is not sorted alphabetically
+/repository/sdk/test/acquisition-sdk.ts[211, 13]: The key 'body' is not sorted alphabetically
+/repository/sdk/test/acquisition-sdk.ts[3, 25]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[4, 26]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[5, 23]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[7, 33]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[8, 26]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[9, 23]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[14, 17]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[15, 21]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[22, 18]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[23, 12]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[25, 18]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[46, 10]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[51, 8]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[60, 8]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[72, 8]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[74, 44]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[84, 8]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[86, 45]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[96, 8]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[107, 8]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[110, 45]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[120, 8]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[122, 46]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[132, 8]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[134, 45]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[148, 8]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[150, 45]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[154, 48]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[164, 8]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[166, 55]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[179, 8]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[190, 8]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[197, 29]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[205, 8]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[207, 45]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[211, 19]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[221, 8]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[226, 8]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[229, 115]: " should be '
+/repository/sdk/test/acquisition-sdk.ts[240, 8]: " should be '
 /repository/sdk/test/acquisition-sdk.ts[18, 2]: missing semicolon
+/repository/sdk/test/acquisition-sdk.ts[27, 20]: missing trailing comma
+/repository/sdk/test/acquisition-sdk.ts[38, 42]: missing trailing comma
+/repository/sdk/test/acquisition-sdk.ts[43, 40]: missing trailing comma
+/repository/sdk/test/acquisition-sdk.ts[138, 36]: missing trailing comma
+/repository/sdk/test/acquisition-sdk.ts[154, 60]: missing trailing comma
+/repository/sdk/test/acquisition-sdk.ts[211, 35]: missing trailing comma
+/repository/sdk/test/management-sdk.ts[299, 34]: object access via string literals is disallowed
+/repository/sdk/test/management-sdk.ts[300, 34]: object access via string literals is disallowed
 /repository/sdk/test/management-sdk.ts[8, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/test/management-sdk.ts[10, 1]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/test/management-sdk.ts[25, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/test/management-sdk.ts[47, 9]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/test/management-sdk.ts[383, 13]: forbidden 'var' keyword, use 'let' or 'const' instead
 /repository/sdk/test/management-sdk.ts[385, 17]: forbidden 'var' keyword, use 'let' or 'const' instead
+/repository/sdk/test/management-sdk.ts[159, 65]: The key 'key' is not sorted alphabetically
+/repository/sdk/test/management-sdk.ts[291, 50]: The key 'isCurrentAccount' is not sorted alphabetically
+/repository/sdk/test/management-sdk.ts[292, 57]: The key 'isCurrentAccount' is not sorted alphabetically
+/repository/sdk/test/management-sdk.ts[382, 9]: The key 'fixtures' is not sorted alphabetically
+/repository/sdk/test/management-sdk.ts[389, 38]: The key 'status' is not sorted alphabetically
+/repository/sdk/test/management-sdk.ts[3, 25]: " should be '
+/repository/sdk/test/management-sdk.ts[4, 20]: " should be '
+/repository/sdk/test/management-sdk.ts[6, 33]: " should be '
+/repository/sdk/test/management-sdk.ts[8, 23]: " should be '
+/repository/sdk/test/management-sdk.ts[11, 10]: " should be '
+/repository/sdk/test/management-sdk.ts[14, 53]: " should be '
+/repository/sdk/test/management-sdk.ts[14, 111]: " should be '
+/repository/sdk/test/management-sdk.ts[22, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[23, 20]: " should be '
+/repository/sdk/test/management-sdk.ts[26, 42]: " should be '
+/repository/sdk/test/management-sdk.ts[27, 42]: " should be '
+/repository/sdk/test/management-sdk.ts[28, 45]: " should be '
+/repository/sdk/test/management-sdk.ts[29, 45]: " should be '
+/repository/sdk/test/management-sdk.ts[30, 47]: " should be '
+/repository/sdk/test/management-sdk.ts[30, 58]: " should be '
+/repository/sdk/test/management-sdk.ts[32, 49]: " should be '
+/repository/sdk/test/management-sdk.ts[32, 60]: " should be '
+/repository/sdk/test/management-sdk.ts[33, 49]: " should be '
+/repository/sdk/test/management-sdk.ts[33, 60]: " should be '
+/repository/sdk/test/management-sdk.ts[34, 50]: " should be '
+/repository/sdk/test/management-sdk.ts[35, 52]: " should be '
+/repository/sdk/test/management-sdk.ts[35, 63]: " should be '
+/repository/sdk/test/management-sdk.ts[35, 89]: " should be '
+/repository/sdk/test/management-sdk.ts[36, 52]: " should be '
+/repository/sdk/test/management-sdk.ts[36, 63]: " should be '
+/repository/sdk/test/management-sdk.ts[38, 51]: " should be '
+/repository/sdk/test/management-sdk.ts[38, 62]: " should be '
+/repository/sdk/test/management-sdk.ts[39, 52]: " should be '
+/repository/sdk/test/management-sdk.ts[40, 54]: " should be '
+/repository/sdk/test/management-sdk.ts[40, 65]: " should be '
+/repository/sdk/test/management-sdk.ts[42, 48]: " should be '
+/repository/sdk/test/management-sdk.ts[42, 59]: " should be '
+/repository/sdk/test/management-sdk.ts[42, 77]: " should be '
+/repository/sdk/test/management-sdk.ts[42, 101]: " should be '
+/repository/sdk/test/management-sdk.ts[43, 43]: " should be '
+/repository/sdk/test/management-sdk.ts[43, 54]: " should be '
+/repository/sdk/test/management-sdk.ts[43, 72]: " should be '
+/repository/sdk/test/management-sdk.ts[43, 108]: " should be '
+/repository/sdk/test/management-sdk.ts[44, 44]: " should be '
+/repository/sdk/test/management-sdk.ts[44, 55]: " should be '
+/repository/sdk/test/management-sdk.ts[44, 73]: " should be '
+/repository/sdk/test/management-sdk.ts[62, 33]: " should be '
+/repository/sdk/test/management-sdk.ts[65, 49]: " should be '
+/repository/sdk/test/management-sdk.ts[72, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[76, 39]: " should be '
+/repository/sdk/test/management-sdk.ts[81, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[82, 20]: " should be '
+/repository/sdk/test/management-sdk.ts[85, 40]: " should be '
+/repository/sdk/test/management-sdk.ts[90, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[91, 20]: " should be '
+/repository/sdk/test/management-sdk.ts[94, 29]: " should be '
+/repository/sdk/test/management-sdk.ts[97, 43]: " should be '
+/repository/sdk/test/management-sdk.ts[97, 56]: " should be '
+/repository/sdk/test/management-sdk.ts[102, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[103, 72]: " should be '
+/repository/sdk/test/management-sdk.ts[104, 24]: " should be '
+/repository/sdk/test/management-sdk.ts[111, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[113, 24]: " should be '
+/repository/sdk/test/management-sdk.ts[115, 33]: " should be '
+/repository/sdk/test/management-sdk.ts[119, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[122, 24]: " should be '
+/repository/sdk/test/management-sdk.ts[129, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[132, 27]: " should be '
+/repository/sdk/test/management-sdk.ts[132, 38]: " should be '
+/repository/sdk/test/management-sdk.ts[139, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[140, 20]: " should be '
+/repository/sdk/test/management-sdk.ts[142, 27]: " should be '
+/repository/sdk/test/management-sdk.ts[149, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[150, 20]: " should be '
+/repository/sdk/test/management-sdk.ts[151, 29]: " should be '
+/repository/sdk/test/management-sdk.ts[151, 40]: " should be '
+/repository/sdk/test/management-sdk.ts[158, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[159, 57]: " should be '
+/repository/sdk/test/management-sdk.ts[159, 70]: " should be '
+/repository/sdk/test/management-sdk.ts[159, 99]: " should be '
+/repository/sdk/test/management-sdk.ts[161, 31]: " should be '
+/repository/sdk/test/management-sdk.ts[161, 42]: " should be '
+/repository/sdk/test/management-sdk.ts[168, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[171, 31]: " should be '
+/repository/sdk/test/management-sdk.ts[171, 42]: " should be '
+/repository/sdk/test/management-sdk.ts[178, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[181, 32]: " should be '
+/repository/sdk/test/management-sdk.ts[188, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[191, 34]: " should be '
+/repository/sdk/test/management-sdk.ts[191, 45]: " should be '
+/repository/sdk/test/management-sdk.ts[191, 63]: " should be '
+/repository/sdk/test/management-sdk.ts[198, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[199, 20]: " should be '
+/repository/sdk/test/management-sdk.ts[201, 34]: " should be '
+/repository/sdk/test/management-sdk.ts[201, 45]: " should be '
+/repository/sdk/test/management-sdk.ts[208, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[211, 38]: " should be '
+/repository/sdk/test/management-sdk.ts[211, 49]: " should be '
+/repository/sdk/test/management-sdk.ts[219, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[220, 56]: " should be '
+/repository/sdk/test/management-sdk.ts[220, 73]: " should be '
+/repository/sdk/test/management-sdk.ts[222, 38]: " should be '
+/repository/sdk/test/management-sdk.ts[222, 49]: " should be '
+/repository/sdk/test/management-sdk.ts[226, 44]: " should be '
+/repository/sdk/test/management-sdk.ts[227, 44]: " should be '
+/repository/sdk/test/management-sdk.ts[232, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[233, 20]: " should be '
+/repository/sdk/test/management-sdk.ts[235, 38]: " should be '
+/repository/sdk/test/management-sdk.ts[235, 49]: " should be '
+/repository/sdk/test/management-sdk.ts[237, 33]: " should be '
+/repository/sdk/test/management-sdk.ts[241, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[242, 20]: " should be '
+/repository/sdk/test/management-sdk.ts[244, 40]: " should be '
+/repository/sdk/test/management-sdk.ts[244, 51]: " should be '
+/repository/sdk/test/management-sdk.ts[251, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[252, 20]: " should be '
+/repository/sdk/test/management-sdk.ts[254, 40]: " should be '
+/repository/sdk/test/management-sdk.ts[254, 51]: " should be '
+/repository/sdk/test/management-sdk.ts[256, 33]: " should be '
+/repository/sdk/test/management-sdk.ts[260, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[261, 20]: " should be '
+/repository/sdk/test/management-sdk.ts[261, 41]: " should be '
+/repository/sdk/test/management-sdk.ts[262, 33]: " should be '
+/repository/sdk/test/management-sdk.ts[262, 44]: " should be '
+/repository/sdk/test/management-sdk.ts[269, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[270, 20]: " should be '
+/repository/sdk/test/management-sdk.ts[271, 33]: " should be '
+/repository/sdk/test/management-sdk.ts[271, 44]: " should be '
+/repository/sdk/test/management-sdk.ts[273, 33]: " should be '
+/repository/sdk/test/management-sdk.ts[277, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[280, 34]: " should be '
+/repository/sdk/test/management-sdk.ts[288, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[291, 17]: " should be '
+/repository/sdk/test/management-sdk.ts[291, 41]: " should be '
+/repository/sdk/test/management-sdk.ts[292, 17]: " should be '
+/repository/sdk/test/management-sdk.ts[292, 41]: " should be '
+/repository/sdk/test/management-sdk.ts[296, 34]: " should be '
+/repository/sdk/test/management-sdk.ts[299, 34]: " should be '
+/repository/sdk/test/management-sdk.ts[299, 56]: " should be '
+/repository/sdk/test/management-sdk.ts[300, 34]: " should be '
+/repository/sdk/test/management-sdk.ts[300, 56]: " should be '
+/repository/sdk/test/management-sdk.ts[305, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[306, 20]: " should be '
+/repository/sdk/test/management-sdk.ts[308, 36]: " should be '
+/repository/sdk/test/management-sdk.ts[308, 47]: " should be '
+/repository/sdk/test/management-sdk.ts[315, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[316, 61]: " should be '
+/repository/sdk/test/management-sdk.ts[318, 30]: " should be '
+/repository/sdk/test/management-sdk.ts[318, 41]: " should be '
+/repository/sdk/test/management-sdk.ts[318, 59]: " should be '
+/repository/sdk/test/management-sdk.ts[318, 83]: " should be '
+/repository/sdk/test/management-sdk.ts[325, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[326, 20]: " should be '
+/repository/sdk/test/management-sdk.ts[328, 30]: " should be '
+/repository/sdk/test/management-sdk.ts[328, 41]: " should be '
+/repository/sdk/test/management-sdk.ts[328, 59]: " should be '
+/repository/sdk/test/management-sdk.ts[330, 33]: " should be '
+/repository/sdk/test/management-sdk.ts[334, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[335, 61]: " should be '
+/repository/sdk/test/management-sdk.ts[337, 25]: " should be '
+/repository/sdk/test/management-sdk.ts[337, 36]: " should be '
+/repository/sdk/test/management-sdk.ts[337, 54]: " should be '
+/repository/sdk/test/management-sdk.ts[337, 90]: " should be '
+/repository/sdk/test/management-sdk.ts[344, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[345, 20]: " should be '
+/repository/sdk/test/management-sdk.ts[347, 25]: " should be '
+/repository/sdk/test/management-sdk.ts[347, 36]: " should be '
+/repository/sdk/test/management-sdk.ts[347, 54]: " should be '
+/repository/sdk/test/management-sdk.ts[349, 33]: " should be '
+/repository/sdk/test/management-sdk.ts[353, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[354, 55]: " should be '
+/repository/sdk/test/management-sdk.ts[356, 26]: " should be '
+/repository/sdk/test/management-sdk.ts[356, 37]: " should be '
+/repository/sdk/test/management-sdk.ts[356, 55]: " should be '
+/repository/sdk/test/management-sdk.ts[363, 8]: " should be '
+/repository/sdk/test/management-sdk.ts[364, 20]: " should be '
+/repository/sdk/test/management-sdk.ts[366, 26]: " should be '
+/repository/sdk/test/management-sdk.ts[366, 37]: " should be '
+/repository/sdk/test/management-sdk.ts[366, 55]: " should be '
+/repository/sdk/test/management-sdk.ts[368, 33]: " should be '
+/repository/sdk/test/management-sdk.ts[380, 13]: " should be '
+/repository/sdk/test/management-sdk.ts[381, 18]: " should be '
+/repository/sdk/test/management-sdk.ts[44, 93]: missing trailing comma
+/repository/sdk/test/management-sdk.ts[293, 13]: missing trailing comma
+/repository/sdk/test/management-sdk.ts[292, 81]: missing trailing comma
+/repository/sdk/test/management-sdk.ts[391, 71]: missing trailing comma
+/repository/sdk/test/management-sdk.ts[19, 56]: expected call-signature to have a typedef
+/repository/sdk/test/management-sdk.ts[48, 52]: expected call-signature to have a typedef
