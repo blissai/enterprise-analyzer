@@ -60,10 +60,8 @@ module Http
   end
 
   def reset_http_agent
-    @mutex.synchronize do
-      @agent.shutdown
-      configure_http
-    end
+    @agent.shutdown
+    configure_http
   end
 
   def http_errors

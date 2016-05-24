@@ -22,7 +22,6 @@ RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E03
     curl https://bootstrap.pypa.io/get-pip.py | python3.4 && \
     curl https://bootstrap.pypa.io/get-pip.py | python && \
 
-
 # Install fpart
     git clone https://github.com/martymac/fpart.git /tmp/fpart \
     && cd /tmp/fpart \
