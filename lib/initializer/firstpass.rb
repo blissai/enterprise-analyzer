@@ -102,7 +102,7 @@ class FirstPass
   def first_commits(limit = 1)
     logs = collect_logs(@git_dir, @repo['branch'], limit)
     logs.split("\n").select do |l|
-      !l.start_with?(' ') && !l.empty?
+      l =~ /^[a-z0-9]+\|[a-z0-9]+\|/
     end.reverse
   end
 end
