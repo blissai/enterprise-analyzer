@@ -95,7 +95,7 @@ module Gitbase
   def sense_project_type(git_dir)
     # language = ''
     languages = []
-    if !Dir.glob(File.join(p, '**/*.sln')).empty?
+    if !Dir.glob(File.join(git_dir, '**/*.sln')).empty?
       # language = ".NET"
       languages.push('.NET')
     elsif !Dir.glob(File.join(git_dir, '**/*.rb')).empty?
