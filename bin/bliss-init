@@ -3,5 +3,13 @@ $LOAD_PATH << '../lib'
 require_relative '../lib/bootstrap'
 include Cmd
 @args = ARGV
+api_key = ENV['API_KEY']
+at_exit do
+  err = $!
+  unless err.nil? || err.is_a?(SystemExit) && err.success?
+    logger = BlissLogger.new(api_key, nil, 'DockerInitError')
+    logger.bugsnag(err)
+  end
+end
 firstpass = FirstPass.new(arg('subdir'))
 firstpass.execute
