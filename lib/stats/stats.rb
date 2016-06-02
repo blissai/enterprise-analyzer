@@ -14,6 +14,7 @@ module Stats
   def partition_and_stats(directory = nil)
     directory_to_analyze = directory.nil? ? @git_dir : directory
     remove_open_source_files(directory_to_analyze) unless @repo['detect_open_source'] == false
+    remove_excluded_directories(@excluded_dirs, directory_to_analyze)
     parts = Partitioner.new(directory_to_analyze, @logger, { 'partitionable' => true }, STATS_DEFAULT_THRESHOLD).create_partitions
     @logger.info("\tRunning Stats on #{@commit}... This may take a while...")
     @logger.info("\tCounting total, original and test lines of code...")
@@ -55,7 +56,7 @@ module Stats
 
   def cloc_original(directory)
     # remove_open_source_files(directory) unless @repo['detect_open_source'] == false
-    remove_excluded_directories(@excluded_dirs, directory)
+    # remove_excluded_directories(@excluded_dirs, directory)
     `#{cloc_cmd(directory)}`
   end
 
