@@ -13,17 +13,18 @@ module Stats
 
   def partition_and_stats(directory = nil)
     directory_to_analyze = directory.nil? ? @git_dir : directory
+    remove_open_source_files(directory_to_analyze) unless @repo['detect_open_source'] == false
+    remove_excluded_directories(@excluded_dirs, directory_to_analyze)
     parts = Partitioner.new(directory_to_analyze, @logger, { 'partitionable' => true }, STATS_DEFAULT_THRESHOLD).create_partitions
     @logger.info("\tRunning Stats on #{@commit}... This may take a while...")
     @logger.info("\tCounting total, original and test lines of code...")
     num_proc = parts.size
     num_proc = 4 if num_proc > 4
     clocs = Parallel.map(parts, in_processes: num_proc) do |part|
-      c = cloc_total(part)
       oc = cloc_original(part)
       tc = cloc_tests(part)
       {
-        total_cloc: c,
+        total_cloc: oc,
         cloc: oc,
         cloc_tests: tc
       }
@@ -54,8 +55,8 @@ module Stats
   end
 
   def cloc_original(directory)
-    remove_open_source_files(directory) unless @repo['detect_open_source'] == false
-    remove_excluded_directories(@excluded_dirs, directory)
+    # remove_open_source_files(directory) unless @repo['detect_open_source'] == false
+    # remove_excluded_directories(@excluded_dirs, directory)
     `#{cloc_cmd(directory)}`
   end
 

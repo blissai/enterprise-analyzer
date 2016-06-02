@@ -83,6 +83,12 @@ module Http
         action: proc do
           puts 'Warning: Server in maintenance mode.'.yellow
         end
+      },
+      SocketError => {
+        rescuable: false,
+        action: proc do
+          abort 'Docker seems to have lost connectivity. Please restart Docker and try again.'.red
+        end
       }
     }
   end
