@@ -26,9 +26,9 @@ class StatsTask
     end
     metrics.each do |metric|
       break if stop_daemon?
-      commit = metric['commit']
-      result = process_commit(commit)
-      @logger.success("\tFinished stats for commit #{commit}.") unless result.nil?
+      @commit = metric['commit']
+      result = process_commit(@commit)
+      @logger.success("\tFinished stats for commit #{@commit}.") unless result.nil?
     end
     # Go back to master at the end
     checkout_commit(@git_dir, @repo['branch'])
