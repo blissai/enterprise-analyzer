@@ -5,8 +5,8 @@ class StatsTask
   include Gitbase
   include Daemon
 
-  def initialize(git_dir, api_key, host, repo)
-    init_configuration(git_dir, api_key, host, repo)
+  def initialize(git_dir, api_key, repo)
+    init_configuration(git_dir, api_key, repo)
     configure_http
     @logger = BlissLogger.new(api_key, @repo_key, @name)
     @repo_test_files = @repo['test_files_match'] || %w(test spec)

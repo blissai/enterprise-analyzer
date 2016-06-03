@@ -73,7 +73,7 @@ RUN npm install -g eslint@2.10.2 eslint-plugin-import@1.8.0 eslint-plugin-jsx-a1
 COPY Gemfile* /tmp/
 RUN cd /tmp && bundle install --without test
 
-ENV BLISS_CLI_VERSION=93 CLOC_VERSION=1 LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8
+ENV BLISS_CLI_VERSION=93 CLOC_VERSION=1 LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 BLISS_HOST=https://blissai.com
 
 # Get collector tasks and gems
 ADD . /root/collector

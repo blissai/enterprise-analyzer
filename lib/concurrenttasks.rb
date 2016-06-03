@@ -14,8 +14,8 @@ class ConcurrentTasks
     threads = []
     @dirs_list.each do |git_dir|
       name = extract_name_from_git_url(git_dir)
-      threads << Thread.new(git_dir, @api_key, @bliss_host, @repos[name]) do |dir, key, host, repo|
-        StatsTask.new(dir, key, host, repo).execute
+      threads << Thread.new(git_dir, @api_key, @repos[name]) do |dir, key, repo|
+        StatsTask.new(dir, key, repo).execute
       end
     end
     threads.each(&:join)
@@ -26,8 +26,8 @@ class ConcurrentTasks
     threads = []
     @dirs_list.each do |git_dir|
       name = extract_name_from_git_url(git_dir)
-      threads << Thread.new(git_dir, @api_key, @bliss_host, @repos[name]) do |dir, key, host, repo|
-        LinterTask.new(dir, key, host, repo).execute
+      threads << Thread.new(git_dir, @api_key, @repos[name]) do |dir, key, repo|
+        LinterTask.new(dir, key, repo).execute
       end
     end
     threads.each(&:join)

@@ -14,7 +14,6 @@ config = {
 @top_level_dir = config['TOP_LVL_DIR']
 @org_name = config['ORG_NAME']
 @api_key = config['API_KEY']
-@host = config['BLISS_HOST']
 
 at_exit do
   err = $!

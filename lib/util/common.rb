@@ -2,12 +2,12 @@
 module Common
   include Http
 
-  def init_configuration(git_dir, api_key, host, repo)
+  def init_configuration(git_dir, api_key, repo)
     @git_dir = git_dir
     @name = repo['full_name'].split('/').last
     @organization = repo['full_name'].split('/').first
     @api_key = api_key
-    @host = host
+    @host = ENV['BLISS_HOST']
     @repo = repo
     @repo_key = @repo['repo_key']
   end
