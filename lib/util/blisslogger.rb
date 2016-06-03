@@ -1,7 +1,7 @@
 class BlissLogger
   include Common
-  LOG_API_ENDPOINT = 'https://app.founderbliss.com/api/gitlog/enterprise_log'.freeze
-  BUGSNAG_API_ENDPOINT = 'https://app.founderbliss.com/api/gitlog/bugsnag'.freeze
+  LOG_API_ENDPOINT = 'https://blissai.com/api/gitlog/enterprise_log'.freeze
+  BUGSNAG_API_ENDPOINT = 'https://blissai.com/api/gitlog/bugsnag'.freeze
   def initialize(api_key = nil, repo_key = nil, log_prefix = '')
     @api_key = api_key
     configure_http

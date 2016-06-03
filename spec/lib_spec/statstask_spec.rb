@@ -3,7 +3,7 @@ RSpec.describe StatsTask do
   before(:all) do
     @dir = "#{Dir.pwd}/spec/fixtures/projs/ruby"
     @repos = JSON.parse(File.read("#{Dir.pwd}/spec/fixtures/projs/.bliss.json"))
-    @c = StatsTaskMock.new(@dir, 'TESTAPIKEY', 'https://app.founderbliss.com', @repos['ruby'])
+    @c = StatsTaskMock.new(@dir, 'TESTAPIKEY', 'https://blissai.com', @repos['ruby'])
   end
 
   context 'given a configuration' do
@@ -20,7 +20,7 @@ RSpec.describe StatsTask do
     end
 
     it 'has a bliss host' do
-      expect(@c.instance_variable_get('@host')).to eq('https://app.founderbliss.com')
+      expect(@c.instance_variable_get('@host')).to eq('https://blissai.com')
     end
 
     it 'has some repos' do

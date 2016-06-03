@@ -25,7 +25,7 @@ class Status
   end
 
   def ping
-    http_post('https://app.founderbliss.com/api/status/ping', commit: @commit, repo_key: @repo_key,
+    http_post('https://blissai.com/api/status/ping', commit: @commit, repo_key: @repo_key,
                                                               quality_tool: @quality_tool)
   end
 
