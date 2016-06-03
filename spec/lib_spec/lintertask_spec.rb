@@ -19,7 +19,7 @@ RSpec.describe LinterTask do
   end
 
   let(:linter_task) do
-    LinterTask.new(@dir, 'TESTAPIKEY', 'https://app.founderbliss.com', @repos['jqcarousel'])
+    LinterTask.new(@dir, 'TESTAPIKEY', 'https://blissai.com', @repos['jqcarousel'])
   end
 
   context 'given a configuration' do
@@ -36,7 +36,7 @@ RSpec.describe LinterTask do
     end
 
     it 'has a bliss host' do
-      expect(linter_task.instance_variable_get('@host')).to eq('https://app.founderbliss.com')
+      expect(linter_task.instance_variable_get('@host')).to eq('https://blissai.com')
     end
 
     it 'has some repos' do

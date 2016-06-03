@@ -8,7 +8,7 @@ RSpec.describe ConcurrentTasks do
       'TOP_LVL_DIR' => @dir,
       'ORG_NAME' => 'TESTORG',
       'API_KEY' => 'TESTAPIKEY',
-      'BLISS_HOST' => 'https://app.founderbliss.com'
+      'BLISS_HOST' => 'https://blissai.com'
     }
     @c = ConcurrentTasks.new(@config)
   end
@@ -32,7 +32,7 @@ RSpec.describe ConcurrentTasks do
     end
 
     it 'has a bliss host' do
-      expect(@c.instance_variable_get('@bliss_host')).to eq('https://app.founderbliss.com')
+      expect(@c.instance_variable_get('@bliss_host')).to eq('https://blissai.com')
     end
 
     it 'has some repos' do
