@@ -3,7 +3,7 @@ RSpec.describe StatsTask do
   before(:all) do
     @dir = "#{Dir.pwd}/spec/fixtures/projs/ruby"
     @repos = JSON.parse(File.read("#{Dir.pwd}/spec/fixtures/projs/.bliss.json"))
-    @c = StatsTaskMock.new(@dir, 'TESTAPIKEY', 'https://blissai.com', @repos['ruby'])
+    @c = StatsTaskMock.new(@dir, 'TESTAPIKEY', @repos['ruby'])
   end
 
   context 'given a configuration' do

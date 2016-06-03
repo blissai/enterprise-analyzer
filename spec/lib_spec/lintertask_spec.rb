@@ -19,7 +19,7 @@ RSpec.describe LinterTask do
   end
 
   let(:linter_task) do
-    LinterTask.new(@dir, 'TESTAPIKEY', 'https://blissai.com', @repos['jqcarousel'])
+    LinterTask.new(@dir, 'TESTAPIKEY', @repos['jqcarousel'])
   end
 
   context 'given a configuration' do

@@ -6,8 +6,7 @@ RSpec.describe CollectorTask do
     @config = {
       'TOP_LVL_DIR' => @dir,
       'ORG_NAME' => 'TESTORG',
-      'API_KEY' => 'TESTAPIKEY',
-      'BLISS_HOST' => 'https://blissai.com'
+      'API_KEY' => 'TESTAPIKEY'
     }
     @c = CollectorTask.new(@config)
   end

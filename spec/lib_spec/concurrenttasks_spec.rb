@@ -7,8 +7,7 @@ RSpec.describe ConcurrentTasks do
     @config = {
       'TOP_LVL_DIR' => @dir,
       'ORG_NAME' => 'TESTORG',
-      'API_KEY' => 'TESTAPIKEY',
-      'BLISS_HOST' => 'https://blissai.com'
+      'API_KEY' => 'TESTAPIKEY'
     }
     @c = ConcurrentTasks.new(@config)
   end
