@@ -7,6 +7,7 @@ class Status
     @quality_tool = quality_tool
     @api_key = api_key
     @finished = false
+    @host = ENV['BLISS_HOST']
     configure_http
   end
 
@@ -25,7 +26,8 @@ class Status
   end
 
   def ping
-    http_post('https://blissai.com/api/status/ping', commit: @commit, repo_key: @repo_key,
+    url = "#{@host}/api/status/ping"
+    http_post(url, commit: @commit, repo_key: @repo_key,
                                                               quality_tool: @quality_tool)
   end
 
