@@ -30,10 +30,6 @@ RSpec.describe ConcurrentTasks do
       expect(@c.instance_variable_get('@top_level_dir')).to eq(@dir)
     end
 
-    it 'has a bliss host' do
-      expect(@c.instance_variable_get('@bliss_host')).to eq('https://blissai.com')
-    end
-
     it 'has some repos' do
       expect(@c.instance_variable_get('@dirs_list').count).to eq(2)
     end
