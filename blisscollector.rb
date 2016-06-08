@@ -22,7 +22,7 @@ at_exit do
     logger.bugsnag(err)
   end
 end
-
+  `cp -R /repos /repositories` unless File.exist? '/repositories'
 loop do
   collector_result = CollectorTask.new(config).execute
   ctasks = ConcurrentTasks.new(config)

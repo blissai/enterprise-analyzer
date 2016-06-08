@@ -16,7 +16,7 @@ class StatsTask
   end
 
   def execute
-    @logger.info("Running Stats...")
+    @logger.info('Running Stats...')
     metrics = next_batch
     unless metrics.empty?
       starttime = DateTime.parse(metrics.last['commited_at'])
