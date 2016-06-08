@@ -22,7 +22,9 @@ at_exit do
     logger.bugsnag(err)
   end
 end
-  `cp -R /repos #{ENV['TOP_LVL_DIR']}` unless File.exist? ENV['TOP_LVL_DIR']
+unless File.exist?(@top_level_dir) || !File.exist?('/repos')
+  `cp -R /repos #{@top_level_dir}`
+end
 loop do
   collector_result = CollectorTask.new(config).execute
   ctasks = ConcurrentTasks.new(config)
