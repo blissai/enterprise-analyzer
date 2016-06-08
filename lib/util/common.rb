@@ -41,9 +41,8 @@ module Common
     count_json = http_get("#{@host}/api/gitlog/#{type}_todo_count?repo_key=#{repo_key}")
     count = count_json["#{type}_todo"].to_i
     max = 5
-    if count > 0
-      return count
-    elsif tried < 5
+    return count if count > 0
+    if tried < 5
       show_wait_cursor(2**tried, tried + 1, max)
       return todo_count(repo_key, type, tried + 1)
     else
