@@ -1,6 +1,6 @@
 class Partitioner
   attr_accessor :partition_dirs
-  def initialize(src_dir, logger, linter, byte_limit = 26214400)
+  def initialize(src_dir, logger, linter, byte_limit = 26_214_400)
     @src_dir = src_dir
     @linter = linter
     @dir_analyzer = DirectoryAnalyzer.new(@src_dir, @linter['max_lines'])
@@ -9,7 +9,8 @@ class Partitioner
   end
 
   def build_partition_lists
-    exit_status = Open3.popen3("fpart -s #{@byte_limit} -x '.git' -o /tmp/partition #{@src_dir}") do |i, o, e, t|
+    cmd = "fpart -s #{@byte_limit} -x '.git' -o /tmp/partition #{@src_dir}"
+    _exit_status = Open3.popen3(cmd) do |_i, _o, _e, t|
       t.value
     end
     @partition_files = Dir.glob('/tmp/partition*')
@@ -17,20 +18,22 @@ class Partitioner
 
   def partition_files
     @logger.info("\tSplitting files into #{@partition_files.size} partitions...".blue)
-    @partition_files.each_with_index do |pf, index|
-      partition_dest = "/tmp/parts/#{SecureRandom.hex(3)}"
+    @partition_files.each_with_index do |pf, _index|
+      partition_destination = "/tmp/parts/#{SecureRandom.hex(3)}"
       files = File.read(pf).split("\n")
-      files.each do |f|
-        begin
-          file_dest = File.dirname(File.join(partition_dest, f).sub(@src_dir, ''))
-          FileUtils.mkdir_p(file_dest)
-          FileUtils.cp(f, file_dest)
-        rescue
-          @logger.warn("Could not copy. Skipping #{f}...")
-        end
+      files.each do |file|
+        copy_file_to_partition(file, partition_destination)
       end
     end
     Dir.glob('/tmp/parts/*')
+  end
+
+  def copy_file_to_partition(file, partition_destination)
+    file_destination = File.dirname(File.join(partition_destination, file).sub(@src_dir, ''))
+    FileUtils.mkdir_p(file_destination)
+    FileUtils.cp(file, file_destination)
+  rescue
+    @logger.warn("Could not copy. Skipping #{file}...")
   end
 
   def create_partitions

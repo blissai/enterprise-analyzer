@@ -16,6 +16,6 @@ cmd = "mono #{ccm_exe} #{new_config_path} > #{output_file}"
 `#{cmd}`
 output = File.read(output_file)
 output = output.gsub(/WARNING: The runtime version supported by this.*/, '')
-         .gsub(/Using default runtime: v.*/, '')
-         .strip
+               .gsub(/Using default runtime: v.*/, '')
+               .strip
 File.write(output_file, output)
