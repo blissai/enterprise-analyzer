@@ -24,18 +24,6 @@
         "character": 0,
         "module": "djangotest.views"
       }
-    },
-    {
-      "source": "dodgy",
-      "message": "Possible hardcoded secret key",
-      "code": "secret",
-      "location": {
-        "function": null,
-        "path": "djangotest/settings.py",
-        "line": 23,
-        "character": 0,
-        "module": "djangotest.settings"
-      }
     }
   ],
   "summary": {
@@ -44,14 +32,9 @@
     "started": "2016-04-05 22:47:34.916911",
     "completed": "2016-04-05 22:47:35.476408",
     "profiles": "/root/bliss/.prospector.yml, no_doc_warnings, strictness_medium, strictness_high, strictness_veryhigh, no_member_warnings",
-    "message_count": 3,
+    "message_count": 2,
     "formatter": "json",
     "tools": [
-      "dodgy",
-      "mccabe",
-      "pep8",
-      "profile-validator",
-      "pyflakes",
       "pylint"
     ],
     "time_taken": "0.56"
