@@ -1,6 +1,6 @@
 ---
 name: prospector
-quality_command: prospector --profile ~/bliss/.prospector.yml --zero-exit git_dir > file_name
+quality_command: rm -rf git_dir/.pep8;prospector --profile ~/bliss/.prospector.yml --zero-exit --tool pylint git_dir > file_name
 quality_tool: prospector
 output_format: json
 languages:
