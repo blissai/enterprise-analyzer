@@ -1,6 +1,6 @@
 ---
 name: gometalinter
-quality_command: gometalinter --json --cyclo-over=7 --deadline=10800s --min-confidence=0 --disable=gotype --disable=dupl --disable=aligncheck --disable=structcheck git_dir/... > file_name
+quality_command: gometalinter --json --cyclo-over=7 --deadline=24h --min-confidence=0 --disable-all --enable=govet --enable=govetshadow --enable=deadcode --enable=gocyclo --enable=golint --enable=varcheck --enable=errcheck --enable=ineffassign --enable=goconst --enable=gosimple --enable=staticcheck git_dir/... > file_name
 quality_tool: gometalinter
 output_format: json
 languages:
