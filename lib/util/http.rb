@@ -38,7 +38,7 @@ module Http
   end
 
   def http_multipart_put(url, file_content)
-    content_type = 'multipart/form-data'
+    content_type = { 'Content-Type' => 'multipart/form-data' }
     headers = @auth_headers.merge(content_type)
     exponential_backoff do
       @mutex.synchronize do
