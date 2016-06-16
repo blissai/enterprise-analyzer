@@ -48,11 +48,8 @@ class FirstPass
       init_data: @commits
     }
     json_return = http_post("#{@host}/api/repo/initialize", data, true)
-    if json_return['error']
-      return { error: json_return['error'] }
-    elsif json_return['success']
-      return { success: json_return['success'] }
-    end
+    return { error: json_return['error'] } if json_return['error']
+    return { success: json_return['success'] }
   end
 
   def gitlogger

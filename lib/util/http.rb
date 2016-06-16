@@ -17,18 +17,20 @@ module Http
 
   # function to retry http POST requests
   def http_post(url, params, json = false)
+    content_type = {}
     if json && params
       params = params.to_json
-      @auth_headers['Content-Type'] = 'application/json'
+      content_type['Content-Type'] = 'application/json'
     end
+    headers = @auth_headers.merge(content_type)
     exponential_backoff do
       @mutex.synchronize do
         begin
-          response = @agent.post(url, params, @auth_headers)
+          response = @agent.post(url, params, headers)
           return JSON.parse(response.body)
         rescue Net::HTTP::Persistent::Error
           reset_http_agent
-          response = @agent.post(url, params, @auth_headers)
+          response = @agent.post(url, params, headers)
           return JSON.parse(response.body)
         end
       end
