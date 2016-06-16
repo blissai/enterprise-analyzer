@@ -38,14 +38,15 @@ module Http
   end
 
   def http_multipart_put(url, file_content)
-    @auth_headers['Content-Type'] = 'multipart/form-data'
+    content_type = 'multipart/form-data'
+    headers = @auth_headers.merge(content_type)
     exponential_backoff do
       @mutex.synchronize do
         begin
-          @agent.put(url, file_content, @auth_headers)
+          @agent.put(url, file_content, headers)
         rescue Net::HTTP::Persistent::Error
           reset_http_agent
-          @agent.put(url, file_content, @auth_headers)
+          @agent.put(url, file_content, headers)
         end
       end
     end
