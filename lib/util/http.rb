@@ -17,18 +17,20 @@ module Http
 
   # function to retry http POST requests
   def http_post(url, params, json = false)
+    content_type = {}
     if json && params
       params = params.to_json
-      @auth_headers['Content-Type'] = 'application/json'
+      content_type['Content-Type'] = 'application/json'
     end
+    headers = @auth_headers.merge(content_type)
     exponential_backoff do
       @mutex.synchronize do
         begin
-          response = @agent.post(url, params, @auth_headers)
+          response = @agent.post(url, params, headers)
           return JSON.parse(response.body)
         rescue Net::HTTP::Persistent::Error
           reset_http_agent
-          response = @agent.post(url, params, @auth_headers)
+          response = @agent.post(url, params, headers)
           return JSON.parse(response.body)
         end
       end
@@ -36,14 +38,15 @@ module Http
   end
 
   def http_multipart_put(url, file_content)
-    @auth_headers['Content-Type'] = 'multipart/form-data'
+    content_type = { 'Content-Type' => 'multipart/form-data' }
+    headers = @auth_headers.merge(content_type)
     exponential_backoff do
       @mutex.synchronize do
         begin
-          @agent.put(url, file_content, @auth_headers)
+          @agent.put(url, file_content, headers)
         rescue Net::HTTP::Persistent::Error
           reset_http_agent
-          @agent.put(url, file_content, @auth_headers)
+          @agent.put(url, file_content, headers)
         end
       end
     end
