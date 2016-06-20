@@ -1,9 +1,40 @@
 <--LintFilePartition-->
 [
   {
+    "id": 106,
+    "updated_at": "2016-06-16T20:37:24.000Z",
+    "created_at": "2016-05-04T16:34:12.000Z",
+    "publish_date": "2016-06-16T17:36:06.000Z",
+    "overview": "negotiator is an HTTP content negotiator for Node.js and is used by many modules and frameworks including Express and Koa.\n\nThe header for \"Accept-Language\", when parsed by negotiator is vulnerable to Regular Expression Denial of Service via a specially crafted string. \n\nTimeline\n\n- April 29th 2016 - Initial report to maintainers\n- April 29th 2016 - Confirm receipt from maintainers\n- May 1st 2016 - Fix confirmed\n- May 5th 2016 - 0.6.1 published with fix\n- June 16th 2016 - Advisory published (delay was to coordinate fixes in upstream frameworks, Koa and Express)",
+    "recommendation": "Upgrade to at least version 0.6.1\n\nExpress users should update to Express 4.14.0 or greater. If you want to see if you are using a vulnerable call,  a quick grep for the `acceptsLanguages` function call in your application will tell you if you are using this functionality.",
+    "cvss_vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+    "cvss_score": 7.5,
+    "module": "negotiator",
+    "version": "0.5.3",
+    "vulnerable_versions": "<= 0.6.0",
+    "patched_versions": ">= 0.6.1",
+    "title": "Regular Expression Denial of Service",
+    "path": [
+      "react-native-desktop@0.5.6",
+      "connect@2.30.2",
+      "compression@1.5.2",
+      "accepts@1.2.13",
+      "negotiator@0.5.3"
+    ],
+    "advisory": "https://nodesecurity.io/advisories/106"
+  },
+  {
+    "id": 67,
+    "updated_at": "2016-04-27T22:49:35.000Z",
+    "created_at": "2016-01-04T18:29:33.009Z",
+    "publish_date": "2016-01-04T19:34:19.734Z",
+    "overview": "UPDATE Jan 6, 2016\n\nSome additional, [important details](https://gist.github.com/c0nrad/e92005446c480707a74a) have been made available by Stuart Larsen. The client (which could in fact be the server in certain instances) is that one that allocates and sends the memory that is then echo'd by the server.\n\nA vulnerability was found in the ping functionality of the ws module which allowed clients to allocate memory by sending a ping frame. The ping functionality by default responds with a pong frame and the previously given payload of the ping frame. \n\nThis is exactly what you expect, but internally ws always transforms all data that we need to send to a Buffer instance and that is where the vulnerability existed. ws didn't do any checks for the type of data it was sending. With buffers in node when you allocate it when a number instead of a string it will allocate the amount of bytes.\n\n```\nvar x = new Buffer(100);\n// vs\nvar x = new Buffer('100');\n```\n\nThis would allocate 100 bytes of memory in the first example and just 3 bytes with 100 as value in the second example. So the client would allocate 100 bytes of non-zeroed buffer and send that to the server. \n\n\n\n## Example POC\n```\nvar ws = require('ws')\n\nvar server = new ws.Server({ port: 9000 })\nvar client = new ws('ws://localhost:9000')\n\nclient.on('open', function () {\n  console.log('open')\n  client.ping(50) // this sends a non-zeroed buffer of 50 bytes\n\n  client.on('pong', function (data) {\n    console.log('got pong')\n    console.log(data) // Data from the client. \n  })\n})\n```",
+    "recommendation": "Update to version 1.0.1 or greater.",
+    "cvss_vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+    "cvss_score": 6.5,
     "module": "ws",
     "version": "0.8.1",
-    "vulnerable_versions": "< 1.0.1",
+    "vulnerable_versions": "<= 1.0.0",
     "patched_versions": ">= 1.0.1",
     "title": "Remote Memory Disclosure",
     "path": [
