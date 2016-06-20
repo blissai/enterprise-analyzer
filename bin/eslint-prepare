@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+require 'json'
+abort 'Please specify repository.' if ARGV.empty?
+repository = ARGV[0]
+package_file = "#{repository}/package.json"
+abort 'Package file does not exist.' unless File.exist?(package_file)
+# Install ESLint plugins from package.json
+begin
+  package_json = JSON.parse(File.read(package_file))
+  dependencies = package_json['dependencies'] || {}
+  dev_dependencies = package_json['devDependencies'] || {}
+  dependencies.merge!(dev_dependencies)
+  eslint_packages = dependencies.select { |k, _v| k =~ /eslint/ }.map { |k, v| "#{k}@#{v}" }
+  `npm install -g #{eslint_packages.join(' ')}` unless eslint_packages.empty?
+rescue JSON::ParserError
+  abort 'Package file is not valid JSON.'
+end
