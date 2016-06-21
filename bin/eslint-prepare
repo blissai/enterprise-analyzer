@@ -12,6 +12,7 @@ begin
   dependencies.merge!(dev_dependencies)
   eslint_packages = dependencies.select { |k, _v| k =~ /eslint/ }.map { |k, v| "#{k}@#{v}" }
   `npm install -g #{eslint_packages.join(' ')}` unless eslint_packages.empty?
+  exit 0
 rescue JSON::ParserError
   abort 'Package file is not valid JSON.'
 end
