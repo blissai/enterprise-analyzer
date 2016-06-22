@@ -3,7 +3,7 @@ output-format: json
 strictness: medium
 test-warnings: true
 doc-warnings: false
-
+member-warnings: false
 ignore-paths:
   - docs
 
@@ -12,3 +12,7 @@ ignore-patterns:
 
 pep8:
   max-line-length: 120
+
+pylint:
+  disable:
+    - import-error

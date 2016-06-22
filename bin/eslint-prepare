@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'json'
+require 'open3'
 abort 'Please specify repository.' if ARGV.empty?
 repository = ARGV[0]
 package_file = "#{repository}/package.json"
@@ -11,7 +12,12 @@ begin
   dev_dependencies = package_json['devDependencies'] || {}
   dependencies.merge!(dev_dependencies)
   eslint_packages = dependencies.select { |k, _v| k =~ /eslint/ }.map { |k, v| "#{k}@#{v}" }
-  `npm install -g #{eslint_packages.join(' ')}` unless eslint_packages.empty?
+  exit 0 if eslint_packages.empty?
+  cmd = "npm install -g #{eslint_packages.join(' ')}"
+  Open3.popen2e(cmd) do |_stdin, stdout_err, wait_thr|
+    puts stdout_err.read
+    wait_thr.value
+  end
   exit 0
 rescue JSON::ParserError
   abort 'Package file is not valid JSON.'
