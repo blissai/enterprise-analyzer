@@ -31,15 +31,19 @@ module Linter
       wait_thr.value
     end
     if thread_status.exitstatus == error_code
-      if linter_name.eql?('nsp') && File.read(file_name).eql?("Debug output: undefined\n{}\n")
-        File.write(file_name, '["Scan failed: Cannot parse package.json - invalid JSON formatting."]')
-      else
-        File.write(file_name, "#{result} - failtorundocker")
-        fail LinterError, "#{linter_name}\n#{result}"
-      end
+      handle_error(linter_name, file_name, result)
     else
       fill_empty_file(linter_name, file_name) if File.read(file_name).strip.empty?
       File.write(file_name, @scrubber.scrub(File.read(file_name))) if @scrubber
+    end
+  end
+
+  def handle_error(linter_name, file_name, result)
+    if linter_name.eql?('nsp')
+      NspError.new(file_name).handle_error
+    else
+      File.write(file_name, "#{result} - failtorundocker")
+      fail LinterError, "#{linter_name}\n#{result}"
     end
   end
 
