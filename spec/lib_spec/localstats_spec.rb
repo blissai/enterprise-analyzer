@@ -51,7 +51,7 @@ RSpec.describe LocalStats do
       s = LocalStats.new(@params)
       expect(s).not_to receive(:remove_open_source)
       expect(s).to receive(:partition_and_stats).and_return(true)
-      l.execute
+      s.execute
     end
   end
 end
