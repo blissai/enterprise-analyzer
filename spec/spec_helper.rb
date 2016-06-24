@@ -1,7 +1,4 @@
 require 'simplecov'
-require 'pry'
-require_relative '../lib/bootstrap.rb'
-require_relative './mocks/statstaskmock.rb'
 
 # save to CircleCI's artifacts directory if we're on CircleCI
 if ENV['CIRCLE_ARTIFACTS']
@@ -10,3 +7,6 @@ if ENV['CIRCLE_ARTIFACTS']
 end
 
 SimpleCov.start
+require 'pry'
+require_relative '../lib/bootstrap.rb'
+require_relative './mocks/statstaskmock.rb'
