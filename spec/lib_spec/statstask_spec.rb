@@ -1,5 +1,9 @@
 require_relative '../spec_helper.rb'
 RSpec.describe StatsTask do
+  before do
+    allow_any_instance_of(BlissLogger).to receive(:log_to_papertrail).and_return(true)
+  end
+
   before(:all) do
     @dir = "#{Dir.pwd}/spec/fixtures/projs/ruby"
     @repos = JSON.parse(File.read("#{Dir.pwd}/spec/fixtures/projs/.bliss.json"))

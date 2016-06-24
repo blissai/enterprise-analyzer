@@ -1,5 +1,9 @@
 require_relative '../spec_helper.rb'
 RSpec.describe StatsMerger do
+  before do
+    allow_any_instance_of(BlissLogger).to receive(:log_to_papertrail).and_return(true)
+  end
+
   before(:all) do
     @file_paths = []
     5.times do |i|

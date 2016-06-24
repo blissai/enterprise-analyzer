@@ -1,5 +1,9 @@
 require_relative '../spec_helper.rb'
 RSpec.describe CollectorTask do
+  before do
+    allow_any_instance_of(BlissLogger).to receive(:log_to_papertrail).and_return(true)
+  end
+
   before(:all) do
     @dir = "#{Dir.pwd}/spec/fixtures/projs"
     `git clone https://github.com/founderbliss/homebrew-bliss-cli.git #{Dir.pwd}/spec/fixtures/projs/repoone`

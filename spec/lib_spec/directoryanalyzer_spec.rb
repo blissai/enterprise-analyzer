@@ -1,5 +1,9 @@
 require_relative '../spec_helper'
 RSpec.describe DirectoryAnalyzer do
+  before do
+    allow_any_instance_of(BlissLogger).to receive(:log_to_papertrail).and_return(true)
+  end
+
   before(:all) do
     @git_dir = "#{Dir.pwd}/spec/fixtures/projs/ruby"
   end

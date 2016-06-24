@@ -1,5 +1,9 @@
 require_relative '../spec_helper.rb'
 RSpec.describe Gitbase do
+  before do
+    allow_any_instance_of(BlissLogger).to receive(:log_to_papertrail).and_return(true)
+  end
+
   before(:all) do
     @testdir = "#{Dir.pwd}/spec/fixtures/projs"
     @jsdir = "#{@testdir}/js"

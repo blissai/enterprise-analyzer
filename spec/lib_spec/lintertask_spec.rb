@@ -1,5 +1,9 @@
 require_relative '../spec_helper.rb'
 RSpec.describe LinterTask do
+  before do
+    allow_any_instance_of(BlissLogger).to receive(:log_to_papertrail).and_return(true)
+  end
+
   before(:all) do
     FileUtils.mkdir_p('vendor')
     `git clone https://github.com/sindresorhus/jshint-json.git vendor/jshint-json`
