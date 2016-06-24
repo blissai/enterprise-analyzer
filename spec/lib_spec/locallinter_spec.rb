@@ -2,6 +2,7 @@ require_relative '../spec_helper.rb'
 RSpec.describe LocalLinter do
   before do
     allow_any_instance_of(BlissLogger).to receive(:log_to_papertrail).and_return(true)
+    allow_any_instance_of(LocalLinter).to receive(:partition_and_lint).and_return(true)
   end
 
   before(:all) do
@@ -49,7 +50,6 @@ RSpec.describe LocalLinter do
 
     it 'should execute without error' do
       l = LocalLinter.new(params)
-      allow(l).to receive(:partition_and_lint).and_return(true)
       expect(l).not_to receive(:remove_open_source)
       expect(l).to receive(:partition_and_lint).and_return(true)
       l.execute
