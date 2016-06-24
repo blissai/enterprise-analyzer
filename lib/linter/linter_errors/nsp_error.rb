@@ -1,7 +1,5 @@
+# NSP error handling
 class NspError
-  attr_accessor :result_path
-  attr_accessor :result
-
   def initialize(result_path)
     @result_path = result_path
     @result = begin
