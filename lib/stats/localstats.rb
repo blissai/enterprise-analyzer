@@ -4,7 +4,6 @@ class LocalStats
 
   def initialize(params)
     @logger = BlissLogger.new
-    @output_file = '/result.txt'
     init_params(params)
     if @repo_key
       @status = Status.new(@repo_key, @commit, nil, nil)
@@ -29,6 +28,7 @@ class LocalStats
     @repo_excluded_exts = params[:excluded_exts]
     @repo = { 'detect_open_source' => params[:remove_open_source] }
     @repo_key = params[:repo_key]
+    @output_file = params[:output_file] || '/result.txt'
     @api_key = nil
   end
 
