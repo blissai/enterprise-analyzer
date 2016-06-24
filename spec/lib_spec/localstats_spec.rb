@@ -41,6 +41,18 @@ RSpec.describe LocalStats do
       end.to raise_error SystemExit
     end
 
+    it 'should abort with a output directory' do
+      expect do
+        LocalStats.new(log_prefix: 'test', git_dir: Dir.pwd, output_file: Dir.pwd)
+      end.to raise_error SystemExit
+    end
+
+    it 'should abort with an invalid commit' do
+      expect do
+        LocalStats.new(@params.except!(:commit))
+      end.to raise_error SystemExit
+    end
+
     it 'pass configuration with valid params' do
       expect do
         LocalStats.new(@params)

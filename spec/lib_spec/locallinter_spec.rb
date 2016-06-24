@@ -42,6 +42,18 @@ RSpec.describe LocalLinter do
       end.to raise_error SystemExit
     end
 
+    it 'should abort with bad output file' do
+      expect do
+        LocalLinter.new(log_prefix: 'test', git_dir: Dir.pwd, output_file: Dir.pwd)
+      end.to raise_error SystemExit
+    end
+
+    it 'should abort with an invalid commit' do
+      expect do
+        LocalLinter.new(@params.except!(:commit))
+      end.to raise_error SystemExit
+    end
+
     it 'pass configuration with valid params' do
       expect do
         LocalLinter.new(@params)
