@@ -23,7 +23,7 @@ class LocalLinter
     @excluded_dirs = params[:excluded_dirs]
     @remove_open_source = params[:remove_open_source]
     @repo_key = params[:repo_key]
-    @output_file = '/result.txt'
+    @output_file = params[:output_file] || '/result.txt'
     @api_key = nil
   end
 
