@@ -21,4 +21,5 @@ group :test do
   gem 'equivalent-xml'
   gem 'pry'
   gem 'pry-nav'
+  gem 'simplecov', require: false
 end
