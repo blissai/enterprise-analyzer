@@ -10,7 +10,7 @@ RSpec.describe LocalLinter do
     FileUtils.touch(@output_file)
     @params = {
       log_prefix: 'test',
-      git_dir: "#{Dir.pwd}/spec/fixtires/projs/php",
+      git_dir: "#{Dir.pwd}/spec/fixtures/projs/php",
       output_file: @output_file,
       commit: 'master',
       remove_open_source: false,
