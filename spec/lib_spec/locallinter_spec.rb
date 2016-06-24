@@ -46,5 +46,12 @@ RSpec.describe LocalLinter do
         LocalLinter.new(params)
       end.not_to raise_error SystemExit
     end
+
+    it 'should execute without error' do
+      l = LocalLinter.new(params)
+      expect(l).not_to receive(:remove_open_source)
+      exepect(l).to receive(:partition_and_lint).and_return(true)
+      l.execute
+    end
   end
 end
