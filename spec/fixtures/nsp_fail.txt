@@ -1,0 +1,2 @@
+Debug output: {"statusCode":400,"error":"Bad Request","message":"Error: child \"package\" fails because [child \"version\" fails because [\"version\" with value \"0.4\" fails to match the required pattern: /\\d+\\.\\d+\\.\\d+(-*)?/]]","details":[{"message":"\"version\" with value \"0.4\" fails to match the required pattern: /\\d+\\.\\d+\\.\\d+(-*)?/","path":"package.version","type":"string.regex.base","context":{"pattern":{},"value":"0.4","key":"version"}}]}
+{}
