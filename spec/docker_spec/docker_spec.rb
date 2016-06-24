@@ -97,7 +97,12 @@ RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
 
   it 'can run nsp over a js project' do
     puts `#{bliss_lint_cmd(@nsp)}`
-    expect(expected_result?(@nsp)).to eq(true)
+    result = begin
+      JSON.parse(File.read(linter[:result]))
+    rescue
+      nil
+    end
+    expect(result).to be_truthy
   end
 
   it 'can run ocstlye over an ios project' do
