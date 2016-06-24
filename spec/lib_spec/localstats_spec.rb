@@ -2,7 +2,7 @@ require_relative '../spec_helper.rb'
 RSpec.describe LocalStats do
   before do
     allow_any_instance_of(BlissLogger).to receive(:log_to_papertrail).and_return(true)
-    allow_any_instance_of(LocalStats).to receive(:partition_and_stats).and_return(true)
+    allow_any_instance_of(LocalStats).to receive(:execute_stats_cmd).and_return(cloc: 'some stats')
   end
 
   before(:all) do
@@ -50,7 +50,7 @@ RSpec.describe LocalStats do
     it 'should execute without error' do
       s = LocalStats.new(@params)
       expect(s).not_to receive(:remove_open_source)
-      expect(s).to receive(:partition_and_stats).and_return(true)
+      expect(s).to receive(:execute_stats_cmd).and_return(cloc: 'some stats')
       s.execute
     end
   end
