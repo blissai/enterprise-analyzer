@@ -98,7 +98,7 @@ RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
   it 'can run nsp over a js project' do
     puts `#{bliss_lint_cmd(@nsp)}`
     result = begin
-      JSON.parse(File.read(linter[:result]))
+      JSON.parse(File.read(@nsp[:result]).gsub('<--LintFilePartition-->', ''))
     rescue
       nil
     end
