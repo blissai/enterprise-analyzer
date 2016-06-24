@@ -49,8 +49,9 @@ RSpec.describe LocalLinter do
 
     it 'should execute without error' do
       l = LocalLinter.new(params)
+      allow(l).to receive(:partition_and_lint).and_return(true)
       expect(l).not_to receive(:remove_open_source)
-      exepect(l).to receive(:partition_and_lint).and_return(true)
+      expect(l).to receive(:partition_and_lint).and_return(true)
       l.execute
     end
   end
