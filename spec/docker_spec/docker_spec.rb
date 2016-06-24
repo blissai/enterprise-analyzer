@@ -1,4 +1,5 @@
 require 'pry'
+require 'json'
 require_relative './docker_spec_helper'
 RSpec.describe 'docker build', if: ENV['DOCKER_BUILD_SERVER'] do
   include DockerSpecHelper
