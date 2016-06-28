@@ -11,9 +11,14 @@ begin
   dependencies = package_json['dependencies'] || {}
   dev_dependencies = package_json['devDependencies'] || {}
   dependencies.merge!(dev_dependencies)
-  eslint_packages = dependencies.select { |k, _v| k =~ /eslint-config/ }.map { |k, v| "#{k}@#{v}" }
-  unless eslint_packages.empty?
-    puts "Installing packages: #{eslint_packages.join(', ')}"
+  eslint_packages = dependencies.select do |k, _v|
+    k =~ /eslint-/
+  end
+  packages_with_versions = eslint_packages.map do |k, v|
+    "#{k}@#{v}"
+  end
+  unless packages_with_versions.empty?
+    puts "Installing packages: #{packages_with_versions.join(', ')}"
     `npm install -g #{eslint_packages.join(' ')}`
   end
   exit 0
