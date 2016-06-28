@@ -49,7 +49,7 @@ RSpec.describe LocalStats do
 
     it 'should abort with an invalid commit' do
       expect do
-        LocalStats.new(@params.reject { |k, v| k == :commit })
+        LocalStats.new(@params.reject { |k, _v| k == :commit })
       end.to raise_error SystemExit
     end
 
