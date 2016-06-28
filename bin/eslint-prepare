@@ -12,7 +12,7 @@ begin
   dev_dependencies = package_json['devDependencies'] || {}
   dependencies.merge!(dev_dependencies)
   eslint_packages = dependencies.select do |k, _v|
-    k =~ /eslint-/
+    k =~ /eslint-config|eslint-plugin/
   end
   packages_with_versions = eslint_packages.map do |k, v|
     "#{k}@#{v}"
