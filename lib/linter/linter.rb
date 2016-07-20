@@ -41,6 +41,8 @@ module Linter
   def handle_error(linter_name, file_name, result)
     if linter_name.eql?('nsp')
       NspError.new(file_name).handle_error
+    elsif linter_name.eql?('rubocop-custom')
+      RubocopError.new(result, file_name).handle_error
     else
       File.write(file_name, "#{result} - failtorundocker")
       fail LinterError, "#{linter_name}\n#{result}"
