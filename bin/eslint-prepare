@@ -19,7 +19,7 @@ begin
   end
   unless packages_with_versions.empty?
     puts "Installing packages: #{packages_with_versions.join(', ')}"
-    `npm install -g #{eslint_packages.join(' ')}`
+    `npm install -g #{packages_with_versions.join(' ')}`
   end
   exit 0
 rescue JSON::ParserError
