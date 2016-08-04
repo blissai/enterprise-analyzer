@@ -20,6 +20,11 @@ begin
   unless packages_with_versions.empty?
     puts "Installing packages: #{packages_with_versions.join(', ')}"
     `npm install -g #{packages_with_versions.join(' ')}`
+    if output =~ /UNMET PEER DEPENDENCY eslint/ && output =~ /airbnb/
+      2.times {
+        `npm install -g eslint-config-airbnb eslint-config-ember eslint@^2.9.0 eslint-plugin-jsx-a11y@1.5.5 eslint-plugin-import@^1.7.0 eslint-plugin-react@^5.0.1 eslint@^3.2.2 eslint-plugin-react@^6.0.0 eslint-plugin-jsx-a11y@^2.0.1 eslint@^2.10.21`
+      }
+    end
   end
   exit 0
 rescue JSON::ParserError
