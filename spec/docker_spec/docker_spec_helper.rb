@@ -438,6 +438,7 @@ module DockerSpecHelper
       actual = actual.scan(/#{linter[:match]}/).count
     end
     return true if expected == actual
+    return true if actual.inspect == expected
     binding.pry
     false
   end
