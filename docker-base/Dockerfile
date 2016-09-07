@@ -12,7 +12,8 @@ RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E03
 
 # Install dependencies
     yum install -y git bzip2 which wget gcc-c++ make git-svn unzip epel-release readline-devel openssl-devel automake libtool bison && \
-    yum install -y perl php java-1.8.0-openjdk java-1.8.0-openjdk-devel python-devel php-xml mono-complete nuget nodejs python34  && \
+    yum install -y perl php java-1.8.0-openjdk java-1.8.0-openjdk-devel python-devel php-xml
+RUN yum install -y --nogpgcheck  mono-complete-4.2.3.4 nuget nodejs python34  && \
     yum clean all  && \
 
 # Increase PHP Memory Limit
@@ -46,18 +47,16 @@ RUN cd /tmp && \
     tar -C /usr/local -xzf /tmp/go1.5.linux-amd64.tar.gz && \
     ln -s /usr/local/go/bin/go /usr/local/bin/go && \
     ln -s /usr/local/go/bin/godoc /usr/local/bin/godoc && \
-    mkdir /root/go && \
+    mkdir /root/go
 
 # Install NAnt
-    cd /tmp && \
-    mkdir /tmp/nant && \
-    wget http://nant.sourceforge.net/nightly/latest/nant-src.tar.gz && \
-    tar -xvf /tmp/nant-src.tar.gz -C /tmp/nant --strip-components 1 && \
-    sed -i 's/MCS=gmcs/MCS=mcs/' /tmp/nant/Makefile && \
-    cd /tmp/nant && \
-    make && \
-    make install && \
-    ln -s /usr/bin/mono /usr/local/bin/mono && \
+RUN cd /tmp && \
+    wget https://sourceforge.net/projects/nant/files/nant/0.92/nant-0.92-bin.zip && \
+    unzip nant-0.92-bin.zip && \
+    mv nant-0.92 /usr/local/nant && \
+    echo -e '#!/bin/sh\nexec mono /usr/local/nant/bin/NAnt.exe "$@"' > /usr/local/bin/nant && \
+    chmod a+x /usr/local/bin/nant && \
+
 
 # Install Erlang and Elixir
     mkdir /tmp/elixir && \
@@ -81,7 +80,7 @@ RUN cd /tmp && \
     ln -s /usr/lib/scala-2.11.8 /usr/lib/scala
 
 # Set ENV VARS
-ENV GOPATH=/root/go PATH=$PATH:/usr/local/go/bin:/root/go/bin:/usr/lib/scala/bin JAVA_OPTS='-Xms512m -Xmx3072m' JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64 HEAPSIZE=3072m
+ENV GOPATH=/root/go PATH=$PATH:/usr/local/go/bin:/root/go/bin:/usr/lib/scala/bin JAVA_OPTS='-Xms512m -Xmx3072m' JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.101-3.b13.el7_2.x86_64 HEAPSIZE=3072m
 
 WORKDIR /root
 
